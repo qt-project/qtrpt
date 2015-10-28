@@ -321,6 +321,16 @@ RptFieldObject::RptFieldObject() {
 }
 
 /*!
+ \fn RptFieldObject::~RptFieldObject()
+    Destructs a RptFieldObject object.
+*/
+RptFieldObject::~RptFieldObject() {
+    if (fieldType == CrossTab) {
+        delete crossTab;
+    }
+}
+
+/*!
  \fn void RptFieldObject::setDefaultFontColor(QColor value)
     Sets default font color with \a value.
 */
@@ -415,6 +425,21 @@ void RptFieldObject::setProperty(QtRPT *qtrpt, QDomElement e) {
                 g = g.nextSibling();
             }
         }
+    }
+    if (fieldType == CrossTab) {
+        crossTab = new RptCrossTabObject();
+
+        crossTab->addCol("C1");
+        crossTab->addCol("C2");
+        crossTab->addRow("R1");
+        crossTab->addRow("R2");
+        crossTab->setColHeaderVisible(true);
+        crossTab->setRowHeaderVisible(true);
+        crossTab->initMatrix();
+        //Fill values into matrix
+        for (int r=0; r<crossTab->rowCount(); r++)
+            for (int c=0; c<crossTab->colCount(); c++)
+                crossTab->setMatrixValue(c,r,QString("%1%2").arg(c).arg(r));
     }
 }
 
@@ -522,3 +547,6 @@ QDebug operator<<(QDebug dbg, const RptFieldObject &obj) {
     return dbg;
 }
 
+QDebug operator<<(QDebug dbg, const RptFieldObject *obj) {
+    return dbg << (*obj).name;
+}

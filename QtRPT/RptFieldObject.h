@@ -26,11 +26,13 @@ limitations under the License.
 
 #include "qtrpt.h"
 #include "chart.h"
+#include "RptCrossTabObject.h"
 
 using namespace QtRptName;
 
 class QtRPT;
 class RptBandObject;
+class RptCrossTabObject;
 
 class RptFieldObject
 {
@@ -38,6 +40,7 @@ class RptFieldObject
     friend class RptBandObject;
 public:
     RptFieldObject();
+    ~RptFieldObject();
     QString name;
     QString value;
     QRect rect;
@@ -93,6 +96,7 @@ public:
     void setTop(int top);
 
     QString getHTMLStyle();
+    RptCrossTabObject *crossTab;
 
 private:
     QColor m_fontColor;
@@ -106,7 +110,9 @@ private:
     void updateHighlightingParam();
 
 };
+
 Q_DECLARE_METATYPE(RptFieldObject)
 QDebug operator<<(QDebug dbg, const RptFieldObject &obj);
+QDebug operator<<(QDebug dbg, const RptFieldObject *obj);
 
 #endif // RPTFIELDOBJECT_H

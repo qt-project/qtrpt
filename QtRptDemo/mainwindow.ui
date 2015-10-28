@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>QtRPT examples</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../QtRPT/imagesRpt.qrc">
+    <normaloff>:/QtRptDesigner/images/QtRptDesigner.ico</normaloff>:/QtRptDesigner/images/QtRptDesigner.ico</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
@@ -257,7 +261,9 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
+  <include location="../QtRPT/imagesRpt.qrc"/>
   <include location="resurce.qrc"/>
+  <include location="../QtRPT/imagesRpt.qrc"/>
  </resources>
  <connections/>
 </ui>

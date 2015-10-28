@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>pdf.png</file>
         <file>html.png</file>
+        <file>../QtRptDesigner/images/QtRptDesigner.ico</file>
     </qresource>
 </RCC>

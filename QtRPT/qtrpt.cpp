@@ -726,8 +726,7 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
         }
     }
     if (fieldType == CrossTab) {
-        qDebug()<<"CROSS_TAB";
-        //paintCrossTab(painter);
+        fieldObject->crossTab->paintCrossTab(painter);
     }
 }
 
