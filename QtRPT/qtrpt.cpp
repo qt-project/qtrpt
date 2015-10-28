@@ -380,6 +380,8 @@ FieldType QtRPT::getFieldType(QDomElement e) {
         return Line;
     } else if (e.attribute("type","label") == "DatabaseImage") {
         return DatabaseImage;
+    } else if (e.attribute("type","label") == "crossTab") {
+        return CrossTab;
     } else return Text;
 }
 
@@ -403,6 +405,7 @@ QString QtRPT::getFieldTypeName(FieldType type) {
         case Line: return "line";
         case Barcode: return "barcode";
         case DatabaseImage: return "DatabaseImage";
+        case CrossTab: return "crossTab";
         default: return "label";
     }
 }
@@ -721,6 +724,10 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
                 fieldObject->parentBand->realHeight = qRound(boundRect.height()/koefRes_h);
             }
         }
+    }
+    if (fieldType == CrossTab) {
+        qDebug()<<"CROSS_TAB";
+        //paintCrossTab(painter);
     }
 }
 

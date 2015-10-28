@@ -32,7 +32,7 @@ using namespace QtRptName;
 
 typedef QVector<QVariant> QVectorVariant;
 
-class RptCrossTabObject
+class RptCrossTabObject : RptFieldObject
 {
 public:
     RptCrossTabObject();
