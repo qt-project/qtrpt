@@ -1,4 +1,0 @@
-# Qt4: get root path
-top_srcdir=$$PWD
-top_builddir=$$OUT_PWD
-
