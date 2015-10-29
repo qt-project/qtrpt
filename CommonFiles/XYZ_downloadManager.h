@@ -1,5 +1,5 @@
 /*
-Name: CommonFiles
+Name: XYZ
 Version: 1.5.4
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
@@ -21,8 +21,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#ifndef DOWNLOADMANAGER_H
-#define DOWNLOADMANAGER_H
+#ifndef XYZDOWNLOADMANAGER_H
+#define XYZDOWNLOADMANAGER_H
 
 #include <QObject>
 #include <QNetworkReply>
@@ -32,11 +32,11 @@ limitations under the License.
 #include <QtCore>
 #include <updatedlg.h>
 
-class DownloadManager : public QObject
+class XYZDownloadManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit DownloadManager(QObject *parent = 0);
+    explicit XYZDownloadManager(QObject *parent = 0);
     QNetworkReply::NetworkError error;
     void download(bool ver);
     bool isDownloaded();
@@ -59,4 +59,4 @@ public slots:
     void downloadProgress(qint64 recieved, qint64 total);
 };
 
-#endif // DOWNLOADMANAGER_H
+#endif // XYZDOWNLOADMANAGER_H

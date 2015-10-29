@@ -60,7 +60,7 @@ void UpdateDlg::doDownload() {
         }
     }
     ui->pb2->setMaximum(checked);
-    DownloadManager dl1;
+    XYZDownloadManager dl1;
 
     for (int i = 0; i < ui->tableWidget->rowCount(); ++i) {
         if (ui->tableWidget->item(i,1)->checkState() == Qt::Checked) {

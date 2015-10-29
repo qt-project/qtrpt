@@ -37,7 +37,7 @@ limitations under the License.
 #include "aboutDlg.h"
 #include "RepScrollArea.h"
 #include "SettingDlg.h"
-#include <downloadmanager.h>
+#include <XYZ_DownloadManager.h>
 #include "SqlDesigner.h"
 #include "TContainerLine.h"
 #include "UndoCommands.h"

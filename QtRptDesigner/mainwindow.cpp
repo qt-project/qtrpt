@@ -610,7 +610,7 @@ void MainWindow::openReadme() {
 }
 
 void MainWindow::checkUpdates() {
-    DownloadManager dl(this);
+    XYZDownloadManager dl(this);
     dl.setParent(this);
     QString urlVersion = "http://garr.dl.sourceforge.net/project/qtrpt/version.txt";
     dl.setTarget(urlVersion);

@@ -1,5 +1,5 @@
 /*
-Name: CommonFiles
+Name: XYZ
 Version: 1.5.4
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
@@ -21,23 +21,23 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#include "downloadmanager.h"
+#include "XYZ_DownloadManager.h"
 
-DownloadManager::DownloadManager(QObject *parent) : QObject(parent) {
+XYZDownloadManager::XYZDownloadManager(QObject *parent) : QObject(parent) {
     manager = new QNetworkAccessManager(this);
     QObject::connect(manager, SIGNAL(finished(QNetworkReply*)),this, SLOT(downloadFinished(QNetworkReply*)));
 }
 
-void DownloadManager::setTarget(const QString &t) {
+void XYZDownloadManager::setTarget(const QString &t) {
     this->m_target = t;
     m_isdownloaded = false;
 }
 
-bool DownloadManager::isDownloaded() {
+bool XYZDownloadManager::isDownloaded() {
     return m_isdownloaded;
 }
 
-void DownloadManager::download(bool ver) {
+void XYZDownloadManager::download(bool ver) {
     m_version = ver;
     m_isdownloaded = false;
     QUrl url = QUrl::fromEncoded(this->m_target.toLocal8Bit());
@@ -46,7 +46,7 @@ void DownloadManager::download(bool ver) {
                      this, SIGNAL(downloadingProgress(qint64,qint64)));
 }
 
-void DownloadManager::downloadFinished(QNetworkReply *data) {
+void XYZDownloadManager::downloadFinished(QNetworkReply *data) {
     error = data->error();
     if (error != QNetworkReply::NoError) {
         //QMessageBox::warning(0,tr("Error"),tr("No file or Internet is not connected"),QMessageBox::Ok);
@@ -79,6 +79,6 @@ void DownloadManager::downloadFinished(QNetworkReply *data) {
     emit done();
 }
 
-void DownloadManager::downloadProgress(qint64 recieved, qint64 total) {
+void XYZDownloadManager::downloadProgress(qint64 recieved, qint64 total) {
     qDebug() << recieved << total;
 }

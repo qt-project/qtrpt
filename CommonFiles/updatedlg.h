@@ -26,7 +26,7 @@ limitations under the License.
 
 #include <QDialog>
 #include <QFileDialog>
-#include "downloadmanager.h"
+#include "XYZ_DownloadManager.h"
 
 namespace Ui {
     class UpdateDlg;
