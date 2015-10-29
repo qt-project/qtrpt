@@ -36,7 +36,7 @@ static char *C25IndustTable[10] = {"1111313111", "3111111131", "1131111131", "31
 static char *C25InterTable[10] = {"11331", "31113", "13113", "33111", "11313", "31311", "13311", "11133",
 	"31131", "13131"};
 
-static inline char check_digit(unsigned int count)
+static char check_digit(unsigned int count)
 {
 	return itoc((10 - (count % 10)) % 10);
 }

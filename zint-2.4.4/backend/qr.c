@@ -157,7 +157,7 @@ int estimate_binary_length(char mode[], int length, int gs1)
 	return count;
 }
 
-static inline void qr_bscan(char *binary, int data, int h)
+static void qr_bscan(char *binary, int data, int h)
 {
 	for (; h; h>>=1) {
 		concat(binary, data & h ? "1" : "0");
