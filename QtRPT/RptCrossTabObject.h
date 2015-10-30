@@ -56,9 +56,11 @@ public:
     void setMatrixValue(int col,int row, QVariant value);
     QVector<QVectorVariant > valuesArray;
 
-    void paintCrossTab(QPainter *painter);
+    void makeFielMatrix();
     void addField(RptFieldObject *field);
     QList<RptFieldObject*> fieldList;
+
+    RptFieldObject *parentField;
 
 private:
     bool colHeaderVisible;

@@ -318,6 +318,7 @@ RptFieldObject::RptFieldObject() {
     this->borderLeft = Qt::black;
     this->borderTop = Qt::black;
     this->aligment = Qt::AlignVCenter | Qt::AlignLeft;
+    this->parentBand = 0;
 }
 
 /*!
@@ -428,11 +429,14 @@ void RptFieldObject::setProperty(QtRPT *qtrpt, QDomElement e) {
     }
     if (fieldType == CrossTab) {
         crossTab = new RptCrossTabObject();
-
+        crossTab->rect = this->rect;
+        crossTab->parentField = this;
         crossTab->addCol("C1");
         crossTab->addCol("C2");
+        crossTab->addCol("C3");
         crossTab->addRow("R1");
         crossTab->addRow("R2");
+        crossTab->addRow("R3");
         crossTab->setColHeaderVisible(true);
         crossTab->setRowHeaderVisible(true);
         crossTab->initMatrix();

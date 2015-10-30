@@ -77,15 +77,16 @@ void RptCrossTabObject::setMatrixValue(int col,int row, QVariant value) {
     rowValue[col] = value;
 }
 
-void RptCrossTabObject::paintCrossTab(QPainter *painter) {
+void RptCrossTabObject::makeFielMatrix() {
     float fieldWidth = rect.width();
     float fieldheight = rect.height();
     if (colCount() == 0) return;
     if (rowCount() == 0) return;
-    if (isRowHeaderVisible()) fieldWidth = rect.width()/colCount()+1;
+    if (isRowHeaderVisible()) fieldWidth = rect.width()/(colCount()+1);
     else fieldWidth = rect.width()/colCount();
-    if (isColHeaderVisible()) fieldheight = rect.height()/rowCount()+1;
+    if (isColHeaderVisible()) fieldheight = rect.height()/(rowCount()+1);
     else fieldheight = rect.height()/rowCount();
+    qDebug()<<rect.height()<<fieldheight<<rowCount();
 
     for (int row=0; row < rowCount(); row++) {
         if (isRowHeaderVisible()) {
@@ -124,11 +125,11 @@ void RptCrossTabObject::paintCrossTab(QPainter *painter) {
             RptFieldObject *h1 = new RptFieldObject();
             h1->name = QString("f%1%2").arg(col).arg(row);
             h1->fieldType = Text;
-            h1->rect.setTop(rect.top());  //!!!
-            h1->rect.setLeft(rect.left() + fieldWidth + fieldWidth*col);  //!!!
+            h1->rect.setTop(rect.top() + fieldheight + fieldheight*row);
+            h1->rect.setLeft(rect.left() + fieldWidth + fieldWidth*col);
             h1->rect.setHeight(fieldheight);
             h1->rect.setWidth(fieldWidth);
-            h1->value = m_colHeader[col];
+            h1->value = QString("f%1%2").arg(col).arg(row);
             h1->font.setBold(true);
             h1->setDefaultBackgroundColor(Qt::lightGray); //Set default background color
             h1->aligment = Qt::AlignCenter;

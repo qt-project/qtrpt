@@ -444,7 +444,8 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
     fieldObject->setTop(top_/koefRes_h);
 
     if (fieldObject->autoHeight == 1) {
-        height_ = fieldObject->parentBand->realHeight*koefRes_h;
+        if (fieldObject->parentBand != 0)
+            height_ = fieldObject->parentBand->realHeight*koefRes_h;
     }
 
     FieldType fieldType = fieldObject->fieldType;
@@ -726,7 +727,11 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
         }
     }
     if (fieldType == CrossTab) {
-        fieldObject->crossTab->paintCrossTab(painter);
+        fieldObject->crossTab->makeFielMatrix();
+        const int bandTop_ = bandTop;
+        foreach(RptFieldObject *field, fieldObject->crossTab->fieldList) {
+            drawFields(field,bandTop_,true);
+        }
     }
 }
 
