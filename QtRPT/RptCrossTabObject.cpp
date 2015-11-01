@@ -111,7 +111,7 @@ void RptCrossTabObject::makeFielMatrix() {
                 h1->name = QString("ch%1").arg(col);
                 h1->fieldType = Text;
                 h1->rect.setTop(rect.top());
-                h1->rect.setLeft(rect.left() + fieldWidth + fieldWidth*col);
+                h1->rect.setLeft(rect.left() + fieldWidth + fieldWidth*col -1);
                 h1->rect.setHeight(fieldheight);
                 h1->rect.setWidth(fieldWidth);
                 h1->value = m_colHeader[col];
@@ -126,7 +126,7 @@ void RptCrossTabObject::makeFielMatrix() {
             h1->name = QString("f%1%2").arg(col).arg(row);
             h1->fieldType = Text;
             h1->rect.setTop(rect.top() + fieldheight + fieldheight*row);
-            h1->rect.setLeft(rect.left() + fieldWidth + fieldWidth*col);
+            h1->rect.setLeft(rect.left() + fieldWidth + fieldWidth*col -1);
             h1->rect.setHeight(fieldheight);
             h1->rect.setWidth(fieldWidth);
             h1->value = QString("f%1%2").arg(col).arg(row);
