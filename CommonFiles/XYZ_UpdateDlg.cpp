@@ -1,5 +1,5 @@
 /*
-Name: CommonFiles
+Name: XYZ
 Version: 1.5.4
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
