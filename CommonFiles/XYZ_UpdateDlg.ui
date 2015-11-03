@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>UpdateDlg</class>
- <widget class="QDialog" name="UpdateDlg">
+ <class>XYZUpdateDlg</class>
+ <widget class="QDialog" name="XYZUpdateDlg">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -99,7 +99,7 @@
   <connection>
    <sender>btnCancel</sender>
    <signal>clicked()</signal>
-   <receiver>UpdateDlg</receiver>
+   <receiver>XYZUpdateDlg</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

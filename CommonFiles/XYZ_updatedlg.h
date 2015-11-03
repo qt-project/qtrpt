@@ -21,27 +21,27 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#ifndef UPDATEDLG_H
-#define UPDATEDLG_H
+#ifndef XYZ_UPDATEDLG_H
+#define XYZ_UPDATEDLG_H
 
 #include <QDialog>
 #include <QFileDialog>
 #include "XYZ_DownloadManager.h"
 
 namespace Ui {
-    class UpdateDlg;
+    class XYZUpdateDlg;
 }
 
-class UpdateDlg : public QDialog
+class XYZUpdateDlg : public QDialog
 {
     Q_OBJECT
 public:
-    explicit UpdateDlg(QString url, QWidget *parent = 0);
-    ~UpdateDlg();
+    explicit XYZUpdateDlg(QString url, QWidget *parent = 0);
+    ~XYZUpdateDlg();
     void showThis(QStringList list);
 
 private:    
-    Ui::UpdateDlg *ui;
+    Ui::XYZUpdateDlg *ui;
     QString m_url;
 
 private slots:
@@ -49,4 +49,4 @@ private slots:
     void downloadProgress(qint64 recieved, qint64 total);
 };
 
-#endif // UPDATEDLG_H
+#endif // XYZ_UPDATEDLG_H

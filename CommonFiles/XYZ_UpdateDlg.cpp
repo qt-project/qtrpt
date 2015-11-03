@@ -21,16 +21,16 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#include "updatedlg.h"
-#include "ui_updatedlg.h"
+#include "XYZ_UpdateDlg.h"
+#include "ui_XYZ_Updatedlg.h"
 
-UpdateDlg::UpdateDlg(QString url,QWidget *parent) : QDialog(parent), ui(new Ui::UpdateDlg) {
+XYZUpdateDlg::XYZUpdateDlg(QString url,QWidget *parent) : QDialog(parent), ui(new Ui::XYZUpdateDlg) {
     ui->setupUi(this);
     m_url = url;
     QObject::connect(ui->btnUpdate, SIGNAL(clicked()),this, SLOT(doDownload()));
 }
 
-void UpdateDlg::showThis(QStringList list) {
+void XYZUpdateDlg::showThis(QStringList list) {
     ui->pb1->setValue(0);
     ui->pb2->setValue(0);
     ui->tableWidget->setColumnWidth(0,0);
@@ -46,7 +46,7 @@ void UpdateDlg::showThis(QStringList list) {
     this->exec();
 }
 
-void UpdateDlg::doDownload() {
+void XYZUpdateDlg::doDownload() {
     QString dir = QCoreApplication::applicationDirPath();
     dir = QFileDialog::getExistingDirectory(this, tr("Open Directory"),
                                          QCoreApplication::applicationDirPath(),
@@ -89,11 +89,11 @@ void UpdateDlg::doDownload() {
     this->close();
 }
 
-void UpdateDlg::downloadProgress(qint64 recieved, qint64 total) {
+void XYZUpdateDlg::downloadProgress(qint64 recieved, qint64 total) {
     ui->pb1->setValue(recieved);
     ui->pb1->setMaximum(total);
 }
 
-UpdateDlg::~UpdateDlg() {
+XYZUpdateDlg::~XYZUpdateDlg() {
     delete ui;
 }

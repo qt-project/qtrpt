@@ -30,7 +30,7 @@ limitations under the License.
 #include <QFile>
 #include <QApplication>
 #include <QtCore>
-#include <updatedlg.h>
+#include <XYZ_UpdateDlg.h>
 
 class XYZDownloadManager : public QObject
 {

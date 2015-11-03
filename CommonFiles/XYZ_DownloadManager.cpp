@@ -64,7 +64,7 @@ void XYZDownloadManager::downloadFinished(QNetworkReply *data) {
 
         if (QApplication::applicationVersion().replace(".","") < fileList[0].replace(".","").simplified()) {
             fileList.removeAt(0);
-            UpdateDlg *updateDlg = new UpdateDlg(m_target.replace("version.txt",""),qobject_cast<QWidget *>(this->parent()));
+            XYZUpdateDlg *updateDlg = new XYZUpdateDlg(m_target.replace("version.txt",""),qobject_cast<QWidget *>(this->parent()));
             updateDlg->showThis(fileList);
         }
     } else {
