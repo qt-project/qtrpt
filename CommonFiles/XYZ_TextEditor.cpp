@@ -1,5 +1,5 @@
 /*
-Name: CommonFiles
+Name: XYZ
 Version: 1.5.4
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
@@ -22,11 +22,11 @@ limitations under the License.
 */
 
 #include <QColorDialog>
-#include "qtexteditex.h"
-#include "ui_qtexteditex.h"
+#include "XYZ_TextEditor.h"
+#include "ui_XYZ_TextEditor.h"
 #include <QDebug>
 
-QTextEditEx::QTextEditEx(QWidget *parent) : QWidget(parent), m_ui(new Ui::QTextEditEx) {
+XYZTextEditor::XYZTextEditor(QWidget *parent) : QWidget(parent), m_ui(new Ui::XYZTextEditor) {
     m_ui->setupUi(this);
     setupTextActions();
     fontChanged(m_ui->textEdit->font());
@@ -60,7 +60,7 @@ QTextEditEx::QTextEditEx(QWidget *parent) : QWidget(parent), m_ui(new Ui::QTextE
 //    qDebug()<<m_ui->textEdit->toHtml();
 }
 
-void QTextEditEx::textDirection() {
+void XYZTextEditor::textDirection() {
     QTextCursor cursor = m_ui->textEdit->textCursor();
     QTextBlockFormat blockFmt = cursor.blockFormat();
 
@@ -76,11 +76,11 @@ void QTextEditEx::textDirection() {
     cursor.setBlockFormat(blockFmt);
 }
 
-QTextEditEx::~QTextEditEx() {
+XYZTextEditor::~XYZTextEditor() {
     delete m_ui;
 }
 
-void QTextEditEx::setupTextActions() {
+void XYZTextEditor::setupTextActions() {
     QObject::connect(m_ui->btnTextBold, SIGNAL(clicked()), this, SLOT(textBold()));
     QObject::connect(m_ui->btnTextItalic, SIGNAL(clicked()), this, SLOT(textItalic()));
     QObject::connect(m_ui->btnUnderline, SIGNAL(clicked()), this, SLOT(textUnderline()));
@@ -110,7 +110,7 @@ void QTextEditEx::setupTextActions() {
     m_ui->comboSize->setCurrentIndex(m_ui->comboSize->findText(QString::number(QApplication::font().pointSize())));
 }
 
-void QTextEditEx::textAlign() {
+void XYZTextEditor::textAlign() {
     if (sender()->objectName() == "btnAlignLeft") {
         m_ui->textEdit->setAlignment(Qt::AlignLeft | Qt::AlignAbsolute);
     } else if (sender()->objectName() == "btnAlignCenter") {
@@ -122,25 +122,25 @@ void QTextEditEx::textAlign() {
     }
 }
 
-void QTextEditEx::textBold() {
+void XYZTextEditor::textBold() {
     QTextCharFormat fmt;
     fmt.setFontWeight(m_ui->btnTextBold->isChecked() ? QFont::Bold : QFont::Normal);
     mergeFormatOnWordOrSelection(fmt);
 }
 
-void QTextEditEx::textUnderline() {
+void XYZTextEditor::textUnderline() {
     QTextCharFormat fmt;
     fmt.setFontUnderline(m_ui->btnUnderline->isChecked());
     mergeFormatOnWordOrSelection(fmt);
 }
 
-void QTextEditEx::textItalic() {
+void XYZTextEditor::textItalic() {
     QTextCharFormat fmt;
     fmt.setFontItalic(m_ui->btnTextItalic->isChecked());
     mergeFormatOnWordOrSelection(fmt);
 }
 
-void QTextEditEx::textStyle(int styleIndex) {
+void XYZTextEditor::textStyle(int styleIndex) {
     QTextCursor cursor = m_ui->textEdit->textCursor();
 
     if (styleIndex != 0) {
@@ -195,13 +195,13 @@ void QTextEditEx::textStyle(int styleIndex) {
     }
 }
 
-void QTextEditEx::textFamily(const QString &f) {
+void XYZTextEditor::textFamily(const QString &f) {
     QTextCharFormat fmt;
     fmt.setFontFamily(f);
     mergeFormatOnWordOrSelection(fmt);
 }
 
-void QTextEditEx::textSize(const QString &p) {
+void XYZTextEditor::textSize(const QString &p) {
     qreal pointSize = p.toFloat();
     if (p.toFloat() > 0) {
         QTextCharFormat fmt;
@@ -210,7 +210,7 @@ void QTextEditEx::textSize(const QString &p) {
     }
 }
 
-void QTextEditEx::mergeFormatOnWordOrSelection(const QTextCharFormat &format) {
+void XYZTextEditor::mergeFormatOnWordOrSelection(const QTextCharFormat &format) {
     QTextCursor cursor = m_ui->textEdit->textCursor();
     if (!cursor.hasSelection())
         cursor.select(QTextCursor::WordUnderCursor);
@@ -218,7 +218,7 @@ void QTextEditEx::mergeFormatOnWordOrSelection(const QTextCharFormat &format) {
     m_ui->textEdit->mergeCurrentCharFormat(format);
 }
 
-void QTextEditEx::alignmentChanged(Qt::Alignment a) {
+void XYZTextEditor::alignmentChanged(Qt::Alignment a) {
     if (a & Qt::AlignLeft) {
         m_ui->btnAlignLeft->setChecked(true);
         m_ui->btnAlignCenter->setChecked(false);
@@ -242,7 +242,7 @@ void QTextEditEx::alignmentChanged(Qt::Alignment a) {
     }
 }
 
-void QTextEditEx::cursorPositionChanged() {
+void XYZTextEditor::cursorPositionChanged() {
     alignmentChanged(m_ui->textEdit->alignment());
 
     QTextBlockFormat blockFmt = m_ui->textEdit->textCursor().blockFormat();
@@ -252,7 +252,7 @@ void QTextEditEx::cursorPositionChanged() {
         m_ui->btnTextDirection->setChecked(false);
 }
 
-void QTextEditEx::fontChanged(const QFont &f) {
+void XYZTextEditor::fontChanged(const QFont &f) {
     m_ui->comboFont->setCurrentIndex(m_ui->comboFont->findText(QFontInfo(f).family()));
     m_ui->comboSize->setCurrentIndex(m_ui->comboSize->findText(QString::number(f.pointSize())));
     m_ui->btnTextBold->setChecked(f.bold());
@@ -260,12 +260,12 @@ void QTextEditEx::fontChanged(const QFont &f) {
     m_ui->btnUnderline->setChecked(f.underline());
 }
 
-void QTextEditEx::currentCharFormatChanged(const QTextCharFormat &format) {
+void XYZTextEditor::currentCharFormatChanged(const QTextCharFormat &format) {
     fontChanged(format.font());
     //colorChanged(format.foreground().color());
 }
 
-void QTextEditEx::textColor() {
+void XYZTextEditor::textColor() {
     QColor color;
     QColorDialog *dlg = new QColorDialog(this);
     if (dlg->exec() == QDialog::Accepted) {

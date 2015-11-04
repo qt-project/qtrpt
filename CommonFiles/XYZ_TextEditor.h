@@ -1,5 +1,5 @@
 /*
-Name: CommonFiles
+Name: XYZ
 Version: 1.5.4
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
@@ -21,28 +21,28 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#ifndef QTEXTEDITEX_H
-#define QTEXTEDITEX_H
+#ifndef XYZ_TEXTEDITOR_H
+#define XYZ_TEXTEDITOR_H
 
 #include <QWidget>
 #include <QTextEdit>
 #include <QTextList>
 
 namespace Ui {
-    class QTextEditEx;
+    class XYZTextEditor;
 }
 
-class QTextEditEx : public QWidget {
+class XYZTextEditor : public QWidget {
     Q_OBJECT
 public:
-    QTextEditEx(QWidget *parent = 0);
-    ~QTextEditEx();
+    XYZTextEditor(QWidget *parent = 0);
+    ~XYZTextEditor();
     QTextEdit *textEdit;
 
 protected:
 
 private:
-    Ui::QTextEditEx *m_ui;
+    Ui::XYZTextEditor *m_ui;
     void setupTextActions();
     void mergeFormatOnWordOrSelection(const QTextCharFormat &format);
     void alignmentChanged(Qt::Alignment a);
@@ -62,4 +62,4 @@ private slots:
     void textDirection();
 };
 
-#endif // QTEXTEDITEX_H
+#endif // XYZ_TEXTEDITOR_H
