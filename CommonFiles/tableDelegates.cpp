@@ -198,11 +198,8 @@ QWidget* BtnDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem& 
     QPushButton *btn = new QPushButton("...", editor);
     btn->setMaximumWidth(20);
     QLineEdit *dd = new QLineEdit(editor);
-    QLabel *lb = new QLabel(editor);
-    lb->setVisible(false);
     dd->setStyleSheet("background-color: white; border-top-color: white; border-bottom-color: red;");
     h->addWidget(dd);
-    h->addWidget(lb);
     h->addWidget(btn);
     h->setContentsMargins(0,0,0,0);
     h->setSpacing(0);
@@ -235,15 +232,12 @@ void BtnDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
     QString value = index.model()->data(index, Qt::EditRole).toString();    
     QLineEdit *le = editor->findChild<QLineEdit *>();
     le->setText(value);
-    QLabel *lb = editor->findChild<QLabel *>();
-    lb->setText("");
     if (index.model()->data(index, Qt::DecorationRole).type() == QVariant::Icon) {
         le->setReadOnly(true);
         le->setVisible(false);
     }
     if (index.model()->data(index, Qt::DecorationRole) == 1) {
         le->setVisible(false);
-        lb->setVisible(true);
     }
 }
 
