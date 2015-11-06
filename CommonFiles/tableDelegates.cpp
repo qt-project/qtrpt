@@ -191,10 +191,10 @@ BtnDelegate::BtnDelegate(QObject *parent) : QItemDelegate(parent) {
 
 }
 
-QWidget* BtnDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem& /* option */, const QModelIndex & index) const {
+QWidget* BtnDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem& /* option */, const QModelIndex & /*index*/) const {
     QWidget *editor = new QWidget(parent);
-    //editor->setStyleSheet("background-color: red; border-top-color: white; border-bottom-color: red;");
-    QHBoxLayout *h  = new QHBoxLayout();
+    editor->setStyleSheet("background-color: red; border-top-color: white; border-bottom-color: red;");
+    QHBoxLayout *h  = new QHBoxLayout(editor);
     QPushButton *btn = new QPushButton("...", editor);
     btn->setMaximumWidth(20);
     QLineEdit *dd = new QLineEdit(editor);
@@ -203,10 +203,6 @@ QWidget* BtnDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem& 
     h->addWidget(btn);
     h->setContentsMargins(0,0,0,0);
     h->setSpacing(0);
-    editor->setLayout(h);
-    //QTableWidget *table = qobject_cast<QTableWidget *>(parent->parent());
-
-    this->setProperty("custom",QString("%1#%2#%3").arg(index.row()).arg(index.column()).arg("Object"));
 
     QObject::disconnect(btn, SIGNAL(clicked()), this, SIGNAL(clicked()));
     QObject::disconnect(this, SIGNAL(closeEditor(QWidget *, QAbstractItemDelegate::EndEditHint)),
@@ -228,6 +224,7 @@ void BtnDelegate::currentItemChanged_(QTableWidgetItem * current, QTableWidgetIt
 void BtnDelegate::editorClose_(QWidget *editor, QAbstractItemDelegate::EndEditHint hint) {
     Q_UNUSED(editor);
     Q_UNUSED(hint);
+    delete editor;
     emit editorClose(this);
 }
 
