@@ -3,8 +3,8 @@ INCLUDEPATH += $$PWD
 include($$PWD/../QtRPT/config.pri)
 
 !contains(DEFINES,NO_BARCODE) {
-    INCLUDEPATH += $$PWD/../zint-2.4.4/backend_qt4
-    INCLUDEPATH += $$PWD/../zint-2.4.4/backend
+    INCLUDEPATH += $$PWD/../3rdparty/zint-2.4.4/backend_qt4
+    INCLUDEPATH += $$PWD/../3rdparty/zint-2.4.4/backend
 
     LIBS += -L$${DEST_DIRECTORY}/lib -lQtZint
 }

@@ -12,7 +12,7 @@ greaterThan(QT_MAJOR_VERSION, 4){
 }
 
 TARGET = QtRptDesigner
-VERSION = 1.5.4
+VERSION = 1.5.5
 DEFINES += VERSION=\\\"$$VERSION\\\"
 TEMPLATE = app
 
@@ -86,18 +86,18 @@ OTHER_FILES += $$TRANSLATIONS
 
 win32 {
     MOC_DIR = tmp-win32
-    #UI_DIR = tmp-win32
-    #UI_HEADERS_DIR = tmp-win32
-    #UI_SOURCES_DIR = tmp-win32
+    UI_DIR = tmp-win32
+    UI_HEADERS_DIR = tmp-win32
+    UI_SOURCES_DIR = tmp-win32
     OBJECTS_DIR = tmp-win32
     RCC_DIR = tmp-win32
 }
 
 linux {
     MOC_DIR = tmp-lin64
-    #UI_DIR = tmp-lin64
-    #UI_HEADERS_DIR = tmp-lin64
-    #UI_SOURCES_DIR = tmp-lin64
+    UI_DIR = tmp-lin64
+    UI_HEADERS_DIR = tmp-lin64
+    UI_SOURCES_DIR = tmp-lin64
     OBJECTS_DIR = tmp-lin64
     RCC_DIR = tmp-lin64
 }
