@@ -30,12 +30,12 @@ limitations under the License.
 #include <QMenu>
 #include <QTreeWidgetItem>
 #include <QDomElement>
-#include <tcontainer.h>
+#include <XYZ_Container.h>
 #include <CommonClasses.h>
 #include <qtrptnamespace.h>
 #include <qtrpt.h>
 
-class RptContainer : public TContainer {
+class RptContainer : public XYZContainer {
     Q_OBJECT    
     Q_PROPERTY(QString printing READ getPrinting WRITE setPrinting)
     Q_PROPERTY(QColor bgColor READ getBgColor WRITE setBgColor)

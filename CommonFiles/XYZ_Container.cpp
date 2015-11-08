@@ -1,6 +1,6 @@
 /*
-Name: CommonFiles
-Version: 1.5.4
+Name: XYZ
+Version: 1.5.5
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
@@ -21,12 +21,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#include "tcontainer.h"
+#include "XYZ_Container.h"
 #include <QApplication>
 #include <QPainter>
 #include <QMouseEvent>
 
-TContainer::TContainer(QWidget *parent, QPoint p, QWidget *cWidget) : QWidget(parent) {
+XYZContainer::XYZContainer(QWidget *parent, QPoint p, QWidget *cWidget) : QWidget(parent) {
     mode = NONE;
     menu = 0;
     childWidget = cWidget;
@@ -60,12 +60,12 @@ TContainer::TContainer(QWidget *parent, QPoint p, QWidget *cWidget) : QWidget(pa
     this->installEventFilter(parent);
 }
 
-void TContainer::setDesignMode(bool mode) {
+void XYZContainer::setDesignMode(bool mode) {
     m_isDesigning = mode;
     setEditMode(!mode);
 }
 
-void TContainer::setEditMode(bool mode) {
+void XYZContainer::setEditMode(bool mode) {
     m_isEditing = mode;
     if (mode) {
         childWidget->setContextMenuPolicy(Qt::ActionsContextMenu);
@@ -79,24 +79,24 @@ void TContainer::setEditMode(bool mode) {
     }
 }
 
-bool TContainer::isDesigning() {
+bool XYZContainer::isDesigning() {
     return m_isDesigning;
 }
 
-bool TContainer::isEditing() {
+bool XYZContainer::isEditing() {
     return m_isEditing;
 }
 
-void TContainer::setScale(qreal scale) {
+void XYZContainer::setScale(qreal scale) {
     this->scale = scale;
     resize(this->geometry().width()*scale,this->geometry().height()*scale);
 }
 
-TContainer::~TContainer() {
+XYZContainer::~XYZContainer() {
     delete vLayout;
 }
 
-void TContainer::setChildWidget(QWidget *cWidget) {
+void XYZContainer::setChildWidget(QWidget *cWidget) {
     if (cWidget != 0) {
         childWidget = cWidget;
         childWidget->setAttribute(Qt::WA_TransparentForMouseEvents, true);
@@ -106,7 +106,7 @@ void TContainer::setChildWidget(QWidget *cWidget) {
     }
 }
 
-void TContainer::popupShow(const QPoint &pt) {
+void XYZContainer::popupShow(const QPoint &pt) {
     if (menu == 0) return;
     if (menu->isEmpty()) return;
     QPoint global = this->mapToGlobal(pt);
@@ -115,11 +115,11 @@ void TContainer::popupShow(const QPoint &pt) {
     m_showMenu = false;
 }
 
-bool TContainer::isSelected() {
+bool XYZContainer::isSelected() {
     return m_selected;
 }
 
-void TContainer::setSelected(bool value, bool repaint) {
+void XYZContainer::setSelected(bool value, bool repaint) {
     m_selected = value;
     if (value) {
         this->parentWidget()->installEventFilter(this);
@@ -130,16 +130,16 @@ void TContainer::setSelected(bool value, bool repaint) {
         this->parentWidget()->repaint();
 }
 
-void TContainer::setPasted(bool value) {
+void XYZContainer::setPasted(bool value) {
     m_pasting = value;
 }
 
-void TContainer::focusInEvent(QFocusEvent *e) {
+void XYZContainer::focusInEvent(QFocusEvent *e) {
     Q_UNUSED(e);
     emit inFocus(true);
 }
 
-void TContainer::focusOutEvent(QFocusEvent *e) {
+void XYZContainer::focusOutEvent(QFocusEvent *e) {
     Q_UNUSED(e);
     if (QApplication::keyboardModifiers() == Qt::ShiftModifier) return;
     if (!m_isDesigning) return;
@@ -152,7 +152,7 @@ void TContainer::focusOutEvent(QFocusEvent *e) {
         this->parentWidget()->repaint();
 }
 
-bool TContainer::eventFilter( QObject *obj, QEvent *evt ) {
+bool XYZContainer::eventFilter( QObject *obj, QEvent *evt ) {
     if (m_isDesigning && m_selected && m_allowDrawSelection) {
         QWidget *w = this->parentWidget();
         if (w == obj && evt->type()==QEvent::Paint && m_isDesigning && !m_hasOverlay) {
@@ -181,7 +181,7 @@ bool TContainer::eventFilter( QObject *obj, QEvent *evt ) {
     return QWidget::eventFilter(obj, evt);
 }
 
-void TContainer::mousePressEvent(QMouseEvent *e) {
+void XYZContainer::mousePressEvent(QMouseEvent *e) {
     if (!m_isDesigning) return;
 
     if (QApplication::keyboardModifiers() == Qt::ShiftModifier && !m_pasting) {
@@ -206,7 +206,7 @@ void TContainer::mousePressEvent(QMouseEvent *e) {
     }
 }
 
-void TContainer::keyPressEvent(QKeyEvent *e) {
+void XYZContainer::keyPressEvent(QKeyEvent *e) {
     if (!m_isDesigning) return;
     if (e->key() == Qt::Key_Delete) {
         emit deleteByUser();
@@ -236,26 +236,26 @@ void TContainer::keyPressEvent(QKeyEvent *e) {
     //m_geomChanged(oldRect, this->geometry());
 }
 
-QRect TContainer::getOldGeom() {
+QRect XYZContainer::getOldGeom() {
     return m_oldRect;
 }
 
-void TContainer::setOldGeom(QRect rect) {
+void XYZContainer::setOldGeom(QRect rect) {
     m_oldRect = rect;
 }
 
-void TContainer::m_geomChanged(QRect oldRect, QRect newRect) {
+void XYZContainer::m_geomChanged(QRect oldRect, QRect newRect) {
     if (m_isDesigning && oldRect != newRect) {
         emit geomChanged(oldRect, newRect);
     }
 }
 
-void TContainer::resizeEvent(QResizeEvent *e) {
+void XYZContainer::resizeEvent(QResizeEvent *e) {
     setBaseSize(width()/scale,height()/scale);
     QWidget::resizeEvent(e);
 }
 
-void TContainer::setCursorShape(const QPoint &e_pos) {
+void XYZContainer::setCursorShape(const QPoint &e_pos) {
     const int diff = 3;
     if (!m_allowResize) {
         setCursor(QCursor(Qt::ArrowCursor));
@@ -329,13 +329,13 @@ void TContainer::setCursorShape(const QPoint &e_pos) {
     }
 }
 
-void TContainer::mouseReleaseEvent(QMouseEvent *e) {
+void XYZContainer::mouseReleaseEvent(QMouseEvent *e) {
     QWidget::mouseReleaseEvent(e);
     if (!m_isDesigning) return;
     m_geomChanged(m_oldRect, this->geometry());
 }
 
-void TContainer::mouseMoveEvent(QMouseEvent *e) {
+void XYZContainer::mouseMoveEvent(QMouseEvent *e) {
     QWidget::mouseMoveEvent(e);
     if (!m_isDesigning) return;
     if (!m_selected) return;
@@ -413,31 +413,31 @@ void TContainer::mouseMoveEvent(QMouseEvent *e) {
     emit newGeometry(oldRect, this->geometry());
 }
 
-void TContainer::allowResize(bool value) {
+void XYZContainer::allowResize(bool value) {
     m_allowResize = value;
 }
 
-void TContainer::allowDrawSelection(bool value) {
+void XYZContainer::allowDrawSelection(bool value) {
     m_allowDrawSelection = value;
 }
 
-bool TContainer::isAllowDrawSelection() {
+bool XYZContainer::isAllowDrawSelection() {
     return m_allowDrawSelection;
 }
 
-void TContainer::setHasOverlay(bool value) {
+void XYZContainer::setHasOverlay(bool value) {
     m_hasOverlay = value;
 }
 
-bool TContainer::hasOverlay() {
+bool XYZContainer::hasOverlay() {
     return m_hasOverlay;
 }
 
-TContainer *TContainer::clone() {
+XYZContainer *XYZContainer::clone() {
     return NULL;
 }
 
-QDataStream &operator<<(QDataStream &stream, const TContainer &obj) {
+QDataStream &operator<<(QDataStream &stream, const XYZContainer &obj) {
     for(int i=0; i<obj.metaObject()->propertyCount(); ++i) {
         if(obj.metaObject()->property(i).isStored(&obj)) {
             stream << obj.metaObject()->property(i).read(&obj);
@@ -446,7 +446,7 @@ QDataStream &operator<<(QDataStream &stream, const TContainer &obj) {
     return stream;
 }
 
-QDataStream &operator>>(QDataStream &stream, TContainer &obj) {
+QDataStream &operator>>(QDataStream &stream, XYZContainer &obj) {
     QVariant var;
     for(int i=0; i<obj.metaObject()->propertyCount(); ++i) {
         if(obj.metaObject()->property(i).isStored(&obj)) {

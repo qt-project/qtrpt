@@ -1,6 +1,6 @@
 /*
 Name: QtRpt
-Version: 1.5.4
+Version: 1.5.5
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
@@ -55,7 +55,7 @@ TContainerLine::TContainerLine(QWidget *parent, QPoint p, QWidget *cWidget) : Rp
     QPalette Pal(palette());
     Pal.setColor(QPalette::Background, Qt::blue);
 
-    cs = new TContainer(parent,QPoint(line.p1().x(), line.p2().y()));
+    cs = new XYZContainer(parent,QPoint(line.p1().x(), line.p2().y()));
     cs->setObjectName("CS");
     cs->resize(6,6);
     cs->allowResize(false);
@@ -64,7 +64,7 @@ TContainerLine::TContainerLine(QWidget *parent, QPoint p, QWidget *cWidget) : Rp
     cs->setAutoFillBackground(true);
     cs->setPalette(Pal);
 
-    ce = new TContainer(parent,QPoint(line.p2().x(), line.p2().y()));
+    ce = new XYZContainer(parent,QPoint(line.p2().x(), line.p2().y()));
     ce->setObjectName("CE");
     ce->resize(6,6);
     ce->allowResize(false);
@@ -130,12 +130,12 @@ bool TContainerLine::getArrow(Command command) {
 }
 
 void TContainerLine::focusInEvent(QFocusEvent *e) {
-    TContainer::focusInEvent(e);
+    XYZContainer::focusInEvent(e);
     setLine(true);
 }
 
 void TContainerLine::focusOutEvent(QFocusEvent *e) {    
-    TContainer::focusInEvent(e);
+    XYZContainer::focusInEvent(e);
     if (cs != 0 && ce != 0)
         setSelectedLine(QPoint(0,0));
 }
@@ -189,7 +189,7 @@ void TContainerLine::lineChanged(QRect, QRect) {
         line.setP2( ce->pos()+QPoint(3,3) );
 }
 
-void TContainerLine::movePoint(TContainer *cont, QRect rect) {
+void TContainerLine::movePoint(XYZContainer *cont, QRect rect) {
     cont->move(rect.x(),rect.y());
     lineChanged(QRect(),QRect());
     this->parentWidget()->repaint();

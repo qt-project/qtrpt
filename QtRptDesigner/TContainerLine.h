@@ -1,6 +1,6 @@
 /*
 Name: QtRpt
-Version: 1.5.4
+Version: 1.5.5
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
@@ -26,7 +26,7 @@ limitations under the License.
 #define TContainerLine_H
 
 #include <QWidget>
-#include <tcontainer.h>
+#include <XYZ_Container.h>
 #include <QLabel>
 #include "RptContainer.h"
 
@@ -42,8 +42,8 @@ public:
     TContainerLine(QWidget *parent, QPoint p, QWidget *cWidget = 0);
     ~TContainerLine();
     QLineF line;
-    TContainer *cs;
-    TContainer *ce;
+    XYZContainer *cs;
+    XYZContainer *ce;
     qreal getLength();
     TContainerLine *clone();
     void setMenu(QMenu *menu_);
@@ -54,7 +54,7 @@ public:
     void setSelectedLine(QPoint point);
     void setArrow(Command command, QVariant value);
     bool getArrow(Command command);
-    void movePoint(TContainer *cont, QRect rect);
+    void movePoint(XYZContainer *cont, QRect rect);
     QRect m_oldP1, m_oldP2;
     void setProperties();
     void setParamFromProperties();

@@ -1,6 +1,6 @@
 /*
 Name: QtRpt
-Version: 1.5.4
+Version: 1.5.5
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
@@ -23,7 +23,7 @@ limitations under the License.
 
 #include "RptContainer.h"
 
-RptContainer::RptContainer(QWidget *parent, QPoint p, QWidget *cWidget) : TContainer(parent,p,cWidget) {
+RptContainer::RptContainer(QWidget *parent, QPoint p, QWidget *cWidget) : XYZContainer(parent,p,cWidget) {
     this->setAttribute(Qt::WA_TranslucentBackground,true);
     m_printing = "1";
     m_groupName = "";
@@ -409,7 +409,7 @@ RptContainer::~RptContainer() {
 }
 
 void RptContainer::keyPressEvent(QKeyEvent *e) {
-    TContainer::keyPressEvent(e);
+    XYZContainer::keyPressEvent(e);
     if (e->key() == Qt::Key_Delete) {
         this->RptContainer::~RptContainer();
     }

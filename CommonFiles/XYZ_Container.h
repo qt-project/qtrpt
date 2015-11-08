@@ -1,6 +1,6 @@
 /*
-Name: CommonFiles
-Version: 1.5.4
+Name: XYZ
+Version: 1.5.5
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
@@ -21,8 +21,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#ifndef TCONTAINER_H
-#define TCONTAINER_H
+#ifndef XYZ_CONTAINER_H
+#define XYZ_CONTAINER_H
 
 #include <QtDebug>
 #include <QWidget>
@@ -43,14 +43,14 @@ enum modes{
     RESIZEL = 9
 };
 
-class TContainer : public QWidget {
+class XYZContainer : public QWidget {
     Q_OBJECT
     Q_PROPERTY(bool Selected READ isSelected WRITE setSelected)
     Q_PROPERTY(bool Overlayed READ hasOverlay WRITE setHasOverlay)
 
 public:
-    TContainer(QWidget *parent, QPoint p, QWidget *cWidget = 0);
-    ~TContainer();
+    XYZContainer(QWidget *parent, QPoint p, QWidget *cWidget = 0);
+    ~XYZContainer();
     QWidget *childWidget;
     QMenu *menu;
     void setChildWidget(QWidget *cWidget);
@@ -66,13 +66,13 @@ public:
     bool isAllowDrawSelection();
     void setHasOverlay(bool value);
     bool hasOverlay();
-    virtual TContainer *clone();
+    virtual XYZContainer *clone();
     QRect getOldGeom();
     void setOldGeom(QRect rect);
     void emitInFocus(bool mode) {emit inFocus(mode);}
 
-    friend QDataStream &operator<<(QDataStream &stream, const TContainer &obj);
-    friend QDataStream &operator>>(QDataStream &stream, TContainer &obj);
+    friend QDataStream &operator<<(QDataStream &stream, const XYZContainer &obj);
+    friend QDataStream &operator>>(QDataStream &stream, XYZContainer &obj);
 
 protected:
     int mode;
@@ -112,4 +112,4 @@ public slots:
     void setEditMode(bool mode);
 };
 
-#endif // TCONTAINER_H
+#endif // XYZ_CONTAINER_H
