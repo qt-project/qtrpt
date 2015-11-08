@@ -93,7 +93,7 @@ public:
     void setBackgroundImage(QPixmap image);
     void printPDF(const QString &filePath, bool open = true);
     void printHTML(const QString &filePath, bool open = true);
-    void printODT(const QString &filePath, bool open = true);
+    void printXLSX(const QString &filePath, bool open = true);
     void setSqlQuery(QString sqlString);
     static FieldType getFieldType(QDomElement e);
     static QString getFieldTypeName(FieldType type);
@@ -175,7 +175,7 @@ public:
         Printer = 0,
         Pdf = 1,
         Html = 2,
-        Odt = 3
+        Xlsx = 3
     };
     PrintMode m_printMode;
     QPrinter::PrinterMode m_resolution;

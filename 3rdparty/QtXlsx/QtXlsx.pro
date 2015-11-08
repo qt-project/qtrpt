@@ -1,4 +1,4 @@
-QT       += core sql gui uitools printsupport xml script scripttools
+QT       += core #sql gui uitools printsupport xml script scripttools
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 

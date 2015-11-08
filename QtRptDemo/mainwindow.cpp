@@ -1,6 +1,6 @@
 /*
 Name: QtRpt
-Version: 1.5.4
+Version: 1.5.5
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
 2012-2015
@@ -23,16 +23,9 @@ limitations under the License.
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include "RptCrossTabObject.h"
-#include "xlsxdocument.h"
-
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
     connect(ui->btnShow, SIGNAL(clicked()), this, SLOT(showReport()));
-
-    QXlsx::Document xlsx;
-    xlsx.write("A1", "Hello Qt!");
-    xlsx.saveAs("Test.xlsx");
 }
 
 void MainWindow::showReport() {

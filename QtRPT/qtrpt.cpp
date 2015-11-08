@@ -40,6 +40,7 @@ limitations under the License.
 #include "CommonClasses.h"
 #include "RptSql.h"
 #include "Barcode.h"
+#include "xlsxdocument.h"
 
 /*!
  \namespace QtRptName
@@ -712,7 +713,7 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
             if (m_printMode == QtRPT::Html) {
                 m_HTML.append("<div "+fieldObject->getHTMLStyle()+">"+txt+"</div>\n");
             }
-            if (m_printMode == QtRPT::Odt) {
+            if (m_printMode == QtRPT::Xlsx) {
 
             }
         } else {
@@ -1335,7 +1336,7 @@ QImage QtRPT::sectionValueImage(QString paramName) {
  Print report direct to PDF file by \a filePath.
  Second param \a open indicates open or not after printing a pdf file.
 
- \sa printExec(), printHTML(), printODT()
+ \sa printExec(), printHTML(), printXLSX()
  */
 void QtRPT::printPDF(const QString &filePath, bool open) {
 #ifndef QT_NO_PRINTER
@@ -1359,7 +1360,7 @@ void QtRPT::printPDF(const QString &filePath, bool open) {
  Print report direct to HTML file by \a filePath.
  Second param \a open indicates open or not after printing a pdf file.
 
- \sa printExec(), printPDF(), printODT()
+ \sa printExec(), printPDF(), printXLSX()
  */
 void QtRPT::printHTML(const QString &filePath, bool open) {
 #ifndef QT_NO_PRINTER
@@ -1391,7 +1392,6 @@ void QtRPT::printHTML(const QString &filePath, bool open) {
 #endif
 }
 
-#include <QTextDocumentWriter>
 /*!
  \fn QtRPT::printODT(const QString &filePath, bool open)
  Print report direct to ODT file by \a filePath.
@@ -1401,10 +1401,19 @@ void QtRPT::printHTML(const QString &filePath, bool open) {
 
  \sa printExec(), printHTML(), printPDF()
  */
-void QtRPT::printODT(const QString &filePath, bool open) {
-#ifndef QT_NO_PRINTER
-    Q_UNUSED(filePath);
-    Q_UNUSED(open);
+void QtRPT::printXLSX(const QString &filePath, bool open) {
+#ifndef QT_NO_PRINTER  
+    QFile file(filePath);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+        return;
+
+    QXlsx::Document xlsx;
+    xlsx.write("A1", "Hello Qt!");
+    xlsx.saveAs(filePath);
+
+    file.close();
+    if (open)
+        QDesktopServices::openUrl(QUrl("file:"+filePath));
 #endif
 }
 
@@ -1424,7 +1433,7 @@ void QtRPT::printODT(const QString &filePath, bool open) {
  If  printer with the \a printerName is not valid,
  the default printer will be used.
 
- \sa printPDF(), printHTML(), printODT()
+ \sa printPDF(), printHTML(), printXLSX()
  */
 void QtRPT::printExec(bool maximum, bool direct, QString printerName) {
 #ifndef QT_NO_PRINTER
@@ -1476,15 +1485,16 @@ void QtRPT::printExec(bool maximum, bool direct, QString printerName) {
         actExpToHtml->setObjectName("actExpToHtml");
         connect(actExpToHtml, SIGNAL(triggered()), SLOT(exportTo()));
 
-        icon.addPixmap(QPixmap(QString::fromUtf8(":/html.png")), QIcon::Normal, QIcon::On);
-        QAction *actExpToOdt = new QAction(icon,tr("Save as ODT"),this);
-        actExpToOdt->setObjectName("actExpToOdt");
-        connect(actExpToOdt, SIGNAL(triggered()), SLOT(exportTo()));
+        QIcon icon1;
+        icon1.addPixmap(QPixmap(QString::fromUtf8(":/excel.png")), QIcon::Normal, QIcon::On);
+        QAction *actExpToXlsx = new QAction(icon1,tr("Save as XLSX"),this);
+        actExpToXlsx->setObjectName("actExpToXlsx");
+        connect(actExpToXlsx, SIGNAL(triggered()), SLOT(exportTo()));
 
         QList<QToolBar *> l1 = preview.findChildren<QToolBar *>();
         l1.at(0)->addAction(actExpToPdf);
         l1.at(0)->addAction(actExpToHtml);
-        //l1.at(0)->addAction(actExpToOdt);
+        l1.at(0)->addAction(actExpToXlsx);
 
         //preview.addActions(lst);
         pr->installEventFilter(this);
@@ -1507,10 +1517,10 @@ void QtRPT::exportTo() {
         if (fileName.isEmpty() || fileName.isNull() ) return;
         printHTML(fileName,true);
     }
-    if (sender()->objectName() == "actExpToOdt") {
-        QString fileName = QFileDialog::getSaveFileName(qobject_cast<QWidget *>(this->parent()), tr("Save File"), "", tr("ODT Files (*.odt)"));
+    if (sender()->objectName() == "actExpToXlsx") {
+        QString fileName = QFileDialog::getSaveFileName(qobject_cast<QWidget *>(this->parent()), tr("Save File"), "", tr("XLSX Files (*.xlsx)"));
         if (fileName.isEmpty() || fileName.isNull() ) return;
-        printODT("",true);
+        printXLSX(fileName,true);
     }
 }
 
