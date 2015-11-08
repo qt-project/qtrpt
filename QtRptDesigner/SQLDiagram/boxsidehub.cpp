@@ -60,20 +60,18 @@ static bool itemLessThan(const ConnectorRealPair &a, const ConnectorRealPair &b)
 
 void BoxSideHub::update() {
 	QHash<Side, QList<ConnectorRealPair> > sides;
-	DiagramObject *item = owner();
+    DiagramObject *item = owner();
 	QRectF rect = item->boundingRect().translated(item->pos());
     foreach (Connector *connector, connectors()) {
 		Line *connection = connector->owner();
 		Connector *connector1 = connection->connector(0);
 		Connector *connector2 = connection->connector(1);
-		DiagramObject *item1, *item2;
+        DiagramObject *item2;
 		if (connector1 == connector) {
-    		item1 = item;
     		item2 = connector2->connectedObject();
 		}
 		else {
-			item1 = item;
-			item2 = connector1->connectedObject();
+            item2 = connector1->connectedObject();
 		}
 		QRectF rect1 = rect;
 		QRectF rect2 = item2->boundingRect().translated(item2->pos());

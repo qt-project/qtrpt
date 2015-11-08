@@ -9,6 +9,8 @@ greaterThan(QT_MAJOR_VERSION, 4){
 include(../CommonFiles/CommonFiles_QtRpt.pri)
 
 INCLUDEPATH += $$PWD
+INCLUDEPATH += $$PWD/../3rdparty/QtXlsx
+LIBS += -L$${DEST_DIRECTORY}/lib -lQtXlsx
 
 SOURCES += $$PWD/qtrpt.cpp \
            $$PWD/RptSql.cpp \
@@ -16,7 +18,7 @@ SOURCES += $$PWD/qtrpt.cpp \
            $$PWD/RptFieldObject.cpp \
            $$PWD/RptBandObject.cpp \
            $$PWD/RptPageObject.cpp \
-    $$PWD/RptCrossTabObject.cpp
+           $$PWD/RptCrossTabObject.cpp
 HEADERS += $$PWD/qtrpt.h \
            $$PWD/qtrptnamespace.h \
            $$PWD/RptSql.h \
@@ -24,7 +26,7 @@ HEADERS += $$PWD/qtrpt.h \
            $$PWD/RptFieldObject.h \
            $$PWD/RptBandObject.h \
            $$PWD/RptPageObject.h \
-    $$PWD/RptCrossTabObject.h
+           $$PWD/RptCrossTabObject.h
 
 RESOURCES += \
     $$PWD/../QtRPT/imagesRpt.qrc

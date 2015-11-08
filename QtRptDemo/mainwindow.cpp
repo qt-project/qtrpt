@@ -24,11 +24,15 @@ limitations under the License.
 #include "ui_mainwindow.h"
 
 #include "RptCrossTabObject.h"
-
+#include "xlsxdocument.h"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
     connect(ui->btnShow, SIGNAL(clicked()), this, SLOT(showReport()));
+
+    QXlsx::Document xlsx;
+    xlsx.write("A1", "Hello Qt!");
+    xlsx.saveAs("Test.xlsx");
 }
 
 void MainWindow::showReport() {
