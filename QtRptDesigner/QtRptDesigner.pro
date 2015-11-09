@@ -104,6 +104,7 @@ linux {
 
 CONFIG += c++11
 CONFIG += app_bundle
+CONFIG -= debug_and_release debug_and_release_target
 
 # Automatically build required translation files (*.qm)
 all.depends = locale

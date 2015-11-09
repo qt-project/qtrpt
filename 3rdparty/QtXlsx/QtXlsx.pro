@@ -22,6 +22,7 @@ include($$PWD/../../QtRPT/config.pri)  #Loading config file to get path where pl
 !exists($$PWD/../../QtRPT/config.pri) {
     message("not found config.pri")
 }
+include(QtXlsx.pri)
 
 INCLUDEPATH += QtXlsx
 DLLDESTDIR = $${DEST_DIRECTORY}
@@ -29,9 +30,6 @@ DESTDIR    = $${DEST_DIRECTORY}/lib
 
 
 QMAKE_DOCS = $$PWD/doc/qtxlsx.qdocconf
-
-#CONFIG += build_xlsx_lib
-include(QtXlsx.pri)
 
 QMAKE_TARGET_COMPANY = "Debao Zhang"
 QMAKE_TARGET_COPYRIGHT = "Copyright (C) 2013-2014 Debao Zhang <hello@debao.me>"

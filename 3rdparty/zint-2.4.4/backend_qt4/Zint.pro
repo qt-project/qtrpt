@@ -117,6 +117,8 @@ linux {
     RCC_DIR = tmp-lin64
 }
 
+CONFIG -= debug_and_release debug_and_release_target
+
 #DESTDIR = .
 
 #include.path = $$[ZINT_INSTALL_HEADERS]
