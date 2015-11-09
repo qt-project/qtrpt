@@ -34,6 +34,7 @@ limitations under the License.
 #include <RptBandObject.h>
 #include <RptPageObject.h>
 #include <RptSqlConnection.h>
+#include "xlsxdocument.h"
 
 using namespace QtRptName;
 
@@ -169,6 +170,7 @@ public:
     QVector <RptSqlConnection> userSqlConnection;
     QString m_sqlQuery;
     QString m_HTML;
+    QXlsx::Document *m_xlsx;
 
     void makeReportObjectStructure();
     enum PrintMode {
