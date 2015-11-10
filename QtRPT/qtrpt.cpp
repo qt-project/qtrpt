@@ -714,6 +714,7 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
                 m_HTML.append("<div "+fieldObject->getHTMLStyle()+">"+txt+"</div>\n");
             }
             if (m_printMode == QtRPT::Xlsx) {
+                qDebug()<<QString("left %1 top %2").arg(left_).arg(top_);
                 m_xlsx->write("A3", txt);
             }
         } else {
@@ -1742,7 +1743,7 @@ void QtRPT::newPage(QPrinter *printer, int &y, bool draw, bool newReportPage) {
     if (draw)
       emit newPage(curPage);
 
-    if (m_printMode != QtRPT::Html)
+    if (m_printMode != QtRPT::Html && m_printMode != QtRPT::Xlsx)
         y = 0;
     if (newReportPage)
         processRTitle(y,draw);
