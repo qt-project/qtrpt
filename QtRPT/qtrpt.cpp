@@ -714,8 +714,27 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
                 m_HTML.append("<div "+fieldObject->getHTMLStyle()+">"+txt+"</div>\n");
             }
             if (m_printMode == QtRPT::Xlsx) {
-                qDebug()<<QString("left %1 top %2").arg(left_).arg(top_);
-                m_xlsx->write("A3", txt);
+                //qDebug()<<QString("left %1 top %2").arg(left_).arg(top_);
+                int col = left_/200;
+                int row = top_/200;
+                //qDebug()<<QString(txt+" col-%1 row-%2").arg(col).arg(row);
+                if (col == 0) col = 1;
+                if (row == 0) row = 1;
+                m_xlsx->write(row,col, txt);
+
+                for (int col=1; col<10000; ++col) {
+                    bool fnd = false;
+                    for (int row=1; row<10000; ++row) {
+                        if (QXlsx::Cell *cell=m_xlsx->cellAt(row, col))
+                            if (!cell->value().isNull()) {
+                                fnd = true;
+                                break;
+                            }
+                    }
+                    if (!fnd)
+                        m_xlsx->setColumnHidden(col,true);
+                }
+
             }
         } else {
             QRect boundRect = painter->boundingRect(left_+10,top_,width_-15,height_, flags, txt);
