@@ -722,17 +722,17 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
                 if (row == 0) row = 1;
                 m_xlsx->write(row,col, txt);
 
-                for (int col=1; col<10000; ++col) {
+                for (int col=1; col<100; ++col) {
                     bool fnd = false;
-                    for (int row=1; row<10000; ++row) {
+                    for (int row=1; row<100; ++row) {
                         if (QXlsx::Cell *cell=m_xlsx->cellAt(row, col))
-                            if (!cell->value().isNull()) {
+                            if (!cell->value().toString().isEmpty()) {
                                 fnd = true;
                                 break;
                             }
                     }
-                    if (!fnd)
-                        m_xlsx->setColumnHidden(col,true);
+                    m_xlsx->setColumnHidden(col,!fnd);
+                    if (fnd) m_xlsx->setColumnWidth(col,10);
                 }
 
             }

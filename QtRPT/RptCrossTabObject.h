@@ -30,9 +30,20 @@ limitations under the License.
 
 using namespace QtRptName;
 
-typedef QVector<QVariant> QVectorVariant;
-
 class RptFieldObject;
+
+struct RptTabElement {
+    RptFieldObject *fieldObject;
+    QVariant value;
+    int left;
+    int top;
+    int height;
+    int width;
+};
+
+typedef QVector<RptTabElement> VectorRptTabElement;
+
+
 class RptCrossTabObject
 {
 public:
@@ -54,13 +65,13 @@ public:
     void initMatrix();
     QVariant getMatrixValue(int col,int row) const;
     void setMatrixValue(int col,int row, QVariant value);
-    QVector<QVectorVariant > valuesArray;
+    QVector<VectorRptTabElement > valuesArray;
 
-    void makeFielMatrix();
-    void addField(RptFieldObject *field);
+    void makeFielMatrix();   
     QList<RptFieldObject*> fieldList;
-
     RptFieldObject *parentField;
+
+    void addElement(RptTabElement element);
 
 private:
     bool colHeaderVisible;
@@ -69,6 +80,11 @@ private:
     QStringList m_rowHeader;
     int m_colCount;
     int m_rowCount;
+
+
+
+    void addField(RptFieldObject *field);
+
 
 };
 

@@ -62,19 +62,19 @@ QString RptCrossTabObject::getRowName(int row) const {
 void RptCrossTabObject::initMatrix() {
     valuesArray.resize(m_rowHeader.size());  //Set row count
 
-    QMutableVectorIterator<QVectorVariant> iRows(valuesArray);
+    QMutableVectorIterator<VectorRptTabElement> iRows(valuesArray);
     while (iRows.hasNext())
         (iRows.next()).resize(m_colHeader.size());
 }
 
 QVariant RptCrossTabObject::getMatrixValue(int col,int row) const {
-    QVectorVariant rowValue = valuesArray[row];
-    return rowValue[col];
+    VectorRptTabElement rowValue = valuesArray[row];
+    return rowValue[col].value;
 }
 
 void RptCrossTabObject::setMatrixValue(int col,int row, QVariant value) {
-    QVectorVariant rowValue = valuesArray[row];
-    rowValue[col] = value;
+    VectorRptTabElement rowValue = valuesArray[row];
+    rowValue[col].value = value;
 }
 
 void RptCrossTabObject::makeFielMatrix() {
@@ -185,4 +185,9 @@ QDebug operator<<(QDebug dbg, const RptCrossTabObject &obj) {
 
 QDebug operator<<(QDebug dbg, const RptCrossTabObject *obj) {
     return dbg << *obj;
+}
+
+//Bellow functions for working with a grid
+void RptCrossTabObject::addElement(RptTabElement element) {
+
 }
