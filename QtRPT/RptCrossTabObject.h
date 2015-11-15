@@ -67,7 +67,7 @@ public:
     void initMatrix();
     QVariant getMatrixValue(int col,int row) const;
     void setMatrixValue(int col,int row, QVariant value);
-    void setMatrixElement(int col,int row, RptTabElement element);
+    void setMatrixElement(int col, int row, RptTabElement &element);
     QVector<VectorRptTabElement > valuesArray;
 
     void makeFeelMatrix();
