@@ -39,6 +39,8 @@ struct RptTabElement {
     int top;
     int height;
     int width;
+    int corrLeft;
+    int corrTop;
 };
 
 typedef QVector<RptTabElement> VectorRptTabElement;

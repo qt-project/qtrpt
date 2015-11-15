@@ -747,7 +747,7 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
         }
     }
     if (fieldType == CrossTab) {
-        fieldObject->crossTab->makeFielMatrix();
+        fieldObject->crossTab->makeFeelMatrix();
         const int bandTop_ = bandTop;
         foreach(RptFieldObject *field, fieldObject->crossTab->fieldList) {
             drawFields(field,bandTop_,true);

@@ -129,7 +129,7 @@ void RptCrossTabObject::makeFeelMatrix() {
             h1->rect.setLeft(rect.left() + fieldWidth + fieldWidth*col -1);
             h1->rect.setHeight(fieldheight);
             h1->rect.setWidth(fieldWidth);
-            h1->value = QString("f%1%2").arg(col).arg(row);
+            h1->value = getMatrixValue(col,row).toString(); //QString("f%1%2").arg(col).arg(row);
             h1->font.setBold(true);
             h1->setDefaultBackgroundColor(Qt::lightGray); //Set default background color
             h1->aligment = Qt::AlignCenter;
@@ -192,13 +192,26 @@ QDebug operator<<(QDebug dbg, const RptCrossTabObject *obj) {
 void RptCrossTabObject::addElement(RptTabElement element) {
     int correlation = 5;
 
+    //---
     bool fnd = false;
-    for (int col=0; col < colVector(); col++) {
-        if (element.left colVector.at(col) <=  ||
-            colVector.at(col) <= element.left)
+    for (int col=0; col < colVector.size(); col++) {
+        if (element.left <= colVector.at(col)+correlation ||
+            element.left >= colVector.at(col)-correlation ) {
             fnd = true;
+            element.corrLeft = colVector.at(col);
+        }
     }
     if (!fnd) colVector.append(element.left);
+    //---
+    fnd = false;
+    for (int row=0; row < rowVector.size(); row++) {
+        if (element.top <= rowVector.at(row)+correlation ||
+            element.top >= rowVector.at(row)-correlation ) {
+            fnd = true;
+            element.corrTop = rowVector.at(row);
+        }
+    }
+    if (!fnd) rowVector.append(element.top);
 }
 
 void RptCrossTabObject::appendRow() {
