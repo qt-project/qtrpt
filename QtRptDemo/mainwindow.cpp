@@ -126,7 +126,7 @@ void MainWindow::showReport() {
         }
         report->printExec();
 
-        RptCrossTabObject *cross = new RptCrossTabObject();
+        /*RptCrossTabObject *cross = new RptCrossTabObject();
         cross->addCol("C1");
         cross->addCol("C2");
         cross->addRow("R1");
@@ -139,7 +139,7 @@ void MainWindow::showReport() {
             for (int c=0; c<cross->colCount(); c++)
                 cross->setMatrixValue(c,r,QString("%1%2").arg(c).arg(r));
         qDebug()<<cross;
-        delete cross;
+        delete cross;*/
     } else if (ui->rBtnRussian->isChecked()) {
         QString fileName = "./examples_report/RussianInvaders.xml";
         QtRPT *report = new QtRPT(this);

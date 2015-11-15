@@ -73,13 +73,11 @@ QVariant RptCrossTabObject::getMatrixValue(int col,int row) const {
 }
 
 void RptCrossTabObject::setMatrixValue(int col,int row, QVariant value) {
-    VectorRptTabElement rowValue = valuesArray[row];
-    rowValue[col].value = value;
+    valuesArray[row][col].value = value;
 }
 
 void RptCrossTabObject::setMatrixElement(int col,int row, RptTabElement &element) {
-    VectorRptTabElement rowValue = valuesArray[row];
-    rowValue[col] = element;
+    valuesArray[row][col] = element;
 }
 
 void RptCrossTabObject::makeFeelMatrix() {
@@ -134,8 +132,7 @@ void RptCrossTabObject::makeFeelMatrix() {
             h1->rect.setLeft(rect.left() + fieldWidth + fieldWidth*col -1);
             h1->rect.setHeight(fieldheight);
             h1->rect.setWidth(fieldWidth);
-            h1->value =  QString("f%1%2").arg(col).arg(row);
-            qDebug()<<getMatrixValue(col,row).toString();
+            h1->value =  getMatrixValue(col,row).toString();
             h1->font.setBold(true);
             h1->setDefaultBackgroundColor(Qt::lightGray); //Set default background color
             h1->aligment = Qt::AlignCenter;
