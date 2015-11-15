@@ -67,6 +67,7 @@ public:
     void initMatrix();
     QVariant getMatrixValue(int col,int row) const;
     void setMatrixValue(int col,int row, QVariant value);
+    void setMatrixElement(int col,int row, RptTabElement element);
     QVector<VectorRptTabElement > valuesArray;
 
     void makeFeelMatrix();
@@ -74,8 +75,8 @@ public:
     RptFieldObject *parentField;
 
     void addElement(RptTabElement element);
-    void appendRow();
-    void appendColumn();
+    int appendRow();
+    int appendColumn();
 
 private:
     bool colHeaderVisible;

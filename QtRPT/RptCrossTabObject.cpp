@@ -73,8 +73,12 @@ QVariant RptCrossTabObject::getMatrixValue(int col,int row) const {
 }
 
 void RptCrossTabObject::setMatrixValue(int col,int row, QVariant value) {
-    VectorRptTabElement rowValue = valuesArray[row];
-    rowValue[col].value = value;
+    VectorRptTabElement rowElement = valuesArray[row];
+    rowElement[col].value = value;
+}
+
+void RptCrossTabObject::setMatrixElement(int col,int row, RptTabElement element) {
+
 }
 
 void RptCrossTabObject::makeFeelMatrix() {
@@ -191,6 +195,7 @@ QDebug operator<<(QDebug dbg, const RptCrossTabObject *obj) {
 //Bellow functions for working with a grid
 void RptCrossTabObject::addElement(RptTabElement element) {
     int correlation = 5;
+    int tmpCol = 0, tmpRow = 0;
 
     //---
     bool fnd = false;
@@ -199,9 +204,14 @@ void RptCrossTabObject::addElement(RptTabElement element) {
             element.left >= colVector.at(col)-correlation ) {
             fnd = true;
             element.corrLeft = colVector.at(col);
+            tmpCol = col;
+            break;
         }
     }
-    if (!fnd) colVector.append(element.left);
+    if (!fnd) {
+        colVector.append(element.left);
+        addCol("");
+    }
     //---
     fnd = false;
     for (int row=0; row < rowVector.size(); row++) {
@@ -209,20 +219,28 @@ void RptCrossTabObject::addElement(RptTabElement element) {
             element.top >= rowVector.at(row)-correlation ) {
             fnd = true;
             element.corrTop = rowVector.at(row);
+            tmpRow = row;
+            break;
         }
     }
-    if (!fnd) rowVector.append(element.top);
+    if (!fnd) {
+        rowVector.append(element.top);
+        addRow("");
+    }
+
 }
 
-void RptCrossTabObject::appendRow() {
+int RptCrossTabObject::appendRow() {
     m_rowHeader << "";
     valuesArray.resize(m_rowHeader.size());  //Set row count
+    return m_rowHeader.size()-1;
 }
 
-void RptCrossTabObject::appendColumn() {
+int RptCrossTabObject::appendColumn() {
     m_colHeader << "";
 
     QMutableVectorIterator<VectorRptTabElement> iRows(valuesArray);
     while (iRows.hasNext())
         (iRows.next()).resize(m_colHeader.size());
+    return m_colHeader.size()-1;
 }
