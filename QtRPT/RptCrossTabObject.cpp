@@ -77,7 +77,7 @@ void RptCrossTabObject::setMatrixValue(int col,int row, QVariant value) {
     rowValue[col].value = value;
 }
 
-void RptCrossTabObject::makeFielMatrix() {
+void RptCrossTabObject::makeFeelMatrix() {
     float fieldWidth = rect.width();
     float fieldheight = rect.height();
     if (colCount() == 0) return;
@@ -154,7 +154,8 @@ void RptCrossTabObject::addField(RptFieldObject *field) {
  */
 RptCrossTabObject::~RptCrossTabObject() {
     for (int i=0; i<fieldList.size(); i++)
-        delete fieldList.at(i);
+        if (fieldList.at(i) != 0)
+            delete fieldList.at(i);
     fieldList.clear();
 }
 
@@ -189,5 +190,29 @@ QDebug operator<<(QDebug dbg, const RptCrossTabObject *obj) {
 
 //Bellow functions for working with a grid
 void RptCrossTabObject::addElement(RptTabElement element) {
+    element.left;
 
+    QVectorIterator<int> iCols(colVector);
+    while (iCols.hasNext())
+        (iCols.next())
+
+
+    for (int row=0; row < rowCount(); row++) {
+        for (int col=0; col < colCount(); col++) {
+
+        }
+    }
+}
+
+void RptCrossTabObject::appendRow() {
+    m_rowHeader << "";
+    valuesArray.resize(m_rowHeader.size());  //Set row count
+}
+
+void RptCrossTabObject::appendColumn() {
+    m_colHeader << "";
+
+    QMutableVectorIterator<VectorRptTabElement> iRows(valuesArray);
+    while (iRows.hasNext())
+        (iRows.next()).resize(m_colHeader.size());
 }

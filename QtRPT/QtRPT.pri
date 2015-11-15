@@ -9,8 +9,8 @@ greaterThan(QT_MAJOR_VERSION, 4){
 include(../CommonFiles/CommonFiles_QtRpt.pri)
 
 INCLUDEPATH += $$PWD
-INCLUDEPATH += $$PWD/../3rdparty/QtXlsx
-LIBS += -L$${DEST_DIRECTORY}/lib -lQtXlsx
+#INCLUDEPATH += $$PWD/../3rdparty/QtXlsx
+#LIBS += -L$${DEST_DIRECTORY}/lib -lQtXlsx
 
 SOURCES += $$PWD/qtrpt.cpp \
            $$PWD/RptSql.cpp \

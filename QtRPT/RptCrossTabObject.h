@@ -67,11 +67,13 @@ public:
     void setMatrixValue(int col,int row, QVariant value);
     QVector<VectorRptTabElement > valuesArray;
 
-    void makeFielMatrix();   
+    void makeFeelMatrix();
     QList<RptFieldObject*> fieldList;
     RptFieldObject *parentField;
 
     void addElement(RptTabElement element);
+    void appendRow();
+    void appendColumn();
 
 private:
     bool colHeaderVisible;
@@ -81,10 +83,10 @@ private:
     int m_colCount;
     int m_rowCount;
 
-
-
     void addField(RptFieldObject *field);
 
+    QVector<int> colVector;
+    QVector<int> rowVector;
 
 };
 

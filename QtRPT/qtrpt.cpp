@@ -179,7 +179,7 @@ QtRPT::QtRPT(QObject *parent) : QObject(parent) {
     m_resolution = QPrinter::HighResolution;
     painter = 0;
     printer = 0;
-    m_xlsx = 0;
+    //m_xlsx = 0;
 }
 
 /*!
@@ -720,7 +720,7 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
                 //qDebug()<<QString(txt+" col-%1 row-%2").arg(col).arg(row);
                 if (col == 0) col = 1;
                 if (row == 0) row = 1;
-                m_xlsx->write(row,col, txt);
+                /*m_xlsx->write(row,col, txt);
 
                 for (int col=1; col<100; ++col) {
                     bool fnd = false;
@@ -733,8 +733,7 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
                     }
                     m_xlsx->setColumnHidden(col,!fnd);
                     if (fnd) m_xlsx->setColumnWidth(col,10);
-                }
-
+                }*/
             }
         } else {
             QRect boundRect = painter->boundingRect(left_+10,top_,width_-15,height_, flags, txt);
@@ -1424,8 +1423,8 @@ void QtRPT::printHTML(const QString &filePath, bool open) {
 void QtRPT::printXLSX(const QString &filePath, bool open) {
 #ifndef QT_NO_PRINTER  
     m_printMode = QtRPT::Xlsx;
-    if (m_xlsx != 0) delete m_xlsx;
-    m_xlsx = new QXlsx::Document(this);
+    //if (m_xlsx != 0) delete m_xlsx;
+    //m_xlsx = new QXlsx::Document(this);
 
     QFile file(filePath);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
@@ -1441,8 +1440,8 @@ void QtRPT::printXLSX(const QString &filePath, bool open) {
     printPreview(printer);
 
 
-    m_xlsx->write("A1", "Hello Qt!");
-    m_xlsx->saveAs(filePath);
+    //m_xlsx->write("A1", "Hello Qt!");
+    //m_xlsx->saveAs(filePath);
 
     file.close();
     if (open)
