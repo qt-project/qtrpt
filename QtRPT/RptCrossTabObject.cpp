@@ -190,18 +190,15 @@ QDebug operator<<(QDebug dbg, const RptCrossTabObject *obj) {
 
 //Bellow functions for working with a grid
 void RptCrossTabObject::addElement(RptTabElement element) {
-    element.left;
+    int correlation = 5;
 
-    QVectorIterator<int> iCols(colVector);
-    while (iCols.hasNext())
-        (iCols.next())
-
-
-    for (int row=0; row < rowCount(); row++) {
-        for (int col=0; col < colCount(); col++) {
-
-        }
+    bool fnd = false;
+    for (int col=0; col < colVector(); col++) {
+        if (element.left colVector.at(col) <=  ||
+            colVector.at(col) <= element.left)
+            fnd = true;
     }
+    if (!fnd) colVector.append(element.left);
 }
 
 void RptCrossTabObject::appendRow() {
