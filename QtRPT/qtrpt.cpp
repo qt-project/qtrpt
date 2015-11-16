@@ -714,6 +714,12 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
                 m_HTML.append("<div "+fieldObject->getHTMLStyle()+">"+txt+"</div>\n");
             }
             if (m_printMode == QtRPT::Xlsx) {
+                RptTabElement element;
+                element.fieldObject = fieldObject;
+                element.top = top_;
+                element.left = left_;
+                element.value = txt;
+                crossTab->addElement(element);
                 //qDebug()<<QString("left %1 top %2").arg(left_).arg(top_);
                 int col = left_/200;
                 int row = top_/200;
@@ -1421,7 +1427,8 @@ void QtRPT::printHTML(const QString &filePath, bool open) {
  \sa printExec(), printHTML(), printPDF()
  */
 void QtRPT::printXLSX(const QString &filePath, bool open) {
-#ifndef QT_NO_PRINTER  
+#ifndef QT_NO_PRINTER
+    crossTab = new RptCrossTabObject();
     m_printMode = QtRPT::Xlsx;
     //if (m_xlsx != 0) delete m_xlsx;
     //m_xlsx = new QXlsx::Document(this);
@@ -1439,6 +1446,8 @@ void QtRPT::printXLSX(const QString &filePath, bool open) {
     };
     printPreview(printer);
 
+    crossTab->resortMatrix();
+    qDebug()<<crossTab;
 
     //m_xlsx->write("A1", "Hello Qt!");
     //m_xlsx->saveAs(filePath);

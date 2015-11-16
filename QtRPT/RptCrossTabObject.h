@@ -75,8 +75,9 @@ public:
     RptFieldObject *parentField;
 
     void addElement(RptTabElement element);
-    int appendRow();
-    int appendColumn();
+    int appendRow(QString rowName);
+    int appendColumn(QString colName);
+    void resortMatrix();
 
 private:
     bool colHeaderVisible;

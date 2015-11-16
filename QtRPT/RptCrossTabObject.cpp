@@ -68,8 +68,7 @@ void RptCrossTabObject::initMatrix() {
 }
 
 QVariant RptCrossTabObject::getMatrixValue(int col,int row) const {
-    VectorRptTabElement rowValue = valuesArray[row];
-    return rowValue[col].value;
+    return valuesArray[row][col].value;
 }
 
 void RptCrossTabObject::setMatrixValue(int col,int row, QVariant value) {
@@ -180,7 +179,7 @@ QDebug operator<<(QDebug dbg, const RptCrossTabObject &obj) {
         }
 
         for(int col=0; col<obj.colCount(); col++) {
-            dbg << "|" << obj.getMatrixValue(col,row) << "\t";
+            dbg << "|" << obj.getMatrixValue(col,row).toString() << "\t";
         }
         dbg << "\n";
     }
@@ -193,13 +192,13 @@ QDebug operator<<(QDebug dbg, const RptCrossTabObject *obj) {
 
 //Bellow functions for working with a grid
 void RptCrossTabObject::addElement(RptTabElement element) {
-    int correlation = 5;
+    int correlation = 25;
     int tmpCol = 0, tmpRow = 0;
 
     //---
     bool fnd = false;
     for (int col=0; col < colVector.size(); col++) {
-        if (element.left <= colVector.at(col)+correlation ||
+        if (element.left <= colVector.at(col)+correlation &&
             element.left >= colVector.at(col)-correlation ) {
             fnd = true;
             element.corrLeft = colVector.at(col);
@@ -209,14 +208,15 @@ void RptCrossTabObject::addElement(RptTabElement element) {
     }
     if (!fnd) {
         colVector.append(element.left);
-        addCol("");
+        tmpCol = appendColumn(QString("%1").arg(element.left));
     }
     //---
     fnd = false;
     for (int row=0; row < rowVector.size(); row++) {
-        if (element.top <= rowVector.at(row)+correlation ||
+        if (element.top <= rowVector.at(row)+correlation &&
             element.top >= rowVector.at(row)-correlation ) {
             fnd = true;
+            //qDebug()<< element.top << rowVector.at(row)+correlation << rowVector.at(row)-correlation;
             element.corrTop = rowVector.at(row);
             tmpRow = row;
             break;
@@ -224,19 +224,28 @@ void RptCrossTabObject::addElement(RptTabElement element) {
     }
     if (!fnd) {
         rowVector.append(element.top);
-        addRow("");
+        tmpRow = appendRow(QString("%1").arg(element.top));
     }
+    initMatrix();
+    //qDebug()<<element.value.toString()<<tmpCol<<tmpRow;
     setMatrixElement(tmpCol,tmpRow,element);
 }
 
-int RptCrossTabObject::appendRow() {
-    m_rowHeader << "";
+void RptCrossTabObject::resortMatrix() {
+    for(int row=0; row<valuesArray.size(); row++) {
+        RptTabElement element = valuesArray[row][0];
+        //todo
+    }
+}
+
+int RptCrossTabObject::appendRow(QString rowName) {
+    m_rowHeader << rowName;
     valuesArray.resize(m_rowHeader.size());  //Set row count
     return m_rowHeader.size()-1;
 }
 
-int RptCrossTabObject::appendColumn() {
-    m_colHeader << "";
+int RptCrossTabObject::appendColumn(QString colName) {
+    m_colHeader << colName;
 
     QMutableVectorIterator<VectorRptTabElement> iRows(valuesArray);
     while (iRows.hasNext())

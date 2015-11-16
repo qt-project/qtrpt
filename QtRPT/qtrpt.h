@@ -59,6 +59,7 @@ class RptSql;
 class RptPageObject;
 class RptBandObject;
 class RptFieldObject;
+class RptCrossTabObject;
 
 QScriptValue funcAggregate(QScriptContext *context, QScriptEngine *engine);
 QScriptValue funcText(QScriptContext *context, QScriptEngine *engine);
@@ -171,6 +172,7 @@ public:
     QString m_sqlQuery;
     QString m_HTML;
     //QXlsx::Document *m_xlsx;
+    RptCrossTabObject *crossTab;
 
     void makeReportObjectStructure();
     enum PrintMode {
