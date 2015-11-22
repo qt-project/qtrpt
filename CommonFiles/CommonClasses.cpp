@@ -21,7 +21,7 @@ limitations under the License.
 */
 
 #include "CommonClasses.h"
-//#include <QDebug>
+#include <QDebug>
 
 QString double2MoneyUKR(double n, int currency) {
     static QString cap[4][10] =	{
@@ -473,7 +473,7 @@ QString double2MoneyENG(double number) {
     return output;
 }
 
-//Thank you to Norbert Schlia
+//Thanks to Norbert Schlia
 QString double2MoneyGER(double number, bool bAdditional /*= false*/) {
     static QMap<double, QString> numbers;
 
@@ -570,6 +570,210 @@ QString double2MoneyGER(double number, bool bAdditional /*= false*/) {
     return output;
 }
 
+//Thanks to Manuel Soriano
+#define	VALEN 16
+QString double2MoneyESP_Group(int _siGroup, char *_tscGroup, int _siGValue) {
+    int			siInd1, siWk1, siValue;
+    QString		stReturn, stWk1;
+
+    static QMap<int, QString> stUnits;
+    static QMap<int, QString> stDeci;
+    if (stUnits.isEmpty())
+    {
+        stUnits[0] = "cero ";
+        stUnits[1] = "uno ";
+        stUnits[2] = "dos ";
+        stUnits[3] = "tres ";
+        stUnits[4] = "cuatro ";
+        stUnits[5] = "cinco ";
+        stUnits[6] = "seis ";
+        stUnits[7] = "siete ";
+        stUnits[8] = "ocho ";
+        stUnits[9] = "nueve ";
+        stUnits[10] = "diez ";
+        stUnits[11] = "once ";
+        stUnits[12] = "doce ";
+        stUnits[13] = "trece ";
+        stUnits[14] = "catorce ";
+        stUnits[15] = "quince ";
+        stUnits[16] = "diez y seis ";
+        stUnits[17] = "diez y siete ";
+        stUnits[18] = "diez y ocho ";
+        stUnits[19] = "diez y nueve ";
+
+        stDeci[2] = "veinte ";
+        stDeci[3] = "treinta ";
+        stDeci[4] = "cuarenta ";
+        stDeci[5] = "cincuenta ";
+        stDeci[6] = "sesenta ";
+        stDeci[7] = "setenta ";
+        stDeci[8] = "ochenta ";
+        stDeci[9] = "noventa ";
+    }
+
+    for (siInd1=0; siInd1 < 3; siInd1++)
+    {
+        siValue = *(_tscGroup+siInd1) - 0x30;
+        stWk1 = stUnits[siValue];
+
+        if (_siGValue == 0)			// "cero" away
+        {
+            stReturn.clear();
+            siInd1 = 3;
+            continue;
+        }
+
+        if (siValue == 0)			// We do not want the "cero" text in our sentence
+        {
+            continue;
+        }
+
+        if (_siGValue == 1)
+        {
+            if (_siGroup == 3)
+            {
+                stReturn.clear();	// mil
+                siInd1 = 3;
+                continue;
+            }
+        }
+
+        if (siInd1 == 0)
+        {
+            if (siValue == 1)
+            {
+                if (atoi(_tscGroup) == 100)
+                {
+                    stReturn = ::QString("cien ");
+                    siInd1 = 3;
+                    continue;
+                }
+                else
+                {
+                    stWk1 = ::QString("ciento ");
+                }
+            }
+            else
+            {
+                stWk1 += ::QString("cientos ");
+            }
+        }
+
+        if (siInd1 == 1)
+        {
+            if (siValue == 1)
+            {
+                siWk1 = (siValue * 10) + *(_tscGroup+siInd1+1) - 0x30;
+                stReturn += stUnits[siWk1];
+                siInd1 = 3;
+                continue;
+            }
+
+            if (siValue > 1)
+            {
+                stWk1 = stDeci[siValue];
+                stWk1 += ::QString("y ");
+            }
+        }
+
+        if (siInd1 == 2)
+        {
+            if ((siValue == 1) && (_siGroup < 4))
+                stWk1 = ::QString("un ");
+        }
+
+        stReturn += stWk1;
+    }
+
+    return stReturn;
+}
+
+QString double2MoneyESP(double _dbValue, int _blDecimals) {
+    QString		stValue, stReturn;
+
+    long		slValue, slDecimals;
+    int			siLen, siWk1, siValue;
+    char		tscGroup[4], tscValue[VALEN];
+
+    static QMap<int, QString> stMillos;
+    if (stMillos.isEmpty())
+    {
+        stMillos[0] = "billónes ";
+        stMillos[1] = "millardos ";
+        stMillos[2] = "millones ";
+        stMillos[3] = "mil ";
+        stMillos[4] = "";
+        stMillos[5] = "";
+    }
+
+    static QMap<int, QString> stMillo;
+    if (stMillo.isEmpty())
+    {
+        stMillo[0] = "billó ";
+        stMillo[1] = "millardo ";
+        stMillo[2] = "millón ";
+        stMillo[3] = "mil ";
+        stMillo[4] = "";
+        stMillo[5] = "";
+    }
+
+
+    stReturn.clear();
+    memset(tscValue, 0x00, sizeof(tscValue));
+    memset(tscValue, 0x30, sizeof(tscValue)-1);
+
+    slValue = _dbValue * 1;
+    slDecimals = (_dbValue - slValue) * 100.;
+
+    qDebug() << "Entry: Value:" << slValue << "Decimals:" << slDecimals;
+
+    stValue.setNum(slValue);
+    siLen = stValue.length();
+
+    memcpy(tscValue+((VALEN-siLen)-1), stValue.toLatin1().data(), siLen);
+
+    for (siWk1=0; siWk1 < (VALEN/3); siWk1++)
+    {
+        memset(tscGroup, 0x00, sizeof(tscGroup));
+        memcpy(tscGroup, tscValue+(3*siWk1), 3);
+        if (strcmp(tscGroup, "000") == 0)
+            continue;
+        siValue = atoi(tscGroup);
+        stReturn += double2MoneyESP_Group(siWk1, tscGroup, siValue);
+        if (siValue == 1)
+            stReturn += stMillo[siWk1];
+        else
+            stReturn += stMillos[siWk1];
+    }
+
+    if ((slDecimals > 0) && _blDecimals)
+    {
+        stReturn += ::QString("con ");
+        stValue.setNum(slDecimals);
+        siLen = stValue.length();
+
+        memset(tscValue, 0x00, sizeof(tscValue));
+        memset(tscValue, 0x30, sizeof(tscValue)-1);
+        memcpy(tscValue+((VALEN-siLen)-1), stValue.toLatin1().data(), siLen);
+
+        for (siWk1=0; siWk1 < (VALEN/3); siWk1++)
+        {
+            memset(tscGroup, 0x00, sizeof(tscGroup));
+            memcpy(tscGroup, tscValue+(3*siWk1), 3);
+            if (strcmp(tscGroup, "000") == 0)
+                continue;
+            siValue = atoi(tscGroup);
+            stReturn += double2MoneyESP_Group(siWk1, tscGroup, siValue);
+            if (siValue == 1)
+                stReturn += stMillo[siWk1];
+            else
+                stReturn += stMillos[siWk1];
+        }
+    }
+
+    return stReturn;
+}
+
 QString double2Money(double n, QString lang) {
     if (lang == "UKR")
         return double2MoneyUKR(n,0);
@@ -579,6 +783,8 @@ QString double2Money(double n, QString lang) {
         return double2MoneyGER(n);
     else if (lang == "ENG")
         return double2MoneyENG(n);
+    else if (lang == "ESP")
+        return double2MoneyESP(n,2);
     else
         return double2MoneyENG(n);
 }

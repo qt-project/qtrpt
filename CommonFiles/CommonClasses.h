@@ -38,6 +38,8 @@ QString double2MoneyUKR(double n, int currency = 1);
 QString double2MoneyRUS(double n, int currency = 2);
 QString double2MoneyGER(double number, bool bAdditional = false);
 QString double2MoneyENG(double number);
+QString double2MoneyESP_Group(int _siGroup, char *_tscGroup, int _siGValue);
+QString double2MoneyESP(double _dbValue, int _blDecimals);
 QString double2Money(double n, QString lang);
 QString colorToString(QColor color);
 QColor colorFromString(QString value);
