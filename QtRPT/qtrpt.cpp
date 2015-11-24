@@ -1794,8 +1794,9 @@ void QtRPT::setBackgroundImage(QPixmap image) {
 }
 
 void QtRPT::drawBackground() {
-    if (painter->isActive())
+    if (painter->isActive()) {
         painter->setBackgroundMode(Qt::TransparentMode);
+    }
     if (m_backgroundImage != 0) {
         if (painter->isActive())
             painter->drawPixmap(-ml*koefRes_w,
@@ -1902,8 +1903,10 @@ void QtRPT::processGroupHeader(QPrinter *printer, int &y, bool draw, int pageRep
                         m_recNo = listOfPair.at(j).lnNo;
 
                         //-----------Added codes here. Thanks to puterk
-                        if (y + pageList.at(pageReport)->getBand(DataGroupFooter)->height > ph-mb-mt-yPF-yMF)
-                            newPage(printer, y, draw);
+                        if (pageList.at(pageReport)->getBand(DataGroupFooter) != 0) {
+                            if (y + pageList.at(pageReport)->getBand(DataGroupFooter)->height > ph-mb-mt-yPF-yMF)
+                                newPage(printer, y, draw);
+                        }
                         //-----------ends here. Thanks to puterk
 
                         if (pageList.at(pageReport)->getBand(DataGroupFooter) != 0) {

@@ -39,6 +39,8 @@ RepScrollArea::RepScrollArea(QWidget *parent) : QScrollArea(parent), ui(new Ui::
     pageSetting.pageWidth       = 840;
     pageSetting.pageHeight      = 1188;
     pageSetting.pageOrientation = 0;
+    pageSetting.border          = false;
+    pageSetting.borderWidth     = 1;
 
     this->setMouseTracking(true);
     this->installEventFilter(parent);
