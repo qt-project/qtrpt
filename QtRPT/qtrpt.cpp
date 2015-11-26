@@ -1025,6 +1025,8 @@ QScriptValue funcText(QScriptContext *context, QScriptEngine *engine) {
         paramValue = double2Money(value,paramLanguage);
     if (paramLanguage == "GER")
         paramValue = double2Money(value,paramLanguage);
+    if (paramLanguage == "ESP")
+        paramValue = double2Money(value,paramLanguage);
 
     return paramValue;
 }

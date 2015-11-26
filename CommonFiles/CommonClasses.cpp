@@ -1,5 +1,5 @@
 /*
-Version: 1.5.4
+Version: 1.5.5
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
@@ -688,6 +688,11 @@ QString double2MoneyESP_Group(int _siGroup, char *_tscGroup, int _siGValue) {
     return stReturn;
 }
 
+/*
+Thank you to Manuel Soriano
+0 : Does not print the decimals
+1 : Print the decimals
+*/
 QString double2MoneyESP(double _dbValue, int _blDecimals) {
     QString		stValue, stReturn;
 
@@ -709,7 +714,7 @@ QString double2MoneyESP(double _dbValue, int _blDecimals) {
     static QMap<int, QString> stMillo;
     if (stMillo.isEmpty())
     {
-        stMillo[0] = "billó ";
+        stMillo[0] = "billón ";
         stMillo[1] = "millardo ";
         stMillo[2] = "millón ";
         stMillo[3] = "mil ";
@@ -724,8 +729,6 @@ QString double2MoneyESP(double _dbValue, int _blDecimals) {
 
     slValue = _dbValue * 1;
     slDecimals = (_dbValue - slValue) * 100.;
-
-    qDebug() << "Entry: Value:" << slValue << "Decimals:" << slDecimals;
 
     stValue.setNum(slValue);
     siLen = stValue.length();
@@ -784,7 +787,7 @@ QString double2Money(double n, QString lang) {
     else if (lang == "ENG")
         return double2MoneyENG(n);
     else if (lang == "ESP")
-        return double2MoneyESP(n,2);
+        return double2MoneyESP(n,0);
     else
         return double2MoneyENG(n);
 }

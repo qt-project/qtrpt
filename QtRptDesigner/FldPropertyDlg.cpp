@@ -138,20 +138,30 @@ QString FldPropertyDlg::showThis(int index, QWidget *widget, QString value) {
 
                 item = new QTreeWidgetItem(f1);
                 item->setIcon(0,iconFunction);
+                item->setToolTip(0,tr("English"));
                 item->setText(0,"NumberToWords (ENG)");
                 item->setData(0,Qt::UserRole,"<NumberToWords('ENG', )>");
                 f1->addChild(item);
 
                 item = new QTreeWidgetItem(f1);
                 item->setIcon(0,iconFunction);
+                item->setToolTip(0,tr("German"));
                 item->setText(0,"NumberToWords (GER)");
                 item->setData(0,Qt::UserRole,"<NumberToWords('GER', )>");
                 f1->addChild(item);
 
                 item = new QTreeWidgetItem(f1);
                 item->setIcon(0,iconFunction);
+                item->setToolTip(0,tr("Ukrainian"));
                 item->setText(0,"NumberToWords (UKR)");
                 item->setData(0,Qt::UserRole,"<NumberToWords('UKR', )>");
+                f1->addChild(item);
+
+                item = new QTreeWidgetItem(f1);
+                item->setIcon(0,iconFunction);
+                item->setToolTip(0,tr("Spanish"));
+                item->setText(0,"NumberToWords (ESP)");
+                item->setData(0,Qt::UserRole,"<NumberToWords('ESP', )>");
                 f1->addChild(item);
 
                 //------------------Math functions----------------------
