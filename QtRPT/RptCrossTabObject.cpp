@@ -26,6 +26,8 @@ limitations under the License.
 RptCrossTabObject::RptCrossTabObject() {
     colHeaderVisible = true;
     rowHeaderVisible = true;
+    colTotalVisible = true;
+    rowTotalVisible = true;
     name = "RptCrossTabObject_DEMO";
     rect.setX(0);
     rect.setY(0);
@@ -84,11 +86,21 @@ void RptCrossTabObject::makeFeelMatrix() {
     float fieldheight = rect.height();
     if (colCount() == 0) return;
     if (rowCount() == 0) return;
-    if (isRowHeaderVisible()) fieldWidth = rect.width()/(colCount()+1);
-    else fieldWidth = rect.width()/colCount();
-    if (isColHeaderVisible()) fieldheight = rect.height()/(rowCount()+1);
-    else fieldheight = rect.height()/rowCount();
-    qDebug()<<rect.height()<<fieldheight<<rowCount();
+    int finalColCount = colCount();
+    int finalRowCount = rowCount();
+
+    if (isRowHeaderVisible())
+        finalColCount += 1;
+    if (isRowTotalVisible())
+        finalColCount += 1;
+
+    if (isColHeaderVisible())
+        finalRowCount += 1;
+    if (isColTotalVisible())
+        finalRowCount += 1;
+
+    fieldWidth = rect.width()/finalColCount;
+    fieldheight = rect.height()/finalRowCount;
 
     for (int row=0; row < rowCount(); row++) {
         if (isRowHeaderVisible()) {
@@ -106,6 +118,21 @@ void RptCrossTabObject::makeFeelMatrix() {
             h1->aligment = Qt::AlignCenter;
             addField(h1);  //Append field
         }
+        if (isRowTotalVisible()) {
+            //Make a rowTotal
+            RptFieldObject *h1 = new RptFieldObject();
+            h1->name = QString("rh%1").arg(row);
+            h1->fieldType = Text;
+            h1->rect.setTop(rect.top() + fieldheight + fieldheight*row);
+            h1->rect.setLeft(rect.left() + fieldWidth*(colCount()+1));
+            h1->rect.setHeight(fieldheight);
+            h1->rect.setWidth(fieldWidth);
+            h1->value = QString("TOTAL %1").arg(row);
+            h1->font.setBold(true);
+            h1->setDefaultBackgroundColor(Qt::lightGray); //Set default background color
+            h1->aligment = Qt::AlignCenter;
+            addField(h1);  //Append field
+        }
         for (int col=0; col < colCount(); col++) {
             if (row == 0 && isColHeaderVisible()) {
                 //Make a colHeader
@@ -113,10 +140,25 @@ void RptCrossTabObject::makeFeelMatrix() {
                 h1->name = QString("ch%1").arg(col);
                 h1->fieldType = Text;
                 h1->rect.setTop(rect.top());
-                h1->rect.setLeft(rect.left() + fieldWidth + fieldWidth*col -1);
+                h1->rect.setLeft(rect.left() + fieldWidth + fieldWidth*col-1);
                 h1->rect.setHeight(fieldheight);
                 h1->rect.setWidth(fieldWidth);
                 h1->value = m_colHeader[col];
+                h1->font.setBold(true);
+                h1->setDefaultBackgroundColor(Qt::lightGray); //Set default background color
+                h1->aligment = Qt::AlignCenter;
+                addField(h1);  //Append field
+            }
+            if (row == rowCount()-1 && isColHeaderVisible()) {
+                //Make a colTotal
+                RptFieldObject *h1 = new RptFieldObject();
+                h1->name = QString("rh%1").arg(row);
+                h1->fieldType = Text;
+                h1->rect.setTop(rect.top() + fieldheight + fieldheight*rowCount());
+                h1->rect.setLeft(rect.left() + fieldWidth + fieldWidth*col-1);
+                h1->rect.setHeight(fieldheight);
+                h1->rect.setWidth(fieldWidth);
+                h1->value = QString("TOTAL %1").arg(col);
                 h1->font.setBold(true);
                 h1->setDefaultBackgroundColor(Qt::lightGray); //Set default background color
                 h1->aligment = Qt::AlignCenter;
@@ -137,6 +179,35 @@ void RptCrossTabObject::makeFeelMatrix() {
             h1->aligment = Qt::AlignCenter;
             addField(h1);  //Append field
         }
+    }
+
+    if (isRowTotalVisible()) {
+        RptFieldObject *h1 = new RptFieldObject();
+        h1->name = "cTotal";
+        h1->fieldType = Text;
+        h1->rect.setTop(rect.top());
+        h1->rect.setLeft(rect.left() + fieldWidth*(colCount()+1));
+        h1->rect.setHeight(fieldheight);
+        h1->rect.setWidth(fieldWidth);
+        h1->value = QObject::tr("C-Total");
+        h1->font.setBold(true);
+        h1->setDefaultBackgroundColor(Qt::lightGray); //Set default background color
+        h1->aligment = Qt::AlignCenter;
+        addField(h1);  //Append field
+    }
+    if (isColTotalVisible()) {
+        RptFieldObject *h1 = new RptFieldObject();
+        h1->name = "rTotal";
+        h1->fieldType = Text;
+        h1->rect.setTop(rect.top() + fieldheight + fieldheight*rowCount());
+        h1->rect.setLeft(rect.left());
+        h1->rect.setHeight(fieldheight);
+        h1->rect.setWidth(fieldWidth);
+        h1->value = QObject::tr("R-Total");
+        h1->font.setBold(true);
+        h1->setDefaultBackgroundColor(Qt::lightGray); //Set default background color
+        h1->aligment = Qt::AlignCenter;
+        addField(h1);  //Append field
     }
 }
 

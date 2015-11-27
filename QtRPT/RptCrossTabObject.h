@@ -45,7 +45,6 @@ struct RptTabElement {
 
 typedef QVector<RptTabElement> VectorRptTabElement;
 
-
 class RptCrossTabObject
 {
 public:
@@ -57,6 +56,12 @@ public:
     bool isRowHeaderVisible() const {return rowHeaderVisible;}
     void setColHeaderVisible(bool value) {colHeaderVisible = value;}
     void setRowHeaderVisible(bool value) {rowHeaderVisible = value;}
+
+    bool isColTotalVisible() const {return colTotalVisible;}
+    bool isRowTotalVisible() const {return rowTotalVisible;}
+    void setColTotalVisible(bool value) {colTotalVisible = value;}
+    void setRowTotalVisible(bool value) {rowTotalVisible = value;}
+
     void addCol(QString colName);
     void addRow(QString rowName);
     QString getColName(int col) const;
@@ -82,6 +87,8 @@ public:
 private:
     bool colHeaderVisible;
     bool rowHeaderVisible;
+    bool colTotalVisible;
+    bool rowTotalVisible;
     QStringList m_colHeader;
     QStringList m_rowHeader;
     int m_colCount;
