@@ -1,6 +1,6 @@
 /*
 Name: QtRpt
-Version: 1.5.4
+Version: 1.5.5
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
@@ -336,6 +336,8 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent), ui(new Ui::MainW
     addGroup->addAction(ui->actMagnifying);
     addGroup->addAction(ui->actAddDiagram);
     addGroup->addAction(ui->actAddDrawing);
+    addGroup->addAction(ui->actAddBarcode);
+    addGroup->addAction(ui->actAddRichText);
 
     ui->actSelect_tool->setChecked(true);
 
@@ -355,6 +357,7 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent), ui(new Ui::MainW
     QObject::connect(ui->actAddField, SIGNAL(triggered()), this, SLOT(addFieldText()));
     QObject::connect(ui->actAddPicture, SIGNAL(triggered()), this, SLOT(AddPicture()));
     QObject::connect(ui->actAddRichText, SIGNAL(triggered()), this, SLOT(addFieldTextRich()));
+    QObject::connect(ui->actAddDiagram, SIGNAL(triggered()), this, SLOT(addDiagram()));
     QObject::connect(ui->actAddCrossTab, SIGNAL(triggered()), this, SLOT(addFieldCrossTab()));
 
     QObject::connect(ui->actGroup, SIGNAL(triggered()), this, SLOT(setGroupingField()));
@@ -406,7 +409,6 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent), ui(new Ui::MainW
     QObject::connect(ui->actSettings, SIGNAL(triggered()), this, SLOT(showSetting()));
     QObject::connect(ui->actGroupProperty, SIGNAL(triggered()), this, SLOT(openDBGroupProperty()));
     QObject::connect(ui->actCheckUpdates, SIGNAL(triggered()), this, SLOT(checkUpdates()));
-    QObject::connect(ui->actAddDiagram, SIGNAL(triggered()), this, SLOT(addDiagram()));
     QObject::connect(ui->actPageSettings, SIGNAL(triggered()), this, SLOT(showPageSetting()));
     QObject::connect(ui->actPreview, SIGNAL(triggered()), this, SLOT(showPreview()));
     QObject::connect(ui->actDataSource, SIGNAL(triggered()), this, SLOT(showDataSource()));
@@ -2476,6 +2478,9 @@ void MainWindow::enableAdding() {
     ui->actAddDiagram->setEnabled(repPage->allowField());
     ui->actAddBarcode->setEnabled(repPage->allowField());
     ui->actAddDrawing->setEnabled(repPage->allowField());
+
+    ui->actAddCrossTab->setEnabled(repPage->allowField());
+    //ui->actAddCrossTabBD->setEnabled(repPage->allowField());
 }
 
 void MainWindow::addBand() {

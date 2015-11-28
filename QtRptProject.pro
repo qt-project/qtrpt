@@ -6,10 +6,10 @@ TEMPLATE = subdirs
 }
 
 #Un-remark this line, if you want to build QtRPT as a library
-# DEFINES += QTRPT_LIBRARY
-#contains(DEFINES,QTRPT_LIBRARY) {
-#    SUBDIRS += QtRPT
-#}
+DEFINES += QTRPT_LIBRARY
+contains(DEFINES,QTRPT_LIBRARY) {
+    SUBDIRS += QtRPT
+}
 
 SUBDIRS += 3rdparty QtRptDesigner QtRptDemo #QtRptCGI
 !contains(DEFINES,NO_BARCODE) {

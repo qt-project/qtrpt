@@ -32,7 +32,7 @@ limitations under the License.
 #include "qtrpt.h"
 
 namespace Ui {
-class ExampleDlg1;
+    class ExampleDlg1;
 }
 
 class ExampleDlg1 : public QDialog

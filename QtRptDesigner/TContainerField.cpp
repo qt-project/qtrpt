@@ -1,6 +1,6 @@
 /*
 Name: QtRpt
-Version: 1.5.4
+Version: 1.5.5
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
@@ -228,6 +228,9 @@ void TContainerField::edit() {
                 emit contChanged(true);
             break;
         }
+        case CrossTab: {
+            break;
+        }
         default: return;
     }
     if (dlg->result() == QDialog::Accepted) {
@@ -305,6 +308,11 @@ void TContainerField::setType(FieldType value, QDomDocument *xmlDoc) {
             break;
         }
         case CrossTab: {
+            m_label->setVisible(false);
+            if (this->parentWidget()->objectName() == "MainWindow") {
+                this->resize(400,300);
+                this->setBaseSize(400,300);
+            }
             break;
         }
         default:

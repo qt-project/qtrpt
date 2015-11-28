@@ -1025,6 +1025,9 @@
    </property>
   </action>
   <action name="actAddDiagram">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="enabled">
     <bool>false</bool>
    </property>
@@ -1124,6 +1127,9 @@
    </property>
   </action>
   <action name="actAddBarcode">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="enabled">
     <bool>false</bool>
    </property>
@@ -1151,6 +1157,9 @@
    </property>
   </action>
   <action name="actAddRichText">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="enabled">
     <bool>false</bool>
    </property>
@@ -1190,6 +1199,9 @@
    </property>
   </action>
   <action name="actAddCrossTab">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="enabled">
     <bool>false</bool>
    </property>
@@ -1205,6 +1217,9 @@
    </property>
   </action>
   <action name="actAddCrossTabBD">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="enabled">
     <bool>false</bool>
    </property>
