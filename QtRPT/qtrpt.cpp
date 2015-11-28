@@ -1436,8 +1436,8 @@ void QtRPT::printXLSX(const QString &filePath, bool open) {
     //m_xlsx = new QXlsx::Document(this);
 
     QFile file(filePath);
-    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
-        return;
+    //if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+    //    return;
 
     if (printer == 0){
         printer = new QPrinter(m_resolution);
@@ -1455,8 +1455,8 @@ void QtRPT::printXLSX(const QString &filePath, bool open) {
     //m_xlsx->saveAs(filePath);
 
     file.close();
-    if (open)
-        QDesktopServices::openUrl(QUrl("file:"+filePath));
+    //if (open)
+    //    QDesktopServices::openUrl(QUrl("file:"+filePath));
 #endif
 }
 
@@ -2156,7 +2156,7 @@ void QtRPT::setSqlQuery(QString sqlString) {
   \page qtrptproject.html
   \title QtRptProject
   \list
-  \li Version 1.5.4
+  \li Version 1.5.5
   \li Programmer: Aleksey Osipov
   \li Web-site: \l {http://www.aliks-os.tk} {http://www.aliks-os.tk}
   \li Email: \l {mailto:aliks-os@ukr.net} {aliks-os@ukr.net}
@@ -2176,51 +2176,43 @@ void QtRPT::setSqlQuery(QString sqlString) {
   \endlist
 */
 
-void QtRPT::setUserSqlConnection(int pageReport, const RptSqlConnection & SqlConnection)
-{
-    if (userSqlConnection.count() <= pageReport)
-    {
+void QtRPT::setUserSqlConnection(int pageReport, const RptSqlConnection & SqlConnection) {
+    if (userSqlConnection.count() <= pageReport) {
         // If page does not exist, add new connection for this page
         userSqlConnection.resize(pageReport);
         userSqlConnection.insert(pageReport, SqlConnection);
-    }
-    else
-    {
+    } else {
         // If page exists, replace connection for this page
         userSqlConnection.replace(pageReport, SqlConnection);
     }
 }
 
-void QtRPT::getUserSqlConnection(int pageReport, RptSqlConnection & SqlConnection)
-{
-    if (userSqlConnection.count() <= pageReport)
-    {
+void QtRPT::getUserSqlConnection(int pageReport, RptSqlConnection & SqlConnection) {
+    if (userSqlConnection.count() <= pageReport) {
         // Return inactive connection
         SqlConnection.reset();
-    }
-    else
-    {
+    } else {
         SqlConnection = userSqlConnection.at(pageReport);
     }
 }
 
-void QtRPT::setUserSqlConnection(int pageReport, QString dsName, QString dbType, QString dbName, QString dbHost, QString dbUser, QString dbPassword, int dbPort, QString dbConnectionName, QString sqlQuery, QString dbCoding, QString charsetCoding)
-{
+void QtRPT::setUserSqlConnection(int pageReport, QString dsName, QString dbType, QString dbName,
+                                 QString dbHost, QString dbUser, QString dbPassword, int dbPort,
+                                 QString dbConnectionName, QString sqlQuery, QString dbCoding,
+                                 QString charsetCoding) {
     // Create enabled RptSqlConnection object with all parameters
-    RptSqlConnection SqlConnection(dsName, dbType, dbName, dbHost, dbUser, dbPassword, dbPort, dbConnectionName, sqlQuery, dbCoding, charsetCoding);
+    RptSqlConnection SqlConnection(dsName, dbType, dbName, dbHost, dbUser,
+                                   dbPassword, dbPort, dbConnectionName, sqlQuery, dbCoding, charsetCoding);
 
     setUserSqlConnection(pageReport, SqlConnection);
 }
 
-void QtRPT::activateUserSqlConnection(int pageReport, bool bActive)
-{
+void QtRPT::activateUserSqlConnection(int pageReport, bool bActive) {
     RptSqlConnection SqlConnection;
 
     // Enable or disable connection
     getUserSqlConnection(pageReport, SqlConnection);
-
     SqlConnection.m_bIsActive = bActive;
-
     setUserSqlConnection(pageReport, SqlConnection);
 }
 

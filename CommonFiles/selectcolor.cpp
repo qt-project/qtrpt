@@ -1,6 +1,6 @@
 /*
 Name: CommonFiles
-Version: 1.5.4
+Version: 1.5.5
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
@@ -24,7 +24,6 @@ limitations under the License.
 #include "selectcolor.h"
 
 SelectColor::SelectColor(QWidget *parent, QString rgbColor) : QWidget(parent) {
-    //QWidget *w = new QWidget(ui->tableWidget);
     QWidget *colorBox = new QWidget(this);
     colorBox->setObjectName("colorBox");
     QString stl = "QWidget#colorBox {;"

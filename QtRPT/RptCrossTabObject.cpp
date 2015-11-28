@@ -261,9 +261,17 @@ QDebug operator<<(QDebug dbg, const RptCrossTabObject *obj) {
     return dbg << *obj;
 }
 
+
 //Bellow functions for working with a grid
+
+/*!
+ \fn void RptCrossTabObject::addElement(RptTabElement element)
+    Add \a element as a RptFieldObject to the matrix.
+    This function is only required when RptCrossTabObject is used when
+    carry out report export to Excel.
+*/
 void RptCrossTabObject::addElement(RptTabElement element) {
-    int correlation = 25;
+    int correlation = 50;
     int tmpCol = 0, tmpRow = 0;
 
     //---
@@ -298,15 +306,40 @@ void RptCrossTabObject::addElement(RptTabElement element) {
         tmpRow = appendRow(QString("%1").arg(element.top));
     }
     initMatrix();
-    //qDebug()<<element.value.toString()<<tmpCol<<tmpRow;
     setMatrixElement(tmpCol,tmpRow,element);
 }
 
+/*!
+ \fn void RptCrossTabObject::resortMatrix()
+    This function resort Matrix which stores values of RptTabElement.
+    This function is only required when RptCrossTabObject is used when
+    carry out report export to Excel. In this case matrix hold on values
+    of all fields. m_colHeader and m_rowHeader lists hold a numbers of positions
+    of the each field, to right export to Excel grid, these numbers should be resorted
+    and transfer to row(col) number of Excel.
+
+    \sa RptTabElement element
+*/
 void RptCrossTabObject::resortMatrix() {
-    for(int row=0; row<valuesArray.size(); row++) {
-        RptTabElement element = valuesArray[row][0];
-        //todo
-    }
+    //resort rows
+    int n = m_rowHeader.size();
+    for(int i=0; i<n; ++i)
+        for(int j=i+1; j<n; ++j)
+            if(QString(m_rowHeader[j]).toInt() < QString(m_rowHeader[i]).toInt()) {
+                qSwap(m_rowHeader[i], m_rowHeader[j]);
+                qSwap(valuesArray[i], valuesArray[j]);
+            }
+
+    //resort columns
+    n = m_colHeader.size();
+    for(int i=0; i<n; ++i)
+        for(int j=i+1; j<n; ++j)
+            if(QString(m_colHeader[j]).toInt() < QString(m_colHeader[i]).toInt()) {
+                qSwap(m_colHeader[i], m_colHeader[j]);
+                for(int row=0; row<m_rowHeader.size(); row++) {
+                    qSwap(valuesArray[row][i], valuesArray[row][j]);
+                }
+            }
 }
 
 int RptCrossTabObject::appendRow(QString rowName) {
