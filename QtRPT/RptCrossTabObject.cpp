@@ -45,6 +45,26 @@ int RptCrossTabObject::rowCount() const {
     return m_rowHeader.size();
 }
 
+int RptCrossTabObject::allColCount() const {
+    int finalColCount = colCount();
+
+    if (isRowHeaderVisible())
+        finalColCount += 1;
+    if (isRowTotalVisible())
+        finalColCount += 1;
+    return finalColCount;
+}
+
+int RptCrossTabObject::allRowCount() const {
+    int finalRowCount = rowCount();
+
+    if (isColHeaderVisible())
+        finalRowCount += 1;
+    if (isColTotalVisible())
+        finalRowCount += 1;
+    return finalRowCount;
+}
+
 void RptCrossTabObject::addCol(QString colName) {
     m_colHeader << colName;
 }
@@ -86,21 +106,9 @@ void RptCrossTabObject::makeFeelMatrix() {
     float fieldheight = rect.height();
     if (colCount() == 0) return;
     if (rowCount() == 0) return;
-    int finalColCount = colCount();
-    int finalRowCount = rowCount();
 
-    if (isRowHeaderVisible())
-        finalColCount += 1;
-    if (isRowTotalVisible())
-        finalColCount += 1;
-
-    if (isColHeaderVisible())
-        finalRowCount += 1;
-    if (isColTotalVisible())
-        finalRowCount += 1;
-
-    fieldWidth = rect.width()/finalColCount;
-    fieldheight = rect.height()/finalRowCount;
+    fieldWidth = rect.width()/allColCount();
+    fieldheight = rect.height()/allRowCount();
 
     for (int row=0; row < rowCount(); row++) {
         if (isRowHeaderVisible()) {

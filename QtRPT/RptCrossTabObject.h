@@ -68,6 +68,8 @@ public:
     QString getRowName(int row) const;
     int colCount() const;
     int rowCount() const;
+    int allColCount() const;
+    int allRowCount() const;
 
     void initMatrix();
     QVariant getMatrixValue(int col,int row) const;

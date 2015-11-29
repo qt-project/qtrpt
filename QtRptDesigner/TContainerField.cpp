@@ -317,6 +317,7 @@ void TContainerField::setType(FieldType value, QDomDocument *xmlDoc) {
             break;
         }
         case CrossTab: {
+            setText("");
             if (this->parentWidget()->objectName() == "MainWindow") {
                 this->resize(400,300);
                 this->setBaseSize(400,300);
@@ -615,8 +616,18 @@ void TContainerField::paintEvent( QPaintEvent * event) {
             break;
         }
         case CrossTab: {
-            QPoint p1(0,0),p2(width(), height());
-            p.drawLine(p1,p2);
+            int fieldWidth = m_crossTab->rect.width()/m_crossTab->allColCount();
+            int fieldheight = m_crossTab->rect.height()/m_crossTab->allRowCount();
+            for(int row=0; row<m_crossTab->allRowCount(); row++) {
+                QPoint p1(0, row*fieldheight),
+                       p2(width(), row*fieldheight);
+                p.drawLine(p1,p2);
+            }
+            for(int col=0; col<m_crossTab->allColCount(); col++) {
+                QPoint p1(col*fieldWidth, 0),
+                       p2(col*fieldWidth, height());
+                p.drawLine(p1,p2);
+            }
             break;
         }
     default: QWidget::paintEvent(event);
