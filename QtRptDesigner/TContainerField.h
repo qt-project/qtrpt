@@ -1,6 +1,6 @@
 /*
 Name: QtRpt
-Version: 1.5.4
+Version: 1.5.5
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
@@ -28,6 +28,7 @@ limitations under the License.
 #include "EditFldDlg.h"
 #include <chart.h>
 #include <Barcode.h>
+#include <RptCrossTabObject.h>
 
 class TContainerField : public RptContainer {
     Q_OBJECT    
@@ -101,6 +102,7 @@ private:
     QPixmap m_pixmap;
     QDomDocument *m_xmlDoc;
     BarCode *m_barcode;
+    RptCrossTabObject *m_crossTab;
     bool m_autoHeight;
     QString m_formatString;
     void setFont(QFont font) {m_label->setFont(font);}

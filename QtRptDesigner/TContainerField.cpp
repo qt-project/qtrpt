@@ -48,7 +48,8 @@ TContainerField::TContainerField(QWidget *parent, QPoint p, QWidget *cWidget) : 
     m_highlighting = "";
     m_formatString = "";
     m_xmlDoc = 0;
-    m_barcode = 0;
+    m_barcode = nullptr;
+    m_crossTab = nullptr;
     m_autoHeight = false;
     radius = 6;
     m_textWrap = true;
@@ -178,6 +179,9 @@ void TContainerField::resizeEvent(QResizeEvent *e) {
                 m_label->setPixmap(m_pixmap.scaled(m_label->width(),m_label->height(),Qt::KeepAspectRatio));
         }
     }
+    if (this->m_type == CrossTab) {
+        //m_crossTab->rect = this->rect;
+    }
 }
 
 QString TContainerField::getImgFormat() {
@@ -189,6 +193,8 @@ void TContainerField::setImgFromat(QString value) {
 }
 
 TContainerField::~TContainerField() {
+    if (m_crossTab != nullptr)
+        delete m_crossTab;
 }
 
 #include "UndoCommands.h"
@@ -309,6 +315,22 @@ void TContainerField::setType(FieldType value, QDomDocument *xmlDoc) {
         }
         case CrossTab: {
             m_label->setVisible(false);
+            m_crossTab = new RptCrossTabObject();
+            //m_crossTab->rect = this->rect;
+            m_crossTab->addCol("C1");
+            m_crossTab->addCol("C2");
+            m_crossTab->addCol("C3");
+            m_crossTab->addRow("R1");
+            m_crossTab->addRow("R2");
+            m_crossTab->addRow("R3");
+            m_crossTab->setColHeaderVisible(true);
+            m_crossTab->setRowHeaderVisible(true);
+            m_crossTab->initMatrix();
+            //Fill values into matrix
+            for (int r=0; r<m_crossTab->rowCount(); r++)
+                for (int c=0; c<m_crossTab->colCount(); c++)
+                    m_crossTab->setMatrixValue(c,r,QString("%1%2").arg(c).arg(r));
+
             if (this->parentWidget()->objectName() == "MainWindow") {
                 this->resize(400,300);
                 this->setBaseSize(400,300);
@@ -581,10 +603,13 @@ void TContainerField::paintEvent( QPaintEvent * event) {
             break;
         }
         case Barcode: {
-            if (m_barcode != 0) {
+            if (m_barcode != nullptr) {
                 m_barcode->setValue(m_label->text());
                 m_barcode->drawBarcode(&p,0,0,this->width(),this->height());
             }
+            break;
+        }
+        case CrossTab: {
             break;
         }
     default: QWidget::paintEvent(event);
