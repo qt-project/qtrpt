@@ -243,6 +243,8 @@ void ReportBand::newFieldTreeItem(QObject *widget) {
             icon.addPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/images/barcode.png")), QIcon::Normal, QIcon::On);
         if (container->getType() == TextRich)
             icon.addPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/images/richText.png")), QIcon::Normal, QIcon::On);
+        if (container->getType() == CrossTab)
+            icon.addPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/images/crossTab.png")), QIcon::Normal, QIcon::On);
         item->setIcon(0,icon);
         item->setText(0,container->objectName());
         item->setSelected(true);

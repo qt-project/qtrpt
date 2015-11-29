@@ -180,7 +180,10 @@ void TContainerField::resizeEvent(QResizeEvent *e) {
         }
     }
     if (this->m_type == CrossTab) {
-        //m_crossTab->rect = this->rect;
+        if (m_crossTab != nullptr) {
+            m_crossTab->rect.setHeight(this->rect().height());
+            m_crossTab->rect.setWidth(this->rect().width());
+        }
     }
 }
 
@@ -314,9 +317,13 @@ void TContainerField::setType(FieldType value, QDomDocument *xmlDoc) {
             break;
         }
         case CrossTab: {
-            m_label->setVisible(false);
+            if (this->parentWidget()->objectName() == "MainWindow") {
+                this->resize(400,300);
+                this->setBaseSize(400,300);
+            }
             m_crossTab = new RptCrossTabObject();
-            //m_crossTab->rect = this->rect;
+            m_crossTab->rect.setHeight(this->rect().height());
+            m_crossTab->rect.setWidth(this->rect().width());
             m_crossTab->addCol("C1");
             m_crossTab->addCol("C2");
             m_crossTab->addCol("C3");
@@ -331,10 +338,7 @@ void TContainerField::setType(FieldType value, QDomDocument *xmlDoc) {
                 for (int c=0; c<m_crossTab->colCount(); c++)
                     m_crossTab->setMatrixValue(c,r,QString("%1%2").arg(c).arg(r));
 
-            if (this->parentWidget()->objectName() == "MainWindow") {
-                this->resize(400,300);
-                this->setBaseSize(400,300);
-            }
+
             break;
         }
         default:
@@ -531,7 +535,8 @@ Chart *TContainerField::getChart() {
 void TContainerField::paintEvent( QPaintEvent * event) {
     Q_UNUSED(event);
 
-    if (!QtRPT::getDrawingFields().contains(m_type) && m_type != Barcode) {
+    if (!QtRPT::getDrawingFields().contains(m_type) &&
+        m_type != Barcode && m_type != CrossTab) {
         QWidget::paintEvent(event);
         return;
     }
@@ -610,6 +615,8 @@ void TContainerField::paintEvent( QPaintEvent * event) {
             break;
         }
         case CrossTab: {
+            QPoint p1(0,0),p2(width(), height());
+            p.drawLine(p1,p2);
             break;
         }
     default: QWidget::paintEvent(event);
