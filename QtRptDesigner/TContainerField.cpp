@@ -238,6 +238,8 @@ void TContainerField::edit() {
             break;
         }
         case CrossTab: {
+            if (dlg->showCrosstab(this) == QDialog::Accepted)
+                emit contChanged(true);
             break;
         }
         default: return;
@@ -627,6 +629,27 @@ void TContainerField::paintEvent( QPaintEvent * event) {
                 QPoint p1(col*fieldWidth, 0),
                        p2(col*fieldWidth, height());
                 p.drawLine(p1,p2);
+            }
+
+            m_crossTab->setColHeaderVisible(false);
+            for(int row=0; row<m_crossTab->rowCount(); row++) {
+                QString row_txt = m_crossTab->getRowName(row);
+                if (m_crossTab->isColHeaderVisible()) {
+                    QPoint p1(0*fieldWidth+20, (row+1)*fieldheight+20);
+                    p.drawText(p1,row_txt);
+                } else {
+                    QPoint p1(0*fieldWidth+20, (row)*fieldheight+20);
+                    p.drawText(p1,row_txt);
+                }
+                //---
+                /*for(int col=0; col<m_crossTab->colCount(); col++) {
+                    QString col_txt = m_crossTab->getColName(col);
+
+                    if (m_crossTab->isRowHeaderVisible()) {
+                        QPoint p1((col+1)*fieldWidth+20, 0*fieldheight+20);
+                        p.drawText(p1,col_txt);
+                    }
+                }*/
             }
             break;
         }

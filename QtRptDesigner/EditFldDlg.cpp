@@ -1,6 +1,6 @@
 /*
 Name: QtRpt
-Version: 1.5.4
+Version: 1.5.5
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
@@ -191,26 +191,22 @@ int EditFldDlg::showText(TContainerField *cont) {
     if (cont->getTextDirection())
         ui->btnTextDirection->click();
 
-    switch (cont->getType())
-    {
-    case TextImage:
-    {
-        ui->radioButtonTextImage->setChecked(true);
-        boolImage = true;
-        break;
-    }
-    case DatabaseImage:
-    {
-        ui->radioButtonDatabaseImage->setChecked(true);
-        boolImage = true;
-        break;
-    }
-    default:
-    {
-        ui->radioButtonText->setChecked(true);
-        boolImage = false;
-        break;
-    }
+    switch (cont->getType()) {
+        case TextImage: {
+            ui->radioButtonTextImage->setChecked(true);
+            boolImage = true;
+            break;
+        }
+        case DatabaseImage: {
+            ui->radioButtonDatabaseImage->setChecked(true);
+            boolImage = true;
+            break;
+        }
+        default: {
+            ui->radioButtonText->setChecked(true);
+            boolImage = false;
+            break;
+        }
     }
 
     ui->lblAttention->setVisible(boolImage);
@@ -366,6 +362,12 @@ int EditFldDlg::showBarcode(TContainerField *cont) {
         cont->setBarcodeFrameType((BarCode::FrameTypes)ui->wBarcode->metaObject()->enumerator(1).value(ui->cbFrameType->currentIndex()));
         cont->setBarcodeHeight(ui->spnHeight->value());
 
+        return QDialog::Accepted;
+    } else return QDialog::Rejected;
+}
+
+int EditFldDlg::showCrosstab(TContainerField *cont) {
+    if (this->exec()) {
         return QDialog::Accepted;
     } else return QDialog::Rejected;
 }

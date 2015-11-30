@@ -1,6 +1,6 @@
 /*
 Name: QtRpt
-Version: 1.5.4
+Version: 1.5.5
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
@@ -50,6 +50,7 @@ public:
     int showImage(TContainerField *cont);
     int showDiagram(TContainerField *cont);
     int showBarcode(TContainerField *cont);
+    int showCrosstab(TContainerField *cont);
 
 protected:
 
