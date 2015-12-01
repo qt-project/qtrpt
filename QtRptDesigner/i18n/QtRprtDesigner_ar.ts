@@ -1,777 +1,2440 @@
-<!DOCTYPE html>
-<!-- Server: sfn-web-1 -->
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]>-->
-<html lang="en" class="no-js"> <!--<![endif]-->
-<head>
-    <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
-    <title>
-  u/hpctech / QtRPT - GIT /
-  [5e29cd]
-  /QtRptDesigner/i18n/QtRprtDesigner_ar.ts
-</title>
-    
-<meta id="project_name" name="project_name" content='hpctech.u' />
-<script src="https://a.fsdn.com/allura/nf/1448394096/_ew_/theme/sftheme/js/sftheme/modernizr.custom.90514.js"></script>
-<!--[if lt IE 7 ]>
-  <script src="https://a.fsdn.com/allura/nf/1448394096/_ew_/theme/sftheme/js/sftheme/dd_belatedpng.js"></script>
-  <script> DD_belatedPNG.fix('img, .png_bg'); //fix any <img> or .png_bg background-images </script>
-<![endif]-->
-<link href='//fonts.googleapis.com/css?family=Ubuntu:regular' rel='stylesheet' type='text/css'>
-    <script type="text/javascript">
-        /*jslint onevar: false, nomen: false, evil: true, css: true, plusplus: false, white: false, forin: true, on: true, immed: false */
-        /*global confirm, alert, unescape, window, jQuery, $, net, COMSCORE */
-    </script>
-    
-        <!-- ew:head_css -->
-
-    
-        <link rel="stylesheet"
-                type="text/css"
-                href="https://a.fsdn.com/allura/nf/1448394096/_ew_/_slim/css?href=allura%2Fcss%2Fforge%2Fhilite.css%3Ballura%2Fcss%2Fforge%2Ftooltipster.css"
-                >
-    
-        <link rel="stylesheet"
-                type="text/css"
-                href="https://a.fsdn.com/allura/nf/1448394096/_ew_/allura/css/font-awesome.min.css"
-                >
-    
-        <link rel="stylesheet"
-                type="text/css"
-                href="https://a.fsdn.com/allura/nf/1448394096/_ew_/theme/sftheme/css/forge.css"
-                >
-    
-        
-<!-- /ew:head_css -->
-
-    
-    
-        <!-- ew:head_js -->
-
-    
-        <script type="text/javascript" src="https://a.fsdn.com/allura/nf/1448394096/_ew_/_slim/js?href=allura%2Fjs%2Fjquery-base.js"></script>
-    
-        
-<!-- /ew:head_js -->
-
-    
-
-    
-    
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="/u/hpctech/qtrpt/feed.rss"/>
-    <link rel="alternate" type="application/atom+xml" title="Atom" href="/u/hpctech/qtrpt/feed.atom"/>
-
-    <style>.XvvhYbaEWHLxcmidAtfbsqVg {
-        display: none
-    }</style>
-
-    
-    
-    
-    
-
-
-<script type="text/javascript">
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    function _add_tracking(prefix, tracking_id) {
-        ga('create', tracking_id, {cookieDomain: 'auto', 'name': prefix});
-        
-        ga(prefix+'.set', 'dimension9', 'hpctech.u');
-        ga(prefix+'.set', 'dimension10', 'git');
-        ga(prefix+'.send', 'pageview');
-    }
-      _add_tracking('sfnt1', 'UA-32013-6');
-      _add_tracking('sfnt2', 'UA-36130941-1');
-    
-</script>
-</head>
-
-<body id="forge">
-
-    
-        <!-- ew:body_top_js -->
-
-    
-        
-<!-- /ew:body_top_js -->
-
-    
-
-
-<header id="site-header">
-    <div class="wrapper">
-        <a href="/" class="logo">
-            <span>SourceForge</span>
-        </a>
-        
-        <form method="get" action="/directory/">
-            <input type="text" id="words" name="q" placeholder="Search">
-        </form>
-        
-        <!--Switch to {language}-->
-        <nav id="nav-site">
-            <a href="/directory/" title="Browse our software.">Browse</a>
-            <a href="/directory/enterprise" title="Browse our Enterprise software.">Enterprise</a>
-            <a href="/blog/" title="Read the latest news from the SF HQ.">Blog</a>
-            <a href="/jobs?source=header" title="Search 80k+ tech jobs." >Jobs</a>
-            <a href="//deals.sourceforge.net/?utm_source=sourceforge&amp;utm_medium=navbar&amp;utm_campaign=homepage" title="Discover and Save on the Best Gear, Gadgets, and Software" class="featured-link" target="_blank">Deals</a>
-            <a href="/support" title="Contact us for help and feedback.">Help</a>
-        </nav>
-        <nav id="nav-account">
-            
-            <div id="account-tooltip" class="tooltip-container">
-                <a href="/users/aliks-os">
-                    
-  
-    <img src="https://secure.gravatar.com/avatar/280538fc2ff46f9e1f391767503c5346?r=pg&amp;d=https%3A%2F%2Fa.fsdn.com%2Fcon%2Fimg%2Fsf-profile-blank.png"
-         alt="aliks-os"
-         title="aliks-os"
-         class="emboss x20">
-  
-                    Me &#x25BE;
-                </a>
-                <div class="tooltip account">
-                    <div class="diamond"></div>
-                    <ul>
-                        <li>
-                            
-  
-    <img src="https://secure.gravatar.com/avatar/280538fc2ff46f9e1f391767503c5346?r=pg"
-         alt="aliks-os"
-         title="aliks-os"
-         class="emboss x20">
-  
-                            <a href="/users/aliks-os">Profile</a>
-                        </li>
-                        <li>
-                            <b data-icon="U" class="ico ico-user" title="Account"></b>
-                            <a href="/auth/preferences/">Account Settings</a>
-                        </li>
-                        <li>
-                            <b data-icon="Q" class="ico ico-power" title="Log Out"></b>
-                            <a href="/auth/logout">Log Out</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-             <!-- Change this when update notifications are available in Allura -->
-            <div id="updater-tooltip" class="tooltip-container">
-                
-  
-<a href="/user/updates" title="Manage Update Notifications" class=" updates ">16</a>
-<div class="tooltip updater">
-    <h6>Available Updates</h6>
-    <div class="diamond"></div>
-    <ul>
-        <li>The following software titles have updates:</li>
-    
-        <li>
-            
-            <a href="/projects/limereport/?source=updater"><img
-                        alt="Icon" src="//a.fsdn.com/allura/p/limereport/icon" /></a>
-            <a title="LimeReport" href="/projects/limereport/?source=updater">LimeReport</a>
-            <a href="/projects/limereport/files/latest/download?source=updater" class="ico ico-downarrow" data-icon="}"></a>
-        </li>
-    
-        <li>
-            
-            <a href="/projects/mqueryformysql/?source=updater"><img
-                        alt="Icon" src="//a.fsdn.com/allura/p/mqueryformysql/icon" /></a>
-            <a title="MQuery for MySQL" href="/projects/mqueryformysql/?source=updater">MQuery for MySQL</a>
-            <a href="/projects/mqueryformysql/files/latest/download?source=updater" class="ico ico-downarrow" data-icon="}"></a>
-        </li>
-    
-        <li>
-            
-            <a href="/projects/qtrptdocument/?source=updater"><img
-                        alt="Icon" src="//a.fsdn.com/con/img/project_default.png" /></a>
-            <a title="QtRptDocument" href="/projects/qtrptdocument/?source=updater">QtRptDocument</a>
-            <a href="/projects/qtrptdocument/files/latest/download?source=updater" class="ico ico-downarrow" data-icon="}"></a>
-        </li>
-    
-        <li>
-            
-            <a href="/projects/qtrpt/?source=updater"><img
-                        alt="Icon" src="//a.fsdn.com/allura/p/qtrpt/icon" /></a>
-            <a title="QtRPT" href="/projects/qtrpt/?source=updater">QtRPT</a>
-            <a href="/projects/qtrpt/files/latest/download?source=updater" class="ico ico-downarrow" data-icon="}"></a>
-        </li>
-    
-        <li>
-            
-            <a href="/projects/zint/?source=updater"><img
-                        alt="Icon" src="//a.fsdn.com/con/img/project_default.png" /></a>
-            <a title="Zint Barcode Generator" href="/projects/zint/?source=updater">Zint Barcode ...</a>
-            <a href="/projects/zint/files/latest/download?source=updater" class="ico ico-downarrow" data-icon="}"></a>
-        </li>
-    
-        <li>
-            
-            <a href="/projects/boost/?source=updater"><img
-                        alt="Icon" src="//a.fsdn.com/allura/p/boost/icon" /></a>
-            <a title="Boost C++ Libraries" href="/projects/boost/?source=updater">Boost C++ Libraries</a>
-            <a href="/projects/boost/files/latest/download?source=updater" class="ico ico-downarrow" data-icon="}"></a>
-        </li>
-    
-        <li>
-            
-            <a href="/projects/witty/?source=updater"><img
-                        alt="Icon" src="//a.fsdn.com/con/img/project_default.png" /></a>
-            <a title="Wt" href="/projects/witty/?source=updater">Wt</a>
-            <a href="/projects/witty/files/latest/download?source=updater" class="ico ico-downarrow" data-icon="}"></a>
-        </li>
-    
-        <li>
-            
-            <a href="/projects/pyqt/?source=updater"><img
-                        alt="Icon" src="//a.fsdn.com/allura/p/pyqt/icon" /></a>
-            <a title="PyQt" href="/projects/pyqt/?source=updater">PyQt</a>
-            <a href="/projects/pyqt/files/latest/download?source=updater" class="ico ico-downarrow" data-icon="}"></a>
-        </li>
-    
-        <li>
-            
-            <a href="/projects/exaro/?source=updater"><img
-                        alt="Icon" src="//a.fsdn.com/con/img/project_default.png" /></a>
-            <a title="eXaro" href="/projects/exaro/?source=updater">eXaro</a>
-            <a href="/projects/exaro/files/latest/download?source=updater" class="ico ico-downarrow" data-icon="}"></a>
-        </li>
-    
-        <li>
-            
-            <a href="/projects/qreport/?source=updater"><img
-                        alt="Icon" src="//a.fsdn.com/allura/p/qreport/icon" /></a>
-            <a title="CuteReport" href="/projects/qreport/?source=updater">CuteReport</a>
-            <a href="/projects/qreport/files/latest/download?source=updater" class="ico ico-downarrow" data-icon="}"></a>
-        </li>
-    
-        <li>
-            
-            <a href="/projects/xlslib/?source=updater"><img
-                        alt="Icon" src="//a.fsdn.com/con/img/project_default.png" /></a>
-            <a title="xlsLib" href="/projects/xlslib/?source=updater">xlsLib</a>
-            <a href="/projects/xlslib/files/latest/download?source=updater" class="ico ico-downarrow" data-icon="}"></a>
-        </li>
-    
-        <li>
-            
-            <a href="/projects/winscp/?source=updater"><img
-                        alt="Icon" src="//a.fsdn.com/allura/p/winscp/icon" /></a>
-            <a title="WinSCP ::" href="/projects/winscp/?source=updater">WinSCP ::</a>
-            <a href="/projects/winscp/files/latest/download?source=updater" class="ico ico-downarrow" data-icon="}"></a>
-        </li>
-    
-        <li>
-            
-            <a href="/projects/tortoisesvn/?source=updater"><img
-                        alt="Icon" src="//a.fsdn.com/allura/p/tortoisesvn/icon" /></a>
-            <a title="TortoiseSVN" href="/projects/tortoisesvn/?source=updater">TortoiseSVN</a>
-            <a href="/projects/tortoisesvn/files/latest/download?source=updater" class="ico ico-downarrow" data-icon="}"></a>
-        </li>
-    
-        <li>
-            
-            <a href="/projects/jasperreports/?source=updater"><img
-                        alt="Icon" src="//a.fsdn.com/allura/p/jasperreports/icon" /></a>
-            <a title="JasperReports Library" href="/projects/jasperreports/?source=updater">JasperReports ...</a>
-            <a href="/projects/jasperreports/files/latest/download?source=updater" class="ico ico-downarrow" data-icon="}"></a>
-        </li>
-    
-        <li>
-            
-            <a href="/projects/image4j/?source=updater"><img
-                        alt="Icon" src="//a.fsdn.com/con/img/project_default.png" /></a>
-            <a title="Image Library for Java" href="/projects/image4j/?source=updater">Image Library for ...</a>
-            <a href="/projects/image4j/files/latest/download?source=updater" class="ico ico-downarrow" data-icon="}"></a>
-        </li>
-    
-        <li>
-            
-            <a href="/projects/sevenzip/?source=updater"><img
-                        alt="Icon" src="//a.fsdn.com/allura/p/sevenzip/icon" /></a>
-            <a title="7-Zip" href="/projects/sevenzip/?source=updater">7-Zip</a>
-            <a href="/projects/sevenzip/files/latest/download?source=updater" class="ico ico-downarrow" data-icon="}"></a>
-        </li>
-    
-        <li><a href="/user/updates">Manage Subscriptions</a></li>
-    </ul>
-</div>
-            </div>
-            
-        </nav>
-        
-    </div>
-</header>
-<header id="site-sec-header">
-    <div class="wrapper">
-        <nav id="nav-hubs">
-            <h4>Solution Centers</h4>
-            <a href="http://goparallel.sourceforge.net/">Go Parallel</a>
-        </nav>
-        <nav id="nav-collateral">
-            <a href="http://library.slashdotmedia.com/?source=sfnet_header">Resources</a>
-            
-        </nav>
-    </div>
-</header>
-
-    
-    
-    
-
-<section id="page-body" class=" neighborhood-Users project-u/hpctech mountpoint-qtrpt">
-    <div id="nav_menu_holder">
-        
-            
-
-
-
-    
-    
-    
-  
-    
-      
-  
-    <img src="https://secure.gravatar.com/avatar/4be1d17caff420f374779bdaa1e6658e?r=pg"
-         alt="HPC TECH"
-         title="HPC TECH"
-         class="emboss x48 project_icon">
-  
-    
-    <h1 class="project_title">
-        <a href="/u/hpctech/" class="project_link">HPC TECH</a>
-    </h1>
-    
-    
-    
-    <h2 class="project_summary">
-        
-    </h2>
-    
-
-        
-    </div>
-    <div id="top_nav" class="">
-        
-            
-<ul class="dropdown">
-  
-    <li class="">
-        <a href="/u/hpctech/profile/" class="tool-profile">
-            Profile
-        </a>
-        
-        
-    </li>
-	
-    <li class="">
-        <a href="/u/hpctech/activity/" class="tool-activity">
-            Activity
-        </a>
-        
-        
-    </li>
-	
-    <li class="">
-        <a href="/u/hpctech/wiki/" class="tool-wiki">
-            Wiki
-        </a>
-        
-        
-    </li>
-	
-    <li class="selected">
-        <a href="/u/hpctech/qtrpt/" class="tool-git">
-            QtRPT - GIT
-        </a>
-        
-        
-    </li>
-	
-</ul>
-
-        
-    </div>
-    <div id="content_base">
-        
-            
-                
-                    
-
-
-<div id="sidebar">
-  
-    <div>&nbsp;</div>
-  
-    
-    
-      
-      
-        
-    
-      <ul class="sidebarmenu">
-      
-    
-  <li>
-      
-        <a class="icon" href="/u/hpctech/qtrpt/commit_browser" title="Browse Commits"><i class="fa fa-list"></i>
-      
-      <span>Browse Commits</span>
-      </a>
-  </li>
-  
-      
-        
-    
-  <li>
-      
-        <a class="icon" href="/u/hpctech/qtrpt/fork" title="Fork"><i class="fa fa-code-fork"></i>
-      
-      <span>Fork</span>
-      </a>
-  </li>
-  
-      
-        
-    
-      </ul>
-      
-    
-    
-      <h3 class="">Clone of</h3>
-    
-  
-      
-        
-    
-      <ul class="sidebarmenu">
-      
-    
-  <li>
-      
-        <a href="/p/qtrpt/code_git/"  >
-      
-      <span>qtrpt / code_git</span>
-      </a>
-  </li>
-  
-      
-        
-    
-  <li>
-      
-        <a href="/p/qtrpt/code_git/merge-requests/"  >
-      
-      <span class="has_small">Pending Merges</span>
-      <small>1</small></a>
-  </li>
-  
-      
-        
-    
-      </ul>
-      
-    
-    
-      <h3 class="">Branches</h3>
-    
-  
-      
-        
-    
-      <ul class="sidebarmenu">
-      
-    
-  <li>
-      
-        <a href="/u/hpctech/qtrpt/ci/master/tree/"  >
-      
-      <span>master</span>
-      </a>
-  </li>
-  
-      
-        
-    
-  <li>
-      
-        <a href="/u/hpctech/qtrpt/ci/development/tree/"  >
-      
-      <span>development</span>
-      </a>
-  </li>
-  
-      
-    
-    
-      </ul>
-      
-    
-    
-    
-</div>
-                
-                
-            
-            
-                
-            
-            <div class="grid-20 pad">
-                <h2 class="dark title">
-<a href="/u/hpctech/qtrpt/ci/5e29cd795de879d63ae87594705f6f24eae61482/">[5e29cd]</a>:
-
-  
-  
-    <a href="./../">QtRptDesigner</a> /
-    
-  
-    <a href="./">i18n</a> /
-    
-  
- QtRprtDesigner_ar.ts
-
-                    <!-- actions -->
-                    <small>
-                        
-
-    
-    <a class="icon" href="#" id="maximize-content" title="Maximize"><i class="fa fa-expand"></i>&nbsp;Maximize</a>
-    <a class="icon" href="#" id="restore-content" title="Restore"><i class="fa fa-compress"></i>&nbsp;Restore</a>
-<a class="icon" href="/u/hpctech/qtrpt/ci/5e29cd795de879d63ae87594705f6f24eae61482/log/?path=/QtRptDesigner/i18n/QtRprtDesigner_ar.ts" title="History"><i class="fa fa-calendar"></i>&nbsp;History</a>
-
-                    </small>
-                    <!-- /actions -->
-                </h2>
-                
-                <div>
-                    
-  
-
-                    
-  
-    <p>QtRprtDesigner_ar.ts is not known to be viewable in your browser.
-    Try to <a href="?force=True">display it</a> anyway or
-    <a href="?format=raw">download it</a> instead.</p>
-  
-
-                </div>
-                
-                
-            </div>
-        
-    </div>
-</section>
-  
-<footer id="site-footer">
-    <div class="wrapper">
-        <nav>
-            <h5>SourceForge</h5>
-            <a href="/about">About</a>
-            <a href="/blog/category/sitestatus/">Site Status</a>
-            <a href="http://twitter.com/sfnet_ops">@sfnet_ops</a>
-            <a id="allura-notice" href="http://allura.apache.org/">
-                <p>Powered by</p>
-                <p>Apache Allura™</p>
-                <img src="https://a.fsdn.com/allura/nf/1448394096/_ew_/theme/sftheme/images/sftheme/logo-black-svg_g.png" />
-            </a>
-        </nav>
-        <nav>
-            <h5>Find and Develop Software</h5>
-            <a href="/create/">Create a Project</a>
-            <a href="/directory/">Software Directory</a>
-            <a href="/top">Top Downloaded Projects</a>
-        </nav>
-        <nav>
-            <h5>Community</h5>
-            <a href="/blog/">Blog</a>
-            <a href="http://twitter.com/sourceforge">@sourceforge</a>
-            <a href="/jobs?source=footer">Job Board</a>
-            <a href="http://library.slashdotmedia.com/?source=sfnet_footer">Resources</a>
-        </nav>
-        <nav>
-            <h5>Help</h5>
-            <a href="http://p.sf.net/sourceforge/docs">Site Documentation</a>
-            <a href="/support">Support Request</a>
-            <a href="http://p.sf.net/sourceforge/irc">Real-Time Support</a>
-        </nav>
-    </div>
-</footer>
-<footer id="site-copyright-footer">
-    <div class="wrapper">
-        <div id="copyright">
-            &copy; 2015 Slashdot Media. All Rights Reserved.<br />
-            <div id="dhi-icon"><span class="logo-DHI-alt"></span></div>
-            <div id="service-text"><div class="smalltext"> SourceForge is a <a href="http://www.dhigroupinc.com" target="_blank">DHI service</a></div></div>
-        </div>
-        <nav>
-            <a href="http://slashdotmedia.com/terms-of-use">Terms</a>
-            <a href="http://slashdotmedia.com/privacy-statement/">Privacy</a>
-            <span id='teconsent'></span>
-            <a href="http://slashdotmedia.com/opt-out-choices">Opt Out Choices</a>
-            <a href="http://slashdotmedia.com">Advertise</a>
-        </nav>
-    </div>
-</footer>
-<div id="messages">
-    
-</div>
-
-
-    <!-- ew:body_js -->
-
-
-    <script type="text/javascript" src="https://a.fsdn.com/allura/nf/1448394096/_ew_/_slim/js?href=allura%2Fjs%2Fjquery.notify.js%3Ballura%2Fjs%2Fjquery.tooltipster.js%3Ballura%2Fjs%2Fmodernizr.js%3Ballura%2Fjs%2Fsylvester.js%3Ballura%2Fjs%2Fpb.transformie.min.js%3Ballura%2Fjs%2Fallura-base.js%3Ballura%2Fjs%2Fbuild%2Ftranspiled.js%3Btheme%2Fsftheme%2Fjs%2Fsftheme%2Fheader.js%3Ballura%2Fjs%2Fmaximize-content.js"></script>
-
-    
-<!-- /ew:body_js -->
-
-
-
-    <!-- ew:body_js_tail -->
-
-
-    
-<!-- /ew:body_js_tail -->
-
-
-
-
-<script type="text/javascript">(function() {
-  $('#access_urls .btn').click(function(evt){
-    evt.preventDefault();
-    var parent = $(this).parents('.btn-bar');
-    $(parent).find('input').val($(this).attr('data-url'));
-    $(parent).find('span').text($(this).attr('title')+' access');
-    $(this).parent().children('.btn').removeClass('active');
-    $(this).addClass('active');
-  });
-  $('#access_urls .btn').first().click();
-
-  
-  var repo_status = document.getElementById('repo_status');
-  // The repo_status div will only be present if repo.status != 'ready'
-  if (repo_status) {
-    $('.spinner').show()
-    function check_status() {
-        $.get('/u/hpctech/qtrpt/status', function(data) {
-            if (data.status === 'ready') {
-                window.clearInterval(status_checker);
-                $('.spinner').hide()
-                $('#repo_status h2').html('Repo status: ready. <a href=".">Click here to refresh this page.</a>');
-            }
-            else {
-                $('#repo_status h2 span').html(data.status);
-            }
-        });
-    }
-    // Check repo status every 15 seconds
-    var status_checker = window.setInterval(check_status, 15000);
-    
-  }
-}());
-</script>
-
-<script type="text/javascript">(function() {
-  $(window).bind('hashchange', function(e) {
-    var hash = window.location.hash.substring(1);
-	if ('originalEvent' in e && 'oldURL' in e.originalEvent) {
-      $('#' + e.originalEvent.oldURL.split('#')[1]).css('background-color', 'transparent');
-	}
-    if (hash !== '' && hash.substring(0, 1) === 'l' && !isNaN(hash.substring(1))) {
-      $('#' + hash).css('background-color', '#ffff99');
-    }
-  }).trigger('hashchange');
-
-  var clicks = 0;
-  $('.code_block').each(function(index, element) {
-    $(element).bind('click', function() {
-      // Trick to ignore double and triple clicks
-      clicks++;
-      if (clicks == 1) {
-        setTimeout(function() {
-          if (clicks == 1) {
-            var hash = window.location.hash.substring(1);
-            if (hash !== '' && hash.substring(0, 1) === 'l' && !isNaN(hash.substring(1))) {
-              $('#' + hash).css('background-color', 'transparent');
-            }
-            $(element).css('background-color', '#ffff99');
-            window.location.href = '#' + $(element).attr('id');
-          };
-          clicks = 0;
-        }, 500);
-      };
-    });
-  });
-}());
-</script>
-
-
-    
-
-
-    <!-- Google Code for Remarketing tag -->
-    <!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
-    <script type="text/javascript">
-        /* <![CDATA[ */
-        var google_conversion_id = 1002083962;
-        var google_conversion_label = "G_uGCOaBlAQQ-qzq3QM";
-        var google_custom_params = window.google_tag_params;
-        var google_remarketing_only = true;
-        /* ]]> */
-    </script>
-    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"> </script>
-    <script type="text/javascript" src='//consent-st.truste.com/get?name=notice.js&domain=slashdot.org&c=teconsent&text=true'></script>
-    <noscript>
-      <div style="display:inline;">
-        <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1002083962/?value=0&amp;label=G_uGCOaBlAQQ-qzq3QM&amp;guid=ON&amp;script=0"/>
-      </div>
-    </noscript>
-
-     
-      
-
-<script>
-    $(document).ready(function () {
-        $(".tooltip").tooltipster({
-            animation: 'fade',
-            delay: 200,
-            theme: 'tooltipster-light',
-            trigger: 'hover',
-            position: 'right',
-            iconCloning: false,
-            maxWidth: 300
-        }).focus(function () {
-            $(this).tooltipster('show');
-        }).blur(function () {
-            $(this).tooltipster('hide');
-        });
-    })
-</script>
-</body>
-</html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="ar_EG">
+<context>
+    <name>AboutDlg</name>
+    <message>
+        <location filename="../aboutDlg.cpp" line="27"/>
+        <source>About QtRptDesigner</source>
+        <translation>حول QtRptDesigner</translation>
+    </message>
+    <message>
+        <location filename="../aboutDlg.cpp" line="44"/>
+        <source>Version: </source>
+        <translation>الإصدار: </translation>
+    </message>
+    <message>
+        <location filename="../aboutDlg.cpp" line="45"/>
+        <source>Programmer: Aleksey Osipov</source>
+        <translation>المطوّر: Aleksey Osipov</translation>
+    </message>
+    <message>
+        <source>2012-2014 years</source>
+        <translation type="vanished">العام 2012-2014</translation>
+    </message>
+    <message>
+        <source>Thanks to:</source>
+        <translation type="vanished">شكر لـ:</translation>
+    </message>
+    <message>
+        <location filename="../aboutDlg.cpp" line="49"/>
+        <source>2012-2015 years</source>
+        <translation>عام 2012-2015</translation>
+    </message>
+    <message>
+        <location filename="../aboutDlg.cpp" line="50"/>
+        <source>Thanks for donation:</source>
+        <translation>شكر على التبرع:</translation>
+    </message>
+    <message>
+        <location filename="../aboutDlg.cpp" line="52"/>
+        <source>Sailendram</source>
+        <translation>Sailendram</translation>
+    </message>
+    <message>
+        <location filename="../aboutDlg.cpp" line="54"/>
+        <source>Thanks for project developing:</source>
+        <translation>شكر على تطوبر المشروع:</translation>
+    </message>
+    <message>
+        <location filename="../aboutDlg.cpp" line="56"/>
+        <source>Lukas Lalinsky for DBmodel</source>
+        <translation>Lukas Lalinsky لـ Lukas</translation>
+    </message>
+    <message>
+        <location filename="../aboutDlg.cpp" line="57"/>
+        <source>Norbert Schlia for help in developing</source>
+        <translation>Norbert Schlia المساعدة بالتطوبر</translation>
+    </message>
+    <message>
+        <location filename="../aboutDlg.cpp" line="58"/>
+        <source>Muhamad Bashir Al-Noimi for Arabic translation</source>
+        <translation>Muhamad Bashir Al-Noimi للتعريب</translation>
+    </message>
+    <message>
+        <location filename="../aboutDlg.cpp" line="59"/>
+        <source>Luis Brochado for Portuguese translation</source>
+        <translation>Luis Brochado لترجمة البرتغالية</translation>
+    </message>
+    <message>
+        <location filename="../aboutDlg.cpp" line="60"/>
+        <source>Li Wei for Chinese translation</source>
+        <translation>Li Wei for Chinese translation</translation>
+    </message>
+    <message>
+        <location filename="../aboutDlg.cpp" line="61"/>
+        <source>Laurent Guilbert for French translation</source>
+        <translation>Laurent Guilbert الترجمة الفرنسية</translation>
+    </message>
+    <message>
+        <location filename="../aboutDlg.cpp" line="62"/>
+        <source>David Heremans for Dutch translation</source>
+        <translation>David Heremans الترجمة الهولندية</translation>
+    </message>
+    <message>
+        <location filename="../aboutDlg.cpp" line="63"/>
+        <source>Mirko Marx for German translation</source>
+        <translation>Mirko Marx الترجمة الألمانية</translation>
+    </message>
+    <message>
+        <location filename="../aboutDlg.cpp" line="64"/>
+        <source>Manuel Soriano for Spanish translation</source>
+        <translation>Manuel Soriano للترجمة الإسبانية</translation>
+    </message>
+</context>
+<context>
+    <name>EditFldDlg</name>
+    <message>
+        <location filename="../EditFldDlg.ui" line="14"/>
+        <source>Field editor</source>
+        <translation>محرر الحقول</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="61"/>
+        <location filename="../EditFldDlg.ui" line="176"/>
+        <source>Text</source>
+        <translation>نص</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="100"/>
+        <source>Add variable</source>
+        <translation>إضافة متغير</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="103"/>
+        <location filename="../EditFldDlg.ui" line="123"/>
+        <location filename="../EditFldDlg.ui" line="143"/>
+        <location filename="../EditFldDlg.ui" line="466"/>
+        <location filename="../EditFldDlg.ui" line="483"/>
+        <location filename="../EditFldDlg.ui" line="714"/>
+        <location filename="../EditFldDlg.ui" line="728"/>
+        <location filename="../EditFldDlg.ui" line="742"/>
+        <location filename="../EditFldDlg.ui" line="756"/>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="120"/>
+        <source>Add function</source>
+        <translation>إضافة تابع</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="140"/>
+        <source>Add formatting</source>
+        <translation>إضافة تنسيق</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="160"/>
+        <source>Text direction</source>
+        <translation>اتجاه النص</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="163"/>
+        <source>&lt;-</source>
+        <translation>-&gt;</translation>
+    </message>
+    <message>
+        <source>Proccess as Image</source>
+        <translation type="vanished">معالجة كصورة</translation>
+    </message>
+    <message>
+        <source>Attention! You may enter just ONE varibale and not any text.</source>
+        <translation type="vanished">تحذير! بإمكانك إدخال متغير واحد دون أية نصوص.</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="227"/>
+        <source>Condtion</source>
+        <translation>شرط</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="235"/>
+        <source>Printing</source>
+        <translation>طباعة</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="248"/>
+        <source>Hightlighting</source>
+        <translation>إبراز</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="260"/>
+        <source>Condition</source>
+        <translation>شرط</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="277"/>
+        <source>Font</source>
+        <translation>خط</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="283"/>
+        <source>Bold</source>
+        <translation>عريض</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="290"/>
+        <source>Italic</source>
+        <translation>مائل</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="297"/>
+        <source>Underline</source>
+        <translation>تحته خط</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="304"/>
+        <source>Strikeout</source>
+        <translation>مشطوب</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="339"/>
+        <location filename="../EditFldDlg.ui" line="405"/>
+        <source>Color...</source>
+        <translation>لون...</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="354"/>
+        <source>Background</source>
+        <translation>خلفية</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="360"/>
+        <source>Transparent</source>
+        <translation>شفاف</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="370"/>
+        <source>Other</source>
+        <translation>آخر</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="480"/>
+        <source>Save As</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="497"/>
+        <source>Ignore aspect ratio</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="593"/>
+        <source>Diagram&apos;s property</source>
+        <translation>خاصية المخطط</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="599"/>
+        <source>Diagram</source>
+        <translation>مخطط</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="607"/>
+        <source>Chart&apos;s caption</source>
+        <translation>تسمية الرسم البياني</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="619"/>
+        <source>Show caption</source>
+        <translation>عرض التسمية</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="626"/>
+        <source>Show grid</source>
+        <translation>عرض الشبكة</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="633"/>
+        <source>Show legend</source>
+        <translation>عرض العنوان التفسيري</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="640"/>
+        <source>Set the params of the graphs</source>
+        <translation>وسائط الرسم البياني</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="647"/>
+        <source>Show graph&apos;s caption</source>
+        <translation>عرض عنوان الرسم البياني</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="657"/>
+        <source>Graph&apos;s caption</source>
+        <translation>عنوان الرسم البياني</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="663"/>
+        <source>Real values</source>
+        <translation>قيم حقيقة</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="673"/>
+        <source>Percent values</source>
+        <translation>قيم مئوية</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="700"/>
+        <source>Graphs</source>
+        <translation>رسوم بيانية</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="711"/>
+        <source>Add row</source>
+        <translation>إضاة صف</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="725"/>
+        <source>Remove row</source>
+        <translation>إزالة صف</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="739"/>
+        <source>Up</source>
+        <translation>للأعلى</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="753"/>
+        <source>Down</source>
+        <translation>للأسفل</translation>
+    </message>
+    <message>
+        <source>Новая строка</source>
+        <translation type="vanished">Новая строка</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="807"/>
+        <source>Caption</source>
+        <translation>عنوان</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="812"/>
+        <source>Value</source>
+        <translation>قيمة</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="817"/>
+        <source>Color</source>
+        <translation>لون</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="833"/>
+        <source>Barcode type</source>
+        <translation>نوع الباركود</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="857"/>
+        <source>Frame type</source>
+        <translation>نوع الإطار</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="845"/>
+        <source>Value:</source>
+        <translation>القيمة:</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="183"/>
+        <source>Process as image</source>
+        <translation>معالجة كصورة</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="190"/>
+        <source>Image from database</source>
+        <translation>صورة من قاعدة البيانات</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="219"/>
+        <source>Attention! You may enter just ONE variable and not any text.</source>
+        <translation>تنبيه! بإمكانك إدخال متغير واحد فقط و ليس أي نص كان.</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="877"/>
+        <source>Height</source>
+        <translation>ارتفاع</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="884"/>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="938"/>
+        <source>OK</source>
+        <translation>موافق</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="945"/>
+        <source>Cancel</source>
+        <translation>الغاء الأمر</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.cpp" line="234"/>
+        <location filename="../EditFldDlg.cpp" line="294"/>
+        <source>Empty line</source>
+        <translation>سطر فارغ</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.cpp" line="234"/>
+        <location filename="../EditFldDlg.cpp" line="294"/>
+        <source>The field contains empty line at the end.
+Remove it?</source>
+        <translation>يحتوي الحقل بنهايته على سطر فارغ.
+هل تود إزالته؟</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.cpp" line="551"/>
+        <source>Save Image As</source>
+        <translation>حفظ الصورة باسم</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.cpp" line="553"/>
+        <source>Images (*.png)</source>
+        <translation>صور (*.png)</translation>
+    </message>
+</context>
+<context>
+    <name>EditorDelegate</name>
+    <message>
+        <location filename="../mainwindow.cpp" line="52"/>
+        <source>Left</source>
+        <translation>يسار</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="53"/>
+        <location filename="../mainwindow.cpp" line="63"/>
+        <source>Center</source>
+        <translation>وسط</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="54"/>
+        <source>Right</source>
+        <translation>يمين</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="55"/>
+        <source>Justify</source>
+        <translation>ضبط</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="62"/>
+        <source>Top</source>
+        <translation>أعلى</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="64"/>
+        <source>Bottom</source>
+        <translation>أسفل</translation>
+    </message>
+</context>
+<context>
+    <name>FldPropertyDlg</name>
+    <message>
+        <location filename="../FldPropertyDlg.ui" line="14"/>
+        <source>Expression editor</source>
+        <translation>محرر التعابير</translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.ui" line="66"/>
+        <source>Data filed grouping</source>
+        <translation>حقل تجميع البيانات</translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.ui" line="78"/>
+        <source>Start line numeration for each group</source>
+        <translation>بدء الترقيم من أجل كل مجموعة</translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.ui" line="88"/>
+        <source>Start new page for each group</source>
+        <translation>بدء صفحة جديدة من أجل كل مجموعة</translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.ui" line="114"/>
+        <source>Category</source>
+        <translation>تصنيف</translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.ui" line="121"/>
+        <source>Number</source>
+        <translation>رقم</translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.ui" line="132"/>
+        <source>Format</source>
+        <translation>تنسيق</translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.ui" line="146"/>
+        <source>Other</source>
+        <translation>آخر</translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.ui" line="167"/>
+        <source>Precision</source>
+        <translatorcomment>دقة</translatorcomment>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.ui" line="198"/>
+        <source>Format string</source>
+        <translation>تنسيق السلسلة النصية</translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.ui" line="212"/>
+        <source>Clear</source>
+        <translation>مسح</translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.ui" line="243"/>
+        <source>OK</source>
+        <translation>موافق</translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.ui" line="250"/>
+        <source>Cancel</source>
+        <translation>الغاء الأمر</translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.cpp" line="54"/>
+        <location filename="../FldPropertyDlg.cpp" line="93"/>
+        <source>Variables</source>
+        <translation>متغيرات</translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.cpp" line="55"/>
+        <source>System variables</source>
+        <translation>متغيرات النظام</translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.cpp" line="97"/>
+        <location filename="../FldPropertyDlg.cpp" line="198"/>
+        <source>Functions</source>
+        <translation>توابع</translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.cpp" line="100"/>
+        <source>Aggregate functions</source>
+        <translation>توابع تحصيلية</translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.cpp" line="135"/>
+        <source>Text functions</source>
+        <translation>توابع نصية</translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.cpp" line="141"/>
+        <source>English</source>
+        <translation>English</translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.cpp" line="148"/>
+        <source>German</source>
+        <translation>German</translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.cpp" line="155"/>
+        <source>Ukrainian</source>
+        <translation>Ukrainian</translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.cpp" line="162"/>
+        <source>Spanish</source>
+        <translation>Spanish</translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.cpp" line="170"/>
+        <source>Math functions</source>
+        <translation>توابع رياضية</translation>
+    </message>
+</context>
+<context>
+    <name>ItemPropertyDlg</name>
+    <message>
+        <location filename="../SQLDiagram/ItemPropertyDlg.ui" line="14"/>
+        <source>Object property</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../SQLDiagram/ItemPropertyDlg.ui" line="44"/>
+        <location filename="../SQLDiagram/ItemPropertyDlg.ui" line="78"/>
+        <source>Name</source>
+        <translation>اسم</translation>
+    </message>
+    <message>
+        <location filename="../SQLDiagram/ItemPropertyDlg.ui" line="105"/>
+        <source>Relation property</source>
+        <translation>خاصية العلاقة</translation>
+    </message>
+    <message>
+        <location filename="../SQLDiagram/ItemPropertyDlg.ui" line="128"/>
+        <source>Parent table</source>
+        <translation>الجدول الأب</translation>
+    </message>
+    <message>
+        <location filename="../SQLDiagram/ItemPropertyDlg.ui" line="145"/>
+        <source>Columns:</source>
+        <translation>الأعمدة:</translation>
+    </message>
+    <message>
+        <location filename="../SQLDiagram/ItemPropertyDlg.ui" line="159"/>
+        <source>reference</source>
+        <translation>المرجع</translation>
+    </message>
+    <message>
+        <location filename="../SQLDiagram/ItemPropertyDlg.ui" line="166"/>
+        <source>Child table</source>
+        <translation>الجدول الابن</translation>
+    </message>
+    <message>
+        <location filename="../SQLDiagram/ItemPropertyDlg.ui" line="208"/>
+        <source>OK</source>
+        <translation>موافق</translation>
+    </message>
+    <message>
+        <location filename="../SQLDiagram/ItemPropertyDlg.ui" line="215"/>
+        <source>Close</source>
+        <translation>إغلاق</translation>
+    </message>
+</context>
+<context>
+    <name>MainWindow</name>
+    <message>
+        <location filename="../mainwindow.ui" line="14"/>
+        <source>QtRPT Designer</source>
+        <translation>QtRPT Designer</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="152"/>
+        <location filename="../mainwindow.cpp" line="2112"/>
+        <location filename="../mainwindow.cpp" line="2275"/>
+        <source>Name</source>
+        <translation>اسم</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="157"/>
+        <source>Value</source>
+        <translation>قيمة</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="181"/>
+        <source>File</source>
+        <translation>ملف</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="195"/>
+        <location filename="../mainwindow.cpp" line="307"/>
+        <source>Report</source>
+        <translation>تقرير</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="201"/>
+        <source>Edit</source>
+        <translation>تحرير</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="212"/>
+        <source>Help</source>
+        <translation>مساعدة</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="220"/>
+        <source>Service</source>
+        <translation>خدمة</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="275"/>
+        <source>toolBar</source>
+        <translation>toolBar</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="313"/>
+        <source>toolBar_2</source>
+        <translation>toolBar_2</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="324"/>
+        <source>toolBar_3</source>
+        <translation>toolBar_3</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="346"/>
+        <location filename="../mainwindow.ui" line="349"/>
+        <source>Exit</source>
+        <translation>خروج</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="358"/>
+        <source>Page settings</source>
+        <translation>إعدادات الصفحة</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="370"/>
+        <location filename="../mainwindow.ui" line="373"/>
+        <source>Select tool</source>
+        <translation>أداة التحديد</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="385"/>
+        <location filename="../mainwindow.ui" line="388"/>
+        <source>Align left</source>
+        <translation>محاذاة لليسار</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="400"/>
+        <location filename="../mainwindow.ui" line="403"/>
+        <source>Align center</source>
+        <translation>محاذاة للوسط</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="415"/>
+        <location filename="../mainwindow.ui" line="418"/>
+        <source>Align right</source>
+        <translation>محاذاة لليمين</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="430"/>
+        <location filename="../mainwindow.ui" line="433"/>
+        <location filename="../mainwindow.cpp" line="2137"/>
+        <source>Justify</source>
+        <translation>ضبط</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="445"/>
+        <location filename="../mainwindow.ui" line="448"/>
+        <location filename="../mainwindow.cpp" line="2297"/>
+        <source>Bold</source>
+        <translation>غامق</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="460"/>
+        <location filename="../mainwindow.ui" line="463"/>
+        <location filename="../mainwindow.cpp" line="2307"/>
+        <source>Italic</source>
+        <translation>مائل</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="475"/>
+        <location filename="../mainwindow.ui" line="478"/>
+        <location filename="../mainwindow.cpp" line="2317"/>
+        <source>Underline</source>
+        <translation>تحته خط</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="490"/>
+        <location filename="../mainwindow.ui" line="493"/>
+        <source>Top line</source>
+        <translation>خط بالأعلى</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="505"/>
+        <location filename="../mainwindow.ui" line="508"/>
+        <source>Bottom line</source>
+        <translation>خط بالأسفل</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="520"/>
+        <location filename="../mainwindow.ui" line="523"/>
+        <source>Left line</source>
+        <translation>خط على اليسار</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="535"/>
+        <location filename="../mainwindow.ui" line="538"/>
+        <source>Right line</source>
+        <translation>خط على اليمين</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="550"/>
+        <location filename="../mainwindow.ui" line="553"/>
+        <source>All frame line</source>
+        <translation>إطار كامل</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="565"/>
+        <location filename="../mainwindow.ui" line="568"/>
+        <source>No frame</source>
+        <translation>بدون إطار</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="580"/>
+        <location filename="../mainwindow.ui" line="583"/>
+        <source>Insert band</source>
+        <translation>إضافة شريط</translation>
+    </message>
+    <message>
+        <source>Add Filed</source>
+        <translation type="vanished">إضافة حقل</translation>
+    </message>
+    <message>
+        <source>Add filed</source>
+        <translation type="vanished">إضافة حقل</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="598"/>
+        <source>Add Fleld</source>
+        <translation>إضافة حقل</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="601"/>
+        <source>Add field</source>
+        <translation>إضافة حقل</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="610"/>
+        <location filename="../mainwindow.ui" line="613"/>
+        <source>New report</source>
+        <translation>تقرير جديد</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="622"/>
+        <location filename="../mainwindow.ui" line="625"/>
+        <source>Open report</source>
+        <translation>فتح تقرير</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="628"/>
+        <source>Ctrl+O</source>
+        <translation>Ctrl+O</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="640"/>
+        <location filename="../mainwindow.ui" line="643"/>
+        <source>Save report</source>
+        <translation>حفظ تقرير</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="646"/>
+        <source>Ctrl+S</source>
+        <translation>Ctrl+S</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="658"/>
+        <location filename="../mainwindow.ui" line="661"/>
+        <source>Align top</source>
+        <translation>محاذاة للأعلى</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="673"/>
+        <location filename="../mainwindow.ui" line="676"/>
+        <source>Align V center</source>
+        <translation>محاذاة للوسط عمودياً</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="688"/>
+        <location filename="../mainwindow.ui" line="691"/>
+        <source>Align bottom</source>
+        <translation>محاذاة للأسفل</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="700"/>
+        <location filename="../mainwindow.ui" line="703"/>
+        <source>Copy</source>
+        <translation>نسخ</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="706"/>
+        <source>Ctrl+C</source>
+        <translation>Ctrl+C</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="715"/>
+        <location filename="../mainwindow.ui" line="718"/>
+        <source>Cut</source>
+        <translation>قص</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="721"/>
+        <source>Ctrl+X</source>
+        <translation>Ctrl+X</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="733"/>
+        <location filename="../mainwindow.ui" line="736"/>
+        <source>Paste</source>
+        <translation>لصق</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="739"/>
+        <source>Ctrl+V</source>
+        <translation>Ctrl+V</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="748"/>
+        <location filename="../mainwindow.ui" line="751"/>
+        <source>Save as</source>
+        <translation>حفظ باسم</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="760"/>
+        <location filename="../mainwindow.ui" line="763"/>
+        <source>Font color</source>
+        <translation>لون الخط</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="772"/>
+        <location filename="../mainwindow.ui" line="775"/>
+        <source>Background color</source>
+        <translation>لون الخلفية</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="784"/>
+        <location filename="../mainwindow.ui" line="787"/>
+        <source>Border color</source>
+        <translation>لون الإطار</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="796"/>
+        <source>About QtRptDesigner</source>
+        <translation>حول QtRptDesigner</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="808"/>
+        <source>Show Grid</source>
+        <translation>عرض الشبكة</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="811"/>
+        <source>Show/Hide grid</source>
+        <translation>عرض/إخفاء الشبكة</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="826"/>
+        <source>Add picture</source>
+        <translation>إضافة صورة</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="835"/>
+        <location filename="../mainwindow.ui" line="838"/>
+        <source>Frame style</source>
+        <translation>شكل الإطار</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="847"/>
+        <location filename="../mainwindow.ui" line="850"/>
+        <source>New Report Page</source>
+        <translation>صفحة جديدة بالتقرير</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="859"/>
+        <location filename="../mainwindow.ui" line="862"/>
+        <source>Delete Report Page</source>
+        <translation>حذف صفحة من التقرير</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="871"/>
+        <location filename="../mainwindow.ui" line="874"/>
+        <source>Align Field Left</source>
+        <translation>محاذاة الحقل لليسار</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="883"/>
+        <location filename="../mainwindow.ui" line="886"/>
+        <source>Align Field Middle</source>
+        <translation>محاذاة الحقل للوسط عمودياً</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="895"/>
+        <location filename="../mainwindow.ui" line="898"/>
+        <source>Align Field Right</source>
+        <translation>محاذاة الحقل لليمين</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="907"/>
+        <location filename="../mainwindow.ui" line="910"/>
+        <source>Align Field Top</source>
+        <translation>محاذاة الحقل للأعلى</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="919"/>
+        <location filename="../mainwindow.ui" line="922"/>
+        <source>Align Field Center</source>
+        <translation>محاذاة الحقل للوسط</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="931"/>
+        <location filename="../mainwindow.ui" line="934"/>
+        <source>Align Field Bottom</source>
+        <translation>محاذاة الحقل للأسفل</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="943"/>
+        <location filename="../mainwindow.ui" line="946"/>
+        <source>Field Same Width</source>
+        <translation>الحقل بنفس العرض</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="955"/>
+        <location filename="../mainwindow.ui" line="958"/>
+        <source>Field Same Height</source>
+        <translation>الحقل بنفس الارتفاع</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="967"/>
+        <location filename="../mainwindow.ui" line="970"/>
+        <source>Settings</source>
+        <translation>إعدادات</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="982"/>
+        <location filename="../mainwindow.ui" line="985"/>
+        <source>Magnifying glass</source>
+        <translation>مكبرة</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="997"/>
+        <location filename="../mainwindow.ui" line="1000"/>
+        <location filename="../mainwindow.cpp" line="2327"/>
+        <source>Strikeout</source>
+        <translation>مشطوب</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1009"/>
+        <location filename="../mainwindow.ui" line="1012"/>
+        <source>Group property</source>
+        <translation>مجموعة الخاصيات</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1021"/>
+        <location filename="../mainwindow.ui" line="1024"/>
+        <source>Check updates</source>
+        <translation>فحص التحديثات</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1039"/>
+        <location filename="../mainwindow.ui" line="1042"/>
+        <source>Add Diagram</source>
+        <translation>إضافة مخطط</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1057"/>
+        <location filename="../mainwindow.ui" line="1060"/>
+        <source>Add Drawing</source>
+        <translation>إضافة رسم</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1072"/>
+        <location filename="../mainwindow.ui" line="1075"/>
+        <source>Preview</source>
+        <translation>معاينة</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1087"/>
+        <location filename="../mainwindow.ui" line="1090"/>
+        <source>Data Source</source>
+        <translation>مصدر البيانات</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1102"/>
+        <location filename="../mainwindow.ui" line="1105"/>
+        <source>Undo</source>
+        <translation>تراجع</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1108"/>
+        <source>Ctrl+Z</source>
+        <translation>Ctrl+Z</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1120"/>
+        <location filename="../mainwindow.ui" line="1123"/>
+        <source>Redo</source>
+        <translation>إعادة</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1126"/>
+        <source>Ctrl+Y</source>
+        <translation>Ctrl+Y</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1141"/>
+        <location filename="../mainwindow.ui" line="1144"/>
+        <source>Add Barcode</source>
+        <translation>إضافة باركود</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1153"/>
+        <location filename="../mainwindow.ui" line="1156"/>
+        <source>Readme</source>
+        <translation>اقرأني</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1171"/>
+        <location filename="../mainwindow.ui" line="1174"/>
+        <source>Add Rich Text</source>
+        <translation>إضافة نص منسّق</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1183"/>
+        <location filename="../mainwindow.ui" line="1186"/>
+        <source>To group</source>
+        <translation>تجميع</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1195"/>
+        <location filename="../mainwindow.ui" line="1198"/>
+        <source>To ungroup</source>
+        <translation>فك التجميع</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1213"/>
+        <location filename="../mainwindow.ui" line="1216"/>
+        <source>Add CrossTab object</source>
+        <translation>إضافة كائن CrossTab</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1231"/>
+        <location filename="../mainwindow.ui" line="1234"/>
+        <source>Add CrossTabBD object</source>
+        <translation>إضافة كائن CrossTabBD</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="275"/>
+        <source>Frame width</source>
+        <translation>عرض الإطار</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="417"/>
+        <source>Report Title</source>
+        <translation>عنوان التقرير</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="423"/>
+        <source>Report Summary</source>
+        <translation>ملخص التقرير</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="429"/>
+        <source>Page Header</source>
+        <translation>ترويسة الصفحة</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="435"/>
+        <source>Page Footer</source>
+        <translation>تذييل الصفحة</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="441"/>
+        <source>Master Data</source>
+        <translation>بيانات رئيسية</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="447"/>
+        <source>Data Grouping Header</source>
+        <translation>ترويسة مجموعة البيانات</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="454"/>
+        <source>Data Grouping Footer</source>
+        <translation>تذييل مجموعة البيانات</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="461"/>
+        <location filename="../mainwindow.cpp" line="2515"/>
+        <source>Master Header</source>
+        <translation>ترويسة رئيسية</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="467"/>
+        <location filename="../mainwindow.cpp" line="2511"/>
+        <source>Master Footer</source>
+        <translation>تذييل رئيسي</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="517"/>
+        <source>Line with arrows at both side</source>
+        <translation>خط بأسهم على الجانبين</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="523"/>
+        <source>Rectangle</source>
+        <translation>مستطيل</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="529"/>
+        <source>Rounded rectangle</source>
+        <translation>مستطيل بحواف مدوّرة</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="535"/>
+        <source>Ellipse</source>
+        <translation>قطع ناقص</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="541"/>
+        <source>Triangle</source>
+        <translation>مثلث</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="547"/>
+        <source>Rhombus</source>
+        <translation>معين</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="646"/>
+        <source>&amp;%1 %2</source>
+        <translation>&amp;%1 %2</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="803"/>
+        <location filename="../mainwindow.cpp" line="1054"/>
+        <source>Page %1</source>
+        <translation>صفحة %1</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="983"/>
+        <location filename="../mainwindow.cpp" line="995"/>
+        <location filename="../mainwindow.cpp" line="1830"/>
+        <location filename="../mainwindow.cpp" line="2643"/>
+        <source>Saving</source>
+        <translation>حفظ</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="983"/>
+        <location filename="../mainwindow.cpp" line="995"/>
+        <location filename="../mainwindow.cpp" line="1830"/>
+        <location filename="../mainwindow.cpp" line="2643"/>
+        <source>The report was changed.
+Save the report?</source>
+        <translation>تم تعديل التقرير.
+هل تود حفظ التقرير؟</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1010"/>
+        <source>Select File</source>
+        <translation>تحديد ملف</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1338"/>
+        <source>Going to make undo: </source>
+        <translation>Going to make undo: </translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1346"/>
+        <source>Going to make redo: </source>
+        <translation>Going to make redo: </translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1528"/>
+        <source>Save File</source>
+        <translation>حفظ ملف</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1528"/>
+        <source>XML Files (*.xml)</source>
+        <translation>ملفات XML (*.xml)</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1542"/>
+        <location filename="../mainwindow.cpp" line="2788"/>
+        <source>Error</source>
+        <translation>خطأ</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2189"/>
+        <source>Length</source>
+        <translation>طول</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2265"/>
+        <source>FrameWidth</source>
+        <translation>عرض الإطار</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2358"/>
+        <source>AutoHeight</source>
+        <translation>إرتفاع تلقائي</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2364"/>
+        <source>IgnoreRatioAspect</source>
+        <translation>تجاهل تناسب العرض للإرتفاع</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2370"/>
+        <source>ArrowStart</source>
+        <translation>بداية السهم</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2376"/>
+        <source>ArrowEnd</source>
+        <translation>نهاية السهم</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2382"/>
+        <source>TextWrap</source>
+        <translation>إلتفاف النص</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2388"/>
+        <source>BackgroundColor</source>
+        <translation>لون الخلفية</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2394"/>
+        <source>BorderColor</source>
+        <translation>لون الإطار</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2403"/>
+        <source>FontColor</source>
+        <translation>لون الخط</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1757"/>
+        <source>Font</source>
+        <translation>خط</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="233"/>
+        <source>Font name</source>
+        <translation>اسم الخط</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="236"/>
+        <source>Font size</source>
+        <translation>حجم الخط</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="261"/>
+        <source>Zoom</source>
+        <translation>مكبرة</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="499"/>
+        <source>Line</source>
+        <translation>خط</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="505"/>
+        <source>Line with arrow at the end</source>
+        <translation>خط بسهم بالنهاية</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="511"/>
+        <source>Line with arrow at the start</source>
+        <translation>خط بسهم بالبداية</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1765"/>
+        <source>Frame</source>
+        <translation>إطار</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2118"/>
+        <source>Aligment hor</source>
+        <translation>محاذاة أفقية</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2122"/>
+        <location filename="../mainwindow.cpp" line="2182"/>
+        <location filename="../mainwindow.cpp" line="2211"/>
+        <source>Left</source>
+        <translation>يسار</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2127"/>
+        <location filename="../mainwindow.cpp" line="2155"/>
+        <source>Center</source>
+        <translation>وسط</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2132"/>
+        <location filename="../mainwindow.cpp" line="2221"/>
+        <source>Right</source>
+        <translation>يمين</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2146"/>
+        <source>Aligment ver</source>
+        <translation>محاذاة عمودية</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2150"/>
+        <location filename="../mainwindow.cpp" line="2195"/>
+        <location filename="../mainwindow.cpp" line="2231"/>
+        <source>Top</source>
+        <translation>أعلى</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2160"/>
+        <location filename="../mainwindow.cpp" line="2241"/>
+        <source>Bottom</source>
+        <translation>أسفل</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2169"/>
+        <source>Height</source>
+        <translation>ارتفاع</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2176"/>
+        <source>Width</source>
+        <translation>عرض</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2285"/>
+        <source>Size</source>
+        <translation>قياس</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2334"/>
+        <source>Printing</source>
+        <translation>طباعة</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2340"/>
+        <source>Start New Numeration</source>
+        <translation>بدء ترقيم جديد</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2346"/>
+        <source>Show In Group</source>
+        <translation>عرض بمجموعة</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2352"/>
+        <source>Start New Page</source>
+        <translation>بدء صفحة جديدة</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2409"/>
+        <source>BarcodeType</source>
+        <translation>نوع الباركود</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2415"/>
+        <source>BarcodeFrameType</source>
+        <translation>نوع إطار الباركود</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2491"/>
+        <source>Report title</source>
+        <translation>عنوان التقرير</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2495"/>
+        <source>Report summary</source>
+        <translation>ملخص التقرير</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2499"/>
+        <source>Page header</source>
+        <translation>ترويسة الصفحة</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2503"/>
+        <source>Page footer</source>
+        <translation>تذييل الصفحة</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2507"/>
+        <source>Master data</source>
+        <translation>بيانات رئيسية</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2519"/>
+        <source>Data Group Header</source>
+        <translation>ترويسة مجموعة البيانات</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2523"/>
+        <source>Data Group Footer</source>
+        <translation>تذييل مجموعة البيانات</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2788"/>
+        <source>This object %1 can&apos;t be a parent for %2</source>
+        <translation>لا يمكن لهذا الكائن %1 أن يكون أباً لـ %2</translation>
+    </message>
+</context>
+<context>
+    <name>PageSettingDlg</name>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="32"/>
+        <source>Page settings</source>
+        <translation>إعدادات الصفحة</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="42"/>
+        <source>Size</source>
+        <translation>قياس</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="51"/>
+        <source>A3</source>
+        <translation>A3</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="56"/>
+        <source>A4</source>
+        <translation>A4</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="61"/>
+        <source>A5</source>
+        <translation>A5</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="66"/>
+        <source>Letter</source>
+        <translation>Letter</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="74"/>
+        <source>Width</source>
+        <translation>عرض</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="84"/>
+        <location filename="../PageSettingDlg.ui" line="101"/>
+        <location filename="../PageSettingDlg.ui" line="189"/>
+        <location filename="../PageSettingDlg.ui" line="209"/>
+        <location filename="../PageSettingDlg.ui" line="243"/>
+        <location filename="../PageSettingDlg.ui" line="250"/>
+        <source>cm</source>
+        <translation>سم</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="91"/>
+        <source>Height</source>
+        <translation>ارتفاع</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="138"/>
+        <source>Orientation</source>
+        <translation>إتجاه</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="146"/>
+        <source>Portrait</source>
+        <translation>طولي</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="166"/>
+        <source>Landscape</source>
+        <translation>عرضي</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="178"/>
+        <source>Margins</source>
+        <translation>حواشي</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="216"/>
+        <source>Left</source>
+        <translation>يسار</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="223"/>
+        <source>Right</source>
+        <translation>يمين</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="257"/>
+        <source>Top</source>
+        <translation>أعلى</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="236"/>
+        <source>Bottom</source>
+        <translation>أسفل</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="272"/>
+        <source>Page&apos;s border</source>
+        <translation>إطار الصفحة</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="280"/>
+        <source>Draw border</source>
+        <translation>إطار الرسم</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="287"/>
+        <source>Border color</source>
+        <translation>لون الإطار</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="310"/>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="317"/>
+        <source>Border width</source>
+        <translation>عرض الإطار</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="327"/>
+        <source>Border style</source>
+        <translation>نمط الإطار</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="364"/>
+        <source>OK</source>
+        <translation>موافق</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.ui" line="371"/>
+        <source>Cancel</source>
+        <translation>الغاء الأمر</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.cpp" line="57"/>
+        <source>Cm</source>
+        <translation>سم</translation>
+    </message>
+    <message>
+        <location filename="../PageSettingDlg.cpp" line="60"/>
+        <source>Inch</source>
+        <translation>بوصة</translation>
+    </message>
+</context>
+<context>
+    <name>QApplication</name>
+    <message>
+        <location filename="../main.cpp" line="29"/>
+        <source>QtRptDesigner</source>
+        <translation>QtRptDesigner</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <location filename="../UndoCommands.cpp" line="44"/>
+        <source>Changing Container&apos;s geometry</source>
+        <translation>تغيير أبعاد الحاوية</translation>
+    </message>
+    <message>
+        <location filename="../UndoCommands.cpp" line="102"/>
+        <source>Adding Container</source>
+        <translation>إضافة حاوية</translation>
+    </message>
+    <message>
+        <location filename="../UndoCommands.cpp" line="167"/>
+        <source>Deleting Container</source>
+        <translation>حذف حاوية</translation>
+    </message>
+    <message>
+        <location filename="../UndoCommands.cpp" line="209"/>
+        <source>Changing Container&apos;s parameters</source>
+        <translation>تغيير وسائط الحاوية</translation>
+    </message>
+    <message>
+        <location filename="../../QtRPT/RptCrossTabObject.cpp" line="200"/>
+        <source>C-Total</source>
+        <translation>مجموع الأعمدة</translation>
+    </message>
+    <message>
+        <location filename="../../QtRPT/RptCrossTabObject.cpp" line="214"/>
+        <source>R-Total</source>
+        <translation>مجموع الصفوف</translation>
+    </message>
+</context>
+<context>
+    <name>QTextEditEx</name>
+    <message>
+        <source>Cut</source>
+        <translation type="vanished">قص</translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="vanished">...</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="vanished">نسخ</translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="vanished">لصق</translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation type="vanished">عريض</translation>
+    </message>
+    <message>
+        <source>Italic</source>
+        <translation type="vanished">مائل</translation>
+    </message>
+    <message>
+        <source>Underline</source>
+        <translation type="vanished">تحته خط</translation>
+    </message>
+    <message>
+        <source>Align left</source>
+        <translation type="vanished">محاذاة لليسار</translation>
+    </message>
+    <message>
+        <source>Align center</source>
+        <translation type="vanished">محاذاة للوسط</translation>
+    </message>
+    <message>
+        <source>Align right</source>
+        <translation type="vanished">محاذاة لليمين</translation>
+    </message>
+    <message>
+        <source>Align jusify</source>
+        <translation type="vanished">محاذاة ضبط</translation>
+    </message>
+    <message>
+        <source>List</source>
+        <translation type="vanished">قائمة</translation>
+    </message>
+    <message>
+        <source>Font color</source>
+        <translation type="vanished">لون الخط</translation>
+    </message>
+    <message>
+        <source>Font</source>
+        <translation type="vanished">خط</translation>
+    </message>
+    <message>
+        <source>Font size</source>
+        <translation type="vanished">حجم الخط</translation>
+    </message>
+    <message>
+        <source>TextDirection</source>
+        <translation type="vanished">اتجاه النص</translation>
+    </message>
+    <message>
+        <source>&lt;-</source>
+        <translation type="vanished">-&gt;</translation>
+    </message>
+    <message>
+        <source>Standard</source>
+        <translation type="vanished">قياسي</translation>
+    </message>
+    <message>
+        <source>Bullet List (Disc)</source>
+        <translation type="vanished">قائمة منقطة (قرص)</translation>
+    </message>
+    <message>
+        <source>Bullet List (Circle)</source>
+        <translation type="vanished">قائمة منقطة (دائرة)</translation>
+    </message>
+    <message>
+        <source>Bullet List (Square)</source>
+        <translation type="vanished">قائمة منقطة (مربع)</translation>
+    </message>
+    <message>
+        <source>Ordered List (Decimal)</source>
+        <translation type="vanished">قائمة مرتبة (عشرية)</translation>
+    </message>
+    <message>
+        <source>Ordered List (Alpha lower)</source>
+        <translation type="vanished">قائمة مرتبة (محارف صغيرة)</translation>
+    </message>
+    <message>
+        <source>Ordered List (Alpha upper)</source>
+        <translation type="vanished">قائمة مرتبة (محارف كبيرة)</translation>
+    </message>
+</context>
+<context>
+    <name>QtRPT</name>
+    <message>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1522"/>
+        <source>Save as PDF</source>
+        <translation>حفظ كـ PDF</translation>
+    </message>
+    <message>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1527"/>
+        <source>Save as HTML</source>
+        <translation>حفظ كـ HTML</translation>
+    </message>
+    <message>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1533"/>
+        <source>Save as XLSX</source>
+        <translation>حفظ كـ XLSX</translation>
+    </message>
+    <message>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1554"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1559"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1564"/>
+        <source>Save File</source>
+        <translation>حفظ ملف</translation>
+    </message>
+    <message>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1554"/>
+        <source>PDF Files (*.pdf)</source>
+        <translation>ملفات PDF (*.pdf)</translation>
+    </message>
+    <message>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1559"/>
+        <source>HTML Files (*.html)</source>
+        <translation>ملفات HTML (*.html)</translation>
+    </message>
+    <message>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1564"/>
+        <source>XLSX Files (*.xlsx)</source>
+        <translation>ملفات XLSX (*.xlsx)</translation>
+    </message>
+</context>
+<context>
+    <name>ReportBand</name>
+    <message>
+        <location filename="../ReportBand.cpp" line="65"/>
+        <source>Report title</source>
+        <translation>عنوان التقرير</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="71"/>
+        <source>Report summary</source>
+        <translation>ملخص التقرير</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="77"/>
+        <source>Page header</source>
+        <translation>ترويسة الصفحة</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="83"/>
+        <source>Page footer</source>
+        <translation>تذييل الصفحة</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="89"/>
+        <source>Master band</source>
+        <translation>شريط رئيسي</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="96"/>
+        <source>Master footer</source>
+        <translation>تذييل رئيسي</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="102"/>
+        <source>Master header</source>
+        <translation>ترويسة رئيسية</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="108"/>
+        <source>Data Group Header</source>
+        <translation>ترويسة مجموعة البيانات</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="114"/>
+        <source>Data Group Footer</source>
+        <translation>تذييل مجموعة البيانات</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="133"/>
+        <source>Delete</source>
+        <translation>حذف</translation>
+    </message>
+</context>
+<context>
+    <name>SettingDlg</name>
+    <message>
+        <location filename="../SettingDlg.ui" line="14"/>
+        <source>Settings</source>
+        <translation>إعدادات</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="24"/>
+        <source>Grid</source>
+        <translation>شبكة</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="32"/>
+        <source>Measurement&apos;s unit</source>
+        <translation>واحدة القياس</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="42"/>
+        <source>Cm</source>
+        <translation>سم</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="55"/>
+        <source>Inch</source>
+        <translation>بوصة</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="66"/>
+        <source>Grid&apos;s step</source>
+        <translation>خطوة الشبكة</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="85"/>
+        <source>Show grid</source>
+        <translation>عرض الشبكة</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="95"/>
+        <source>Internationalization</source>
+        <translation>لغات</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="103"/>
+        <source>Language:</source>
+        <translation>لغة:</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="111"/>
+        <source>System Default</source>
+        <translation>افتراضي النظام</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="116"/>
+        <source>Arabic عربي</source>
+        <translation>Arabic عربي</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="121"/>
+        <source>American English</source>
+        <translation>American English</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="126"/>
+        <source>Chinese</source>
+        <translation>Chinese</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="131"/>
+        <source>Dutch</source>
+        <translation>Dutch</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="136"/>
+        <source>French</source>
+        <translation>French</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="141"/>
+        <source>Georgian ქართული</source>
+        <translation>جورجي ქართული</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="146"/>
+        <source>German</source>
+        <translation>German</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="151"/>
+        <source>Portuguese</source>
+        <translation>Portuguese</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="156"/>
+        <source>Russian Русский</source>
+        <translation>روسي Русский</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="171"/>
+        <source>Spanish</source>
+        <translation>Spanish</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="176"/>
+        <source>Ukraine Український</source>
+        <translation>أوكراني Український</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="161"/>
+        <source>Serbian</source>
+        <translation>Serbian</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="166"/>
+        <source>Serbian Latin</source>
+        <translation>Serbian Latin</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="189"/>
+        <source>Check updates during start application</source>
+        <translation>فحص التحديثات عند بدء التشغيل</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="211"/>
+        <source>Save</source>
+        <translation>حفظ</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="218"/>
+        <source>Cancel</source>
+        <translation>الغاء الأمر</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.cpp" line="149"/>
+        <source>Message QtRptDesigner</source>
+        <translation>رسالة QtRptDesigner</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.cpp" line="149"/>
+        <source>The language for this application has been changed.
+The change will take effect the next time the application is started.
+Restart application?</source>
+        <translation>تم تغيير لغة التطبي.
+لحفظ التعديلات أنت بحاجة لإعادة تشغيل التطبيق.
+هل تريد إعادة التشغيل؟</translation>
+    </message>
+</context>
+<context>
+    <name>SqlDesigner</name>
+    <message>
+        <location filename="../SqlDesigner.ui" line="34"/>
+        <source>Custom DS</source>
+        <translation>مصدر بيانات مخصّص</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="44"/>
+        <source>SQL DS</source>
+        <translation>مصدر بيانات SQL</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="114"/>
+        <source>Driver</source>
+        <translation>المحرك</translation>
+    </message>
+    <message>
+        <source>QSQLITE</source>
+        <translation type="vanished">QSQLITE</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="105"/>
+        <source>Connection&apos;s parameters</source>
+        <translation>وسائط الاتصال</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="51"/>
+        <source>XML DS</source>
+        <translation>XML DS</translation>
+    </message>
+    <message>
+        <source>QMYSQL</source>
+        <translation type="vanished">QMYSQL</translation>
+    </message>
+    <message>
+        <source>QMYSQL3</source>
+        <translation type="vanished">QMYSQL3</translation>
+    </message>
+    <message>
+        <source>QODBC</source>
+        <translation type="vanished">QODBC</translation>
+    </message>
+    <message>
+        <source>QODBC3</source>
+        <translation type="vanished">QODBC3</translation>
+    </message>
+    <message>
+        <source>QPSQL</source>
+        <translation type="vanished">QPSQL</translation>
+    </message>
+    <message>
+        <source>QPSQL7</source>
+        <translation type="vanished">QPSQL7</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="203"/>
+        <source>Connection name</source>
+        <translation>اسم الإتصال</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="210"/>
+        <source>Port</source>
+        <translation>المنفذ</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="324"/>
+        <source>Select XML</source>
+        <translation>تحديد ملف XML</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="388"/>
+        <source>Field name</source>
+        <translation>اسم الحقل</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="393"/>
+        <source>Description</source>
+        <translation>الوصف</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="404"/>
+        <source>Preview data</source>
+        <translation>معاينة البيانات</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="441"/>
+        <location filename="../SqlDesigner.ui" line="444"/>
+        <source>Clear diagram</source>
+        <translation>مسح المخطط</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="459"/>
+        <location filename="../SqlDesigner.ui" line="462"/>
+        <source>Select</source>
+        <translation>تحديد</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="471"/>
+        <location filename="../SqlDesigner.ui" line="474"/>
+        <source>Redo</source>
+        <translation>إعادة</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="477"/>
+        <source>Ctrl+Y</source>
+        <translation>Ctrl+Y</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="486"/>
+        <location filename="../SqlDesigner.ui" line="489"/>
+        <source>Undo</source>
+        <translation>تراجع</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="492"/>
+        <source>Ctrl+Z</source>
+        <translation>Ctrl+Z</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="504"/>
+        <location filename="../SqlDesigner.ui" line="507"/>
+        <source>Add relationship</source>
+        <translation>إضافة علاقة</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="516"/>
+        <location filename="../SqlDesigner.ui" line="519"/>
+        <source>Delete</source>
+        <translation>حذف</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="522"/>
+        <source>Del</source>
+        <translation>Del</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="161"/>
+        <source>Connection</source>
+        <translation>الاتصال</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="154"/>
+        <source>Check</source>
+        <translation>فحص</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="196"/>
+        <source>DB name</source>
+        <translation>اسم قاعدة البيانات</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="168"/>
+        <source>User name</source>
+        <translation>اسم المستخدم</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="182"/>
+        <source>Host name</source>
+        <translation>اسم المستضيف</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="144"/>
+        <source>Password</source>
+        <translation>كلمة المرور</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="175"/>
+        <source>Connection coding</source>
+        <translation>ترميز الاتصال</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="121"/>
+        <location filename="../SqlDesigner.ui" line="189"/>
+        <source>UTF8</source>
+        <translation>UTF8</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="134"/>
+        <source>Charset coding</source>
+        <translation>ترميز المحارف</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="288"/>
+        <source>SQL query</source>
+        <translation>استعلام SQL</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.ui" line="88"/>
+        <source>Close</source>
+        <translation>إغلاق</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.cpp" line="114"/>
+        <source>Error</source>
+        <translation>خطأ</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.cpp" line="117"/>
+        <source>Info</source>
+        <translation>معلومات</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.cpp" line="117"/>
+        <source>Connected</source>
+        <translation>متصل</translation>
+    </message>
+    <message>
+        <location filename="../SqlDesigner.cpp" line="161"/>
+        <source>Select File</source>
+        <translation>تحديد ملف</translation>
+    </message>
+</context>
+<context>
+    <name>TContainerField</name>
+    <message>
+        <location filename="../TContainerField.cpp" line="28"/>
+        <source>New Label</source>
+        <translation>تسمية جديدة</translation>
+    </message>
+    <message>
+        <location filename="../TContainerField.cpp" line="73"/>
+        <source>Edit</source>
+        <translation>تحرير</translation>
+    </message>
+    <message>
+        <location filename="../TContainerField.cpp" line="77"/>
+        <source>Delete</source>
+        <translation>حذف</translation>
+    </message>
+    <message>
+        <location filename="../TContainerField.cpp" line="84"/>
+        <source>Move forward</source>
+        <translation>تحريك للأمام</translation>
+    </message>
+    <message>
+        <location filename="../TContainerField.cpp" line="90"/>
+        <source>Move back</source>
+        <translation>تحربك للخلف</translation>
+    </message>
+    <message>
+        <location filename="../TContainerField.cpp" line="281"/>
+        <source>New image</source>
+        <translation>صورة جديدة</translation>
+    </message>
+    <message>
+        <location filename="../TContainerField.cpp" line="288"/>
+        <source>New diagram</source>
+        <translation>مخطط جديد</translation>
+    </message>
+    <message>
+        <location filename="../TContainerField.cpp" line="651"/>
+        <source>Total</source>
+        <translation>المجموع</translation>
+    </message>
+</context>
+<context>
+    <name>TContainerLine</name>
+    <message>
+        <location filename="../TContainerLine.cpp" line="243"/>
+        <source>Delete</source>
+        <translation>حذف</translation>
+    </message>
+</context>
+<context>
+    <name>UpdateDlg</name>
+    <message>
+        <source>Updating</source>
+        <translation type="vanished">تحديث</translation>
+    </message>
+    <message>
+        <source>Progress</source>
+        <translation type="vanished">تقدّم</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="vanished">تحديث</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">إلغاء الأمر</translation>
+    </message>
+    <message>
+        <source>Open Directory</source>
+        <translation type="vanished">فتح المجلد</translation>
+    </message>
+    <message>
+        <source>Downloading %0. ..</source>
+        <translation type="vanished">تحميل %0. ..</translation>
+    </message>
+</context>
+<context>
+    <name>XYZTextEditor</name>
+    <message>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="43"/>
+        <source>Cut</source>
+        <translation>قص</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="46"/>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="63"/>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="80"/>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="113"/>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="133"/>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="153"/>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="189"/>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="209"/>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="229"/>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="249"/>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="308"/>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="60"/>
+        <source>Copy</source>
+        <translation>نسخ</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="77"/>
+        <source>Paste</source>
+        <translation>لصق</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="110"/>
+        <source>Bold</source>
+        <translation>عريض</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="130"/>
+        <source>Italic</source>
+        <translation>مائل</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="150"/>
+        <source>Underline</source>
+        <translation>تحته خط</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="186"/>
+        <source>Align left</source>
+        <translation>محاذاة لليسار</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="206"/>
+        <source>Align center</source>
+        <translation>محاذاة للوسط</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="226"/>
+        <source>Align right</source>
+        <translation>محاذاة لليمين</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="246"/>
+        <source>Align jusify</source>
+        <translation>محاذاة ضبط</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="282"/>
+        <source>List</source>
+        <translation>قائمة</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="305"/>
+        <source>Font color</source>
+        <translation>لون الخط</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="322"/>
+        <source>Font</source>
+        <translation>خط</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="332"/>
+        <source>Font size</source>
+        <translation>حجم الخط</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="438"/>
+        <source>TextDirection</source>
+        <translation>اتجاه النص</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="441"/>
+        <source>&lt;-</source>
+        <translation>-&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_TextEditor.cpp" line="93"/>
+        <source>Standard</source>
+        <translation>قياسي</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_TextEditor.cpp" line="94"/>
+        <source>Bullet List (Disc)</source>
+        <translation>قائمة منقطة (قرص)</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_TextEditor.cpp" line="95"/>
+        <source>Bullet List (Circle)</source>
+        <translation>قائمة منقطة (دائرة)</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_TextEditor.cpp" line="96"/>
+        <source>Bullet List (Square)</source>
+        <translation>قائمة منقطة (مربع)</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_TextEditor.cpp" line="97"/>
+        <source>Ordered List (Decimal)</source>
+        <translation>قائمة مرتبة (عشرية)</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_TextEditor.cpp" line="98"/>
+        <source>Ordered List (Alpha lower)</source>
+        <translation>قائمة مرتبة (محارف صغيرة)</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_TextEditor.cpp" line="99"/>
+        <source>Ordered List (Alpha upper)</source>
+        <translation>قائمة مرتبة (محارف كبيرة)</translation>
+    </message>
+</context>
+<context>
+    <name>XYZUpdateDlg</name>
+    <message>
+        <location filename="../../CommonFiles/XYZ_UpdateDlg.ui" line="14"/>
+        <location filename="../../CommonFiles/XYZ_UpdateDlg.ui" line="38"/>
+        <source>Updating</source>
+        <translation>تحديث</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_UpdateDlg.ui" line="33"/>
+        <source>Progress</source>
+        <translation>تقدّم</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_UpdateDlg.ui" line="82"/>
+        <source>Update</source>
+        <translation>تحديث</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_UpdateDlg.ui" line="89"/>
+        <source>Cancel</source>
+        <translation>الغاء الأمر</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_UpdateDlg.cpp" line="51"/>
+        <source>Open Directory</source>
+        <translation>فتح المجلد</translation>
+    </message>
+    <message>
+        <location filename="../../CommonFiles/XYZ_UpdateDlg.cpp" line="74"/>
+        <source>Downloading %0. ..</source>
+        <translation>تحميل %0. ..</translation>
+    </message>
+</context>
+</TS>
