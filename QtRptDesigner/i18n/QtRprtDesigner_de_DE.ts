@@ -1668,14 +1668,9 @@ Save the report?</source>
         <translation>Ändere Container-Parameter</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/RptCrossTabObject.cpp" line="200"/>
-        <source>C-Total</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../QtRPT/RptCrossTabObject.cpp" line="214"/>
-        <source>R-Total</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../QtRPT/RptCrossTabObject.cpp" line="38"/>
+        <source>Total</source>
+        <translation type="unfinished">Gesamt</translation>
     </message>
 </context>
 <context>
@@ -2274,8 +2269,8 @@ Restart application?</source>
         <translation>Neues Diagramm</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="652"/>
-        <location filename="../TContainerField.cpp" line="673"/>
+        <location filename="../TContainerField.cpp" line="654"/>
+        <location filename="../TContainerField.cpp" line="675"/>
         <source>Total</source>
         <translation>Gesamt</translation>
     </message>

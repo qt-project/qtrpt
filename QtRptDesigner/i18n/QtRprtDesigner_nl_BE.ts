@@ -1666,13 +1666,8 @@ Bewaar het rapport?</translation>
         <translation>Wijzig containers parameters</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/RptCrossTabObject.cpp" line="200"/>
-        <source>C-Total</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../QtRPT/RptCrossTabObject.cpp" line="214"/>
-        <source>R-Total</source>
+        <location filename="../../QtRPT/RptCrossTabObject.cpp" line="38"/>
+        <source>Total</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2239,8 +2234,8 @@ Wilt u de toepassing nu herstarten?</translation>
         <translation>Nieuw diagram</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="652"/>
-        <location filename="../TContainerField.cpp" line="673"/>
+        <location filename="../TContainerField.cpp" line="654"/>
+        <location filename="../TContainerField.cpp" line="675"/>
         <source>Total</source>
         <translation type="unfinished"></translation>
     </message>
