@@ -335,13 +335,15 @@ void TContainerField::setType(FieldType value, QDomDocument *xmlDoc) {
             m_crossTab->addRow("R3");
             m_crossTab->setColHeaderVisible(true);
             m_crossTab->setRowHeaderVisible(true);
+            m_crossTab->setColTotalVisible(false);
+            m_crossTab->setRowTotalVisible(false);
             m_crossTab->initMatrix();
             //Fill values into matrix
-            for (int r=0; r<m_crossTab->rowCount(); r++)
+            /*for (int r=0; r<m_crossTab->rowCount(); r++)
                 for (int c=0; c<m_crossTab->colCount(); c++)
                     m_crossTab->setMatrixValue(QString::number(c),
                                                QString::number(r),
-                                               QString("%1%2").arg(c).arg(r).toDouble());
+                                               QString("%1%2").arg(c).arg(r).toDouble());*/
 
 
             break;
