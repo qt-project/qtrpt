@@ -220,9 +220,8 @@
         <translation>Ignorar relación en el aspecto </translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="593"/>
         <source>Diagram&apos;s property</source>
-        <translation>Propiedad del digramas</translation>
+        <translation type="vanished">Propiedad del digramas</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="599"/>
@@ -230,9 +229,8 @@
         <translation>Diagrama</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="607"/>
         <source>Chart&apos;s caption</source>
-        <translation>Titulo de diagrama</translation>
+        <translation type="vanished">Titulo de diagrama</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="619"/>
@@ -255,14 +253,12 @@
         <translation>Definir parametros gráficos</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="647"/>
         <source>Show graph&apos;s caption</source>
-        <translation>Mostrar títulos gráficos</translation>
+        <translation type="vanished">Mostrar títulos gráficos</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="657"/>
         <source>Graph&apos;s caption</source>
-        <translation>Titulo gráfico</translation>
+        <translation type="vanished">Titulo gráfico</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="663"/>
@@ -345,6 +341,26 @@
         <translation>Cuidado. Solo entrar UNA variable y no todo un texto.</translation>
     </message>
     <message>
+        <location filename="../EditFldDlg.ui" line="593"/>
+        <source>Diagram property</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="607"/>
+        <source>Chart caption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="647"/>
+        <source>Show graph caption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="657"/>
+        <source>Graph caption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../EditFldDlg.ui" line="877"/>
         <source>Height</source>
         <translation>Alto</translation>
@@ -355,12 +371,52 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="938"/>
-        <source>OK</source>
+        <location filename="../EditFldDlg.ui" line="929"/>
+        <source>Dimensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="935"/>
+        <source>Rows</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="945"/>
+        <source>Columns</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="964"/>
+        <source>Parameters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="970"/>
+        <source>Show row header</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="977"/>
+        <source>Show column header</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="984"/>
+        <source>Show row total</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="991"/>
+        <source>Show column total</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="1018"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="1025"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
@@ -379,12 +435,12 @@ Remove it?</source>
 ¿ La quitamos ?</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.cpp" line="551"/>
+        <location filename="../EditFldDlg.cpp" line="552"/>
         <source>Save Image As</source>
         <translation>Salvar imágen como</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.cpp" line="553"/>
+        <location filename="../EditFldDlg.cpp" line="554"/>
         <source>Images (*.png)</source>
         <translation>Imagenes (*.png)</translation>
     </message>
@@ -1523,14 +1579,18 @@ Save the report?</source>
         <translation>Superior</translation>
     </message>
     <message>
+        <location filename="../PageSettingDlg.ui" line="272"/>
+        <source>Page border</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../PageSettingDlg.ui" line="236"/>
         <source>Bottom</source>
         <translation>Inferior</translation>
     </message>
     <message>
-        <location filename="../PageSettingDlg.ui" line="272"/>
         <source>Page&apos;s border</source>
-        <translation>Borde Página</translation>
+        <translation type="vanished">Borde Página</translation>
     </message>
     <message>
         <location filename="../PageSettingDlg.ui" line="280"/>
@@ -1609,13 +1669,8 @@ Save the report?</source>
         <translation>Cambiar los parámetros del continente</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/RptCrossTabObject.cpp" line="200"/>
-        <source>C-Total</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../QtRPT/RptCrossTabObject.cpp" line="214"/>
-        <source>R-Total</source>
+        <location filename="../../QtRPT/RptCrossTabObject.cpp" line="38"/>
+        <source>Total</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2209,7 +2264,8 @@ El cambio tendrá lugar la próxima vez se inicie la aplicación.
         <translation>Nuevo diagrama</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="650"/>
+        <location filename="../TContainerField.cpp" line="654"/>
+        <location filename="../TContainerField.cpp" line="675"/>
         <source>Total</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2226,27 +2282,27 @@ El cambio tendrá lugar la próxima vez se inicie la aplicación.
     <name>UpdateDlg</name>
     <message>
         <source>Updating</source>
-        <translation>Modificando</translation>
+        <translation type="vanished">Modificando</translation>
     </message>
     <message>
         <source>Progress</source>
-        <translation>Progreso</translation>
+        <translation type="vanished">Progreso</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>Modificar</translation>
+        <translation type="vanished">Modificar</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation type="vanished">Cancelar</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation>Abrir directorio</translation>
+        <translation type="vanished">Abrir directorio</translation>
     </message>
     <message>
         <source>Downloading %0. ..</source>
-        <translation>Descargando %0</translation>
+        <translation type="vanished">Descargando %0</translation>
     </message>
 </context>
 <context>
@@ -2417,4 +2473,3 @@ El cambio tendrá lugar la próxima vez se inicie la aplicación.
     </message>
 </context>
 </TS>
-

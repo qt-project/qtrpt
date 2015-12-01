@@ -228,9 +228,8 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="593"/>
         <source>Diagram&apos;s property</source>
-        <translation>خاصية المخطط</translation>
+        <translation type="vanished">خاصية المخطط</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="599"/>
@@ -238,9 +237,8 @@
         <translation>مخطط</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="607"/>
         <source>Chart&apos;s caption</source>
-        <translation>تسمية الرسم البياني</translation>
+        <translation type="vanished">تسمية الرسم البياني</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="619"/>
@@ -263,14 +261,12 @@
         <translation>وسائط الرسم البياني</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="647"/>
         <source>Show graph&apos;s caption</source>
-        <translation>عرض عنوان الرسم البياني</translation>
+        <translation type="vanished">عرض عنوان الرسم البياني</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="657"/>
         <source>Graph&apos;s caption</source>
-        <translation>عنوان الرسم البياني</translation>
+        <translation type="vanished">عنوان الرسم البياني</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="663"/>
@@ -290,7 +286,7 @@
     <message>
         <location filename="../EditFldDlg.ui" line="711"/>
         <source>Add row</source>
-        <translation>إضاة صف</translation>
+        <translation>إضافة صف</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="725"/>
@@ -357,6 +353,26 @@
         <translation>تنبيه! بإمكانك إدخال متغير واحد فقط و ليس أي نص كان.</translation>
     </message>
     <message>
+        <location filename="../EditFldDlg.ui" line="593"/>
+        <source>Diagram property</source>
+        <translation>خاصية المخطط</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="607"/>
+        <source>Chart caption</source>
+        <translation>تسمية الرسم البياني</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="647"/>
+        <source>Show graph caption</source>
+        <translation>عرض عنوان الرسم البياني</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="657"/>
+        <source>Graph caption</source>
+        <translation>عنوان الرسم البياني</translation>
+    </message>
+    <message>
         <location filename="../EditFldDlg.ui" line="877"/>
         <source>Height</source>
         <translation>ارتفاع</translation>
@@ -367,12 +383,52 @@
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="938"/>
+        <location filename="../EditFldDlg.ui" line="929"/>
+        <source>Dimensions</source>
+        <translation>الأبعاد</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="935"/>
+        <source>Rows</source>
+        <translation>صفوف</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="945"/>
+        <source>Columns</source>
+        <translation>أعمدة</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="964"/>
+        <source>Parameters</source>
+        <translation>وسائط</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="970"/>
+        <source>Show row header</source>
+        <translation>عرض ترويسة الصف</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="977"/>
+        <source>Show column header</source>
+        <translation>عرض ترويسة العمود</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="984"/>
+        <source>Show row total</source>
+        <translation>عرض مجموع الصف</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="991"/>
+        <source>Show column total</source>
+        <translation>عرض مجموع العمود</translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="1018"/>
         <source>OK</source>
         <translation>موافق</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="945"/>
+        <location filename="../EditFldDlg.ui" line="1025"/>
         <source>Cancel</source>
         <translation>الغاء الأمر</translation>
     </message>
@@ -391,12 +447,12 @@ Remove it?</source>
 هل تود إزالته؟</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.cpp" line="551"/>
+        <location filename="../EditFldDlg.cpp" line="552"/>
         <source>Save Image As</source>
         <translation>حفظ الصورة باسم</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.cpp" line="553"/>
+        <location filename="../EditFldDlg.cpp" line="554"/>
         <source>Images (*.png)</source>
         <translation>صور (*.png)</translation>
     </message>
@@ -1544,14 +1600,18 @@ Save the report?</source>
         <translation>أعلى</translation>
     </message>
     <message>
+        <location filename="../PageSettingDlg.ui" line="272"/>
+        <source>Page border</source>
+        <translation>إطار الصفحة</translation>
+    </message>
+    <message>
         <location filename="../PageSettingDlg.ui" line="236"/>
         <source>Bottom</source>
         <translation>أسفل</translation>
     </message>
     <message>
-        <location filename="../PageSettingDlg.ui" line="272"/>
         <source>Page&apos;s border</source>
-        <translation>إطار الصفحة</translation>
+        <translation type="vanished">إطار الصفحة</translation>
     </message>
     <message>
         <location filename="../PageSettingDlg.ui" line="280"/>
@@ -1630,14 +1690,17 @@ Save the report?</source>
         <translation>تغيير وسائط الحاوية</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/RptCrossTabObject.cpp" line="200"/>
         <source>C-Total</source>
-        <translation>مجموع الأعمدة</translation>
+        <translation type="vanished">مجموع الأعمدة</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/RptCrossTabObject.cpp" line="214"/>
         <source>R-Total</source>
-        <translation>مجموع الصفوف</translation>
+        <translation type="vanished">مجموع الصفوف</translation>
+    </message>
+    <message>
+        <location filename="../../QtRPT/RptCrossTabObject.cpp" line="38"/>
+        <source>Total</source>
+        <translation>المجموع</translation>
     </message>
 </context>
 <context>
@@ -2230,7 +2293,8 @@ Restart application?</source>
         <translation>مخطط جديد</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="651"/>
+        <location filename="../TContainerField.cpp" line="654"/>
+        <location filename="../TContainerField.cpp" line="675"/>
         <source>Total</source>
         <translation>المجموع</translation>
     </message>
