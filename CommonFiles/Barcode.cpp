@@ -23,6 +23,7 @@ BarCode::BarCode(QWidget *parent) : QWidget(parent) {
     m_value = "QtRPT";
     m_BarcodeType = CODE128; //CODE128
     m_FrameType = NO_BORDER; //NO FRAME
+    m_height = 50;
 }
 
 void BarCode::paintEvent(QPaintEvent * event) {

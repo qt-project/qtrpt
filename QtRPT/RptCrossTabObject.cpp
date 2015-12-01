@@ -50,7 +50,7 @@ int RptCrossTabObject::allColCount() const {
 
     if (isRowHeaderVisible())
         finalColCount += 1;
-    if (isRowTotalVisible())
+    if (isColTotalVisible())
         finalColCount += 1;
     return finalColCount;
 }
@@ -60,7 +60,7 @@ int RptCrossTabObject::allRowCount() const {
 
     if (isColHeaderVisible())
         finalRowCount += 1;
-    if (isColTotalVisible())
+    if (isRowTotalVisible())
         finalRowCount += 1;
     return finalRowCount;
 }

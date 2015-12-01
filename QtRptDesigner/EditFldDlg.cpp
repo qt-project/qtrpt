@@ -367,6 +367,7 @@ int EditFldDlg::showBarcode(TContainerField *cont) {
 }
 
 int EditFldDlg::showCrosstab(TContainerField *cont) {
+    ui->stackedWidget->setCurrentIndex(5);
     if (this->exec()) {
         return QDialog::Accepted;
     } else return QDialog::Rejected;

@@ -32,7 +32,7 @@
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>4</number>
+      <number>5</number>
      </property>
      <widget class="QWidget" name="page">
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -590,7 +590,7 @@
          </property>
          <widget class="QWidget" name="tab_5">
           <attribute name="title">
-           <string>Diagram's property</string>
+           <string>Diagram property</string>
           </attribute>
           <layout class="QVBoxLayout" name="verticalLayout_13">
            <item>
@@ -604,7 +604,7 @@
                 <item>
                  <widget class="QLabel" name="label_2">
                   <property name="text">
-                   <string>Chart's caption</string>
+                   <string>Chart caption</string>
                   </property>
                  </widget>
                 </item>
@@ -644,7 +644,7 @@
               <item>
                <widget class="QCheckBox" name="chkGraphsCaption">
                 <property name="text">
-                 <string>Show graph's caption</string>
+                 <string>Show graph caption</string>
                 </property>
                </widget>
               </item>
@@ -654,7 +654,7 @@
                  <bool>false</bool>
                 </property>
                 <property name="title">
-                 <string>Graph's caption</string>
+                 <string>Graph caption</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_10">
                  <item>
@@ -914,6 +914,86 @@
         <widget class="XYZTextEditor" name="textEditRich" native="true"/>
        </item>
       </layout>
+     </widget>
+     <widget class="QWidget" name="page_6">
+      <widget class="QGroupBox" name="groupBox_2">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>50</y>
+         <width>171</width>
+         <height>111</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Dimensions</string>
+       </property>
+       <layout class="QFormLayout" name="formLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_8">
+          <property name="text">
+           <string>Rows</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QSpinBox" name="spnRowCount"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_9">
+          <property name="text">
+           <string>Columns</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QSpinBox" name="spnColCount"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_3">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>50</y>
+         <width>221</width>
+         <height>119</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Parameters</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_16">
+        <item>
+         <widget class="QCheckBox" name="chkRowHeader">
+          <property name="text">
+           <string>Show row header</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="chkColHeader">
+          <property name="text">
+           <string>Show column header</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="chkRowTotal">
+          <property name="text">
+           <string>Show row total</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="chlColTotal">
+          <property name="text">
+           <string>Show column total</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </widget>
    </item>

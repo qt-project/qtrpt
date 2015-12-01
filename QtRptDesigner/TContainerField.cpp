@@ -620,6 +620,8 @@ void TContainerField::paintEvent( QPaintEvent * event) {
         case CrossTab: {
             int fieldWidth = m_crossTab->rect.width()/m_crossTab->allColCount();
             int fieldheight = m_crossTab->rect.height()/m_crossTab->allRowCount();
+            int posInCell_V = fieldheight/2;
+            int posInCell_H = 5;
             //grid drawing
             for(int row=0; row<m_crossTab->allRowCount(); row++) {
                 QPoint p1(0, row*fieldheight),
@@ -632,7 +634,6 @@ void TContainerField::paintEvent( QPaintEvent * event) {
                 p.drawLine(p1,p2);
             }
 
-            m_crossTab->setRowHeaderVisible(false);
             for(int row=0; row<m_crossTab->rowCount(); row++) {
                 QString row_txt = m_crossTab->getRowName(row);
                 int tmpRow = row;
@@ -641,17 +642,17 @@ void TContainerField::paintEvent( QPaintEvent * event) {
                 }
                 //row's header drawing
                 if (m_crossTab->isRowHeaderVisible()) {
-                    QPoint p1(20, (tmpRow)*fieldheight+20);
+                    QPoint p1(posInCell_H, (tmpRow)*fieldheight+posInCell_V);
                     p.drawText(p1,row_txt);
-                }
-                //
-                if (m_crossTab->isRowTotalVisible()) {
-                    if (row == m_crossTab->rowCount()-1) {
-                        QPoint p1(20, (tmpRow+1)*fieldheight+20);
-                        p.drawText(p1,tr("Total"));
+
+                    //row's total drawing
+                    if (m_crossTab->isRowTotalVisible()) {
+                        if (row == m_crossTab->rowCount()-1) {
+                            QPoint p1(posInCell_H, (tmpRow+1)*fieldheight+posInCell_V);
+                            p.drawText(p1,tr("Total"));
+                        }
                     }
                 }
-
                 //---
                 for(int col=0; col<m_crossTab->colCount(); col++) {
                     if (row == 0) {
@@ -662,25 +663,21 @@ void TContainerField::paintEvent( QPaintEvent * event) {
                         }
                         //col's header drawing
                         if (m_crossTab->isColHeaderVisible()) {
-                            QPoint p1((tmpCol)*fieldWidth+20, 20);
+                            QPoint p1((tmpCol)*fieldWidth+posInCell_H, posInCell_V);
                             p.drawText(p1,col_txt);
-                        }
-                        //total col drawing
-                        /*if (m_crossTab->isColTotalVisible()) {
-                            if (col == m_crossTab->colCount()-1) {
-                                QPoint p1((tmpCol+1)*fieldWidth+20, 20);
-                                p.drawText(p1,tr("Total"));
+
+                            //total col drawing
+                            if (m_crossTab->isColTotalVisible()) {
+                                if (col == m_crossTab->colCount()-1) {
+                                    QPoint p1((tmpCol+1)*fieldWidth+posInCell_H, posInCell_V);
+                                    p.drawText(p1,tr("Total"));
+                                }
                             }
-                        }*/
+                        }
                     }
                 }
             }
 
-            //if (m_crossTab->isColTotalVisible()) {
-                //int tmpRow = m_crossTab->rowCount();
-                //QPoint p1((tmpCol)*fieldWidth+20, 20);
-                //p.drawText(p1,tr("Total"));
-            //}
             break;
         }
     default: QWidget::paintEvent(event);

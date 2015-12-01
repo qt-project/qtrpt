@@ -269,7 +269,7 @@
    <item>
     <widget class="QGroupBox" name="groupBox_41">
      <property name="title">
-      <string>Page's border</string>
+      <string>Page border</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_5">
       <item>
