@@ -339,7 +339,9 @@ void TContainerField::setType(FieldType value, QDomDocument *xmlDoc) {
             //Fill values into matrix
             for (int r=0; r<m_crossTab->rowCount(); r++)
                 for (int c=0; c<m_crossTab->colCount(); c++)
-                    m_crossTab->setMatrixValue(c,r,QString("%1%2").arg(c).arg(r));
+                    m_crossTab->setMatrixValue(QString::number(c),
+                                               QString::number(r),
+                                               QString("%1%2").arg(c).arg(r).toDouble());
 
 
             break;

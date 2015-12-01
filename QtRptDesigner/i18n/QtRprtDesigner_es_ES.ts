@@ -46,7 +46,7 @@
     <message>
         <location filename="../aboutDlg.cpp" line="57"/>
         <source>Norbert Schlia for help in developing</source>
-        <translation type="unfinished"></translation>
+        <translation>Norbert Schlia por la ayuda en el desarrollo</translation>
     </message>
     <message>
         <location filename="../aboutDlg.cpp" line="58"/>
@@ -146,7 +146,7 @@
     <message>
         <location filename="../EditFldDlg.ui" line="227"/>
         <source>Condtion</source>
-        <translation>Condiciín</translation>
+        <translation>Condición</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="235"/>
@@ -220,8 +220,9 @@
         <translation>Ignorar relación en el aspecto </translation>
     </message>
     <message>
+        <location filename="../EditFldDlg.ui" line="593"/>
         <source>Diagram&apos;s property</source>
-        <translation type="vanished">Propiedad del digramas</translation>
+        <translation>Propiedad del digramas</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="599"/>
@@ -229,8 +230,9 @@
         <translation>Diagrama</translation>
     </message>
     <message>
+        <location filename="../EditFldDlg.ui" line="607"/>
         <source>Chart&apos;s caption</source>
-        <translation type="vanished">Titulo de diagrama</translation>
+        <translation>Titulo de diagrama</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="619"/>
@@ -253,12 +255,14 @@
         <translation>Definir parametros gráficos</translation>
     </message>
     <message>
+        <location filename="../EditFldDlg.ui" line="647"/>
         <source>Show graph&apos;s caption</source>
-        <translation type="vanished">Mostrar títulos gráficos</translation>
+        <translation>Mostrar títulos gráficos</translation>
     </message>
     <message>
+        <location filename="../EditFldDlg.ui" line="657"/>
         <source>Graph&apos;s caption</source>
-        <translation type="vanished">Titulo gráfico</translation>
+        <translation>Titulo gráfico</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="663"/>
@@ -341,26 +345,6 @@
         <translation>Cuidado. Solo entrar UNA variable y no todo un texto.</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="593"/>
-        <source>Diagram property</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../EditFldDlg.ui" line="607"/>
-        <source>Chart caption</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../EditFldDlg.ui" line="647"/>
-        <source>Show graph caption</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../EditFldDlg.ui" line="657"/>
-        <source>Graph caption</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../EditFldDlg.ui" line="877"/>
         <source>Height</source>
         <translation>Alto</translation>
@@ -371,52 +355,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="929"/>
-        <source>Dimensions</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../EditFldDlg.ui" line="935"/>
-        <source>Rows</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../EditFldDlg.ui" line="945"/>
-        <source>Columns</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../EditFldDlg.ui" line="964"/>
-        <source>Parameters</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../EditFldDlg.ui" line="970"/>
-        <source>Show row header</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../EditFldDlg.ui" line="977"/>
-        <source>Show column header</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../EditFldDlg.ui" line="984"/>
-        <source>Show row total</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../EditFldDlg.ui" line="991"/>
-        <source>Show column total</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../EditFldDlg.ui" line="1018"/>
+        <location filename="../EditFldDlg.ui" line="938"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="1025"/>
+        <location filename="../EditFldDlg.ui" line="945"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
@@ -431,16 +375,16 @@
         <location filename="../EditFldDlg.cpp" line="294"/>
         <source>The field contains empty line at the end.
 Remove it?</source>
-        <translation>Este campo contiene una linea vacial al final.
+        <translation>Este campo contiene una linea vacia al final.
 ¿ La quitamos ?</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.cpp" line="552"/>
+        <location filename="../EditFldDlg.cpp" line="551"/>
         <source>Save Image As</source>
         <translation>Salvar imágen como</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.cpp" line="554"/>
+        <location filename="../EditFldDlg.cpp" line="553"/>
         <source>Images (*.png)</source>
         <translation>Imagenes (*.png)</translation>
     </message>
@@ -576,27 +520,27 @@ Remove it?</source>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="141"/>
         <source>English</source>
-        <translation type="unfinished"></translation>
+        <translation>Inglés</translation>
     </message>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="148"/>
         <source>German</source>
-        <translation type="unfinished">Alemán</translation>
+        <translation>Alemán</translation>
     </message>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="155"/>
         <source>Ukrainian</source>
-        <translation type="unfinished"></translation>
+        <translation>Ucraniano</translation>
     </message>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="162"/>
         <source>Spanish</source>
-        <translation type="unfinished">Español</translation>
+        <translation>Español</translation>
     </message>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="170"/>
         <source>Math functions</source>
-        <translation>Funciona matemáticas</translation>
+        <translation>Funciones matemáticas</translation>
     </message>
 </context>
 <context>
@@ -1117,19 +1061,19 @@ Remove it?</source>
         <location filename="../mainwindow.ui" line="1195"/>
         <location filename="../mainwindow.ui" line="1198"/>
         <source>To ungroup</source>
-        <translation>Al sin grupo</translation>
+        <translation>A desagrupar</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1213"/>
         <location filename="../mainwindow.ui" line="1216"/>
         <source>Add CrossTab object</source>
-        <translation type="unfinished"></translation>
+        <translation>Añadir objeto CrossTab</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1231"/>
         <location filename="../mainwindow.ui" line="1234"/>
         <source>Add CrossTabBD object</source>
-        <translation type="unfinished"></translation>
+        <translation>Añadir objeto CrosstabBD</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="233"/>
@@ -1579,18 +1523,14 @@ Save the report?</source>
         <translation>Superior</translation>
     </message>
     <message>
-        <location filename="../PageSettingDlg.ui" line="272"/>
-        <source>Page border</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../PageSettingDlg.ui" line="236"/>
         <source>Bottom</source>
         <translation>Inferior</translation>
     </message>
     <message>
+        <location filename="../PageSettingDlg.ui" line="272"/>
         <source>Page&apos;s border</source>
-        <translation type="vanished">Borde Página</translation>
+        <translation>Borde Página</translation>
     </message>
     <message>
         <location filename="../PageSettingDlg.ui" line="280"/>
@@ -1991,7 +1931,7 @@ Save the report?</source>
     <message>
         <location filename="../SettingDlg.ui" line="189"/>
         <source>Check updates during start application</source>
-        <translation>Verificar actualizaciones durante el inicio</translation>
+        <translation>Verificar actualizaciones al inicio</translation>
     </message>
     <message>
         <location filename="../SettingDlg.ui" line="211"/>
@@ -2269,8 +2209,7 @@ El cambio tendrá lugar la próxima vez se inicie la aplicación.
         <translation>Nuevo diagrama</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="652"/>
-        <location filename="../TContainerField.cpp" line="673"/>
+        <location filename="../TContainerField.cpp" line="650"/>
         <source>Total</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2287,27 +2226,27 @@ El cambio tendrá lugar la próxima vez se inicie la aplicación.
     <name>UpdateDlg</name>
     <message>
         <source>Updating</source>
-        <translation type="vanished">Modificando</translation>
+        <translation>Modificando</translation>
     </message>
     <message>
         <source>Progress</source>
-        <translation type="vanished">Progreso</translation>
+        <translation>Progreso</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="vanished">Modificar</translation>
+        <translation>Modificar</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">Cancelar</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="vanished">Abrir directorio</translation>
+        <translation>Abrir directorio</translation>
     </message>
     <message>
         <source>Downloading %0. ..</source>
-        <translation type="vanished">Descargando %0</translation>
+        <translation>Descargando %0</translation>
     </message>
 </context>
 <context>
@@ -2335,72 +2274,72 @@ El cambio tendrá lugar la próxima vez se inicie la aplicación.
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="60"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="77"/>
         <source>Paste</source>
-        <translation type="unfinished">Pegar</translation>
+        <translation>Pegar</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="110"/>
         <source>Bold</source>
-        <translation type="unfinished"></translation>
+        <translation>Enfatizado</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="130"/>
         <source>Italic</source>
-        <translation type="unfinished">Itálico</translation>
+        <translation>Itálico</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="150"/>
         <source>Underline</source>
-        <translation type="unfinished"></translation>
+        <translation>Subrayado</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="186"/>
         <source>Align left</source>
-        <translation type="unfinished">Alineación izquierda</translation>
+        <translation>Alineación izquierda</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="206"/>
         <source>Align center</source>
-        <translation type="unfinished"></translation>
+        <translation>Alineación centrada</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="226"/>
         <source>Align right</source>
-        <translation type="unfinished">Alineación derecha</translation>
+        <translation>Alineación derecha</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="246"/>
         <source>Align jusify</source>
-        <translation type="unfinished">Alineación justificada</translation>
+        <translation>Alineación justificada</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="282"/>
         <source>List</source>
-        <translation type="unfinished">Listar</translation>
+        <translation>Lista</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="305"/>
         <source>Font color</source>
-        <translation type="unfinished"></translation>
+        <translation>Color del fuente</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="322"/>
         <source>Font</source>
-        <translation type="unfinished">Fuente</translation>
+        <translation>Fuente</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="332"/>
         <source>Font size</source>
-        <translation type="unfinished"></translation>
+        <translation>Grosor del fuente</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="438"/>
         <source>TextDirection</source>
-        <translation type="unfinished">Dirección texto</translation>
+        <translation>Dirección texto</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="441"/>
@@ -2410,37 +2349,37 @@ El cambio tendrá lugar la próxima vez se inicie la aplicación.
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.cpp" line="93"/>
         <source>Standard</source>
-        <translation type="unfinished">Estándar</translation>
+        <translation>Estándar</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.cpp" line="94"/>
         <source>Bullet List (Disc)</source>
-        <translation type="unfinished">Lista balín (disco)</translation>
+        <translation>Lista balín (disco)</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.cpp" line="95"/>
         <source>Bullet List (Circle)</source>
-        <translation type="unfinished">Lista balín (circúlo)</translation>
+        <translation>Lista balín (circúlo)</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.cpp" line="96"/>
         <source>Bullet List (Square)</source>
-        <translation type="unfinished">Lista balín (cuadrado)</translation>
+        <translation>Lista balín (cuadrado)</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.cpp" line="97"/>
         <source>Ordered List (Decimal)</source>
-        <translation type="unfinished">Lista ordenada (Décimal)</translation>
+        <translation>Lista ordenada (Décimal)</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.cpp" line="98"/>
         <source>Ordered List (Alpha lower)</source>
-        <translation type="unfinished">Lista ordenada (Alfa minúsculas)</translation>
+        <translation>Lista ordenada (Alfa descendiente)</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.cpp" line="99"/>
         <source>Ordered List (Alpha upper)</source>
-        <translation type="unfinished">Lista ordenada (Alfa mayúsculas)</translation>
+        <translation>Lista ordenada (Alfabética)</translation>
     </message>
 </context>
 <context>
@@ -2478,3 +2417,4 @@ El cambio tendrá lugar la próxima vez se inicie la aplicación.
     </message>
 </context>
 </TS>
+

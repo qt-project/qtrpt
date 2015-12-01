@@ -439,11 +439,14 @@ void RptFieldObject::setProperty(QtRPT *qtrpt, QDomElement e) {
         crossTab->addRow("R3");
         crossTab->setColHeaderVisible(true);
         crossTab->setRowHeaderVisible(true);
+		crossTab->setColTotalVisible(true);
+        crossTab->setRowTotalVisible(true);
         crossTab->initMatrix();
         //Fill values into matrix
-        for (int r=0; r<crossTab->rowCount(); r++)
-            for (int c=0; c<crossTab->colCount(); c++)
-                crossTab->setMatrixValue(c,r,QString("%1%2").arg(c).arg(r));
+		for (int siRow=1; siRow <= crossTab->rowCount()-1; siRow++)
+            for (int siCol=1; siCol <= crossTab->colCount()-1; siCol++)
+                crossTab->setMatrixValue(QString("C%1").arg(siCol),
+					QString("R%1").arg(siRow), QString("%1%2").arg(siCol).arg(siRow).toDouble());
     }
 }
 

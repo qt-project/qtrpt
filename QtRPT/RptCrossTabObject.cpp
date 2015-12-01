@@ -24,15 +24,18 @@ limitations under the License.
 #include "RptCrossTabObject.h"
 
 RptCrossTabObject::RptCrossTabObject() {
-    colHeaderVisible = true;
-    rowHeaderVisible = true;
-    colTotalVisible = true;
-    rowTotalVisible = true;
+    colHeaderVisible = false;
+    rowHeaderVisible = false;
+    colTotalVisible = false;
+    rowTotalVisible = false;
+    colTotalExists = false;
+    rowTotalExists = false;
     name = "RptCrossTabObject_DEMO";
     rect.setX(0);
     rect.setY(0);
     rect.setWidth(500);
     rect.setHeight(500);
+	stTotal = QObject::tr("Total");
 
     qRegisterMetaType<RptCrossTabObject>( "RptCrossTabObject" );
 }
@@ -73,6 +76,40 @@ void RptCrossTabObject::addRow(QString rowName) {
     m_rowHeader << rowName;
 }
 
+void RptCrossTabObject::setColTotalVisible(bool blValue) {
+
+	colTotalVisible = blValue;
+	setColTotalExists(blValue);
+}
+
+void RptCrossTabObject::setRowTotalVisible(bool blValue) {
+
+	rowTotalVisible = blValue;
+	setRowTotalExists(blValue);
+}
+
+void RptCrossTabObject::setRowTotalExists(bool blValue) {
+
+	if (rowTotalExists)	// Row total already exists, cannot be removed
+		return;
+	if (!blValue)		// If false we return, we don't create the row, we cannot erase rows
+		return;
+
+	addRow(stTotal);
+	rowTotalExists = blValue;
+}
+
+void RptCrossTabObject::setColTotalExists(bool blValue) {
+
+	if (colTotalExists)	// Col total already exists, cannot be removed
+		return;
+	if (!blValue)		// If false we return, we don't create the col, we cannot erase cols
+		return;
+
+	addCol(stTotal);
+	colTotalExists = blValue;
+}
+
 QString RptCrossTabObject::getColName(int col) const {
     return m_colHeader[col];
 }
@@ -81,20 +118,63 @@ QString RptCrossTabObject::getRowName(int row) const {
     return m_rowHeader[row];
 }
 
+int RptCrossTabObject::getColIndex(QString stCol) const {
+	int		siRet = m_colHeader.indexOf(stCol);
+	return siRet;
+    // return m_colHeader.indexOf(stCol);
+}
+
+int RptCrossTabObject::getRowIndex(QString stRow) const {
+	int		siRet = m_rowHeader.indexOf(stRow);
+	return siRet;
+    //return m_rowHeader.indexOf(stRow);
+}
+
+
 void RptCrossTabObject::initMatrix() {
+	double	dbWk1 = 0;  //Init value of cells
     valuesArray.resize(m_rowHeader.size());  //Set row count
 
     QMutableVectorIterator<VectorRptTabElement> iRows(valuesArray);
     while (iRows.hasNext())
         (iRows.next()).resize(m_colHeader.size());
+
+	for (int row = 0; row < rowCount(); row++)
+		for (int col = 0; col < colCount(); col++)
+			valuesArray[row][col].value = dbWk1;
 }
 
 QVariant RptCrossTabObject::getMatrixValue(int col,int row) const {
     return valuesArray[row][col].value;
 }
 
-void RptCrossTabObject::setMatrixValue(int col,int row, QVariant value) {
-    valuesArray[row][col].value = value;
+void RptCrossTabObject::setMatrixValue(QString stCol, QString stRow, QVariant vaValue) {
+	double	dbWk1;
+    valuesArray[getRowIndex(stRow)][getColIndex(stCol)].value = vaValue;
+
+	// Add row total if exists
+	if (rowTotalExists) {
+    	dbWk1 = valuesArray[getRowIndex(stTotal)][getColIndex(stCol)].value.toDouble();
+		dbWk1 += vaValue.toDouble();
+    	valuesArray[getRowIndex(stTotal)][getColIndex(stCol)].value = dbWk1;
+		// Add total/total
+    	dbWk1 = valuesArray[getRowIndex(stTotal)][getColIndex(stTotal)].value.toDouble();
+		dbWk1 += vaValue.toDouble();
+    	valuesArray[getRowIndex(stTotal)][getColIndex(stTotal)].value = dbWk1;
+	}
+
+	// Add col total if exists
+	if (colTotalExists) {
+    	dbWk1 = valuesArray[getRowIndex(stRow)][getColIndex(stTotal)].value.toDouble();
+		dbWk1 += vaValue.toDouble();
+    	valuesArray[getRowIndex(stRow)][getColIndex(stTotal)].value = dbWk1;
+		// Add total/total only if rowTotalExists is false
+		if (!rowTotalExists) {
+    		dbWk1 = valuesArray[getRowIndex(stTotal)][getColIndex(stTotal)].value.toDouble();
+			dbWk1 += vaValue.toDouble();
+    		valuesArray[getRowIndex(stTotal)][getColIndex(stTotal)].value = dbWk1;
+		}
+	}
 }
 
 void RptCrossTabObject::setMatrixElement(int col,int row, RptTabElement &element) {
@@ -126,21 +206,22 @@ void RptCrossTabObject::makeFeelMatrix() {
             h1->aligment = Qt::AlignCenter;
             addField(h1);  //Append field
         }
-        if (isRowTotalVisible()) {
+        // if (isRowTotalVisible()) {
             //Make a rowTotal
-            RptFieldObject *h1 = new RptFieldObject();
-            h1->name = QString("rh%1").arg(row);
-            h1->fieldType = Text;
-            h1->rect.setTop(rect.top() + fieldheight + fieldheight*row);
-            h1->rect.setLeft(rect.left() + fieldWidth*(colCount()+1));
-            h1->rect.setHeight(fieldheight);
-            h1->rect.setWidth(fieldWidth);
-            h1->value = QString("TOTAL %1").arg(row);
-            h1->font.setBold(true);
-            h1->setDefaultBackgroundColor(Qt::lightGray); //Set default background color
-            h1->aligment = Qt::AlignCenter;
-            addField(h1);  //Append field
-        }
+            // RptFieldObject *h1 = new RptFieldObject();
+            // h1->name = QString("rh%1").arg(row);
+            // h1->fieldType = Text;
+            // h1->rect.setTop(rect.top() + fieldheight + fieldheight*row);
+            // h1->rect.setLeft(rect.left() + fieldWidth*(colCount()+1));
+            // h1->rect.setHeight(fieldheight);
+            // h1->rect.setWidth(fieldWidth);
+            // h1->value = QString("TOTAL %1").arg(row);
+            // h1->font.setBold(true);
+            // h1->setDefaultBackgroundColor(Qt::lightGray); //Set default background color
+            // h1->aligment = Qt::AlignCenter;
+            // addField(h1);  //Append field
+        // }
+
         for (int col=0; col < colCount(); col++) {
             if (row == 0 && isColHeaderVisible()) {
                 //Make a colHeader
@@ -157,21 +238,21 @@ void RptCrossTabObject::makeFeelMatrix() {
                 h1->aligment = Qt::AlignCenter;
                 addField(h1);  //Append field
             }
-            if (row == rowCount()-1 && isColHeaderVisible()) {
-                //Make a colTotal
-                RptFieldObject *h1 = new RptFieldObject();
-                h1->name = QString("rh%1").arg(row);
-                h1->fieldType = Text;
-                h1->rect.setTop(rect.top() + fieldheight + fieldheight*rowCount());
-                h1->rect.setLeft(rect.left() + fieldWidth + fieldWidth*col-1);
-                h1->rect.setHeight(fieldheight);
-                h1->rect.setWidth(fieldWidth);
-                h1->value = QString("TOTAL %1").arg(col);
-                h1->font.setBold(true);
-                h1->setDefaultBackgroundColor(Qt::lightGray); //Set default background color
-                h1->aligment = Qt::AlignCenter;
-                addField(h1);  //Append field
-            }
+            // if (row == rowCount()-1 && isColHeaderVisible()) {
+                // //Make a colTotal
+                // RptFieldObject *h1 = new RptFieldObject();
+                // h1->name = QString("rh%1").arg(row);
+                // h1->fieldType = Text;
+                // h1->rect.setTop(rect.top() + fieldheight + fieldheight*rowCount());
+                // h1->rect.setLeft(rect.left() + fieldWidth + fieldWidth*col-1);
+                // h1->rect.setHeight(fieldheight);
+                // h1->rect.setWidth(fieldWidth);
+                // h1->value = QString("TOTAL %1").arg(col);
+                // h1->font.setBold(true);
+                // h1->setDefaultBackgroundColor(Qt::lightGray); //Set default background color
+                // h1->aligment = Qt::AlignCenter;
+                // addField(h1);  //Append field
+            // }
 
             //Fill values
             RptFieldObject *h1 = new RptFieldObject();
@@ -189,34 +270,34 @@ void RptCrossTabObject::makeFeelMatrix() {
         }
     }
 
-    if (isRowTotalVisible()) {
-        RptFieldObject *h1 = new RptFieldObject();
-        h1->name = "cTotal";
-        h1->fieldType = Text;
-        h1->rect.setTop(rect.top());
-        h1->rect.setLeft(rect.left() + fieldWidth*(colCount()+1));
-        h1->rect.setHeight(fieldheight);
-        h1->rect.setWidth(fieldWidth);
-        h1->value = QObject::tr("C-Total");
-        h1->font.setBold(true);
-        h1->setDefaultBackgroundColor(Qt::lightGray); //Set default background color
-        h1->aligment = Qt::AlignCenter;
-        addField(h1);  //Append field
-    }
-    if (isColTotalVisible()) {
-        RptFieldObject *h1 = new RptFieldObject();
-        h1->name = "rTotal";
-        h1->fieldType = Text;
-        h1->rect.setTop(rect.top() + fieldheight + fieldheight*rowCount());
-        h1->rect.setLeft(rect.left());
-        h1->rect.setHeight(fieldheight);
-        h1->rect.setWidth(fieldWidth);
-        h1->value = QObject::tr("R-Total");
-        h1->font.setBold(true);
-        h1->setDefaultBackgroundColor(Qt::lightGray); //Set default background color
-        h1->aligment = Qt::AlignCenter;
-        addField(h1);  //Append field
-    }
+    // if (isRowTotalVisible()) {
+        // RptFieldObject *h1 = new RptFieldObject();
+        // h1->name = "cTotal";
+        // h1->fieldType = Text;
+        // h1->rect.setTop(rect.top());
+        // h1->rect.setLeft(rect.left() + fieldWidth*(colCount()+1));
+        // h1->rect.setHeight(fieldheight);
+        // h1->rect.setWidth(fieldWidth);
+        // h1->value = QObject::tr("C-Total");
+        // h1->font.setBold(true);
+        // h1->setDefaultBackgroundColor(Qt::lightGray); //Set default background color
+        // h1->aligment = Qt::AlignCenter;
+        // addField(h1);  //Append field
+    // }
+    // if (isColTotalVisible()) {
+        // RptFieldObject *h1 = new RptFieldObject();
+        // h1->name = "rTotal";
+        // h1->fieldType = Text;
+        // h1->rect.setTop(rect.top() + fieldheight + fieldheight*rowCount());
+        // h1->rect.setLeft(rect.left());
+        // h1->rect.setHeight(fieldheight);
+        // h1->rect.setWidth(fieldWidth);
+        // h1->value = QObject::tr("R-Total");
+        // h1->font.setBold(true);
+        // h1->setDefaultBackgroundColor(Qt::lightGray); //Set default background color
+        // h1->aligment = Qt::AlignCenter;
+        // addField(h1);  //Append field
+    // }
 }
 
 /*!
@@ -268,7 +349,6 @@ QDebug operator<<(QDebug dbg, const RptCrossTabObject &obj) {
 QDebug operator<<(QDebug dbg, const RptCrossTabObject *obj) {
     return dbg << *obj;
 }
-
 
 //Bellow functions for working with a grid
 

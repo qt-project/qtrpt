@@ -59,21 +59,25 @@ public:
 
     bool isColTotalVisible() const {return colTotalVisible;}
     bool isRowTotalVisible() const {return rowTotalVisible;}
-    void setColTotalVisible(bool value) {colTotalVisible = value;}
-    void setRowTotalVisible(bool value) {rowTotalVisible = value;}
+    void setColTotalVisible(bool value);
+    void setRowTotalVisible(bool value);
+    void setColTotalExists(bool value);
+    void setRowTotalExists(bool value);
 
     void addCol(QString colName);
     void addRow(QString rowName);
     QString getColName(int col) const;
     QString getRowName(int row) const;
+    int getColIndex(QString stCol) const;
+    int getRowIndex(QString stRow) const;
     int colCount() const;
     int rowCount() const;
-    int allColCount() const;
+	int allColCount() const;
     int allRowCount() const;
 
     void initMatrix();
     QVariant getMatrixValue(int col,int row) const;
-    void setMatrixValue(int col,int row, QVariant value);
+    void setMatrixValue(QString stCol, QString stRow, QVariant value);
     void setMatrixElement(int col, int row, RptTabElement &element);
     QVector<VectorRptTabElement > valuesArray;
 
@@ -91,10 +95,13 @@ private:
     bool rowHeaderVisible;
     bool colTotalVisible;
     bool rowTotalVisible;
+    bool colTotalExists;
+    bool rowTotalExists;
     QStringList m_colHeader;
     QStringList m_rowHeader;
     int m_colCount;
     int m_rowCount;
+	QString	stTotal;
 
     void addField(RptFieldObject *field);
 
