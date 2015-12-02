@@ -9,7 +9,7 @@ macx{
     CONFIG += plugin
 }
 
-linux{
+unix{
     CONFIG += plugin
 }
 

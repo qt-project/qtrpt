@@ -77,19 +77,16 @@ void RptCrossTabObject::addRow(QString rowName) {
 }
 
 void RptCrossTabObject::setColTotalVisible(bool blValue) {
-
 	colTotalVisible = blValue;
 	setColTotalExists(blValue);
 }
 
 void RptCrossTabObject::setRowTotalVisible(bool blValue) {
-
 	rowTotalVisible = blValue;
 	setRowTotalExists(blValue);
 }
 
 void RptCrossTabObject::setRowTotalExists(bool blValue) {
-
 	if (rowTotalExists)	// Row total already exists, cannot be removed
 		return;
 	if (!blValue)		// If false we return, we don't create the row, we cannot erase rows
@@ -129,7 +126,6 @@ int RptCrossTabObject::getRowIndex(QString stRow) const {
 	return siRet;
     //return m_rowHeader.indexOf(stRow);
 }
-
 
 void RptCrossTabObject::initMatrix() {
 	double	dbWk1 = 0;  //Init value of cells
@@ -189,6 +185,11 @@ void RptCrossTabObject::makeFeelMatrix() {
 
     fieldWidth = rect.width()/allColCount();
     fieldheight = rect.height()/allRowCount();
+    //fieldWidth = rect.width()/colCount();
+    //fieldheight = rect.height()/rowCount();
+
+    qDebug()<<allColCount()<<colCount();
+    qDebug()<<allRowCount()<<rowCount();
 
     for (int row=0; row < rowCount(); row++) {
         if (isRowHeaderVisible()) {

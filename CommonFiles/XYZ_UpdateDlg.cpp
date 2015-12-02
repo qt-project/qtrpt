@@ -1,6 +1,6 @@
 /*
 Name: XYZ
-Version: 1.5.4
+Version: 1.5.5
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
@@ -22,7 +22,7 @@ limitations under the License.
 */
 
 #include "XYZ_UpdateDlg.h"
-#include "ui_XYZ_Updatedlg.h"
+#include "ui_XYZ_UpdateDlg.h"
 
 XYZUpdateDlg::XYZUpdateDlg(QString url,QWidget *parent) : QDialog(parent), ui(new Ui::XYZUpdateDlg) {
     ui->setupUi(this);

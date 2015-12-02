@@ -93,7 +93,7 @@ win32 {
     RCC_DIR = tmp-win32
 }
 
-linux {
+unix {
     MOC_DIR = tmp-lin64
     UI_DIR = tmp-lin64
     UI_HEADERS_DIR = tmp-lin64

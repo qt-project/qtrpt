@@ -1123,13 +1123,13 @@ Remove it?</source>
         <location filename="../mainwindow.ui" line="1213"/>
         <location filename="../mainwindow.ui" line="1216"/>
         <source>Add CrossTab object</source>
-        <translation>Kreuztabellen Objekt hinzufügen</translation>
+        <translation>CrossTab-Objekt hinzufügen</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1231"/>
         <location filename="../mainwindow.ui" line="1234"/>
         <source>Add CrossTabBD object</source>
-        <translation type="unfinished"></translation>
+        <translation>CrossTabBD-Objekt hinzufügen</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="233"/>
@@ -1580,7 +1580,7 @@ Save the report?</source>
     <message>
         <location filename="../PageSettingDlg.ui" line="272"/>
         <source>Page border</source>
-        <translation type="unfinished"></translation>
+        <translation>Seitenrahmen</translation>
     </message>
     <message>
         <location filename="../PageSettingDlg.ui" line="236"/>

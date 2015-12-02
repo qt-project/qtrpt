@@ -1,6 +1,9 @@
-QT       += core #sql gui uitools printsupport xml script scripttools
+QT       += core
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4) {
+    QT += widgets
+    #DEFINES += QXLSX_LIBRARY
+}
 
 TARGET = QtXlsx
 TEMPLATE = lib
@@ -12,7 +15,7 @@ macx{
     CONFIG += plugin
 }
 
-linux{
+unix{
     CONFIG += plugin
 }
 

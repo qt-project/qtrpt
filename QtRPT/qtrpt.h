@@ -34,7 +34,13 @@ limitations under the License.
 #include <RptBandObject.h>
 #include <RptPageObject.h>
 #include <RptSqlConnection.h>
-//#include "xlsxdocument.h"
+
+#if QT_VERSION >= 0x50000
+    #ifdef QXLSX_LIBRARY
+        #include "xlsxdocument.h"
+    #endif
+#endif
+
 
 using namespace QtRptName;
 
