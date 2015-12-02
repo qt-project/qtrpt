@@ -54,7 +54,7 @@
        <item>
         <widget class="QTabWidget" name="tabWidget">
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="tab">
           <attribute name="title">
@@ -524,8 +524,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>509</width>
-            <height>311</height>
+            <width>81</width>
+            <height>16</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -916,84 +916,150 @@
       </layout>
      </widget>
      <widget class="QWidget" name="page_6">
-      <widget class="QGroupBox" name="groupBox_2">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>50</y>
-         <width>171</width>
-         <height>111</height>
-        </rect>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <property name="leftMargin">
+        <number>0</number>
        </property>
-       <property name="title">
-        <string>Dimensions</string>
+       <property name="topMargin">
+        <number>0</number>
        </property>
-       <layout class="QFormLayout" name="formLayout">
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_8">
-          <property name="text">
-           <string>Rows</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QSpinBox" name="spnRowCount"/>
-        </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="label_9">
-          <property name="text">
-           <string>Columns</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QSpinBox" name="spnColCount"/>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QGroupBox" name="groupBox_3">
-       <property name="geometry">
-        <rect>
-         <x>230</x>
-         <y>50</y>
-         <width>221</width>
-         <height>119</height>
-        </rect>
+       <property name="rightMargin">
+        <number>0</number>
        </property>
-       <property name="title">
-        <string>Parameters</string>
+       <property name="bottomMargin">
+        <number>0</number>
        </property>
-       <layout class="QVBoxLayout" name="verticalLayout_16">
-        <item>
-         <widget class="QCheckBox" name="chkRowHeader">
-          <property name="text">
-           <string>Show row header</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QCheckBox" name="chkColHeader">
-          <property name="text">
-           <string>Show column header</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QCheckBox" name="chkRowTotal">
-          <property name="text">
-           <string>Show row total</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QCheckBox" name="chlColTotal">
-          <property name="text">
-           <string>Show column total</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
+       <item row="0" column="0">
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="title">
+          <string>Dimensions</string>
+         </property>
+         <layout class="QFormLayout" name="formLayout">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_8">
+            <property name="text">
+             <string>Rows</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QSpinBox" name="spnRowCount"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_9">
+            <property name="text">
+             <string>Columns</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QSpinBox" name="spnColCount"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="title">
+          <string>Parameters</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_16">
+          <item>
+           <widget class="QCheckBox" name="chkRowHeader">
+            <property name="text">
+             <string>Show row header</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="chkColHeader">
+            <property name="text">
+             <string>Show column header</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="chkRowTotal">
+            <property name="text">
+             <string>Show row total</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="chkColTotal">
+            <property name="text">
+             <string>Show column total</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <layout class="QVBoxLayout" name="verticalLayout_18">
+         <item>
+          <widget class="QLabel" name="label_7">
+           <property name="text">
+            <string>Row headers</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTableWidget" name="tblRowHeaders">
+           <attribute name="horizontalHeaderStretchLastSection">
+            <bool>true</bool>
+           </attribute>
+           <attribute name="verticalHeaderVisible">
+            <bool>false</bool>
+           </attribute>
+           <attribute name="verticalHeaderDefaultSectionSize">
+            <number>20</number>
+           </attribute>
+           <attribute name="verticalHeaderHighlightSections">
+            <bool>false</bool>
+           </attribute>
+           <column>
+            <property name="text">
+             <string>Row header</string>
+            </property>
+           </column>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="1">
+        <layout class="QVBoxLayout" name="verticalLayout_17">
+         <item>
+          <widget class="QLabel" name="label_10">
+           <property name="text">
+            <string>Column headers</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTableWidget" name="tblColHeaders">
+           <attribute name="horizontalHeaderStretchLastSection">
+            <bool>true</bool>
+           </attribute>
+           <attribute name="verticalHeaderVisible">
+            <bool>false</bool>
+           </attribute>
+           <attribute name="verticalHeaderDefaultSectionSize">
+            <number>20</number>
+           </attribute>
+           <attribute name="verticalHeaderHighlightSections">
+            <bool>false</bool>
+           </attribute>
+           <column>
+            <property name="text">
+             <string>Column header</string>
+            </property>
+           </column>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
      </widget>
     </widget>
    </item>

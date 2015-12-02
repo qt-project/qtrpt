@@ -367,7 +367,25 @@ int EditFldDlg::showBarcode(TContainerField *cont) {
 }
 
 int EditFldDlg::showCrosstab(TContainerField *cont) {
+    if (cont->getCrossTab() == nullptr)
+        return QDialog::Rejected;
     ui->stackedWidget->setCurrentIndex(5);
+    ui->spnRowCount->setValue(cont->getCrossTab()->rowDataCount());
+    ui->spnColCount->setValue(cont->getCrossTab()->colDataCount());
+    ui->chkRowHeader->setChecked(cont->getCrossTab()->isRowHeaderVisible());
+    ui->chkColHeader->setChecked(cont->getCrossTab()->isColHeaderVisible());
+    ui->chkRowTotal->setChecked(cont->getCrossTab()->isRowTotalVisible());
+    ui->chkColTotal->setChecked(cont->getCrossTab()->isColTotalVisible());
+    ui->tblColHeaders->setRowCount(cont->getCrossTab()->colCount());
+    ui->tblRowHeaders->setRowCount(cont->getCrossTab()->rowCount());
+    for(int i=0; i<ui->tblColHeaders->rowCount(); i++) {
+        QTableWidgetItem *newItem = new QTableWidgetItem(cont->getCrossTab()->getColName(i));
+        ui->tblColHeaders->setItem(i,0,newItem);
+    }
+    for(int i=0; i<ui->tblRowHeaders->rowCount(); i++) {
+        QTableWidgetItem *newItem = new QTableWidgetItem(cont->getCrossTab()->getRowName(i));
+        ui->tblRowHeaders->setItem(i,0,newItem);
+    }
     if (this->exec()) {
         return QDialog::Accepted;
     } else return QDialog::Rejected;

@@ -615,7 +615,7 @@ Remove it?</source>
     <message>
         <location filename="../SQLDiagram/ItemPropertyDlg.ui" line="208"/>
         <source>OK</source>
-        <translation type="unfinished">ОК</translation>
+        <translation>ОК</translation>
     </message>
     <message>
         <location filename="../SQLDiagram/ItemPropertyDlg.ui" line="215"/>
@@ -2112,8 +2112,8 @@ Restart application?</source>
         <translation>ახალი სქემა</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="654"/>
-        <location filename="../TContainerField.cpp" line="675"/>
+        <location filename="../TContainerField.cpp" line="656"/>
+        <location filename="../TContainerField.cpp" line="677"/>
         <source>Total</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2161,7 +2161,7 @@ Restart application?</source>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="249"/>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="308"/>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="60"/>
@@ -2280,7 +2280,7 @@ Restart application?</source>
         <location filename="../../CommonFiles/XYZ_UpdateDlg.ui" line="14"/>
         <location filename="../../CommonFiles/XYZ_UpdateDlg.ui" line="38"/>
         <source>Updating</source>
-        <translation type="unfinished">განახლება</translation>
+        <translation>განახლება</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_UpdateDlg.ui" line="33"/>
@@ -2290,7 +2290,7 @@ Restart application?</source>
     <message>
         <location filename="../../CommonFiles/XYZ_UpdateDlg.ui" line="82"/>
         <source>Update</source>
-        <translation type="unfinished">განახლება</translation>
+        <translation>განახლება</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_UpdateDlg.ui" line="89"/>

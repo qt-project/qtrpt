@@ -351,22 +351,22 @@
     <message>
         <location filename="../EditFldDlg.ui" line="593"/>
         <source>Diagram property</source>
-        <translation type="unfinished"></translation>
+        <translation>Propriétés du schéma</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="607"/>
         <source>Chart caption</source>
-        <translation type="unfinished"></translation>
+        <translation>Résumé du tableau</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="647"/>
         <source>Show graph caption</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher le titre du graphique</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="657"/>
         <source>Graph caption</source>
-        <translation type="unfinished"></translation>
+        <translation>Titre du graphique</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="877"/>
@@ -381,42 +381,42 @@
     <message>
         <location filename="../EditFldDlg.ui" line="929"/>
         <source>Dimensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Taille</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="935"/>
         <source>Rows</source>
-        <translation type="unfinished"></translation>
+        <translation>Lignes</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="945"/>
         <source>Columns</source>
-        <translation type="unfinished"></translation>
+        <translation>Colonnes</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="964"/>
         <source>Parameters</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètre</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="970"/>
         <source>Show row header</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher/Masquer l&apos;en-tête</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="977"/>
         <source>Show column header</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher d&apos;en-tête de colonne</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="984"/>
         <source>Show row total</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher totale de ligne</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="991"/>
         <source>Show column total</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher totale de colonne</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="1018"/>
@@ -1138,7 +1138,7 @@ les supprimer?</translation>
         <location filename="../mainwindow.ui" line="1231"/>
         <location filename="../mainwindow.ui" line="1234"/>
         <source>Add CrossTabBD object</source>
-        <translation type="unfinished"></translation>
+        <translation>Add CrossTabBD object</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="233"/>
@@ -1590,7 +1590,7 @@ Save the report?</source>
     <message>
         <location filename="../PageSettingDlg.ui" line="272"/>
         <source>Page border</source>
-        <translation type="unfinished"></translation>
+        <translation>Bordure de page</translation>
     </message>
     <message>
         <location filename="../PageSettingDlg.ui" line="236"/>
@@ -1676,6 +1676,14 @@ Save the report?</source>
         <location filename="../UndoCommands.cpp" line="209"/>
         <source>Changing Container&apos;s parameters</source>
         <translation>changer les paramètres du contenant</translation>
+    </message>
+    <message>
+        <source>C-Total</source>
+        <translation type="vanished">C-Total</translation>
+    </message>
+    <message>
+        <source>R-Total</source>
+        <translation type="vanished">R-Total</translation>
     </message>
     <message>
         <location filename="../../QtRPT/RptCrossTabObject.cpp" line="38"/>
@@ -2273,8 +2281,8 @@ Redémarrer l&apos;application?</translation>
         <translation>Nouveau schéma</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="654"/>
-        <location filename="../TContainerField.cpp" line="675"/>
+        <location filename="../TContainerField.cpp" line="656"/>
+        <location filename="../TContainerField.cpp" line="677"/>
         <source>Total</source>
         <translation>Global</translation>
     </message>

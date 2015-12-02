@@ -82,6 +82,7 @@ public:
     bool getTextDirection() {return m_textDirection;}
     void setTextWrap(bool value);
     bool getTextWrap() {return m_textWrap;}
+    RptCrossTabObject *getCrossTab();
 
     friend QDataStream &operator<<(QDataStream &stream, const TContainerField &obj);
     friend QDataStream &operator>>(QDataStream &stream, TContainerField &obj);

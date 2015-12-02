@@ -344,22 +344,22 @@
     <message>
         <location filename="../EditFldDlg.ui" line="593"/>
         <source>Diagram property</source>
-        <translation type="unfinished"></translation>
+        <translation>Diagrammeigenschaften</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="607"/>
         <source>Chart caption</source>
-        <translation type="unfinished"></translation>
+        <translation>Diagrammtitel</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="647"/>
         <source>Show graph caption</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeige Graphen-Titel</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="657"/>
         <source>Graph caption</source>
-        <translation type="unfinished"></translation>
+        <translation>Graphen-Titel</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="877"/>
@@ -374,42 +374,42 @@
     <message>
         <location filename="../EditFldDlg.ui" line="929"/>
         <source>Dimensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Größe</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="935"/>
         <source>Rows</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeilen</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="945"/>
         <source>Columns</source>
-        <translation type="unfinished"></translation>
+        <translation>Spalten</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="964"/>
         <source>Parameters</source>
-        <translation type="unfinished"></translation>
+        <translation>Parameter</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="970"/>
         <source>Show row header</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeige Zeilenkopf</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="977"/>
         <source>Show column header</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeige Spaltenüberschrift</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="984"/>
         <source>Show row total</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeige Summe für Zeile</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="991"/>
         <source>Show column total</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeige Summe für Spalte</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="1018"/>
@@ -1670,7 +1670,7 @@ Save the report?</source>
     <message>
         <location filename="../../QtRPT/RptCrossTabObject.cpp" line="38"/>
         <source>Total</source>
-        <translation type="unfinished">Gesamt</translation>
+        <translation>Gesamt</translation>
     </message>
 </context>
 <context>
@@ -2269,8 +2269,8 @@ Restart application?</source>
         <translation>Neues Diagramm</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="654"/>
-        <location filename="../TContainerField.cpp" line="675"/>
+        <location filename="../TContainerField.cpp" line="656"/>
+        <location filename="../TContainerField.cpp" line="677"/>
         <source>Total</source>
         <translation>Gesamt</translation>
     </message>

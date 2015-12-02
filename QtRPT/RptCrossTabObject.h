@@ -70,9 +70,11 @@ public:
     QString getRowName(int row) const;
     int getColIndex(QString stCol) const;
     int getRowIndex(QString stRow) const;
-    int colCount() const;
-    int rowCount() const;
-	int allColCount() const;
+    int colCount() const;  //including Total if it visible
+    int rowCount() const;  //including Total if it visible
+    int colDataCount() const;  //pure col count (without header and total)
+    int rowDataCount() const;  //pure row count (without header and total)
+    int allColCount() const;
     int allRowCount() const;
 
     void initMatrix();

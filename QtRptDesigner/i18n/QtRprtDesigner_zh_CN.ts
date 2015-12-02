@@ -2277,8 +2277,8 @@ Restart application?</source>
         <translation>新建图表</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="654"/>
-        <location filename="../TContainerField.cpp" line="675"/>
+        <location filename="../TContainerField.cpp" line="656"/>
+        <location filename="../TContainerField.cpp" line="677"/>
         <source>Total</source>
         <translation type="unfinished"></translation>
     </message>

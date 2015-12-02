@@ -40,10 +40,12 @@ RptCrossTabObject::RptCrossTabObject() {
     qRegisterMetaType<RptCrossTabObject>( "RptCrossTabObject" );
 }
 
+//including Total if it visible
 int RptCrossTabObject::colCount() const {
     return m_colHeader.size();
 }
 
+//including Total if it visible
 int RptCrossTabObject::rowCount() const {
     return m_rowHeader.size();
 }
@@ -53,8 +55,7 @@ int RptCrossTabObject::allColCount() const {
 
     if (isRowHeaderVisible())
         finalColCount += 1;
-    if (isColTotalVisible())
-        finalColCount += 1;
+
     return finalColCount;
 }
 
@@ -63,9 +64,24 @@ int RptCrossTabObject::allRowCount() const {
 
     if (isColHeaderVisible())
         finalRowCount += 1;
-    if (isRowTotalVisible())
-        finalRowCount += 1;
+
     return finalRowCount;
+}
+
+//pure col count (without header and total)
+int RptCrossTabObject::colDataCount() const {
+    if (isColTotalVisible())
+        return colCount()-1;
+    else
+        return colCount();
+}
+
+//pure row count (without header and total)
+int RptCrossTabObject::rowDataCount() const {
+    if (isRowTotalVisible())
+        return rowCount()-1;
+    else
+        return rowCount();
 }
 
 void RptCrossTabObject::addCol(QString colName) {
@@ -76,16 +92,22 @@ void RptCrossTabObject::addRow(QString rowName) {
     m_rowHeader << rowName;
 }
 
+//
+// Set vibility to Column Total, set colTotalExists
 void RptCrossTabObject::setColTotalVisible(bool blValue) {
 	colTotalVisible = blValue;
 	setColTotalExists(blValue);
 }
 
+//
+// Set vibility to Row Total, set rowTotalExists
 void RptCrossTabObject::setRowTotalVisible(bool blValue) {
 	rowTotalVisible = blValue;
 	setRowTotalExists(blValue);
 }
 
+//
+// Set existence of Row Total, when setted cannot be removed
 void RptCrossTabObject::setRowTotalExists(bool blValue) {
 	if (rowTotalExists)	// Row total already exists, cannot be removed
 		return;
@@ -96,8 +118,9 @@ void RptCrossTabObject::setRowTotalExists(bool blValue) {
 	rowTotalExists = blValue;
 }
 
+//
+// Set existence of Column Total, when setted cannot be removed
 void RptCrossTabObject::setColTotalExists(bool blValue) {
-
 	if (colTotalExists)	// Col total already exists, cannot be removed
 		return;
 	if (!blValue)		// If false we return, we don't create the col, we cannot erase cols
@@ -107,24 +130,36 @@ void RptCrossTabObject::setColTotalExists(bool blValue) {
 	colTotalExists = blValue;
 }
 
+//
+// Get the name of column header
 QString RptCrossTabObject::getColName(int col) const {
     return m_colHeader[col];
 }
 
+//
+// Get the name of row header
 QString RptCrossTabObject::getRowName(int row) const {
     return m_rowHeader[row];
 }
 
+//
+// Get the index of a particular Column name, return 0 if not found, prevents cores
 int RptCrossTabObject::getColIndex(QString stCol) const {
 	int		siRet = m_colHeader.indexOf(stCol);
-	return siRet;
-    // return m_colHeader.indexOf(stCol);
+	if (siRet > 0)
+		return siRet;
+	else
+		return 0;
 }
 
+//
+// Get the index of a particular Row name, return 0 if not found, prevents cores
 int RptCrossTabObject::getRowIndex(QString stRow) const {
 	int		siRet = m_rowHeader.indexOf(stRow);
-	return siRet;
-    //return m_rowHeader.indexOf(stRow);
+	if (siRet > 0)
+		return siRet;
+	else
+		return 0;
 }
 
 void RptCrossTabObject::initMatrix() {
@@ -146,6 +181,9 @@ QVariant RptCrossTabObject::getMatrixValue(int col,int row) const {
 
 void RptCrossTabObject::setMatrixValue(QString stCol, QString stRow, QVariant vaValue) {
 	double	dbWk1;
+
+	// Put the value in the correct case, depending on name of row/col
+	//
     valuesArray[getRowIndex(stRow)][getColIndex(stCol)].value = vaValue;
 
 	// Add row total if exists
@@ -178,6 +216,7 @@ void RptCrossTabObject::setMatrixElement(int col,int row, RptTabElement &element
 }
 
 void RptCrossTabObject::makeFeelMatrix() {
+	qDebug() << "makeFeelMatrix";
     float fieldWidth = rect.width();
     float fieldheight = rect.height();
     if (colCount() == 0) return;
@@ -188,8 +227,8 @@ void RptCrossTabObject::makeFeelMatrix() {
     //fieldWidth = rect.width()/colCount();
     //fieldheight = rect.height()/rowCount();
 
-    qDebug()<<allColCount()<<colCount();
-    qDebug()<<allRowCount()<<rowCount();
+    qDebug() << "AllCol:" << allColCount() << "Col:" << colCount();
+    qDebug() << "AllRow:" << allRowCount() << "Row:" << rowCount();
 
     for (int row=0; row < rowCount(); row++) {
         if (isRowHeaderVisible()) {
@@ -445,3 +484,4 @@ int RptCrossTabObject::appendColumn(QString colName) {
         (iRows.next()).resize(m_colHeader.size());
     return m_colHeader.size()-1;
 }
+
