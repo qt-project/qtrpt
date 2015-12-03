@@ -367,26 +367,31 @@ int EditFldDlg::showBarcode(TContainerField *cont) {
 }
 
 int EditFldDlg::showCrosstab(TContainerField *cont) {
-    if (cont->getCrossTab() == nullptr)
+    RptCrossTabObject *m_crossTab = cont->getCrossTab();
+    if (m_crossTab == nullptr)
         return QDialog::Rejected;
     ui->stackedWidget->setCurrentIndex(5);
-    ui->spnRowCount->setValue(cont->getCrossTab()->rowDataCount());
-    ui->spnColCount->setValue(cont->getCrossTab()->colDataCount());
-    ui->chkRowHeader->setChecked(cont->getCrossTab()->isRowHeaderVisible());
-    ui->chkColHeader->setChecked(cont->getCrossTab()->isColHeaderVisible());
-    ui->chkRowTotal->setChecked(cont->getCrossTab()->isRowTotalVisible());
-    ui->chkColTotal->setChecked(cont->getCrossTab()->isColTotalVisible());
-    ui->tblColHeaders->setRowCount(cont->getCrossTab()->colCount());
-    ui->tblRowHeaders->setRowCount(cont->getCrossTab()->rowCount());
+    ui->spnRowCount->setValue(m_crossTab->rowDataCount());
+    ui->spnColCount->setValue(m_crossTab->colDataCount());
+    ui->chkRowHeader->setChecked(m_crossTab->isRowHeaderVisible());
+    ui->chkColHeader->setChecked(m_crossTab->isColHeaderVisible());
+    ui->chkRowTotal->setChecked(m_crossTab->isRowTotalVisible());
+    ui->chkColTotal->setChecked(m_crossTab->isColTotalVisible());
+    ui->tblColHeaders->setRowCount(m_crossTab->colCount());
+    ui->tblRowHeaders->setRowCount(m_crossTab->rowCount());
     for(int i=0; i<ui->tblColHeaders->rowCount(); i++) {
-        QTableWidgetItem *newItem = new QTableWidgetItem(cont->getCrossTab()->getColName(i));
+        QTableWidgetItem *newItem = new QTableWidgetItem(m_crossTab->getColName(i));
         ui->tblColHeaders->setItem(i,0,newItem);
     }
     for(int i=0; i<ui->tblRowHeaders->rowCount(); i++) {
-        QTableWidgetItem *newItem = new QTableWidgetItem(cont->getCrossTab()->getRowName(i));
+        QTableWidgetItem *newItem = new QTableWidgetItem(m_crossTab->getRowName(i));
         ui->tblRowHeaders->setItem(i,0,newItem);
     }
     if (this->exec()) {
+        m_crossTab->setRowHeaderVisible(ui->chkRowHeader->isChecked());
+        m_crossTab->setColHeaderVisible(ui->chkColHeader->isChecked());
+        m_crossTab->setRowTotalVisible(ui->chkRowTotal->isChecked());
+        m_crossTab->setColTotalVisible(ui->chkColTotal->isChecked());
         return QDialog::Accepted;
     } else return QDialog::Rejected;
 }
