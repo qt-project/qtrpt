@@ -1,6 +1,6 @@
 /*
 Name: QtRpt
-Version: 1.5.4
+Version: 1.5.5
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
 2012-2015

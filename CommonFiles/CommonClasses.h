@@ -40,6 +40,11 @@ QString double2MoneyGER(double number, bool bAdditional = false);
 QString double2MoneyENG(double number);
 QString double2MoneyESP_Group(int _siGroup, char *_tscGroup, int _siGValue);
 QString double2MoneyESP(double _dbValue, int _blDecimals);
+QString double2MoneyFrench(int number, int language);
+QString double2MoneyFrenchBE(double number, bool bAdditional /*= false*/);
+QString double2MoneyFrenchFR(double number, bool bAdditional /*= false*/);
+QString double2MoneyFrenchCH(double number, bool bAdditional /*= false*/);
+
 QString double2Money(double n, QString lang);
 QString colorToString(QColor color);
 QColor colorFromString(QString value);

@@ -777,6 +777,209 @@ QString double2MoneyESP(double _dbValue, int _blDecimals) {
     return stReturn;
 }
 
+//Thanks to Lau Gui
+QString double2MoneyFrenchBE(double number, bool bAdditional /*= false*/) {
+    int whole = (int)number;
+    int precision = (number - whole) * 100;
+
+    if (precision > 0) {
+        return double2MoneyFrench(whole,1) + " Euros " + double2MoneyFrench(precision,1) + " Centime(s)";
+    } else {
+        return double2MoneyFrench(whole,1) + " Euros ";
+    }
+}
+
+QString double2MoneyFrenchFR(double number, bool bAdditional /*= false*/) {
+    int whole = (int)number;
+    int precision = (number - whole) * 100;
+
+    if (precision > 0) {
+        return double2MoneyFrench(whole,0) + " Euros " + double2MoneyFrench(precision,1) + " Centime(s)";
+    } else {
+        return double2MoneyFrench(whole,0) + " Euros ";
+    }
+}
+
+QString double2MoneyFrenchCH(double number, bool bAdditional /*= false*/) {
+    int whole = (int)number;
+    int precision = (number - whole) * 100;
+
+    if (precision > 0) {
+        return double2MoneyFrench(whole,2) + " Francs " + double2MoneyFrench(precision,1) + " Centime(s)";
+    } else {
+        return double2MoneyFrench(whole,2) + " Francs ";
+    }
+}
+
+QString double2MoneyFrench(int number, int language) {
+    QMap<double, QString> numbers;
+
+    //Only initialize once
+    if (numbers.isEmpty()) {
+        numbers[0] = "zéro";
+        numbers[1] = "un";
+        numbers[2] = "deux";
+        numbers[3] = "trois";
+        numbers[4] = "quatre";
+        numbers[5] = "cinq";
+        numbers[6] = "six";
+        numbers[7] = "sept";
+        numbers[8] = "huit";
+        numbers[9] = "neuf";
+        numbers[10] = "dix";
+        numbers[11] = "onze";
+        numbers[12] = "douze";
+        numbers[13] = "treize";
+        numbers[14] = "quatorze";
+        numbers[15] = "quinze";
+        numbers[16] = "seize";
+        numbers[17] = "dix-sept";
+        numbers[18] = "dix-huit";
+        numbers[19] = "dix-neuf";
+        numbers[20] = "vingt";
+        numbers[30] = "trente";
+        numbers[40] = "quarante";
+        numbers[50] = "cinquante";
+        numbers[60] = "soixante";
+
+        switch(language) {
+            case 0: // France
+                numbers[70] = "soixante-dix";
+                numbers[80] = "quatre-vingt";
+                numbers[90] = "quatre-vingt-dix";
+                break;
+            case 1: // Belgium
+                numbers[70] = "septante";
+                numbers[80] = "quatre-vingt";
+                numbers[90] = "nonante";
+                break;
+            case 2: // Switzerland
+                numbers[70] = "septante";
+                numbers[80] = "huitante";
+                numbers[90] = "nonante";
+                break;
+        }
+    }
+
+    QMap<uint, QString> powers;
+
+    //Only initialize once
+    if (powers.isEmpty()) {
+        powers[3] = "mille";
+        powers[6] = "million";
+        powers[9] = "milliard";
+    }
+
+    QString output = "";
+
+    int remainder = 0;
+
+    if (number == 1) {
+        output = "et-" + numbers[number];
+    }
+    else if (number < 20) {
+        output = numbers[number];
+    } else if (number < 100) {
+        remainder = number % 10;
+        // FRANCE
+        if (language == 0) {
+            if ((number >= 70) && (number <= 79)) {
+                output = numbers[10 * (qFloor(number / 10) - 1)];
+                remainder += 10;
+            } else if ((number == 80) && (remainder == 0)) {
+                output = numbers[10 * qFloor(number / 10)] + "s";
+            } else if ((number >= 90) && (number <= 99)) {
+                output = numbers[10 * (qFloor(number / 10)-1)];
+                remainder += 10;
+            } else {
+                output = numbers[10 * qFloor(number / 10)];
+            }
+        }
+        // BELGIUM
+        if (language == 1) {
+            if ((number == 80) && (remainder == 0)) {
+                output = numbers[10 * qFloor(number / 10)] + "s";
+            } else {
+                output = numbers[10 * qFloor(number / 10)];
+            }
+        }
+        // FRENCH SWITZERLAND
+        if (language == 2) {
+            output = numbers[10 * qFloor(number / 10)];
+        }
+
+        if (remainder > 0) {
+            output =  output + "-" + double2MoneyFrench(remainder, language);
+        }
+    } else if (number < 999) {
+        remainder = number % 100;
+        if (floor(number / 100) == 1) {
+            output = "cent-" + double2MoneyFrench(remainder, language);
+        } else {
+            if (remainder > 0 ) {
+                output = numbers[qFloor(number / 100)] + "-cent-" + double2MoneyFrench(remainder, language);
+            } else {
+                output = numbers[qFloor(number / 100)] + "-cents";
+            }
+        }
+    } else {
+        uint power = 2;
+        uint place = 0;
+        QString powerString;
+
+        //QMap::keys is ordered
+        foreach (uint pow, powers.keys()) {
+            uint place_value = qPow(10, pow);
+            uint tmp_place = qFloor(number / place_value);
+            if (tmp_place < 1)
+                break;
+
+            place = tmp_place;
+            power = pow;
+
+            if (pow == 6 && number < 2E6) {
+                powerString = powers[pow];
+            }
+            else if (pow == 9 && number < 2E9) {
+                powerString = powers[pow];
+            }
+            else {
+                powerString = powers[pow];
+            }
+        }
+
+        if (power > 0) {
+            if (power == 3) {
+                if (floor(number / 1000) == 1) {
+                    output = powerString + "-";
+                } else {
+                    output = double2MoneyFrench(place, language) + "-" + powerString + "-";
+                }
+            }
+            if (power == 6) {
+                if (floor(number / 1000000) == 1) {
+                    output = numbers[1] + "-" + powerString + "-";
+                } else {
+                    output = double2MoneyFrench(place, language) + "-" + powerString + "s-";
+                }
+            }
+            if (power == 9) {
+                if (floor(number / 1000000000) == 1) {
+                    output = numbers[1] + "-" + powerString + "-";
+                } else {
+                    output = double2MoneyFrench(place, language) + "-" + powerString + "s-";
+                }
+            }
+            remainder = (long long)number % (long long)double(qPow(10, power));
+
+            if (remainder > 0)
+                output = output + double2MoneyFrench(remainder, language);
+        }
+    }
+
+    return output;
+}
+
 QString double2Money(double n, QString lang) {
     if (lang == "UKR")
         return double2MoneyUKR(n,0);
