@@ -383,17 +383,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="929"/>
+        <location filename="../EditFldDlg.ui" line="935"/>
         <source>Dimensions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="935"/>
+        <location filename="../EditFldDlg.ui" line="941"/>
         <source>Rows</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="945"/>
+        <location filename="../EditFldDlg.ui" line="951"/>
         <source>Columns</source>
         <translation type="unfinished"></translation>
     </message>
@@ -423,12 +423,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="1018"/>
+        <location filename="../EditFldDlg.ui" line="1003"/>
+        <source>Row headers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="1023"/>
+        <source>Row header</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="1035"/>
+        <source>Column headers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="1055"/>
+        <source>Column header</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="1084"/>
         <source>OK</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="1025"/>
+        <location filename="../EditFldDlg.ui" line="1091"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -447,12 +467,12 @@ Remove it?</source>
 是否删除?</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.cpp" line="552"/>
+        <location filename="../EditFldDlg.cpp" line="575"/>
         <source>Save Image As</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.cpp" line="554"/>
+        <location filename="../EditFldDlg.cpp" line="577"/>
         <source>Images (*.png)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -571,7 +591,7 @@ Remove it?</source>
     </message>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="97"/>
-        <location filename="../FldPropertyDlg.cpp" line="198"/>
+        <location filename="../FldPropertyDlg.cpp" line="219"/>
         <source>Functions</source>
         <translation>函数</translation>
     </message>
@@ -606,7 +626,22 @@ Remove it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FldPropertyDlg.cpp" line="170"/>
+        <location filename="../FldPropertyDlg.cpp" line="169"/>
+        <source>French</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.cpp" line="176"/>
+        <source>French(BE)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.cpp" line="183"/>
+        <source>French(CH)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.cpp" line="191"/>
         <source>Math functions</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1789,39 +1824,39 @@ Save the report?</source>
 <context>
     <name>QtRPT</name>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1522"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1514"/>
         <source>Save as PDF</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1527"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1519"/>
         <source>Save as HTML</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1533"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1525"/>
         <source>Save as XLSX</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1554"/>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1559"/>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1564"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1546"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1551"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1556"/>
         <source>Save File</source>
         <translation type="unfinished">保存文件</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1554"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1546"/>
         <source>PDF Files (*.pdf)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1559"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1551"/>
         <source>HTML Files (*.html)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1564"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1556"/>
         <source>XLSX Files (*.xlsx)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2267,18 +2302,18 @@ Restart application?</source>
         <translation>后退</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="281"/>
+        <location filename="../TContainerField.cpp" line="284"/>
         <source>New image</source>
         <translation>新建图像</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="288"/>
+        <location filename="../TContainerField.cpp" line="291"/>
         <source>New diagram</source>
         <translation>新建图表</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="656"/>
-        <location filename="../TContainerField.cpp" line="677"/>
+        <location filename="../TContainerField.cpp" line="675"/>
+        <location filename="../TContainerField.cpp" line="696"/>
         <source>Total</source>
         <translation type="unfinished"></translation>
     </message>

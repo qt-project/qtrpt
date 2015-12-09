@@ -372,17 +372,17 @@
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="929"/>
+        <location filename="../EditFldDlg.ui" line="935"/>
         <source>Dimensions</source>
         <translation>Größe</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="935"/>
+        <location filename="../EditFldDlg.ui" line="941"/>
         <source>Rows</source>
         <translation>Zeilen</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="945"/>
+        <location filename="../EditFldDlg.ui" line="951"/>
         <source>Columns</source>
         <translation>Spalten</translation>
     </message>
@@ -412,12 +412,32 @@
         <translation>Zeige Summe für Spalte</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="1018"/>
+        <location filename="../EditFldDlg.ui" line="1003"/>
+        <source>Row headers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="1023"/>
+        <source>Row header</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="1035"/>
+        <source>Column headers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="1055"/>
+        <source>Column header</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="1084"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="1025"/>
+        <location filename="../EditFldDlg.ui" line="1091"/>
         <source>Cancel</source>
         <translation>Abbrechen</translation>
     </message>
@@ -435,12 +455,12 @@ Remove it?</source>
         <translation>Das Feld enhält eine leere Zeile am Ende. Entfernen?</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.cpp" line="552"/>
+        <location filename="../EditFldDlg.cpp" line="575"/>
         <source>Save Image As</source>
         <translation>Speichere Bild als</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.cpp" line="554"/>
+        <location filename="../EditFldDlg.cpp" line="577"/>
         <source>Images (*.png)</source>
         <translation>Bilder (*.png)</translation>
     </message>
@@ -559,7 +579,7 @@ Remove it?</source>
     </message>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="97"/>
-        <location filename="../FldPropertyDlg.cpp" line="198"/>
+        <location filename="../FldPropertyDlg.cpp" line="219"/>
         <source>Functions</source>
         <translation>Funktionen</translation>
     </message>
@@ -594,7 +614,22 @@ Remove it?</source>
         <translation>Spanisch</translation>
     </message>
     <message>
-        <location filename="../FldPropertyDlg.cpp" line="170"/>
+        <location filename="../FldPropertyDlg.cpp" line="169"/>
+        <source>French</source>
+        <translation type="unfinished">Französisch</translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.cpp" line="176"/>
+        <source>French(BE)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.cpp" line="183"/>
+        <source>French(CH)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.cpp" line="191"/>
         <source>Math functions</source>
         <translation>Mathematische Funktionen</translation>
     </message>
@@ -1775,12 +1810,12 @@ Save the report?</source>
 <context>
     <name>QtRPT</name>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1522"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1514"/>
         <source>Save as PDF</source>
         <translation>Speichere als PDF</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1527"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1519"/>
         <source>Save as HTML</source>
         <translation>Speichere als HTML</translation>
     </message>
@@ -1789,29 +1824,29 @@ Save the report?</source>
         <translation type="vanished">Speichere als ODT</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1533"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1525"/>
         <source>Save as XLSX</source>
         <translation>Als XLSX speichern</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1554"/>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1559"/>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1564"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1546"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1551"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1556"/>
         <source>Save File</source>
         <translation>Speichere Datei</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1554"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1546"/>
         <source>PDF Files (*.pdf)</source>
         <translation>PDF-Dateien (*.pdf)</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1559"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1551"/>
         <source>HTML Files (*.html)</source>
         <translation>HTML-Dateien (*.html)</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1564"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1556"/>
         <source>XLSX Files (*.xlsx)</source>
         <translation>XLSX Dateien (*.xlsx)</translation>
     </message>
@@ -2259,18 +2294,18 @@ Restart application?</source>
         <translation>Gehe Rückwärts</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="281"/>
+        <location filename="../TContainerField.cpp" line="284"/>
         <source>New image</source>
         <translation>Neues Bild</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="288"/>
+        <location filename="../TContainerField.cpp" line="291"/>
         <source>New diagram</source>
         <translation>Neues Diagramm</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="656"/>
-        <location filename="../TContainerField.cpp" line="677"/>
+        <location filename="../TContainerField.cpp" line="675"/>
+        <location filename="../TContainerField.cpp" line="696"/>
         <source>Total</source>
         <translation>Gesamt</translation>
     </message>

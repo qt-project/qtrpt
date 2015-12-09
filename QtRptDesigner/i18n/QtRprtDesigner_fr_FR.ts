@@ -29,22 +29,22 @@
     <message>
         <location filename="../aboutDlg.cpp" line="49"/>
         <source>2012-2015 years</source>
-        <translation>2012-2015</translation>
+        <translation>2012-2014 years {2012-2015 ?}</translation>
     </message>
     <message>
         <location filename="../aboutDlg.cpp" line="50"/>
         <source>Thanks for donation:</source>
-        <translation></translation>
+        <translation>Merci pour les dons:</translation>
     </message>
     <message>
         <location filename="../aboutDlg.cpp" line="52"/>
         <source>Sailendram</source>
-        <translation></translation>
+        <translation>Sailendram</translation>
     </message>
     <message>
         <location filename="../aboutDlg.cpp" line="54"/>
         <source>Thanks for project developing:</source>
-        <translation>Merci pour le développement:</translation>
+        <translation>Merci pour le développement du projet:</translation>
     </message>
     <message>
         <location filename="../aboutDlg.cpp" line="56"/>
@@ -54,7 +54,7 @@
     <message>
         <location filename="../aboutDlg.cpp" line="57"/>
         <source>Norbert Schlia for help in developing</source>
-        <translation>Norbert Schlia pour l&apos;aide au développement</translation>
+        <translation>Norbert Schlia pour l&apos;aide en développement</translation>
     </message>
     <message>
         <location filename="../aboutDlg.cpp" line="58"/>
@@ -74,22 +74,22 @@
     <message>
         <location filename="../aboutDlg.cpp" line="61"/>
         <source>Laurent Guilbert for French translation</source>
-        <translation>Laurent Gilbert pour la traduction française</translation>
+        <translation>Laurent Guilbert pour la traduction en français</translation>
     </message>
     <message>
         <location filename="../aboutDlg.cpp" line="62"/>
         <source>David Heremans for Dutch translation</source>
-        <translation>Laurent Gilbert pour la traduction néerlandais</translation>
+        <translation>David Heremans  pour la traduction en néerlandais</translation>
     </message>
     <message>
         <location filename="../aboutDlg.cpp" line="63"/>
         <source>Mirko Marx for German translation</source>
-        <translation>Laurent Gilbert pour la traduction allemande</translation>
+        <translation>Mirko Marx pour la traduction en allemand</translation>
     </message>
     <message>
         <location filename="../aboutDlg.cpp" line="64"/>
         <source>Manuel Soriano for Spanish translation</source>
-        <translation>Laurent Gilbert pour la traduction espagnol</translation>
+        <translation>Manuel Soriano pour la traduction en espagnol</translation>
     </message>
 </context>
 <context>
@@ -220,7 +220,7 @@
     <message>
         <location filename="../EditFldDlg.ui" line="480"/>
         <source>Save As</source>
-        <translation>Enregistrer sous</translation>
+        <translation>Enregistrer  sous</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="497"/>
@@ -336,12 +336,12 @@
     <message>
         <location filename="../EditFldDlg.ui" line="183"/>
         <source>Process as image</source>
-        <translation>Traitement comme une image</translation>
+        <translation>Traiter en tant qu&apos;image</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="190"/>
         <source>Image from database</source>
-        <translation>Lire l&apos;image de base de données</translation>
+        <translation>Image de la base de données</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="219"/>
@@ -351,22 +351,22 @@
     <message>
         <location filename="../EditFldDlg.ui" line="593"/>
         <source>Diagram property</source>
-        <translation>Propriétés du schéma</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="607"/>
         <source>Chart caption</source>
-        <translation>Résumé du tableau</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="647"/>
         <source>Show graph caption</source>
-        <translation>Afficher le titre du graphique</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="657"/>
         <source>Graph caption</source>
-        <translation>Titre du graphique</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="877"/>
@@ -379,52 +379,72 @@
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="929"/>
-        <source>Dimensions</source>
-        <translation>Taille</translation>
-    </message>
-    <message>
         <location filename="../EditFldDlg.ui" line="935"/>
-        <source>Rows</source>
-        <translation>Lignes</translation>
+        <source>Dimensions</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="945"/>
+        <location filename="../EditFldDlg.ui" line="941"/>
+        <source>Rows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="951"/>
         <source>Columns</source>
-        <translation>Colonnes</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="964"/>
         <source>Parameters</source>
-        <translation>Paramètre</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="970"/>
         <source>Show row header</source>
-        <translation>Afficher/Masquer l&apos;en-tête</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="977"/>
         <source>Show column header</source>
-        <translation>Afficher d&apos;en-tête de colonne</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="984"/>
         <source>Show row total</source>
-        <translation>Afficher totale de ligne</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="991"/>
         <source>Show column total</source>
-        <translation>Afficher totale de colonne</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="1018"/>
+        <location filename="../EditFldDlg.ui" line="1003"/>
+        <source>Row headers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="1023"/>
+        <source>Row header</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="1035"/>
+        <source>Column headers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="1055"/>
+        <source>Column header</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="1084"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="1025"/>
+        <location filename="../EditFldDlg.ui" line="1091"/>
         <source>Cancel</source>
         <translation>Annuler</translation>
     </message>
@@ -443,14 +463,14 @@ Remove it?</source>
 les supprimer?</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.cpp" line="552"/>
+        <location filename="../EditFldDlg.cpp" line="575"/>
         <source>Save Image As</source>
         <translation>Enregistrer l&apos;image sous</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.cpp" line="554"/>
+        <location filename="../EditFldDlg.cpp" line="577"/>
         <source>Images (*.png)</source>
-        <translation>Images (*.png)</translation>
+        <translation>images (*.png)</translation>
     </message>
 </context>
 <context>
@@ -567,7 +587,7 @@ les supprimer?</translation>
     </message>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="97"/>
-        <location filename="../FldPropertyDlg.cpp" line="198"/>
+        <location filename="../FldPropertyDlg.cpp" line="219"/>
         <source>Functions</source>
         <translation>Fonctions</translation>
     </message>
@@ -579,7 +599,7 @@ les supprimer?</translation>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="135"/>
         <source>Text functions</source>
-        <translation>Fonctions de texte</translation>
+        <translation>Fonctions textes</translation>
     </message>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="141"/>
@@ -602,7 +622,22 @@ les supprimer?</translation>
         <translation>Espagnol</translation>
     </message>
     <message>
-        <location filename="../FldPropertyDlg.cpp" line="170"/>
+        <location filename="../FldPropertyDlg.cpp" line="169"/>
+        <source>French</source>
+        <translation type="unfinished">Français</translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.cpp" line="176"/>
+        <source>French(BE)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.cpp" line="183"/>
+        <source>French(CH)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FldPropertyDlg.cpp" line="191"/>
         <source>Math functions</source>
         <translation>Fonctions mathématiques</translation>
     </message>
@@ -853,7 +888,7 @@ les supprimer?</translation>
         <location filename="../mainwindow.ui" line="640"/>
         <location filename="../mainwindow.ui" line="643"/>
         <source>Save report</source>
-        <translation>Sauvegarder le rapport</translation>
+        <translation>Enregistrer le rapport</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="646"/>
@@ -915,7 +950,7 @@ les supprimer?</translation>
         <location filename="../mainwindow.ui" line="748"/>
         <location filename="../mainwindow.ui" line="751"/>
         <source>Save as</source>
-        <translation>Sauvegarder sous</translation>
+        <translation>Enregistrer sous</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="760"/>
@@ -1120,25 +1155,25 @@ les supprimer?</translation>
         <location filename="../mainwindow.ui" line="1183"/>
         <location filename="../mainwindow.ui" line="1186"/>
         <source>To group</source>
-        <translation>Groupe</translation>
+        <translation>Grouper</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1195"/>
         <location filename="../mainwindow.ui" line="1198"/>
         <source>To ungroup</source>
-        <translation>Dissocier</translation>
+        <translation>Degrouper</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1213"/>
         <location filename="../mainwindow.ui" line="1216"/>
         <source>Add CrossTab object</source>
-        <translation>Ajouter tableau de contingence</translation>
+        <translation>Ajouter un tableau croisé</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1231"/>
         <location filename="../mainwindow.ui" line="1234"/>
         <source>Add CrossTabBD object</source>
-        <translation>Add CrossTabBD object</translation>
+        <translation>Ajouter un tableau croisé de la BD</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="233"/>
@@ -1270,7 +1305,7 @@ les supprimer?</translation>
         <location filename="../mainwindow.cpp" line="1830"/>
         <location filename="../mainwindow.cpp" line="2643"/>
         <source>Saving</source>
-        <translation>Sauvegarde</translation>
+        <translation>Enregistrement</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="983"/>
@@ -1299,7 +1334,7 @@ Save the report?</source>
     <message>
         <location filename="../mainwindow.cpp" line="1528"/>
         <source>Save File</source>
-        <translation>Sauvegarder le fichier</translation>
+        <translation>Enregistrer le fichier</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="1528"/>
@@ -1590,7 +1625,7 @@ Save the report?</source>
     <message>
         <location filename="../PageSettingDlg.ui" line="272"/>
         <source>Page border</source>
-        <translation>Bordure de page</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../PageSettingDlg.ui" line="236"/>
@@ -1599,12 +1634,12 @@ Save the report?</source>
     </message>
     <message>
         <source>Page&apos;s border</source>
-        <translation type="vanished">Bordure de page</translation>
+        <translation type="vanished">Bordures de page</translation>
     </message>
     <message>
         <location filename="../PageSettingDlg.ui" line="280"/>
         <source>Draw border</source>
-        <translation>Afficher bordure</translation>
+        <translation>Dessiner les bordures</translation>
     </message>
     <message>
         <location filename="../PageSettingDlg.ui" line="287"/>
@@ -1619,12 +1654,12 @@ Save the report?</source>
     <message>
         <location filename="../PageSettingDlg.ui" line="317"/>
         <source>Border width</source>
-        <translation>Largeur du bordure</translation>
+        <translation>Epaisseur de la bordure</translation>
     </message>
     <message>
         <location filename="../PageSettingDlg.ui" line="327"/>
         <source>Border style</source>
-        <translation>Style du bordure</translation>
+        <translation>Style de bordure</translation>
     </message>
     <message>
         <location filename="../PageSettingDlg.ui" line="364"/>
@@ -1688,7 +1723,7 @@ Save the report?</source>
     <message>
         <location filename="../../QtRPT/RptCrossTabObject.cpp" line="38"/>
         <source>Total</source>
-        <translation type="unfinished">Global</translation>
+        <translation type="unfinished">Total</translation>
     </message>
 </context>
 <context>
@@ -1793,41 +1828,41 @@ Save the report?</source>
 <context>
     <name>QtRPT</name>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1522"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1514"/>
         <source>Save as PDF</source>
-        <translation>Enregistrer sous PDF</translation>
+        <translation>Enregistrer en PDF</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1527"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1519"/>
         <source>Save as HTML</source>
-        <translation>Enregistrer sous HTML</translation>
+        <translation>Enregistrer en HTML</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1533"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1525"/>
         <source>Save as XLSX</source>
-        <translation>Enregistrer sous XLSX</translation>
+        <translation>Enregistrer en Excel</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1554"/>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1559"/>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1564"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1546"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1551"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1556"/>
         <source>Save File</source>
-        <translation>Sauvegarder le fichier</translation>
+        <translation>Enregistrer le fichier</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1554"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1546"/>
         <source>PDF Files (*.pdf)</source>
-        <translation>Fichier PDF (*.pdf)</translation>
+        <translation>Fichiers PDF (*.pdf)</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1559"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1551"/>
         <source>HTML Files (*.html)</source>
-        <translation>Fichier HTML (*.html)</translation>
+        <translation>Fichiers HTML (*.html)</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1564"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1556"/>
         <source>XLSX Files (*.xlsx)</source>
-        <translation>Fichier XLSX (*.xlsx)</translation>
+        <translation>Fichiers Excel (*.xlsx)</translation>
     </message>
 </context>
 <context>
@@ -1928,7 +1963,7 @@ Save the report?</source>
     <message>
         <location filename="../SettingDlg.ui" line="103"/>
         <source>Language:</source>
-        <translation>Langue:</translation>
+        <translation>Langue</translation>
     </message>
     <message>
         <location filename="../SettingDlg.ui" line="111"/>
@@ -2008,7 +2043,7 @@ Save the report?</source>
     <message>
         <location filename="../SettingDlg.ui" line="211"/>
         <source>Save</source>
-        <translation>Sauvegarder</translation>
+        <translation>Enregistrer</translation>
     </message>
     <message>
         <location filename="../SettingDlg.ui" line="218"/>
@@ -2045,7 +2080,7 @@ Redémarrer l&apos;application?</translation>
     <message>
         <location filename="../SqlDesigner.ui" line="51"/>
         <source>XML DS</source>
-        <translation>Source de données XML</translation>
+        <translation>XML DS</translation>
     </message>
     <message>
         <location filename="../SqlDesigner.ui" line="88"/>
@@ -2154,7 +2189,7 @@ Redémarrer l&apos;application?</translation>
     <message>
         <location filename="../SqlDesigner.ui" line="324"/>
         <source>Select XML</source>
-        <translation>Sélectionnez XML</translation>
+        <translation>Sélectionner un fichier XML</translation>
     </message>
     <message>
         <location filename="../SqlDesigner.ui" line="388"/>
@@ -2169,7 +2204,7 @@ Redémarrer l&apos;application?</translation>
     <message>
         <location filename="../SqlDesigner.ui" line="404"/>
         <source>Preview data</source>
-        <translation>Données de prévisualisation</translation>
+        <translation>Aperçu des données</translation>
     </message>
     <message>
         <location filename="../SqlDesigner.ui" line="441"/>
@@ -2271,20 +2306,20 @@ Redémarrer l&apos;application?</translation>
         <translation>Déplacer derrière</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="281"/>
+        <location filename="../TContainerField.cpp" line="284"/>
         <source>New image</source>
         <translation>Nouvelle image</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="288"/>
+        <location filename="../TContainerField.cpp" line="291"/>
         <source>New diagram</source>
         <translation>Nouveau schéma</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="656"/>
-        <location filename="../TContainerField.cpp" line="677"/>
+        <location filename="../TContainerField.cpp" line="675"/>
+        <location filename="../TContainerField.cpp" line="696"/>
         <source>Total</source>
-        <translation>Global</translation>
+        <translation>Total</translation>
     </message>
 </context>
 <context>
@@ -2377,7 +2412,7 @@ Redémarrer l&apos;application?</translation>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="206"/>
         <source>Align center</source>
-        <translation>Centre</translation>
+        <translation>Centrer</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="226"/>
@@ -2397,17 +2432,17 @@ Redémarrer l&apos;application?</translation>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="305"/>
         <source>Font color</source>
-        <translation>Couleur de police</translation>
+        <translation>Couleur de la police</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="322"/>
         <source>Font</source>
-        <translation>Police</translation>
+        <translation>Polices</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="332"/>
         <source>Font size</source>
-        <translation>Taille de police</translation>
+        <translation>Taille de la police</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="438"/>
@@ -2471,7 +2506,7 @@ Redémarrer l&apos;application?</translation>
     <message>
         <location filename="../../CommonFiles/XYZ_UpdateDlg.ui" line="82"/>
         <source>Update</source>
-        <translation>Mise à jour</translation>
+        <translation>Mettre à jour</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_UpdateDlg.ui" line="89"/>
@@ -2486,7 +2521,7 @@ Redémarrer l&apos;application?</translation>
     <message>
         <location filename="../../CommonFiles/XYZ_UpdateDlg.cpp" line="74"/>
         <source>Downloading %0. ..</source>
-        <translation>Téléchargement %0 :..</translation>
+        <translation>Téléchargement %0 :...</translation>
     </message>
 </context>
 </TS>
