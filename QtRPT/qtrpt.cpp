@@ -1020,17 +1020,7 @@ QScriptValue funcText(QScriptContext *context, QScriptEngine *engine) {
     Q_UNUSED(engine);
     QString paramLanguage = context->argument(0).toString();
     double value = context->argument(1).toString().toDouble();
-    QString paramValue;
-    if (paramLanguage == "ENG")
-        paramValue = double2Money(value,paramLanguage);
-    if (paramLanguage == "UKR")
-        paramValue = double2Money(value,paramLanguage);
-    if (paramLanguage == "GER")
-        paramValue = double2Money(value,paramLanguage);
-    if (paramLanguage == "ESP")
-        paramValue = double2Money(value,paramLanguage);
-
-    return paramValue;
+    return double2Money(value,paramLanguage);
 }
 
 QScriptValue funcFrac(QScriptContext *context, QScriptEngine *engine) {

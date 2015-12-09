@@ -777,7 +777,7 @@ QString double2MoneyESP(double _dbValue, int _blDecimals) {
     return stReturn;
 }
 
-//Thanks to Lau Gui
+//Thanks to Laurent Guilbert
 QString double2MoneyFrenchBE(double number, bool bAdditional /*= false*/) {
     int whole = (int)number;
     int precision = (number - whole) * 100;
@@ -983,14 +983,20 @@ QString double2MoneyFrench(int number, int language) {
 QString double2Money(double n, QString lang) {
     if (lang == "UKR")
         return double2MoneyUKR(n,0);
-    else if (lang == "RUS")
-        return double2MoneyRUS(n);
+    //else if (lang == "RUS")
+    //    return double2MoneyRUS(n);
     else if (lang == "GER")
         return double2MoneyGER(n);
     else if (lang == "ENG")
         return double2MoneyENG(n);
     else if (lang == "ESP")
         return double2MoneyESP(n,0);
+    else if (lang == "FR_FR")
+        return double2MoneyFrench(n,0);
+    else if (lang == "FR_BE")
+        return double2MoneyFrench(n,1);
+    else if (lang == "FR_CH")
+        return double2MoneyFrench(n,2);
     else
         return double2MoneyENG(n);
 }

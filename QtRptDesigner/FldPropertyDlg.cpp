@@ -164,6 +164,27 @@ QString FldPropertyDlg::showThis(int index, QWidget *widget, QString value) {
                 item->setData(0,Qt::UserRole,"<NumberToWords('ESP', )>");
                 f1->addChild(item);
 
+                item = new QTreeWidgetItem(f1);
+                item->setIcon(0,iconFunction);
+                item->setToolTip(0,tr("French"));
+                item->setText(0,"NumberToWords (FR_FR)");
+                item->setData(0,Qt::UserRole,"<NumberToWords('FR', )>");
+                f1->addChild(item);
+
+                item = new QTreeWidgetItem(f1);
+                item->setIcon(0,iconFunction);
+                item->setToolTip(0,tr("French(BE)"));
+                item->setText(0,"NumberToWords (FR_BE)");
+                item->setData(0,Qt::UserRole,"<NumberToWords('FR_BE', )>");
+                f1->addChild(item);
+
+                item = new QTreeWidgetItem(f1);
+                item->setIcon(0,iconFunction);
+                item->setToolTip(0,tr("French(CH)"));
+                item->setText(0,"NumberToWords (FR_CH)");
+                item->setData(0,Qt::UserRole,"<NumberToWords('FR_CH', )>");
+                f1->addChild(item);
+
                 //------------------Math functions----------------------
                 f1 = new QTreeWidgetItem(rootItem);
                 f1->setIcon(0,iconFolder);
