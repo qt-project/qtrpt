@@ -29,22 +29,22 @@
     <message>
         <location filename="../aboutDlg.cpp" line="49"/>
         <source>2012-2015 years</source>
-        <translation type="unfinished">2012-2014 年 {2012-2015 ?}</translation>
+        <translation>2012-2015 年</translation>
     </message>
     <message>
         <location filename="../aboutDlg.cpp" line="50"/>
         <source>Thanks for donation:</source>
-        <translation type="unfinished"></translation>
+        <translation>感谢捐赠：</translation>
     </message>
     <message>
         <location filename="../aboutDlg.cpp" line="52"/>
         <source>Sailendram</source>
-        <translation type="unfinished"></translation>
+        <translation>Sailendram</translation>
     </message>
     <message>
         <location filename="../aboutDlg.cpp" line="54"/>
         <source>Thanks for project developing:</source>
-        <translation type="unfinished"></translation>
+        <translation>感谢参与项目：</translation>
     </message>
     <message>
         <location filename="../aboutDlg.cpp" line="56"/>
@@ -54,7 +54,7 @@
     <message>
         <location filename="../aboutDlg.cpp" line="57"/>
         <source>Norbert Schlia for help in developing</source>
-        <translation type="unfinished"></translation>
+        <translation>Norbert Schlia 在开发中提供了帮助</translation>
     </message>
     <message>
         <location filename="../aboutDlg.cpp" line="58"/>
@@ -74,22 +74,22 @@
     <message>
         <location filename="../aboutDlg.cpp" line="61"/>
         <source>Laurent Guilbert for French translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Laurent Guilbert 翻译为法语</translation>
     </message>
     <message>
         <location filename="../aboutDlg.cpp" line="62"/>
         <source>David Heremans for Dutch translation</source>
-        <translation type="unfinished"></translation>
+        <translation>David Heremans 翻译为荷兰语</translation>
     </message>
     <message>
         <location filename="../aboutDlg.cpp" line="63"/>
         <source>Mirko Marx for German translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Mirko Marx 翻译为德语</translation>
     </message>
     <message>
         <location filename="../aboutDlg.cpp" line="64"/>
         <source>Manuel Soriano for Spanish translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Manuel Soriano 翻译为西班牙语</translation>
     </message>
 </context>
 <context>
@@ -136,12 +136,12 @@
     <message>
         <location filename="../EditFldDlg.ui" line="160"/>
         <source>Text direction</source>
-        <translation type="unfinished"></translation>
+        <translation>文本方向</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="163"/>
         <source>&lt;-</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;-</translation>
     </message>
     <message>
         <source>Proccess as Image</source>
@@ -220,7 +220,7 @@
     <message>
         <location filename="../EditFldDlg.ui" line="480"/>
         <source>Save As</source>
-        <translation type="unfinished"></translation>
+        <translation>另存为</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="497"/>
@@ -340,12 +340,12 @@
     <message>
         <location filename="../EditFldDlg.ui" line="183"/>
         <source>Process as image</source>
-        <translation type="unfinished"></translation>
+        <translation>处理为图片</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="190"/>
         <source>Image from database</source>
-        <translation type="unfinished"></translation>
+        <translation>数据库中的图片</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="219"/>
@@ -375,12 +375,12 @@
     <message>
         <location filename="../EditFldDlg.ui" line="877"/>
         <source>Height</source>
-        <translation type="unfinished">高度</translation>
+        <translation>高度</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="884"/>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="935"/>
@@ -469,12 +469,12 @@ Remove it?</source>
     <message>
         <location filename="../EditFldDlg.cpp" line="575"/>
         <source>Save Image As</source>
-        <translation type="unfinished"></translation>
+        <translation>保存图片为</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.cpp" line="577"/>
         <source>Images (*.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>图片 （*.png)</translation>
     </message>
 </context>
 <context>
@@ -603,32 +603,32 @@ Remove it?</source>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="135"/>
         <source>Text functions</source>
-        <translation type="unfinished"></translation>
+        <translation>文本函数</translation>
     </message>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="141"/>
         <source>English</source>
-        <translation type="unfinished"></translation>
+        <translation>英语</translation>
     </message>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="148"/>
         <source>German</source>
-        <translation type="unfinished"></translation>
+        <translation>德语</translation>
     </message>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="155"/>
         <source>Ukrainian</source>
-        <translation type="unfinished"></translation>
+        <translation>乌克兰语</translation>
     </message>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="162"/>
         <source>Spanish</source>
-        <translation type="unfinished"></translation>
+        <translation>西班牙语</translation>
     </message>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="169"/>
         <source>French</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">法语</translation>
     </message>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="176"/>
@@ -643,7 +643,7 @@ Remove it?</source>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="191"/>
         <source>Math functions</source>
-        <translation type="unfinished"></translation>
+        <translation>数学函数</translation>
     </message>
 </context>
 <context>
@@ -1170,25 +1170,25 @@ Remove it?</source>
         <location filename="../mainwindow.ui" line="1183"/>
         <location filename="../mainwindow.ui" line="1186"/>
         <source>To group</source>
-        <translation type="unfinished"></translation>
+        <translation>分组</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1195"/>
         <location filename="../mainwindow.ui" line="1198"/>
         <source>To ungroup</source>
-        <translation type="unfinished"></translation>
+        <translation>取消组</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1213"/>
         <location filename="../mainwindow.ui" line="1216"/>
         <source>Add CrossTab object</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">添加 CrossTab 对象</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1231"/>
         <location filename="../mainwindow.ui" line="1234"/>
         <source>Add CrossTabBD object</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">添加 CrossTabBD 对象</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="233"/>
@@ -1340,12 +1340,12 @@ Save the report?</source>
     <message>
         <location filename="../mainwindow.cpp" line="1338"/>
         <source>Going to make undo: </source>
-        <translation type="unfinished"></translation>
+        <translation>马上执行撤销：</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="1346"/>
         <source>Going to make redo: </source>
-        <translation type="unfinished"></translation>
+        <translation>马上执行恢复：</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="1528"/>
@@ -1483,7 +1483,7 @@ Save the report?</source>
     <message>
         <location filename="../mainwindow.cpp" line="2382"/>
         <source>TextWrap</source>
-        <translation type="unfinished"></translation>
+        <translation>文本折行</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2388"/>
@@ -1566,7 +1566,7 @@ Save the report?</source>
     <message>
         <location filename="../PageSettingDlg.ui" line="51"/>
         <source>A3</source>
-        <translation type="unfinished">A3</translation>
+        <translation>A3</translation>
     </message>
     <message>
         <location filename="../PageSettingDlg.ui" line="56"/>
@@ -1576,7 +1576,7 @@ Save the report?</source>
     <message>
         <location filename="../PageSettingDlg.ui" line="61"/>
         <source>A5</source>
-        <translation type="unfinished">A5</translation>
+        <translation>A5</translation>
     </message>
     <message>
         <location filename="../PageSettingDlg.ui" line="66"/>
@@ -1649,29 +1649,33 @@ Save the report?</source>
         <translation>下</translation>
     </message>
     <message>
+        <source>Page&apos;s border</source>
+        <translation type="vanished">页面边框</translation>
+    </message>
+    <message>
         <location filename="../PageSettingDlg.ui" line="280"/>
         <source>Draw border</source>
-        <translation type="unfinished"></translation>
+        <translation>绘制边框</translation>
     </message>
     <message>
         <location filename="../PageSettingDlg.ui" line="287"/>
         <source>Border color</source>
-        <translation type="unfinished">边框颜色</translation>
+        <translation>边框颜色</translation>
     </message>
     <message>
         <location filename="../PageSettingDlg.ui" line="310"/>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../PageSettingDlg.ui" line="317"/>
         <source>Border width</source>
-        <translation type="unfinished"></translation>
+        <translation>边框宽度</translation>
     </message>
     <message>
         <location filename="../PageSettingDlg.ui" line="327"/>
         <source>Border style</source>
-        <translation type="unfinished"></translation>
+        <translation>边框样式</translation>
     </message>
     <message>
         <location filename="../PageSettingDlg.ui" line="364"/>
@@ -1707,27 +1711,35 @@ Save the report?</source>
     <message>
         <location filename="../UndoCommands.cpp" line="44"/>
         <source>Changing Container&apos;s geometry</source>
-        <translation type="unfinished"></translation>
+        <translation>改变容器尺寸</translation>
     </message>
     <message>
         <location filename="../UndoCommands.cpp" line="102"/>
         <source>Adding Container</source>
-        <translation type="unfinished"></translation>
+        <translation>添加容器</translation>
     </message>
     <message>
         <location filename="../UndoCommands.cpp" line="167"/>
         <source>Deleting Container</source>
-        <translation type="unfinished"></translation>
+        <translation>删除容器</translation>
     </message>
     <message>
         <location filename="../UndoCommands.cpp" line="209"/>
         <source>Changing Container&apos;s parameters</source>
-        <translation type="unfinished"></translation>
+        <translation>删除容器</translation>
+    </message>
+    <message>
+        <source>C-Total</source>
+        <translation type="obsolete">列-总计</translation>
+    </message>
+    <message>
+        <source>R-Total</source>
+        <translation type="obsolete">行-总计</translation>
     </message>
     <message>
         <location filename="../../QtRPT/RptCrossTabObject.cpp" line="38"/>
         <source>Total</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">总计</translation>
     </message>
 </context>
 <context>
@@ -1824,41 +1836,41 @@ Save the report?</source>
 <context>
     <name>QtRPT</name>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1514"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1517"/>
         <source>Save as PDF</source>
-        <translation type="unfinished"></translation>
+        <translation>另存为 PDF</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1519"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1522"/>
         <source>Save as HTML</source>
-        <translation type="unfinished"></translation>
+        <translation>另存为 HTML</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1525"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1528"/>
         <source>Save as XLSX</source>
-        <translation type="unfinished"></translation>
+        <translation>另存为 XLSX</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1546"/>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1551"/>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1556"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1549"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1554"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1559"/>
         <source>Save File</source>
-        <translation type="unfinished">保存文件</translation>
+        <translation>保存文件</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1546"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1549"/>
         <source>PDF Files (*.pdf)</source>
-        <translation type="unfinished"></translation>
+        <translation>PDF 文件 (*.pdf)</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1551"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1554"/>
         <source>HTML Files (*.html)</source>
-        <translation type="unfinished"></translation>
+        <translation>HTML 文件 (*.html)</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1556"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1559"/>
         <source>XLSX Files (*.xlsx)</source>
-        <translation type="unfinished"></translation>
+        <translation>XLSX 文件 (*.xlsx)</translation>
     </message>
 </context>
 <context>
@@ -1984,12 +1996,12 @@ Save the report?</source>
     <message>
         <location filename="../SettingDlg.ui" line="131"/>
         <source>Dutch</source>
-        <translation type="unfinished"></translation>
+        <translation>荷兰语</translation>
     </message>
     <message>
         <location filename="../SettingDlg.ui" line="136"/>
         <source>French</source>
-        <translation type="unfinished"></translation>
+        <translation>法语</translation>
     </message>
     <message>
         <location filename="../SettingDlg.ui" line="141"/>
@@ -1999,7 +2011,7 @@ Save the report?</source>
     <message>
         <location filename="../SettingDlg.ui" line="146"/>
         <source>German</source>
-        <translation type="unfinished"></translation>
+        <translation>德语</translation>
     </message>
     <message>
         <location filename="../SettingDlg.ui" line="151"/>
@@ -2024,7 +2036,7 @@ Save the report?</source>
     <message>
         <location filename="../SettingDlg.ui" line="171"/>
         <source>Spanish</source>
-        <translation type="unfinished"></translation>
+        <translation>西班牙语</translation>
     </message>
     <message>
         <location filename="../SettingDlg.ui" line="176"/>
@@ -2086,7 +2098,7 @@ Restart application?</source>
     <message>
         <location filename="../SqlDesigner.ui" line="182"/>
         <source>Host name</source>
-        <translation>主机名</translation>
+        <translation>主 机 名</translation>
     </message>
     <message>
         <location filename="../SqlDesigner.ui" line="121"/>
@@ -2097,7 +2109,7 @@ Restart application?</source>
     <message>
         <location filename="../SqlDesigner.ui" line="114"/>
         <source>Driver</source>
-        <translation>驱动</translation>
+        <translation>驱    动</translation>
     </message>
     <message>
         <location filename="../SqlDesigner.ui" line="154"/>
@@ -2112,7 +2124,7 @@ Restart application?</source>
     <message>
         <location filename="../SqlDesigner.ui" line="161"/>
         <source>Connection</source>
-        <translation>连接</translation>
+        <translation>连    接</translation>
     </message>
     <message>
         <source>QSQLITE</source>
@@ -2150,17 +2162,17 @@ Restart application?</source>
     <message>
         <location filename="../SqlDesigner.ui" line="51"/>
         <source>XML DS</source>
-        <translation type="unfinished"></translation>
+        <translation>XML 数据源</translation>
     </message>
     <message>
         <location filename="../SqlDesigner.ui" line="144"/>
         <source>Password</source>
-        <translation>密码</translation>
+        <translation>密    码</translation>
     </message>
     <message>
         <location filename="../SqlDesigner.ui" line="168"/>
         <source>User name</source>
-        <translation>用户名</translation>
+        <translation>用 户 名</translation>
     </message>
     <message>
         <location filename="../SqlDesigner.ui" line="196"/>
@@ -2170,12 +2182,12 @@ Restart application?</source>
     <message>
         <location filename="../SqlDesigner.ui" line="203"/>
         <source>Connection name</source>
-        <translation type="unfinished"></translation>
+        <translation>连 接 名</translation>
     </message>
     <message>
         <location filename="../SqlDesigner.ui" line="210"/>
         <source>Port</source>
-        <translation type="unfinished"></translation>
+        <translation>端    口</translation>
     </message>
     <message>
         <location filename="../SqlDesigner.ui" line="288"/>
@@ -2185,22 +2197,22 @@ Restart application?</source>
     <message>
         <location filename="../SqlDesigner.ui" line="324"/>
         <source>Select XML</source>
-        <translation type="unfinished"></translation>
+        <translation>选择 XML</translation>
     </message>
     <message>
         <location filename="../SqlDesigner.ui" line="388"/>
         <source>Field name</source>
-        <translation type="unfinished"></translation>
+        <translation>字段名</translation>
     </message>
     <message>
         <location filename="../SqlDesigner.ui" line="393"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>说明</translation>
     </message>
     <message>
         <location filename="../SqlDesigner.ui" line="404"/>
         <source>Preview data</source>
-        <translation type="unfinished"></translation>
+        <translation>预览数据</translation>
     </message>
     <message>
         <location filename="../SqlDesigner.ui" line="441"/>
@@ -2271,7 +2283,7 @@ Restart application?</source>
     <message>
         <location filename="../SqlDesigner.cpp" line="161"/>
         <source>Select File</source>
-        <translation type="unfinished">选择文件</translation>
+        <translation>选择文件</translation>
     </message>
 </context>
 <context>
@@ -2279,7 +2291,7 @@ Restart application?</source>
     <message>
         <location filename="../TContainerField.cpp" line="28"/>
         <source>New Label</source>
-        <translation type="unfinished"></translation>
+        <translation>新建标签</translation>
     </message>
     <message>
         <location filename="../TContainerField.cpp" line="73"/>
@@ -2315,7 +2327,7 @@ Restart application?</source>
         <location filename="../TContainerField.cpp" line="675"/>
         <location filename="../TContainerField.cpp" line="696"/>
         <source>Total</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">总计</translation>
     </message>
 </context>
 <context>
@@ -2358,7 +2370,7 @@ Restart application?</source>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="43"/>
         <source>Cut</source>
-        <translation type="unfinished">剪切</translation>
+        <translation>剪切</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="46"/>
@@ -2373,117 +2385,117 @@ Restart application?</source>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="249"/>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="308"/>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="60"/>
         <source>Copy</source>
-        <translation type="unfinished">复制</translation>
+        <translation>复制</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="77"/>
         <source>Paste</source>
-        <translation type="unfinished">粘贴</translation>
+        <translation>粘贴</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="110"/>
         <source>Bold</source>
-        <translation type="unfinished">加粗</translation>
+        <translation>加粗</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="130"/>
         <source>Italic</source>
-        <translation type="unfinished">斜体</translation>
+        <translation>斜体</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="150"/>
         <source>Underline</source>
-        <translation type="unfinished">下划线</translation>
+        <translation>下划线</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="186"/>
         <source>Align left</source>
-        <translation type="unfinished">左对齐</translation>
+        <translation>左对齐</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="206"/>
         <source>Align center</source>
-        <translation type="unfinished">居中</translation>
+        <translation>居中</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="226"/>
         <source>Align right</source>
-        <translation type="unfinished">右对齐</translation>
+        <translation>右对齐</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="246"/>
         <source>Align jusify</source>
-        <translation type="unfinished">两端对齐</translation>
+        <translation>两端对齐</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="282"/>
         <source>List</source>
-        <translation type="unfinished">列表</translation>
+        <translation>列表</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="305"/>
         <source>Font color</source>
-        <translation type="unfinished">字体颜色</translation>
+        <translation>字体颜色</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="322"/>
         <source>Font</source>
-        <translation type="unfinished">字体</translation>
+        <translation>字体</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="332"/>
         <source>Font size</source>
-        <translation type="unfinished">字体大小</translation>
+        <translation>字体大小</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="438"/>
         <source>TextDirection</source>
-        <translation type="unfinished"></translation>
+        <translation>文本方向</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.ui" line="441"/>
         <source>&lt;-</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;-</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.cpp" line="93"/>
         <source>Standard</source>
-        <translation type="unfinished">标准</translation>
+        <translation>标准</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.cpp" line="94"/>
         <source>Bullet List (Disc)</source>
-        <translation type="unfinished">符号列表(原点)</translation>
+        <translation>符号列表(原点)</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.cpp" line="95"/>
         <source>Bullet List (Circle)</source>
-        <translation type="unfinished">符号列表(圆形)</translation>
+        <translation>符号列表(圆形)</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.cpp" line="96"/>
         <source>Bullet List (Square)</source>
-        <translation type="unfinished">符号列表(方形)</translation>
+        <translation>符号列表(方形)</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.cpp" line="97"/>
         <source>Ordered List (Decimal)</source>
-        <translation type="unfinished">有序列表(数字)</translation>
+        <translation>有序列表(数字)</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.cpp" line="98"/>
         <source>Ordered List (Alpha lower)</source>
-        <translation type="unfinished">有序列表(小写字母)</translation>
+        <translation>有序列表(小写字母)</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_TextEditor.cpp" line="99"/>
         <source>Ordered List (Alpha upper)</source>
-        <translation type="unfinished">有序列表(大写字母)</translation>
+        <translation>有序列表(大写字母)</translation>
     </message>
 </context>
 <context>
@@ -2492,32 +2504,32 @@ Restart application?</source>
         <location filename="../../CommonFiles/XYZ_UpdateDlg.ui" line="14"/>
         <location filename="../../CommonFiles/XYZ_UpdateDlg.ui" line="38"/>
         <source>Updating</source>
-        <translation type="unfinished">更新中</translation>
+        <translation>更新中</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_UpdateDlg.ui" line="33"/>
         <source>Progress</source>
-        <translation type="unfinished">进度</translation>
+        <translation>进度</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_UpdateDlg.ui" line="82"/>
         <source>Update</source>
-        <translation type="unfinished">更新</translation>
+        <translation>更新</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_UpdateDlg.ui" line="89"/>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_UpdateDlg.cpp" line="51"/>
         <source>Open Directory</source>
-        <translation type="unfinished">打开目录</translation>
+        <translation>打开目录</translation>
     </message>
     <message>
         <location filename="../../CommonFiles/XYZ_UpdateDlg.cpp" line="74"/>
         <source>Downloading %0. ..</source>
-        <translation type="unfinished">下载中 %0. ..</translation>
+        <translation>下载中 %0. ..</translation>
     </message>
 </context>
 </TS>

@@ -1026,9 +1026,8 @@ QScriptValue funcText(QScriptContext *context, QScriptEngine *engine) {
 QScriptValue funcFrac(QScriptContext *context, QScriptEngine *engine) {
     Q_UNUSED(engine);
     double value = context->argument(0).toString().toDouble();
-    int b;
-    b = qFloor(value);
-    b = (value-b) * 100;
+    int b = qFloor(value);
+    b = (value-b) * 100+0.5;
     return b;
 }
 

@@ -780,7 +780,7 @@ QString double2MoneyESP(double _dbValue, int _blDecimals) {
 //Thanks to Laurent Guilbert
 QString double2MoneyFrenchBE(double number, bool bAdditional /*= false*/) {
     int whole = (int)number;
-    int precision = (number - whole) * 100;
+    int precision = ((number-whole)*100)+0.5;
 
     if (precision > 0) {
         return double2MoneyFrench(whole,1) + " Euros " + double2MoneyFrench(precision,1) + " Centime(s)";

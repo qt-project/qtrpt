@@ -174,6 +174,9 @@
          </item>
          <item>
           <widget class="QRadioButton" name="rBtn18">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
            <property name="text">
             <string>CrossTab report</string>
            </property>
@@ -261,8 +264,8 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="../QtRPT/imagesRpt.qrc"/>
   <include location="resurce.qrc"/>
+  <include location="../QtRPT/imagesRpt.qrc"/>
   <include location="../QtRPT/imagesRpt.qrc"/>
  </resources>
  <connections/>

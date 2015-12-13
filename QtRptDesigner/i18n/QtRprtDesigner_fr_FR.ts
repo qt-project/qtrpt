@@ -1828,39 +1828,39 @@ Save the report?</source>
 <context>
     <name>QtRPT</name>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1514"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1517"/>
         <source>Save as PDF</source>
         <translation>Enregistrer en PDF</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1519"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1522"/>
         <source>Save as HTML</source>
         <translation>Enregistrer en HTML</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1525"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1528"/>
         <source>Save as XLSX</source>
         <translation>Enregistrer en Excel</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1546"/>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1551"/>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1556"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1549"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1554"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1559"/>
         <source>Save File</source>
         <translation>Enregistrer le fichier</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1546"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1549"/>
         <source>PDF Files (*.pdf)</source>
         <translation>Fichiers PDF (*.pdf)</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1551"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1554"/>
         <source>HTML Files (*.html)</source>
         <translation>Fichiers HTML (*.html)</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1556"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1559"/>
         <source>XLSX Files (*.xlsx)</source>
         <translation>Fichiers Excel (*.xlsx)</translation>
     </message>
