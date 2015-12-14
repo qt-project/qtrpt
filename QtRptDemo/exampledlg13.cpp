@@ -36,7 +36,7 @@ void ExampleDlg13::print() {
         dir.cd(QFile::decodeName("../Resources"));
     #endif
 
-    QString fileName = dir.absolutePath()+"./examples_report/example13.xml";
+    QString fileName = dir.absolutePath()+"/examples_report/example13.xml";
     QtRPT *report = new QtRPT(this);
     report->recordCount << 3;
     QObject::connect(report, SIGNAL(setField(RptFieldObject &)), this, SLOT(setField(RptFieldObject &)));

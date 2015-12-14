@@ -160,9 +160,9 @@ void ExampleDlg6::print() {
 
     QString fileName;
     if (m_mode == 1)
-        fileName = dir.absolutePath()+"./examples_report/example6a.xml";
+        fileName = dir.absolutePath()+"/examples_report/example6a.xml";
     if (m_mode == 2)
-        fileName = dir.absolutePath()+"./examples_report/example6b.xml";
+        fileName = dir.absolutePath()+"/examples_report/example6b.xml";
     report = new QtRPT(this);
     report->recordCount << ui->tableWidget->rowCount();
     if (report->loadReport(fileName) == false) {

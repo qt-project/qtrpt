@@ -37,7 +37,7 @@ ExampleDlg3::ExampleDlg3(QWidget *parent) : QDialog(parent), ui(new Ui::ExampleD
         dir.cd(QFile::decodeName("../Resources"));
     #endif
 
-    QString fileName = dir.absolutePath()+"./examples_report/example3.xml";
+    QString fileName = dir.absolutePath()+"/examples_report/example3.xml";
     report = new QtRPT(this);
     if (report->loadReport(fileName) == false) {
         qDebug()<<"Report file not found";

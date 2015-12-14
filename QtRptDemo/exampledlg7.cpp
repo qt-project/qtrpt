@@ -137,7 +137,7 @@ void ExampleDlg7::print() {
         dir.cd(QFile::decodeName("../Resources"));
     #endif
 
-    QString fileName = dir.absolutePath()+"./examples_report/example7.xml";
+    QString fileName = dir.absolutePath()+"/examples_report/example7.xml";
     report = new QtRPT(this);
     report->recordCount << ui->tableWidget->rowCount();
     if (report->loadReport(fileName) == false) {

@@ -54,21 +54,21 @@ void MainWindow::showReport() {
     } else if (ui->rBtn8->isChecked()) {
         dlg = new ExampleDlg8(this);
     } else if (ui->rBtn9->isChecked()) {
-        QString fileName = dir.absolutePath()+"./examples_report/example9.xml";
+        QString fileName = dir.absolutePath()+"/examples_report/example9.xml";
         QtRPT *report = new QtRPT(this);
         if (report->loadReport(fileName) == false) {
             qDebug()<<"Report file not found";
         }
         report->printExec();
     } else if (ui->rBtn10->isChecked()) {
-        QString fileName = dir.absolutePath()+"./examples_report/example10.xml";
+        QString fileName = dir.absolutePath()+"/examples_report/example10.xml";
         QtRPT *report = new QtRPT(this);
         if (report->loadReport(fileName) == false) {
             qDebug()<<"Report file not found";
         }
         report->printExec();
     } else if (ui->rBtn11->isChecked()) {
-        QString fileName = dir.absolutePath()+"./examples_report/example11.xml";
+        QString fileName = dir.absolutePath()+"/examples_report/example11.xml";
         QtRPT *report = new QtRPT(this);
         report->recordCount << 10;
         QObject::connect(report, SIGNAL(setValue(const int, const QString, QVariant&, const int)),
@@ -78,7 +78,7 @@ void MainWindow::showReport() {
         }
         report->printExec();
     } else if (ui->rBtn12->isChecked()) {
-        QString fileName = dir.absolutePath()+"./examples_report/example12.xml";
+        QString fileName = dir.absolutePath()+"/examples_report/example12.xml";
         QtRPT *report = new QtRPT(this);
         report->recordCount << 3;
         QObject::connect(report, SIGNAL(setValue(const int, const QString, QVariant&, const int)),
@@ -92,14 +92,14 @@ void MainWindow::showReport() {
     } else if (ui->rBtn14->isChecked()) {
         dlg = new ExampleDlg14(this);
     } else if (ui->rBtn15->isChecked()) {
-        QString fileName = dir.absolutePath()+"./examples_report/example9.xml";
+        QString fileName = dir.absolutePath()+"/examples_report/example9.xml";
         QtRPT *report = new QtRPT(this);
         if (report->loadReport(fileName) == false) {
             qDebug()<<"Report file not found";
         }
         report->printPDF(dir.absolutePath()+"./example9.pdf",true);
     } else if (ui->rBtn16->isChecked()) {
-        QString fileName = dir.absolutePath()+"./examples_report/example16.xml";
+        QString fileName = dir.absolutePath()+"/examples_report/example16.xml";
         QtRPT *report = new QtRPT(this);
         if (report->loadReport(fileName) == false) {
             qDebug()<<"Report file not found";
@@ -109,12 +109,12 @@ void MainWindow::showReport() {
                 "FROM artists\n"
                 "ORDER BY lastname, firstname";
 
-        report->setUserSqlConnection(0, "DB1", "QSQLITE", dir.absolutePath()+"./examples_report/example.sqlite", "", "", "", 0, "", strSQL);
+        report->setUserSqlConnection(0, "DB1", "QSQLITE", dir.absolutePath()+"/examples_report/example.sqlite", "", "", "", 0, "", strSQL);
         report->printExec();
     } else if (ui->rBtn17->isChecked()) {
         for (int i=0; i<15; i++)
             doubleVector.append(32767 * (float)qrand() / RAND_MAX);
-        QString fileName = dir.absolutePath()+"./examples_report/example17.xml";
+        QString fileName = dir.absolutePath()+"/examples_report/example17.xml";
         QtRPT *report = new QtRPT(this);
         report->recordCount << doubleVector.size();
         QObject::connect(report, SIGNAL(setValue(const int, const QString, QVariant&, const int)),
@@ -124,14 +124,14 @@ void MainWindow::showReport() {
         }
         report->printExec();
     } else if (ui->rBtn18->isChecked()) {
-        QString fileName = dir.absolutePath()+"./examples_report/example18.xml";
+        QString fileName = dir.absolutePath()+"/examples_report/example18.xml";
         QtRPT *report = new QtRPT(this);
         if (report->loadReport(fileName) == false) {
             qDebug()<<"Report file not found";
         }
         report->printExec();
     } else if (ui->rBtnRussian->isChecked()) {
-        QString fileName = dir.absolutePath()+"./examples_report/RussianInvaders.xml";
+        QString fileName = dir.absolutePath()+"/examples_report/RussianInvaders.xml";
         QtRPT *report = new QtRPT(this);
         QObject::connect(report, SIGNAL(setValue(const int, const QString, QVariant&, const int)),
                          this, SLOT(setValue(const int, const QString, QVariant&, const int)));

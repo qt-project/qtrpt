@@ -89,9 +89,9 @@ void ExampleDlg1::print() {
         dir.cd(QFile::decodeName("../Resources"));
     #endif
 
-    QString fileName = dir.absolutePath()+"./examples_report/example1.xml";
+    QString fileName = dir.absolutePath()+"/examples_report/example1.xml";
     report = new QtRPT(this);
-    report->setBackgroundImage(QPixmap(dir.absolutePath()+"./examples_report/qt_background_portrait.png"));
+    report->setBackgroundImage(QPixmap(dir.absolutePath()+"/examples_report/qt_background_portrait.png"));
     report->recordCount << ui->tableWidget->rowCount();
     if (report->loadReport(fileName) == false) {
         qDebug()<<"Report file not found";
