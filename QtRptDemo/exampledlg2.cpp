@@ -22,6 +22,7 @@ limitations under the License.
 
 #include "exampledlg2.h"
 #include "ui_exampledlg2.h"
+#include <QDir>
 #include <QDebug>
 
 ExampleDlg2::ExampleDlg2(QWidget *parent) : QDialog(parent), ui(new Ui::ExampleDlg2) {
@@ -42,7 +43,12 @@ ExampleDlg2::ExampleDlg2(QWidget *parent) : QDialog(parent), ui(new Ui::ExampleD
 }
 
 void ExampleDlg2::print() {
-    QString fileName = "./examples_report/example2.xml";
+    QDir dir(qApp->applicationDirPath());
+    #if defined(Q_OS_MAC)
+        dir.cd(QFile::decodeName("../Resources"));
+    #endif
+
+    QString fileName = dir.absolutePath()+"./examples_report/example2.xml";
     report = new QtRPT(this);
     report->recordCount << ui->table1->rowCount();
     report->recordCount << ui->table2->rowCount();

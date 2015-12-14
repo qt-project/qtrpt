@@ -22,6 +22,7 @@ limitations under the License.
 
 #include "exampledlg6.h"
 #include "ui_exampledlg6.h"
+#include <QDir>
 #include <QDebug>
 
 ExampleDlg6::ExampleDlg6(QWidget *parent, int mode) :  QDialog(parent),  ui(new Ui::ExampleDlg6) {
@@ -152,11 +153,16 @@ void ExampleDlg6::setValue(const int recNo, const QString paramName, QVariant &p
 }
 
 void ExampleDlg6::print() {
+    QDir dir(qApp->applicationDirPath());
+    #if defined(Q_OS_MAC)
+        dir.cd(QFile::decodeName("../Resources"));
+    #endif
+
     QString fileName;
     if (m_mode == 1)
-        fileName = "./examples_report/example6a.xml";
+        fileName = dir.absolutePath()+"./examples_report/example6a.xml";
     if (m_mode == 2)
-        fileName = "./examples_report/example6b.xml";
+        fileName = dir.absolutePath()+"./examples_report/example6b.xml";
     report = new QtRPT(this);
     report->recordCount << ui->tableWidget->rowCount();
     if (report->loadReport(fileName) == false) {

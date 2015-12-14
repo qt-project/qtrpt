@@ -22,6 +22,7 @@ limitations under the License.
 
 #include "exampledlg3.h"
 #include "ui_exampledlg3.h"
+#include <QDir>
 #include <QDebug>
 
 ExampleDlg3::ExampleDlg3(QWidget *parent) : QDialog(parent), ui(new Ui::ExampleDlg3) {
@@ -31,7 +32,12 @@ ExampleDlg3::ExampleDlg3(QWidget *parent) : QDialog(parent), ui(new Ui::ExampleD
     ui->edtEmail->setText("aliks-os@ukr.net");
     connect(ui->btnUpdatePreview, SIGNAL(clicked()), this, SLOT(updatePreview()));
 
-    QString fileName = "./examples_report/example3.xml";
+    QDir dir(qApp->applicationDirPath());
+    #if defined(Q_OS_MAC)
+        dir.cd(QFile::decodeName("../Resources"));
+    #endif
+
+    QString fileName = dir.absolutePath()+"./examples_report/example3.xml";
     report = new QtRPT(this);
     if (report->loadReport(fileName) == false) {
         qDebug()<<"Report file not found";

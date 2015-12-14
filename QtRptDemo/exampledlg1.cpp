@@ -84,9 +84,14 @@ void ExampleDlg1::setValueImage(const int recNo, const QString paramName, QImage
 }
 
 void ExampleDlg1::print() {
-    QString fileName = "./examples_report/example1.xml";
+    QDir dir(qApp->applicationDirPath());
+    #if defined(Q_OS_MAC)
+        dir.cd(QFile::decodeName("../Resources"));
+    #endif
+
+    QString fileName = dir.absolutePath()+"./examples_report/example1.xml";
     report = new QtRPT(this);
-    report->setBackgroundImage(QPixmap("./examples_report/qt_background_portrait.png"));
+    report->setBackgroundImage(QPixmap(dir.absolutePath()+"./examples_report/qt_background_portrait.png"));
     report->recordCount << ui->tableWidget->rowCount();
     if (report->loadReport(fileName) == false) {
         qDebug()<<"Report file not found";

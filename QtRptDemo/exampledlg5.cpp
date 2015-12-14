@@ -22,6 +22,7 @@ limitations under the License.
 
 #include "exampledlg5.h"
 #include "ui_exampledlg5.h"
+#include <QDir>
 #include <QDebug>
 
 ExampleDlg5::ExampleDlg5(QWidget *parent) : QDialog(parent), ui(new Ui::ExampleDlg5) {
@@ -75,7 +76,12 @@ void ExampleDlg5::setValue(const int recNo, const QString paramName, QVariant &p
 }
 
 void ExampleDlg5::print() {
-    QString fileName = "./examples_report/example5.xml";
+    QDir dir(qApp->applicationDirPath());
+    #if defined(Q_OS_MAC)
+        dir.cd(QFile::decodeName("../Resources"));
+    #endif
+
+    QString fileName = dir.absolutePath()+"./examples_report/example5.xml";
     report = new QtRPT(this);
     report->recordCount << ui->tableWidget->rowCount();
     if (report->loadReport(fileName) == false) {

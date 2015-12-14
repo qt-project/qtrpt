@@ -22,6 +22,7 @@ limitations under the License.
 
 #include "exampledlg13.h"
 #include "ui_exampledlg13.h"
+#include <QDir>
 #include <QDebug>
 
 ExampleDlg13::ExampleDlg13(QWidget *parent) : QDialog(parent), ui(new Ui::ExampleDlg13) {
@@ -30,7 +31,12 @@ ExampleDlg13::ExampleDlg13(QWidget *parent) : QDialog(parent), ui(new Ui::Exampl
 }
 
 void ExampleDlg13::print() {
-    QString fileName = "./examples_report/example13.xml";
+    QDir dir(qApp->applicationDirPath());
+    #if defined(Q_OS_MAC)
+        dir.cd(QFile::decodeName("../Resources"));
+    #endif
+
+    QString fileName = dir.absolutePath()+"./examples_report/example13.xml";
     QtRPT *report = new QtRPT(this);
     report->recordCount << 3;
     QObject::connect(report, SIGNAL(setField(RptFieldObject &)), this, SLOT(setField(RptFieldObject &)));
