@@ -387,13 +387,55 @@ int EditFldDlg::showCrosstab(TContainerField *cont) {
         QTableWidgetItem *newItem = new QTableWidgetItem(m_crossTab->getRowName(i));
         ui->tblRowHeaders->setItem(i,0,newItem);
     }
+    QObject::connect(ui->spnRowCount, SIGNAL(valueChanged(int)), SLOT(setCrossTabRowCount(int)));
+    QObject::connect(ui->spnColCount, SIGNAL(valueChanged(int)), SLOT(setCrossTabColCount(int)));
     if (this->exec()) {
         m_crossTab->setRowHeaderVisible(ui->chkRowHeader->isChecked());
         m_crossTab->setColHeaderVisible(ui->chkColHeader->isChecked());
         m_crossTab->setRowTotalVisible(ui->chkRowTotal->isChecked());
         m_crossTab->setColTotalVisible(ui->chkColTotal->isChecked());
+        m_crossTab->clear();
+        for(int i=0; i<ui->tblColHeaders->rowCount(); i++)
+            m_crossTab->addCol(ui->tblColHeaders->item(i,0)->text());
+        for(int i=0; i<ui->tblRowHeaders->rowCount(); i++)
+            m_crossTab->addRow(ui->tblRowHeaders->item(i,0)->text());
+        m_crossTab->initMatrix();
         return QDialog::Accepted;
     } else return QDialog::Rejected;
+}
+
+void EditFldDlg::setCrossTabRowCount(int value) {
+    if (ui->chkRowHeader->isChecked()) {
+        QTableWidgetItem *item = ui->tblRowHeaders->item(ui->tblRowHeaders->rowCount()-1,0);
+        QString lastCell = item->text();
+        item->setText("");
+        ui->tblRowHeaders->setRowCount(value+1);
+        item = ui->tblRowHeaders->item(ui->tblRowHeaders->rowCount()-1,0);
+        if (item != 0)
+            item->setText(lastCell);
+        else {
+            item = new QTableWidgetItem(lastCell);
+            ui->tblRowHeaders->setItem(ui->tblRowHeaders->rowCount()-1,0,item);
+        }
+    } else
+        ui->tblRowHeaders->setRowCount(value);
+}
+
+void EditFldDlg::setCrossTabColCount(int value) {
+    if (ui->chkColHeader->isChecked()) {
+        QTableWidgetItem *item = ui->tblColHeaders->item(ui->tblColHeaders->rowCount()-1,0);
+        QString lastCell = item->text();
+        item->setText("");
+        ui->tblColHeaders->setRowCount(value+1);
+        item = ui->tblColHeaders->item(ui->tblColHeaders->rowCount()-1,0);
+        if (item != 0)
+            item->setText(lastCell);
+        else {
+            item = new QTableWidgetItem(lastCell);
+            ui->tblColHeaders->setItem(ui->tblColHeaders->rowCount()-1,0,item);
+        }
+    } else
+        ui->tblColHeaders->setRowCount(value);
 }
 
 void EditFldDlg::update_preview() {
@@ -484,7 +526,7 @@ void EditFldDlg::addRow() {
     ui->tableWidget->setCurrentCell(ui->tableWidget->rowCount()-1,0);
     QTableWidgetItem *newItem;
 
-    newItem = new QTableWidgetItem("New grapth");
+    newItem = new QTableWidgetItem("New graph");
     ui->tableWidget->setItem(ui->tableWidget->rowCount()-1,0,newItem);
 
     newItem = new QTableWidgetItem("Field");

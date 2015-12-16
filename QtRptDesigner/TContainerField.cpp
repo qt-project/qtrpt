@@ -395,6 +395,19 @@ void TContainerField::loadParamFromXML(QDomElement e) {
         m_crossTab->setRowHeaderVisible(e.attribute("crossTabRowHeaderVisible","1").toInt());
         m_crossTab->setColTotalVisible(e.attribute("crossTabColTotalVisible","1").toInt());
         m_crossTab->setRowTotalVisible(e.attribute("crossTabRowTotalVisible","1").toInt());
+        m_crossTab->clear();
+        QDomNode g = e.firstChild();
+        while(!g.isNull()) {
+            QDomElement ge = g.toElement(); // try to convert the node to an element.
+            if (ge.nodeName() == "row") {
+                m_crossTab->addRow(ge.attribute("caption"));
+            }
+            if (ge.nodeName() == "col") {
+                m_crossTab->addCol(ge.attribute("caption"));
+            }
+            g = g.nextSibling();
+        }
+        m_crossTab->initMatrix();
     }
     this->setText(e.attribute("value"));
 
@@ -495,6 +508,16 @@ QDomElement TContainerField::saveParamToXML(QDomDocument *xmlDoc) {
         elem.setAttribute("crossTabRowHeaderVisible",m_crossTab->isRowHeaderVisible());
         elem.setAttribute("crossTabColTotalVisible",m_crossTab->isColTotalVisible());
         elem.setAttribute("crossTabRowTotalVisible",m_crossTab->isRowTotalVisible());
+        for(int i=0; i<m_crossTab->rowCount(); i++) {
+            QDomElement row = xmlDoc->createElement("row");
+            row.setAttribute("caption",m_crossTab->getRowName(i));
+            elem.appendChild(row);
+        }
+        for(int i=0; i<m_crossTab->colCount(); i++) {
+            QDomElement col = xmlDoc->createElement("col");
+            col.setAttribute("caption",m_crossTab->getColName(i));
+            elem.appendChild(col);
+        }
     }
 
     QString hAl, vAl;

@@ -77,6 +77,7 @@ public:
     int allColCount() const;
     int allRowCount() const;
 
+    void clear();
     void initMatrix();
     QVariant getMatrixValue(int col,int row) const;
     void setMatrixValue(QString stCol, QString stRow, QVariant value);

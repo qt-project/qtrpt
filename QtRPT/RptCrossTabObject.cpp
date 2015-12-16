@@ -162,6 +162,14 @@ int RptCrossTabObject::getRowIndex(QString stRow) const {
 		return 0;
 }
 
+void RptCrossTabObject::clear() {
+    colVector.clear();
+    rowVector.clear();
+    m_colHeader.clear();
+    m_rowHeader.clear();
+    valuesArray.clear();
+}
+
 void RptCrossTabObject::initMatrix() {
 	double	dbWk1 = 0;  //Init value of cells
     valuesArray.resize(m_rowHeader.size());  //Set row count
