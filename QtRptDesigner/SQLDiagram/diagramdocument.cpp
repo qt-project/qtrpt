@@ -161,7 +161,7 @@ bool DiagramDocument::load(QDomElement element) {
     QDomElement itemElement = root.firstChildElement("item");
 	while (!itemElement.isNull()) {
 		QString itemTypeName = itemElement.attribute("type");
-        DiagramItem *item;
+        DiagramItem *item = NULL;
         if (itemTypeName == "database-table") item = new DatabaseTable;
         if (itemTypeName == "database-relationship") item = new DatabaseRelationship;
 		if (item == NULL) {

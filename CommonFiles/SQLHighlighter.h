@@ -23,6 +23,7 @@ Q_DECLARE_FLAGS(FontHihgligths, FontHihgligth)
 Q_DECLARE_METATYPE(FontHihgligth)
 
 struct FontHihgligthParam{
+    FontHihgligthParam() : type(Comment), bold(false), italic(false) {}
     FontHihgligth type;
     QString remark;
     QString color;

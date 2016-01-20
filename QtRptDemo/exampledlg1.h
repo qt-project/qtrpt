@@ -23,6 +23,7 @@ limitations under the License.
 #ifndef EXAMPLEDLG1_H
 #define EXAMPLEDLG1_H
 
+#include <QtGlobal>
 #if QT_VERSION >= 0x50000
     #include <QtWidgets>
 #else

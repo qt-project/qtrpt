@@ -196,7 +196,7 @@ void XYZContainer::mousePressEvent(QMouseEvent *e) {
 
     if (!m_selected) return;
     //QWidget::mouseMoveEvent(e);
-    if (!e->buttons() & Qt::LeftButton) {
+    if (!(e->buttons() & Qt::LeftButton)) {
         setCursorShape(e->pos());
         return;
     }
@@ -339,14 +339,14 @@ void XYZContainer::mouseMoveEvent(QMouseEvent *e) {
     QWidget::mouseMoveEvent(e);
     if (!m_isDesigning) return;
     if (!m_selected) return;
-    if (!e->buttons() & Qt::LeftButton) {
+    if (!(e->buttons() & Qt::LeftButton)) {
         QPoint p = QPoint(e->x()+geometry().x(), e->y()+geometry().y());
         setCursorShape(p);
         return;
     }
 
     const QRect oldRect = this->geometry();
-    if ((mode == MOVE || mode == NONE) && e->buttons() && Qt::LeftButton) {
+    if ((mode == MOVE || mode == NONE) && (e->buttons() & Qt::LeftButton)) {
         QPoint toMove = e->globalPos() - position;
         if (toMove.x() < -10) return;
         if (toMove.x() > this->parentWidget()->width()-this->width()+1) return;
@@ -357,7 +357,7 @@ void XYZContainer::mouseMoveEvent(QMouseEvent *e) {
         emit newGeometry(oldRect, this->geometry());
         return;
     }
-    if ((mode != MOVE && m_allowResize) && e->buttons() && Qt::LeftButton) {
+    if ((mode != MOVE && m_allowResize) && (e->buttons() & Qt::LeftButton)) {
         switch (mode){
             case RESIZETL: {  //Left-Top
                 int newwidth = e->globalX() - position.x() - geometry().x();

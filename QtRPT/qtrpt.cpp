@@ -1421,6 +1421,7 @@ void QtRPT::printHTML(const QString &filePath, bool open) {
  */
 void QtRPT::printXLSX(const QString &filePath, bool open) {
 #ifndef QT_NO_PRINTER
+    Q_UNUSED(open)
     crossTab = new RptCrossTabObject();
     m_printMode = QtRPT::Xlsx;
     //if (m_xlsx != 0) delete m_xlsx;

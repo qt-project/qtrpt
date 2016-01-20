@@ -97,7 +97,7 @@ void MainWindow::showReport() {
         if (report->loadReport(fileName) == false) {
             qDebug()<<"Report file not found";
         }
-        report->printPDF(dir.absolutePath()+"./example9.pdf",true);
+        report->printPDF(dir.absolutePath()+"/example9.pdf",true);
     } else if (ui->rBtn16->isChecked()) {
         QString fileName = dir.absolutePath()+"/examples_report/example16.xml";
         QtRPT *report = new QtRPT(this);
