@@ -53,6 +53,7 @@ ExampleDlg3::ExampleDlg3(QWidget *parent) : QDialog(parent), ui(new Ui::ExampleD
 
     preview = new QPrintPreviewWidget(printer, this);
     ui->widget->layout()->addWidget(preview);
+    report->setPainter(new QPainter);
     connect(preview, SIGNAL(paintRequested(QPrinter*)), report, SLOT(printPreview(QPrinter*)));
     preview->show();
     preview->fitInView();
@@ -77,4 +78,5 @@ void ExampleDlg3::updatePreview() {
 
 ExampleDlg3::~ExampleDlg3() {
     delete ui;
+    delete printer;
 }

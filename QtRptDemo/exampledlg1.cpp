@@ -78,8 +78,7 @@ void ExampleDlg1::setValueImage(const int recNo, const QString paramName, QImage
     Q_UNUSED(recNo);
     Q_UNUSED(reportPage);
     if (paramName == "image") {
-        QImage *image = new QImage(QCoreApplication::applicationDirPath()+"/pdf.png");
-        paramValue = *image;
+        paramValue = QImage(QCoreApplication::applicationDirPath()+"/pdf.png");
     }
 }
 

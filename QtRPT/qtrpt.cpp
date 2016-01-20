@@ -614,9 +614,9 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
             }
         }
         if (fieldType == Diagram) {
-            Chart *chart = new Chart();
-            chart->setObjectName(fieldObject->name);
-            chart->setParams(fieldObject->showGrid,
+            Chart chart;
+            chart.setObjectName(fieldObject->name);
+            chart.setParams(fieldObject->showGrid,
                              fieldObject->showLegend,
                              fieldObject->showCaption,
                              fieldObject->showGraphCaption,
@@ -624,19 +624,19 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
                              fieldObject->caption,
                              fieldObject->autoFillData
                              );
-            chart->clearData();
-            chart->setKoef(koefRes_w, koefRes_h, left_, top_);
-            chart->resize(width_,height_);
+            chart.clearData();
+            chart.setKoef(koefRes_w, koefRes_h, left_, top_);
+            chart.resize(width_,height_);
             if (fieldObject->autoFillData == 0) {
-                emit setValueDiagram(*chart);
+                emit setValueDiagram(chart);
             } else {
                 fieldObject->updateDiagramValue();
                 for (int h=0; h<fieldObject->graphList.size(); h++) {
-                    chart->setData(fieldObject->graphList.at(h));
+                    chart.setData(fieldObject->graphList.at(h));
                 }
             }
             if (painter->isActive())
-                chart->paintChart(painter);
+                chart.paintChart(painter);
         }
         if (fieldType == Barcode) {
             #ifndef NO_BARCODE
@@ -1587,6 +1587,8 @@ void QtRPT::printPreview(QPrinter *printer) {
 #ifdef QT_NO_PRINTER
     Q_UNUSED(printer);
 #else
+    if (!painter)
+        return;
     if (pageList.size() == 0) return;
     setPageSettings(printer,0);
     painter->begin(printer);
