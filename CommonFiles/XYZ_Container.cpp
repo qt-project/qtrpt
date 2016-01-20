@@ -25,6 +25,7 @@ limitations under the License.
 #include <QApplication>
 #include <QPainter>
 #include <QMouseEvent>
+#include <QTimer>
 
 XYZContainer::XYZContainer(QWidget *parent, QPoint p, QWidget *cWidget) : QWidget(parent) {
     mode = NONE;
@@ -53,6 +54,10 @@ XYZContainer::XYZContainer(QWidget *parent, QPoint p, QWidget *cWidget) : QWidge
     m_isDesigning = true;
     m_isEditing = false;
     m_selected = false;
+    m_newGeometryTimer = new QTimer(this);
+    m_newGeometryTimer->setInterval(0);
+    m_newGeometryTimer->setSingleShot(true);
+    connect(m_newGeometryTimer, SIGNAL(timeout()), this, SLOT(emitNewGeometry()));
     m_allowResize = true;
     m_allowDrawSelection = true;
     m_hasOverlay = false;
@@ -232,7 +237,7 @@ void XYZContainer::keyPressEvent(QKeyEvent *e) {
         if (e->key() == Qt::Key_Right) resize(width()+1,height());
         setBaseSize(width()/scale,height()/scale);
     }
-    emit newGeometry(oldRect, this->geometry());
+    deferredEmitNewGeometry(oldRect, this->geometry());
     //m_geomChanged(oldRect, this->geometry());
 }
 
@@ -354,7 +359,7 @@ void XYZContainer::mouseMoveEvent(QMouseEvent *e) {
         if (toMove.y() < 0) return;
 
         move(toMove);
-        emit newGeometry(oldRect, this->geometry());
+        deferredEmitNewGeometry(oldRect, this->geometry());
         return;
     }
     if ((mode != MOVE && m_allowResize) && (e->buttons() & Qt::LeftButton)) {
@@ -407,10 +412,25 @@ void XYZContainer::mouseMoveEvent(QMouseEvent *e) {
             }
         }
         setBaseSize(width()/scale,height()/scale);
-        this->parentWidget()->repaint();
     }
 
-    emit newGeometry(oldRect, this->geometry());
+    deferredEmitNewGeometry(oldRect, this->geometry());
+}
+
+void XYZContainer::deferredEmitNewGeometry(const QRect& oldRect, const QRect& newRect) {
+    // Emitting newGeometry() from the event handlers makes move and resize
+    // operations extremely slow. This is fixed by storing the latest geometry
+    // and emitting the signal when the event loop is idle.
+    if (newRect != oldRect) {
+        m_newGeometryOldRect = oldRect;
+        m_newGeometryNewRect = newRect;
+        m_newGeometryTimer->start();
+    }
+}
+
+void XYZContainer::emitNewGeometry() {
+    parentWidget()->repaint();
+    emit newGeometry(m_newGeometryOldRect, m_newGeometryNewRect);
 }
 
 void XYZContainer::allowResize(bool value) {
