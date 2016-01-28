@@ -779,7 +779,6 @@ QString double2MoneyESP(double _dbValue, int _blDecimals) {
 
 //Thanks to Laurent Guilbert
 QString double2MoneyFrenchBE(double number, bool bAdditional /*= false*/) {
-    Q_UNUSED(bAdditional)
     int whole = (int)number;
     int precision = ((number-whole)*100)+0.5;
 
@@ -791,7 +790,6 @@ QString double2MoneyFrenchBE(double number, bool bAdditional /*= false*/) {
 }
 
 QString double2MoneyFrenchFR(double number, bool bAdditional /*= false*/) {
-    Q_UNUSED(bAdditional)
     int whole = (int)number;
     int precision = (number - whole) * 100;
 
@@ -803,7 +801,6 @@ QString double2MoneyFrenchFR(double number, bool bAdditional /*= false*/) {
 }
 
 QString double2MoneyFrenchCH(double number, bool bAdditional /*= false*/) {
-    Q_UNUSED(bAdditional)
     int whole = (int)number;
     int precision = (number - whole) * 100;
 

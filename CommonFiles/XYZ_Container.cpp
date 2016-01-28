@@ -25,7 +25,6 @@ limitations under the License.
 #include <QApplication>
 #include <QPainter>
 #include <QMouseEvent>
-#include <QTimer>
 
 XYZContainer::XYZContainer(QWidget *parent, QPoint p, QWidget *cWidget) : QWidget(parent) {
     mode = NONE;
@@ -54,10 +53,6 @@ XYZContainer::XYZContainer(QWidget *parent, QPoint p, QWidget *cWidget) : QWidge
     m_isDesigning = true;
     m_isEditing = false;
     m_selected = false;
-    m_newGeometryTimer = new QTimer(this);
-    m_newGeometryTimer->setInterval(0);
-    m_newGeometryTimer->setSingleShot(true);
-    connect(m_newGeometryTimer, SIGNAL(timeout()), this, SLOT(emitNewGeometry()));
     m_allowResize = true;
     m_allowDrawSelection = true;
     m_hasOverlay = false;
@@ -201,7 +196,7 @@ void XYZContainer::mousePressEvent(QMouseEvent *e) {
 
     if (!m_selected) return;
     //QWidget::mouseMoveEvent(e);
-    if (!(e->buttons() & Qt::LeftButton)) {
+    if (!e->buttons() & Qt::LeftButton) {
         setCursorShape(e->pos());
         return;
     }
@@ -237,7 +232,7 @@ void XYZContainer::keyPressEvent(QKeyEvent *e) {
         if (e->key() == Qt::Key_Right) resize(width()+1,height());
         setBaseSize(width()/scale,height()/scale);
     }
-    deferredEmitNewGeometry(oldRect, this->geometry());
+    emit newGeometry(oldRect, this->geometry());
     //m_geomChanged(oldRect, this->geometry());
 }
 
@@ -344,14 +339,14 @@ void XYZContainer::mouseMoveEvent(QMouseEvent *e) {
     QWidget::mouseMoveEvent(e);
     if (!m_isDesigning) return;
     if (!m_selected) return;
-    if (!(e->buttons() & Qt::LeftButton)) {
+    if (!e->buttons() & Qt::LeftButton) {
         QPoint p = QPoint(e->x()+geometry().x(), e->y()+geometry().y());
         setCursorShape(p);
         return;
     }
 
     const QRect oldRect = this->geometry();
-    if ((mode == MOVE || mode == NONE) && (e->buttons() & Qt::LeftButton)) {
+    if ((mode == MOVE || mode == NONE) && e->buttons() && Qt::LeftButton) {
         QPoint toMove = e->globalPos() - position;
         if (toMove.x() < -10) return;
         if (toMove.x() > this->parentWidget()->width()-this->width()+1) return;
@@ -359,10 +354,10 @@ void XYZContainer::mouseMoveEvent(QMouseEvent *e) {
         if (toMove.y() < 0) return;
 
         move(toMove);
-        deferredEmitNewGeometry(oldRect, this->geometry());
+        emit newGeometry(oldRect, this->geometry());
         return;
     }
-    if ((mode != MOVE && m_allowResize) && (e->buttons() & Qt::LeftButton)) {
+    if ((mode != MOVE && m_allowResize) && e->buttons() && Qt::LeftButton) {
         switch (mode){
             case RESIZETL: {  //Left-Top
                 int newwidth = e->globalX() - position.x() - geometry().x();
@@ -412,25 +407,10 @@ void XYZContainer::mouseMoveEvent(QMouseEvent *e) {
             }
         }
         setBaseSize(width()/scale,height()/scale);
+        this->parentWidget()->repaint();
     }
 
-    deferredEmitNewGeometry(oldRect, this->geometry());
-}
-
-void XYZContainer::deferredEmitNewGeometry(const QRect& oldRect, const QRect& newRect) {
-    // Emitting newGeometry() from the event handlers makes move and resize
-    // operations extremely slow. This is fixed by storing the latest geometry
-    // and emitting the signal when the event loop is idle.
-    if (newRect != oldRect) {
-        m_newGeometryOldRect = oldRect;
-        m_newGeometryNewRect = newRect;
-        m_newGeometryTimer->start();
-    }
-}
-
-void XYZContainer::emitNewGeometry() {
-    parentWidget()->repaint();
-    emit newGeometry(m_newGeometryOldRect, m_newGeometryNewRect);
+    emit newGeometry(oldRect, this->geometry());
 }
 
 void XYZContainer::allowResize(bool value) {

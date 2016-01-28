@@ -54,7 +54,6 @@ public:
     void setImage(QPixmap p);
     QPixmap getImage();
     void setMenu(QMenu *menu_);
-    using RptContainer::setType;
     void setType(FieldType value, QDomDocument *xmlDoc);
     Chart *getChart();
     void setFontSize(int value);

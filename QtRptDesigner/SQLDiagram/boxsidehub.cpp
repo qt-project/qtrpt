@@ -95,7 +95,7 @@ void BoxSideHub::update() {
 		QPointF p, dp;
 		QList<ConnectorRealPair> c = sides[side];
 		qSort(c.begin(), c.end(), itemLessThan);
-		qreal angle = 0;
+		qreal angle;
 		switch (side) {
 		case Top:
 			p = rect.topRight();

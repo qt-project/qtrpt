@@ -37,9 +37,7 @@ class RptBandObject
     friend class QtRPT;
     friend class RptPageObject;
 public:
-    RptBandObject() : showInGroup(false), startNewPage(false),
-        startNewNumeration(false), realHeight(0), height(0), width(0),
-        left(0), right(0), type(Undefined), parentReportPage(0) {}
+    RptBandObject() {}
     ~RptBandObject();
     QString name;
     QString groupingField;

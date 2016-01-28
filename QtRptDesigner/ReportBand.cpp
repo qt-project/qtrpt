@@ -277,7 +277,7 @@ void ReportBand::mousePressEvent(QMouseEvent *e) {
 
     //if (!m_infocus) return;
 
-    if (!(e->buttons() & Qt::LeftButton)) {
+    if (!e->buttons() & Qt::LeftButton) {
         setCursorShape(e->pos());
         return;
     }
@@ -306,15 +306,15 @@ void ReportBand::mouseMoveEvent(QMouseEvent *e) {
     QWidget::mouseMoveEvent(e);
     if (!m_infocus) return;
 
-    if (/*mode = NONE &*/ !(e->buttons() & Qt::LeftButton)) {
+    if (/*mode = NONE &*/ !e->buttons() & Qt::LeftButton) {
         QPoint p = QPoint(e->x()+geometry().x(), e->y()+geometry().y());
         setCursorShape(p);
         return;
     }
-    if ((mode == MOVE) && (e->buttons() & Qt::LeftButton)) {
+    if ((mode == MOVE) && e->buttons() && Qt::LeftButton) {
         move(e->globalPos() - position);
     }
-    if ((mode != MOVE) && (e->buttons() & Qt::LeftButton)) {
+    if ((mode != MOVE) && e->buttons() && Qt::LeftButton) {
         switch (mode){
             case RESIZEB: {
                 resize(width(),e->y());                

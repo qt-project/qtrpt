@@ -96,17 +96,10 @@ protected:
 
 private:    
     QRect m_oldRect;
-    QRect m_newGeometryOldRect;
-    QRect m_newGeometryNewRect;
-    QTimer* m_newGeometryTimer;
     bool m_allowResize;
     bool m_allowDrawSelection;
     bool m_hasOverlay;
     void m_geomChanged(QRect oldRect, QRect newRect);
-    void deferredEmitNewGeometry(const QRect& oldRect, const QRect& newRect);
-
-private slots:
-    void emitNewGeometry();
 
 signals:
     void inFocus(bool mode);
