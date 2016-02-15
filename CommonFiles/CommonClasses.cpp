@@ -1034,3 +1034,26 @@ QString eventType(QEvent *ev) {
 
     if (!name.isEmpty()) return name; else return (QString)ev->type();
 }
+
+/*pointer to QVariant and back
+http://blog.bigpixel.ro/2010/04/storing-pointer-in-qvariant/
+usage
+
+MyClass *p;
+QVariant v = VPtr<MyClass>::asQVariant(p);
+
+MyClass *p1 = VPtr<MyClass>::asPtr(v);
+*/
+template <class T> class VPtr
+{
+public:
+    static T* asPtr(QVariant v)
+    {
+    return  (T *) v.value<void *>();
+    }
+
+    static QVariant asQVariant(T* ptr)
+    {
+    return qVariantFromValue((void *) ptr);
+    }
+};
