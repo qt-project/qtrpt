@@ -127,5 +127,6 @@
         <file>i18n/QtRprtDesigner_de_DE.qm</file>
         <file>i18n/QtRprtDesigner_nl_BE.qm</file>
         <file>i18n/QtRprtDesigner_es_ES.qm</file>
+        <file>i18n/QtRprtDesigner_ta_IN.qm</file>
     </qresource>
 </RCC>

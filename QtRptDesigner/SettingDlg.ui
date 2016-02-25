@@ -173,6 +173,11 @@
           </item>
           <item>
            <property name="text">
+            <string>Tamil தமிழ்</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
             <string>Ukraine Український</string>
            </property>
           </item>

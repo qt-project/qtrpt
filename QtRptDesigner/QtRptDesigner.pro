@@ -80,7 +80,8 @@ TRANSLATIONS +=  \
     $$PWD/i18n/QtRprtDesigner_es_ES.ts \
     $$PWD/i18n/QtRprtDesigner_fr_FR.ts \
     $$PWD/i18n/QtRprtDesigner_de_DE.ts \
-    $$PWD/i18n/QtRprtDesigner_nl_BE.ts
+    $$PWD/i18n/QtRprtDesigner_nl_BE.ts \
+    $$PWD/i18n/QtRprtDesigner_ta_IN.ts
 
 OTHER_FILES += $$TRANSLATIONS
 

@@ -43,8 +43,8 @@ AboutDlg::AboutDlg(QWidget *parent) : QDialog(parent) {
     QString lbl1 = "<h2><b><p style='color:#0033FF'>"+QApplication::applicationName()+"</p></b></h2>"+
                   tr("Version: ")+QApplication::applicationVersion()+"<br>"+
                   tr("Programmer: Aleksey Osipov")+"<br>"+
-                  "WebSite: <a href='http://www.aliks-os.tk'>http://www.aliks-os.tk</a>"+"<br>"+
-                  "E-mail: aliks-os@ukr.net"+"<br>"+
+                  tr("Web Site: ") + "<a href='http://www.aliks-os.tk'>http://www.aliks-os.tk</a>"+"<br>"+
+                  tr("E-mail: ") + "aliks-os@ukr.net"+"<br>"+
                   "<a href='http://www.qtrpt.tk'>http://www.qtrpt.tk</a>"+"<br>"+
                   tr("2012-2015 years")+"<br><br>";
     QString lbl2 = "<b>"+tr("Thanks for donation:")+"</b>"+
@@ -62,6 +62,7 @@ AboutDlg::AboutDlg(QWidget *parent) : QDialog(parent) {
                   "<li>"+tr("David Heremans for Dutch translation")+"</li>"+
                   "<li>"+tr("Mirko Marx for German translation")+"</li>"+
                   "<li>"+tr("Manuel Soriano for Spanish translation")+"</li>"+
+                  "<li>"+tr("Bagavathikumar for Tamil translation")+"</li>"+
                   "</ul>";
     QLabel *lab1 = new QLabel(lbl1, this);
     QObject::connect(lab1, SIGNAL(linkActivated(const QString)), this, SLOT(openLink(const QString)));
