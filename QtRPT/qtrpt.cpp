@@ -453,7 +453,7 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
     QPen pen = getPen(fieldObject);
 
 	if (draw) {
-        if (!getDrawingFields().contains(fieldType) && fieldType != Barcode) {
+        if (!getDrawingFields().contains(fieldType) && fieldType != Barcode && fieldType != Image) {
             //Fill background
             if ( fieldObject->backgroundColor  != QColor(255,255,255,0)) {
                 if (painter->isActive())
