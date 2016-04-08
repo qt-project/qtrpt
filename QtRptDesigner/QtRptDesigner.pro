@@ -113,7 +113,7 @@ all.depends = locale
 
 QMAKE_CXXFLAGS += -std=c++0x
 
-TRANSLATION_TARGETS = $$replace(TRANSLATIONS, ".ts", ".qm")
+TRANSLATION_TARGETS = $$replace(TRANSLATIONS, "\.ts", ".qm")
 locale.depends = $$TRANSLATION_TARGETS
 QMAKE_EXTRA_TARGETS += locale
 
