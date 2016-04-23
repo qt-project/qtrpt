@@ -521,7 +521,7 @@ QString RptFieldObject::getHTMLStyle() {
         int nWidth = this->rect.height();
 
         if (this->rect.height()) {
-            dblAspectRatio = this->rect.width() / this->rect.height();
+            dblAspectRatio = (double)this->rect.width() / (double)this->rect.height();
         }
 
         if (dblAspectRatio) {
