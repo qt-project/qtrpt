@@ -55,6 +55,7 @@ public:
     RptPageObject *parentReportPage;
 
 private:
+	QtRPT *m_qtrpt;
     void setProperty(QtRPT *qtrpt, QDomElement docElem);
 };
 

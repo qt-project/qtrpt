@@ -38,7 +38,7 @@ class RptPageObject
 {
     friend class QtRPT;
 public:
-    RptPageObject();
+    RptPageObject(QtRPT *qtrpt = 0);
     ~RptPageObject();
     int pageNo;
     int orientation;
@@ -58,6 +58,7 @@ public:
     QList<RptBandObject*> bandList;
 
 private:
+	QtRPT *m_qtrpt;
     void setProperty(QtRPT *qtrpt, QDomElement docElem);
 };
 Q_DECLARE_METATYPE(RptPageObject)

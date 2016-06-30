@@ -165,6 +165,7 @@ void RptBandObject::setProperty(QtRPT *qtrpt, QDomElement docElem) {
 */
 void RptBandObject::addField(RptFieldObject *field) {
     field->parentBand = this;
+	field->m_qtrpt = this->m_qtrpt;
     fieldList.append(field);
 }
 

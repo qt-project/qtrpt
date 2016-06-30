@@ -104,7 +104,8 @@ limitations under the License.
  \fn RptPageObject::RptPageObject()
     Constructs a RptPageObject object.
 */
-RptPageObject::RptPageObject() {
+RptPageObject::RptPageObject(QtRPT *qtrpt) {
+	this->m_qtrpt = qtrpt;
     this->orientation=0;
     this->ph=1188;
     this->pw=840;
@@ -153,6 +154,7 @@ void RptPageObject::setProperty(QtRPT *qtrpt, QDomElement docElem) {
 */
 void RptPageObject::addBand(RptBandObject *band) {
     band->parentReportPage = this;
+	band->m_qtrpt = this->m_qtrpt;
     bandList.append(band);
 }
 
