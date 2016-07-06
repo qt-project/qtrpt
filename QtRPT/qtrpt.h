@@ -114,7 +114,7 @@ public:
     void setUserSqlConnection(int pageReport, QString dsName, QString dbType, QString dbName, QString dbHost, QString dbUser, QString dbPassword, int dbPort, QString dbConnectionName, QString sql, QString dbCoding = "UTF8", QString charsetCoding = "UTF8");
     void activateUserSqlConnection(int pageReport, bool bActive);
 
-    private:    
+private:
     QPixmap *m_backgroundImage;
     QPrinter *printer;
     QPainter *painter;
@@ -173,7 +173,7 @@ public:
     void openDataSource(int pageReport);
     void setUserSqlConnection(int pageReport, const RptSqlConnection &SqlConnection);
     void getUserSqlConnection(int pageReport, RptSqlConnection &SqlConnection);
-    RptSql *rptSql;
+    QVector <RptSql *> rtpSqlVector;
     QVector <RptSqlConnection> userSqlConnection;
     QString m_sqlQuery;
     QString m_HTML;

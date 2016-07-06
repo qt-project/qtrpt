@@ -174,7 +174,6 @@ QtRPT::QtRPT(QObject *parent) : QObject(parent) {
     xmlDoc = QDomDocument("Reports");
     m_backgroundImage = 0;
     m_orientation = 0;
-    rptSql = 0;
     m_printMode = QtRPT::Printer;
     m_resolution = QPrinter::HighResolution;
     painter = 0;
@@ -1121,13 +1120,13 @@ QString QtRPT::sectionField(RptBandObject *band, QString value, bool exp, bool f
     for (int i = 0; i < res.size(); ++i) {
         if (res.at(i).contains("[") && res.at(i).contains("]") && !res.at(i).contains("<") ) {
             QString tmp;
-            if (rptSql != 0 ) {//if we have Sql DataSource
-                if (res.at(i).contains(rptSql->objectName())) {
+            if (rtpSqlVector[m_pageReport] != 0 ) {//if we have Sql DataSource
+                if (res.at(i).contains(rtpSqlVector[m_pageReport]->objectName())) {
                     QString fieldName = res.at(i);
                     fieldName.replace("[","");
                     fieldName.replace("]","");
-                    fieldName.replace(rptSql->objectName()+".","");
-                    tmp = rptSql->getFieldValue(fieldName, m_recNo);
+                    fieldName.replace(rtpSqlVector[m_pageReport]->objectName()+".","");
+                    tmp = rtpSqlVector[m_pageReport]->getFieldValue(fieldName, m_recNo);
                 }
             } else
                 tmp = sectionValue(res.at(i));
@@ -1189,16 +1188,16 @@ QString QtRPT::sectionField(RptBandObject *band, QString value, bool exp, bool f
                         !tl.at(j-1).toUpper().contains("Floor") &&
                         !tl.at(j-1).toUpper().contains("Ceil")
                     ) {
-                        if (rptSql != 0 ) {  //if we have Sql DataSource
+                        if (rtpSqlVector[m_pageReport] != 0 ) {  //if we have Sql DataSource
                         /*???   After testing - remove commented
                          * if (tl.at(j).contains("[") && tl.at(j).contains("]") && !tl.at(j).contains("<") ) {
                          */
-                            if (tl.at(j).contains(rptSql->objectName())) {
+                            if (tl.at(j).contains(rtpSqlVector[m_pageReport]->objectName())) {
                                 QString fieldName = tl.at(j);
                                 fieldName.replace("[","");
                                 fieldName.replace("]","");
-                                fieldName.replace(rptSql->objectName()+".","");
-                                QString tmp = rptSql->getFieldValue(fieldName, m_recNo);
+                                fieldName.replace(rtpSqlVector[m_pageReport]->objectName()+".","");
+                                QString tmp = rtpSqlVector[m_pageReport]->getFieldValue(fieldName, m_recNo);
                                 qDebug()<<"value from DB: "<<tmp;
                                 formulaStr.replace(tl.at(j), tmp);
                                 qDebug()<<"formula with value: "<<formulaStr;
@@ -1319,8 +1318,8 @@ QImage QtRPT::sectionFieldImage(QString value) {
     QString fieldName = value;
     fieldName.replace("[","");
     fieldName.replace("]","");
-    fieldName.replace(rptSql->objectName()+".","");
-    return rptSql->getFieldImage(fieldName, m_recNo);
+    fieldName.replace(rtpSqlVector[m_pageReport]->objectName()+".","");
+    return rtpSqlVector[m_pageReport]->getFieldImage(fieldName, m_recNo);
 }
 
 QString QtRPT::sectionValue(QString paramName) {
@@ -2023,8 +2022,16 @@ void QtRPT::openDataSource(int pageReport) {
     if (SqlConnection.m_bIsActive) {
         // If user connection is active, use their parameters
         QString sqlQuery = SqlConnection.m_sqlQuery;
-        rptSql = new RptSql(SqlConnection.m_dbType,SqlConnection.m_dbName,SqlConnection.m_dbHost,SqlConnection.m_dbUser,SqlConnection.m_dbPassword,SqlConnection.m_dbPort,SqlConnection.m_dbConnectionName,this);
+        RptSql *rptSql = new RptSql(SqlConnection.m_dbType,SqlConnection.m_dbName,SqlConnection.m_dbHost,SqlConnection.m_dbUser,SqlConnection.m_dbPassword,SqlConnection.m_dbPort,SqlConnection.m_dbConnectionName,this);
         rptSql->setObjectName(SqlConnection.m_dsName);
+
+        if (rtpSqlVector.count() <= pageReport) {
+            rtpSqlVector.resize(pageReport);
+            rtpSqlVector.insert(pageReport, rptSql);
+        } else {
+            rtpSqlVector.replace(pageReport, rptSql);
+        }
+
         if (!m_sqlQuery.isEmpty())
             sqlQuery = m_sqlQuery;
         if (!rptSql->openQuery(sqlQuery,SqlConnection.m_dbCoding,SqlConnection.m_charsetCoding)) {
@@ -2058,8 +2065,16 @@ void QtRPT::openDataSource(int pageReport) {
             QString sqlQuery = dsElement.text().trimmed();
             int dbPort = dsElement.attribute("dbPort").toInt();
             QString dbConnectionName = dsElement.attribute("dbConnectionName");
-            rptSql = new RptSql(dbType,dbName,dbHost,dbUser,dbPassword,dbPort,dbConnectionName,this);
+            RptSql *rptSql = new RptSql(dbType,dbName,dbHost,dbUser,dbPassword,dbPort,dbConnectionName,this);
             rptSql->setObjectName(dsName);
+
+            if (rtpSqlVector.count() <= pageReport) {
+                rtpSqlVector.resize(pageReport);
+                rtpSqlVector.insert(pageReport, rptSql);
+            } else {
+                rtpSqlVector.replace(pageReport, rptSql);
+            }
+
             if (!m_sqlQuery.isEmpty())
                 sqlQuery = m_sqlQuery;
             if (!rptSql->openQuery(sqlQuery,dbCoding,charsetCoding)) {
