@@ -27,6 +27,17 @@
         <translation type="vanished">شكر لـ:</translation>
     </message>
     <message>
+        <location filename="../aboutDlg.cpp" line="46"/>
+        <source>Web Site: </source>
+        <translatorcomment>موقع الإنترنت:</translatorcomment>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../aboutDlg.cpp" line="47"/>
+        <source>E-mail: </source>
+        <translation>البريد الإلكتروني:</translation>
+    </message>
+    <message>
         <location filename="../aboutDlg.cpp" line="49"/>
         <source>2012-2015 years</source>
         <translation>عام 2012-2015</translation>
@@ -90,6 +101,11 @@
         <location filename="../aboutDlg.cpp" line="64"/>
         <source>Manuel Soriano for Spanish translation</source>
         <translation>Manuel Soriano للترجمة الإسبانية</translation>
+    </message>
+    <message>
+        <location filename="../aboutDlg.cpp" line="65"/>
+        <source>Bagavathikumar for Tamil translation</source>
+        <translation>Bagavathikumar الترجمة السيرلانكية</translation>
     </message>
 </context>
 <context>
@@ -425,22 +441,22 @@
     <message>
         <location filename="../EditFldDlg.ui" line="1003"/>
         <source>Row headers</source>
-        <translation type="unfinished"></translation>
+        <translation>صف الترويسة</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="1023"/>
         <source>Row header</source>
-        <translation type="unfinished"></translation>
+        <translation>صف الترويسة</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="1035"/>
         <source>Column headers</source>
-        <translation type="unfinished"></translation>
+        <translation>عمود الترويسة</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="1055"/>
         <source>Column header</source>
-        <translation type="unfinished"></translation>
+        <translation>عمود الترويسة</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="1084"/>
@@ -467,12 +483,12 @@ Remove it?</source>
 هل تود إزالته؟</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.cpp" line="575"/>
+        <location filename="../EditFldDlg.cpp" line="617"/>
         <source>Save Image As</source>
         <translation>حفظ الصورة باسم</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.cpp" line="577"/>
+        <location filename="../EditFldDlg.cpp" line="619"/>
         <source>Images (*.png)</source>
         <translation>صور (*.png)</translation>
     </message>
@@ -629,17 +645,17 @@ Remove it?</source>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="169"/>
         <source>French</source>
-        <translation type="unfinished">French</translation>
+        <translation>French</translation>
     </message>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="176"/>
         <source>French(BE)</source>
-        <translation type="unfinished"></translation>
+        <translation>French(BE)</translation>
     </message>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="183"/>
         <source>French(CH)</source>
-        <translation type="unfinished"></translation>
+        <translation>French(CH)</translation>
     </message>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="191"/>
@@ -1840,39 +1856,39 @@ Save the report?</source>
 <context>
     <name>QtRPT</name>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1517"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1512"/>
         <source>Save as PDF</source>
         <translation>حفظ كـ PDF</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1522"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1517"/>
         <source>Save as HTML</source>
         <translation>حفظ كـ HTML</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1528"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1523"/>
         <source>Save as XLSX</source>
         <translation>حفظ كـ XLSX</translation>
     </message>
     <message>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1544"/>
         <location filename="../../QtRPT/qtrpt.cpp" line="1549"/>
         <location filename="../../QtRPT/qtrpt.cpp" line="1554"/>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1559"/>
         <source>Save File</source>
         <translation>حفظ ملف</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1549"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1544"/>
         <source>PDF Files (*.pdf)</source>
         <translation>ملفات PDF (*.pdf)</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1554"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1549"/>
         <source>HTML Files (*.html)</source>
         <translation>ملفات HTML (*.html)</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1559"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1554"/>
         <source>XLSX Files (*.xlsx)</source>
         <translation>ملفات XLSX (*.xlsx)</translation>
     </message>
@@ -2034,6 +2050,11 @@ Save the report?</source>
     </message>
     <message>
         <location filename="../SettingDlg.ui" line="176"/>
+        <source>Tamil தமிழ்</source>
+        <translation>Tamil தமிழ்</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="181"/>
         <source>Ukraine Український</source>
         <translation>أوكراني Український</translation>
     </message>
@@ -2048,27 +2069,27 @@ Save the report?</source>
         <translation>Serbian Latin</translation>
     </message>
     <message>
-        <location filename="../SettingDlg.ui" line="189"/>
+        <location filename="../SettingDlg.ui" line="194"/>
         <source>Check updates during start application</source>
         <translation>فحص التحديثات عند بدء التشغيل</translation>
     </message>
     <message>
-        <location filename="../SettingDlg.ui" line="211"/>
+        <location filename="../SettingDlg.ui" line="216"/>
         <source>Save</source>
         <translation>حفظ</translation>
     </message>
     <message>
-        <location filename="../SettingDlg.ui" line="218"/>
+        <location filename="../SettingDlg.ui" line="223"/>
         <source>Cancel</source>
         <translation>الغاء الأمر</translation>
     </message>
     <message>
-        <location filename="../SettingDlg.cpp" line="149"/>
+        <location filename="../SettingDlg.cpp" line="155"/>
         <source>Message QtRptDesigner</source>
         <translation>رسالة QtRptDesigner</translation>
     </message>
     <message>
-        <location filename="../SettingDlg.cpp" line="149"/>
+        <location filename="../SettingDlg.cpp" line="155"/>
         <source>The language for this application has been changed.
 The change will take effect the next time the application is started.
 Restart application?</source>
@@ -2328,8 +2349,8 @@ Restart application?</source>
         <translation>مخطط جديد</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="675"/>
-        <location filename="../TContainerField.cpp" line="696"/>
+        <location filename="../TContainerField.cpp" line="698"/>
+        <location filename="../TContainerField.cpp" line="719"/>
         <source>Total</source>
         <translation>المجموع</translation>
     </message>
