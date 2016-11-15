@@ -103,7 +103,7 @@ void XYZTextEditor::setupTextActions() {
 
     m_ui->comboSize->clear();
     QFontDatabase db;
-    foreach(int size, db.standardSizes())
+    for(int size : db.standardSizes())
         m_ui->comboSize->addItem(QString::number(size));
 
     QObject::connect(m_ui->comboSize, SIGNAL(activated(const QString &)), this, SLOT(textSize(const QString &)));

@@ -288,7 +288,7 @@ void SqlDesigner::removeDiagramDocument(int pageNo) {
 }
 
 void SqlDesigner::clearAll() {
-    foreach(DocumentSet documentSet, diagramDocumentList)
+    for(auto documentSet : diagramDocumentList)
         delete documentSet.document;
     diagramDocumentList.clear();
     m_currentPageNo = 0;

@@ -91,7 +91,7 @@ void EditFldDlg::conditionalToggled(bool value) {
 }
 
 void EditFldDlg::decodeHighLightingString() {
-    foreach(QString str, m_cond_higlighting.split(";")) {
+    for(auto str : m_cond_higlighting.split(";")) {
         if (str.contains("bold")) ui->chkBold->setChecked(true);
         if (str.contains("italic")) ui->chkItalic->setChecked(true);
         if (str.contains("underline")) ui->chkUnderline->setChecked(true);
@@ -459,7 +459,7 @@ int EditFldDlg::showDiagram(QGraphicsItem *gItem) {
     QTableWidgetItem *newItem;
     int i=0;
     ui->tableWidget->setRowCount( cont->getChart()->getGraphParamList().size() );
-    foreach(GraphParam graphParam, cont->getChart()->getGraphParamList() ) {
+    for(auto graphParam : cont->getChart()->getGraphParamList() ) {
         newItem = new QTableWidgetItem( graphParam.caption );
         ui->tableWidget->setItem(i,0,newItem);
 

@@ -773,7 +773,7 @@ void MainWindow::reportPageChanged(int index) {
     if (allReportBand.size() != 0)
         qSort(allReportBand.begin(), allReportBand.end(), compareBandType);
 
-    foreach(ReportBand *band, allReportBand) {
+    for(auto band : allReportBand) {
         rootItem->addChild(band->itemInTree);
         band->itemInTree->setExpanded(true);
         band->setFocus();
@@ -893,7 +893,7 @@ void MainWindow::generateName(QGraphicsItem *mItem) {
 
         for (int t=0; t<ui->tabWidget->count(); t++) {
             RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->widget( t ));
-            foreach(QGraphicsItem *item, repPage->scene->items()) {
+            for(auto item : repPage->scene->items()) {
                 if (item->type() == ItemType::GBox || item->type() == ItemType::GBand) {
                     GraphicsBox *gItem = static_cast<GraphicsBox *>(item);
                     if (gItem->objectName() == QString(contName).arg(cf)) {
@@ -1284,7 +1284,7 @@ void MainWindow::setGroupingField() {
         int cf = 1;
         while (!good) {
             bool fnd = false;
-            foreach(QGraphicsItem *item, repPage->scene->items()) {
+            for(auto item : repPage->scene->items()) {
                 if (item->type() == ItemType::GLine || item->type() == ItemType::GBox) {
                     GraphicsHelperClass *helper = gItemToHelper(item);
                     if (helper->getGroupName() == QString(groupName).arg(cf)) {
@@ -1349,7 +1349,7 @@ void MainWindow::sceneItemSelectionChanged(QGraphicsItem *item) {
     GraphicsHelperClass *calling_helper = gItemToHelper(item);
 
     if (QApplication::keyboardModifiers() != Qt::ControlModifier) {
-        foreach(QGraphicsItem *m_item, scene->items()) {
+        for(auto m_item : scene->items()) {
             if (item != m_item) {
                 if (m_item->type() == ItemType::GLine || m_item->type() == ItemType::GBox || m_item->type() == ItemType::GBand) {
                      GraphicsHelperClass *helper = gItemToHelper(m_item);
@@ -1375,7 +1375,7 @@ void MainWindow::alignFields() {
     RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
     GraphicsBox *etalon = static_cast<GraphicsBox*>(selectedGItem());
 
-    foreach(QGraphicsItem* item, repPage->scene->items()) {
+    for(auto item : repPage->scene->items()) {
         if (item->type() == ItemType::GBox) {
             GraphicsBox *box = static_cast<GraphicsBox*>(item);
             if (box->isSelected() && box != etalon) {
@@ -1799,7 +1799,7 @@ void MainWindow::newReport() {
     fileName = "";
     this->setWindowTitle("QtRPT Designer "+fileName);
 
-    foreach (QAction *action, ui->actionInsert_band->menu()->actions())
+    for(auto action : ui->actionInsert_band->menu()->actions())
         action->setEnabled(true);
 
     sqlDesigner->clearAll();
@@ -1820,7 +1820,7 @@ void MainWindow::selectItemInTree(QTreeWidgetItem *item) {
 QGraphicsItemList MainWindow::getSelectedItems() {
     QGraphicsItemList list;
     RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
-    foreach (QGraphicsItem *item, repPage->scene->items()) {
+    for(auto item : repPage->scene->items()) {
         if (item->type() == ItemType::GBox || item->type() == ItemType::GBand || item->type() == ItemType::GLine) {
             if (gItemToHelper(item)->helperIsSelected()) {
                 list.append(item);
@@ -1833,7 +1833,7 @@ QGraphicsItemList MainWindow::getSelectedItems() {
 GraphicsHelperList MainWindow::getSelectedHelperItems() {
     GraphicsHelperList list;
     RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
-    foreach (QGraphicsItem *item, repPage->scene->items()) {
+    for(auto item : repPage->scene->items()) {
         if (item->type() == ItemType::GBox || item->type() == ItemType::GBand || item->type() == ItemType::GLine) {
             if (gItemToHelper(item)->helperIsSelected()) {
                 list.append(gItemToHelper(item));
@@ -1852,7 +1852,7 @@ void MainWindow::execButtonCommand(Command command, QVariant value) {
     //before changing params gets params
     BArrayList oldList = ParamCommand::getBArrayFromContList(getSelectedHelperItems());
 
-    foreach (QGraphicsItem *item, getSelectedItems()) {
+    for(auto item : getSelectedItems()) {
         processCommand(command, value, item);
     }
     setParamTree(command,value);
@@ -2431,7 +2431,7 @@ void MainWindow::setParamTree(Command command, QVariant value, bool child) {
 void MainWindow::selTree(QTreeWidgetItem *tItem, int) {
     RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
     repPage->scene->unselectAll();
-    foreach (QGraphicsItem *item, repPage->getReportItems()) {
+    for(auto item : repPage->getReportItems()) {
         if (item == 0) {
             continue;
         } else {
@@ -2776,7 +2776,7 @@ void MainWindow::clipBoard() {
         pasteCopy = false;
         cloneContList->clear();
         RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
-        foreach(QGraphicsItem *item, repPage->scene->items()) {
+        for(auto item : repPage->scene->items()) {
             if (item->type() == ItemType::GLine || item->type() == ItemType::GBox) {
                 GraphicsHelperClass *helper = gItemToHelper(item);
                 if (helper->helperIsSelected()) {
@@ -2860,7 +2860,7 @@ MainWindow::~MainWindow() {
 
 MainWindow *getMW(){
     MainWindow *mw = nullptr;
-    foreach (QWidget *widget, qApp->topLevelWidgets())
+    for(auto widget : qApp->topLevelWidgets())
         if(widget->inherits("QMainWindow")) {
             mw = qobject_cast<MainWindow *>(widget);
         }

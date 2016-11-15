@@ -51,7 +51,7 @@ void Column::setRequired(bool required) {
 }
 
 bool Column::isForeignKey() const {
-	foreach (Line *line, columnList()->table()->hub()->outgoingLines()) {
+    for(Line *line : columnList()->table()->hub()->outgoingLines()) {
 		DatabaseRelationship *rel = (DatabaseRelationship *)line;
 		if (rel->childColumn() == this) {
 			return true;

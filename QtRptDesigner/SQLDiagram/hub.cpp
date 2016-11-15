@@ -50,7 +50,7 @@ void Hub::update() {
 
 QList<Line *> Hub::outgoingLines() const {
     QList<Line *> result;
-	foreach (Connector *connector, m_connectors) {
+    for(Connector *connector : m_connectors) {
 		Line *line = connector->owner();
 		if (connector == line->connector(0)) {
 			result << line;
@@ -61,7 +61,7 @@ QList<Line *> Hub::outgoingLines() const {
 
 QList<Line *> Hub::incomingLines() const {
     QList<Line *> result;
-    foreach (Connector *connector, m_connectors) {
+    for(Connector *connector : m_connectors) {
         Line *line = connector->owner();
         if (connector == line->connector(1)) {
             result << line;

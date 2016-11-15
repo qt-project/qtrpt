@@ -89,7 +89,7 @@ void AddObjectCommand::undo() {
 RemoveObjectCommand::RemoveObjectCommand(DiagramDocument *document, DiagramObject *object, QUndoCommand *parent)
 	: QUndoCommand(parent), m_document(document), m_object(object), m_owner(false)
 {
-	foreach (Line *line, document->findConnections(object)) {
+    for(Line *line : document->findConnections(object)) {
 		new RemoveLineCommand(document, line, this);
 	}
 }

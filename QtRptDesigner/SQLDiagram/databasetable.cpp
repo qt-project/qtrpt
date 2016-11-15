@@ -45,7 +45,7 @@ QRectF DatabaseTable::boundingRect() const {
 
 QList<Column *> DatabaseTable::primaryKeys() const {
 	QList<Column *> result;
-	foreach (Column *column, m_columnList->columns())
+    for(Column *column : m_columnList->columns())
 		if (column->isPrimaryKey())
 			result.append(column);
 	return result;
@@ -92,7 +92,7 @@ void DatabaseTable::paint(QPainter *painter, const QStyleOptionGraphicsItem *opt
 	QPointF colPos = m_firstColPos;
 	QPointF leftSizePos = colPos - QPointF(m_leftSideWidth, 0);
 	int i = 0;
-    foreach (Column *column, m_columnList->columns()) {
+    for(Column *column : m_columnList->columns()) {
         bool isBold = column->isRequired();
         painter->setPen( isBold ? reqPen : pen);
 		painter->setFont(isBold
@@ -171,7 +171,7 @@ void DatabaseTable::updateLayout() {
 
 	qreal maxColumnWidth = 0;
     m_columnLabels.clear();
-	foreach (Column *column, m_columnList->columns()) {
+    for(Column *column : m_columnList->columns()) {
 		qreal columnWidth = column->isRequired() ? boldFontMetrics.width(column->name()) : fontMetrics.width(column->name());
 		maxColumnWidth = qMax(maxColumnWidth, columnWidth);
 		qreal columnLeftSideWidth = 0;
@@ -238,7 +238,7 @@ void DatabaseTable::saveToXml(QDomElement element, QDomDocument doc) {
     DiagramItem::saveToXml(element, doc);
     element.setAttribute("name", name());
 
-    foreach (Column *column, columnList()->columns()) {
+    for(Column *column : columnList()->columns()) {
 		QDomElement columnElement = doc.createElement("column");
         columnElement.setAttribute("name", column->name());
         columnElement.setAttribute("data-type", column->dataType());
