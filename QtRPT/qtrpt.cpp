@@ -1,12 +1,12 @@
 /*
 Name: QtRpt
-Version: 1.5.5
+Version: 2.0.0
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
 Web-site: http://www.aliks-os.tk
 
-Copyright 2012-2015 Aleksey Osipov
+Copyright 2012-2016 Aleksey Osipov
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -452,7 +452,7 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
     QPen pen = getPen(fieldObject);
 
 	if (draw) {
-        if (!getDrawingFields().contains(fieldType) && fieldType != Barcode && fieldType != Image) {
+        if (!getDrawingFields().contains(fieldType) && fieldType != Barcode && fieldType != Image && fieldType != CrossTab) {
             //Fill background
             if ( fieldObject->backgroundColor  != QColor(255,255,255,0)) {
                 if (painter->isActive())
@@ -755,7 +755,7 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
         if (draw) {
             fieldObject->crossTab->makeFeelMatrix();
             const int bandTop_ = bandTop;
-            foreach(RptFieldObject *field, fieldObject->crossTab->fieldList) {
+            for(auto field : fieldObject->crossTab->fieldList) {
                 drawFields(field,bandTop_,true);
             }
         }
@@ -1120,13 +1120,15 @@ QString QtRPT::sectionField(RptBandObject *band, QString value, bool exp, bool f
     for (int i = 0; i < res.size(); ++i) {
         if (res.at(i).contains("[") && res.at(i).contains("]") && !res.at(i).contains("<") ) {
             QString tmp;
-            if (rtpSqlVector[m_pageReport] != 0 ) {//if we have Sql DataSource
-                if (res.at(i).contains(rtpSqlVector[m_pageReport]->objectName())) {
-                    QString fieldName = res.at(i);
-                    fieldName.replace("[","");
-                    fieldName.replace("]","");
-                    fieldName.replace(rtpSqlVector[m_pageReport]->objectName()+".","");
-                    tmp = rtpSqlVector[m_pageReport]->getFieldValue(fieldName, m_recNo);
+            if (rtpSqlVector.size() > 0) {
+                if (rtpSqlVector[m_pageReport] != 0 ) {//if we have Sql DataSource
+                    if (res.at(i).contains(rtpSqlVector[m_pageReport]->objectName())) {
+                        QString fieldName = res.at(i);
+                        fieldName.replace("[","");
+                        fieldName.replace("]","");
+                        fieldName.replace(rtpSqlVector[m_pageReport]->objectName()+".","");
+                        tmp = rtpSqlVector[m_pageReport]->getFieldValue(fieldName, m_recNo);
+                    }
                 }
             } else
                 tmp = sectionValue(res.at(i));
@@ -1188,7 +1190,7 @@ QString QtRPT::sectionField(RptBandObject *band, QString value, bool exp, bool f
                         !tl.at(j-1).toUpper().contains("Floor") &&
                         !tl.at(j-1).toUpper().contains("Ceil")
                     ) {
-                        if (rtpSqlVector[m_pageReport] != 0 ) {  //if we have Sql DataSource
+                        if (rtpSqlVector.size() > 0 && rtpSqlVector[m_pageReport] != 0 ) {  //if we have Sql DataSource
                         /*???   After testing - remove commented
                          * if (tl.at(j).contains("[") && tl.at(j).contains("]") && !tl.at(j).contains("<") ) {
                          */
@@ -1420,6 +1422,7 @@ void QtRPT::printHTML(const QString &filePath, bool open) {
  */
 void QtRPT::printXLSX(const QString &filePath, bool open) {
 #ifndef QT_NO_PRINTER
+    Q_UNUSED(open);
     crossTab = new RptCrossTabObject();
     m_printMode = QtRPT::Xlsx;
     //if (m_xlsx != 0) delete m_xlsx;
@@ -1587,6 +1590,10 @@ void QtRPT::printPreview(QPrinter *printer) {
 #else
     if (pageList.size() == 0) return;
     setPageSettings(printer,0);
+
+    if (painter == 0){
+        painter = new QPainter();
+    };
     painter->begin(printer);
 
     fromPage = printer->fromPage();
@@ -2025,7 +2032,7 @@ void QtRPT::openDataSource(int pageReport) {
         RptSql *rptSql = new RptSql(SqlConnection.m_dbType,SqlConnection.m_dbName,SqlConnection.m_dbHost,SqlConnection.m_dbUser,SqlConnection.m_dbPassword,SqlConnection.m_dbPort,SqlConnection.m_dbConnectionName,this);
         rptSql->setObjectName(SqlConnection.m_dsName);
 
-        if (rtpSqlVector.count() <= pageReport) {
+        if (rtpSqlVector.size() <= pageReport) {
             rtpSqlVector.resize(pageReport);
             rtpSqlVector.insert(pageReport, rptSql);
         } else {
@@ -2068,7 +2075,7 @@ void QtRPT::openDataSource(int pageReport) {
             RptSql *rptSql = new RptSql(dbType,dbName,dbHost,dbUser,dbPassword,dbPort,dbConnectionName,this);
             rptSql->setObjectName(dsName);
 
-            if (rtpSqlVector.count() <= pageReport) {
+            if (rtpSqlVector.size() <= pageReport) {
                 rtpSqlVector.resize(pageReport);
                 rtpSqlVector.insert(pageReport, rptSql);
             } else {
@@ -2162,7 +2169,7 @@ void QtRPT::setSqlQuery(QString sqlString) {
   \page qtrptproject.html
   \title QtRptProject
   \list
-  \li Version 1.5.5
+  \li Version 2.0.0
   \li Programmer: Aleksey Osipov
   \li Web-site: \l {http://www.aliks-os.tk} {http://www.aliks-os.tk}
   \li Email: \l {mailto:aliks-os@ukr.net} {aliks-os@ukr.net}

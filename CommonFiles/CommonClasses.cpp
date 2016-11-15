@@ -1,11 +1,11 @@
 /*
-Version: 1.5.5
+Version: 2.0.0
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
 Web-site: http://www.aliks-os.tk
 
-Copyright 2012-2015 Aleksey Osipov
+Copyright 2012-2016 Aleksey Osipov
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -1015,6 +1015,8 @@ QString colorToString(QColor color) {
 }
 
 QColor colorFromString(QString value) {
+    //if (value == "rgba(255,255,255,0)")
+    //    value = "rgba(255,255,255,255)";
     QColor color;
     if (value.isEmpty()) return color;
     int start; int end;

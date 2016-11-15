@@ -1,12 +1,12 @@
 /*
 Name: QtRpt
-Version: 1.5.5
+Version: 2.0.0
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
 Web-site: http://www.aliks-os.tk
 
-Copyright 2012-2015 Aleksey Osipov
+Copyright 2012-2016 Aleksey Osipov
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -46,7 +46,7 @@ AboutDlg::AboutDlg(QWidget *parent) : QDialog(parent) {
                   tr("Web Site: ") + "<a href='http://www.aliks-os.tk'>http://www.aliks-os.tk</a>"+"<br>"+
                   tr("E-mail: ") + "aliks-os@ukr.net"+"<br>"+
                   "<a href='http://www.qtrpt.tk'>http://www.qtrpt.tk</a>"+"<br>"+
-                  tr("2012-2015 years")+"<br><br>";
+                  tr("2012-2016 years")+"<br><br>";
     QString lbl2 = "<b>"+tr("Thanks for donation:")+"</b>"+
                   "<ul>"+
                   "<li>"+tr("Sailendram")+"</li>"+

@@ -19,9 +19,19 @@
         <translation>Programmierer: Aleksey Osipov</translation>
     </message>
     <message>
+        <location filename="../aboutDlg.cpp" line="46"/>
+        <source>Web Site: </source>
+        <translation>Website:</translation>
+    </message>
+    <message>
+        <location filename="../aboutDlg.cpp" line="47"/>
+        <source>E-mail: </source>
+        <translation>Email:</translation>
+    </message>
+    <message>
         <location filename="../aboutDlg.cpp" line="49"/>
-        <source>2012-2015 years</source>
-        <translation>2012-2015</translation>
+        <source>2012-2016 years</source>
+        <translation>2012-2016</translation>
     </message>
     <message>
         <location filename="../aboutDlg.cpp" line="50"/>
@@ -83,6 +93,11 @@
         <location filename="../aboutDlg.cpp" line="64"/>
         <source>Manuel Soriano for Spanish translation</source>
         <translation>Manuel Soriano für die spanische Übersetzung</translation>
+    </message>
+    <message>
+        <location filename="../aboutDlg.cpp" line="65"/>
+        <source>Bagavathikumar for Tamil translation</source>
+        <translation>Bagavathikumar für die tamilische Übersetzung </translation>
     </message>
 </context>
 <context>
@@ -403,33 +418,41 @@
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="984"/>
-        <source>Show row total</source>
-        <translation>Zeige Summe für Zeile</translation>
+        <source>Show column Total by row</source>
+        <translation>Zeige Spaltenanzahl pro Zeile</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="991"/>
+        <source>Show row Total by column</source>
+        <translation>Zeige Zeilenanzahl pro Spalte</translation>
+    </message>
+    <message>
+        <source>Show row total</source>
+        <translation type="vanished">Zeige Summe für Zeile</translation>
+    </message>
+    <message>
         <source>Show column total</source>
-        <translation>Zeige Summe für Spalte</translation>
+        <translation type="vanished">Zeige Summe für Spalte</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="1003"/>
         <source>Row headers</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeilen-Header </translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="1023"/>
         <source>Row header</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeilen-Header</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="1035"/>
         <source>Column headers</source>
-        <translation type="unfinished"></translation>
+        <translation>Spalten-Header</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="1055"/>
         <source>Column header</source>
-        <translation type="unfinished"></translation>
+        <translation>Spalten-Header</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.ui" line="1084"/>
@@ -443,24 +466,24 @@
     </message>
     <message>
         <location filename="../EditFldDlg.cpp" line="234"/>
-        <location filename="../EditFldDlg.cpp" line="294"/>
+        <location filename="../EditFldDlg.cpp" line="292"/>
         <source>Empty line</source>
         <translation>Zeile löschen</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.cpp" line="234"/>
-        <location filename="../EditFldDlg.cpp" line="294"/>
+        <location filename="../EditFldDlg.cpp" line="292"/>
         <source>The field contains empty line at the end.
 Remove it?</source>
         <translation>Das Feld enhält eine leere Zeile am Ende. Entfernen?</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.cpp" line="575"/>
+        <location filename="../EditFldDlg.cpp" line="596"/>
         <source>Save Image As</source>
         <translation>Speichere Bild als</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.cpp" line="577"/>
+        <location filename="../EditFldDlg.cpp" line="598"/>
         <source>Images (*.png)</source>
         <translation>Bilder (*.png)</translation>
     </message>
@@ -468,33 +491,33 @@ Remove it?</source>
 <context>
     <name>EditorDelegate</name>
     <message>
-        <location filename="../mainwindow.cpp" line="52"/>
+        <location filename="../mainwindow.cpp" line="54"/>
         <source>Left</source>
         <translation>Links</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="53"/>
-        <location filename="../mainwindow.cpp" line="63"/>
+        <location filename="../mainwindow.cpp" line="55"/>
+        <location filename="../mainwindow.cpp" line="65"/>
         <source>Center</source>
         <translation>Zentrum</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="54"/>
+        <location filename="../mainwindow.cpp" line="56"/>
         <source>Right</source>
         <translation>Rechts</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="55"/>
+        <location filename="../mainwindow.cpp" line="57"/>
         <source>Justify</source>
         <translation>Ausrichten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="62"/>
+        <location filename="../mainwindow.cpp" line="64"/>
         <source>Top</source>
         <translation>Oben</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="64"/>
+        <location filename="../mainwindow.cpp" line="66"/>
         <source>Bottom</source>
         <translation>Unten</translation>
     </message>
@@ -616,22 +639,84 @@ Remove it?</source>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="169"/>
         <source>French</source>
-        <translation type="unfinished">Französisch</translation>
+        <translation>Französisch</translation>
     </message>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="176"/>
         <source>French(BE)</source>
-        <translation type="unfinished"></translation>
+        <translation>Franszösisch(BE)</translation>
     </message>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="183"/>
         <source>French(CH)</source>
-        <translation type="unfinished"></translation>
+        <translation>Französisch(CH)</translation>
     </message>
     <message>
         <location filename="../FldPropertyDlg.cpp" line="191"/>
         <source>Math functions</source>
         <translation>Mathematische Funktionen</translation>
+    </message>
+</context>
+<context>
+    <name>GraphicsBox</name>
+    <message>
+        <location filename="../Graphics/GraphicsBox.cpp" line="61"/>
+        <source>New Label</source>
+        <translation>Neues Label</translation>
+    </message>
+    <message>
+        <location filename="../Graphics/GraphicsBox.cpp" line="590"/>
+        <location filename="../Graphics/GraphicsBox.cpp" line="616"/>
+        <source>Total</source>
+        <translation>Gesamt</translation>
+    </message>
+    <message>
+        <location filename="../Graphics/GraphicsBox.cpp" line="926"/>
+        <source>New image</source>
+        <translation>Neues Bild</translation>
+    </message>
+    <message>
+        <location filename="../Graphics/GraphicsBox.cpp" line="932"/>
+        <source>New diagram</source>
+        <translation>Neues Diagramm</translation>
+    </message>
+    <message>
+        <location filename="../Graphics/GraphicsBox.cpp" line="1008"/>
+        <source>Edit</source>
+        <translation>Bearbeiten</translation>
+    </message>
+    <message>
+        <location filename="../Graphics/GraphicsBox.cpp" line="1012"/>
+        <source>Delete</source>
+        <translation>Löschen</translation>
+    </message>
+    <message>
+        <location filename="../Graphics/GraphicsBox.cpp" line="1018"/>
+        <source>Move forward</source>
+        <translation>Gehe Vorwärts</translation>
+    </message>
+    <message>
+        <location filename="../Graphics/GraphicsBox.cpp" line="1024"/>
+        <source>Move back</source>
+        <translation>Gehe Rückwärts</translation>
+    </message>
+</context>
+<context>
+    <name>GraphicsLine</name>
+    <message>
+        <location filename="../Graphics/GraphicsLine.cpp" line="432"/>
+        <source>Delete</source>
+        <translation>Löschen</translation>
+    </message>
+    <message>
+        <location filename="../Graphics/GraphicsLine.cpp" line="438"/>
+        <source>Move forward</source>
+        <translation>Gehe Vorwärts</translation>
+    </message>
+    <message>
+        <location filename="../Graphics/GraphicsLine.cpp" line="444"/>
+        <source>Move back</source>
+        <translation>Gehe Rückwärts</translation>
     </message>
 </context>
 <context>
@@ -692,8 +777,8 @@ Remove it?</source>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="152"/>
-        <location filename="../mainwindow.cpp" line="2112"/>
-        <location filename="../mainwindow.cpp" line="2275"/>
+        <location filename="../mainwindow.cpp" line="2080"/>
+        <location filename="../mainwindow.cpp" line="2240"/>
         <source>Name</source>
         <translation>Name</translation>
     </message>
@@ -709,7 +794,7 @@ Remove it?</source>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
-        <location filename="../mainwindow.cpp" line="307"/>
+        <location filename="../mainwindow.cpp" line="311"/>
         <source>Report</source>
         <translation>Report</translation>
     </message>
@@ -781,28 +866,28 @@ Remove it?</source>
     <message>
         <location filename="../mainwindow.ui" line="430"/>
         <location filename="../mainwindow.ui" line="433"/>
-        <location filename="../mainwindow.cpp" line="2137"/>
+        <location filename="../mainwindow.cpp" line="2105"/>
         <source>Justify</source>
         <translation>Ausrichten</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="445"/>
         <location filename="../mainwindow.ui" line="448"/>
-        <location filename="../mainwindow.cpp" line="2297"/>
+        <location filename="../mainwindow.cpp" line="2261"/>
         <source>Bold</source>
         <translation>Fett</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="460"/>
         <location filename="../mainwindow.ui" line="463"/>
-        <location filename="../mainwindow.cpp" line="2307"/>
+        <location filename="../mainwindow.cpp" line="2271"/>
         <source>Italic</source>
         <translation>Kursiv</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="475"/>
         <location filename="../mainwindow.ui" line="478"/>
-        <location filename="../mainwindow.cpp" line="2317"/>
+        <location filename="../mainwindow.cpp" line="2281"/>
         <source>Underline</source>
         <translation>Unterstrich</translation>
     </message>
@@ -1062,7 +1147,7 @@ Remove it?</source>
     <message>
         <location filename="../mainwindow.ui" line="997"/>
         <location filename="../mainwindow.ui" line="1000"/>
-        <location filename="../mainwindow.cpp" line="2327"/>
+        <location filename="../mainwindow.cpp" line="2291"/>
         <source>Strikeout</source>
         <translation>Strich</translation>
     </message>
@@ -1167,362 +1252,351 @@ Remove it?</source>
         <translation>CrossTabBD-Objekt hinzufügen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="233"/>
+        <location filename="../mainwindow.cpp" line="238"/>
         <source>Font name</source>
         <translation>Schriftart</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="236"/>
+        <location filename="../mainwindow.cpp" line="241"/>
         <source>Font size</source>
         <translation>Schriftgröße</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="261"/>
+        <location filename="../mainwindow.cpp" line="266"/>
         <source>Zoom</source>
         <translation>Zoomen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="275"/>
+        <location filename="../mainwindow.cpp" line="280"/>
         <source>Frame width</source>
         <translation>Rahmenbreite</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="417"/>
+        <location filename="../mainwindow.cpp" line="420"/>
         <source>Report Title</source>
         <translation>Report-Titel</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="423"/>
+        <location filename="../mainwindow.cpp" line="426"/>
         <source>Report Summary</source>
         <translation>Report-Zusammenfassung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="429"/>
+        <location filename="../mainwindow.cpp" line="432"/>
         <source>Page Header</source>
         <translation>Kopfzeile</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="435"/>
+        <location filename="../mainwindow.cpp" line="438"/>
         <source>Page Footer</source>
         <translation>Fußzeile</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="441"/>
+        <location filename="../mainwindow.cpp" line="444"/>
         <source>Master Data</source>
         <translation>Haupdaten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="447"/>
+        <location filename="../mainwindow.cpp" line="450"/>
         <source>Data Grouping Header</source>
         <translation>Datengruppierung Kopf</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="454"/>
+        <location filename="../mainwindow.cpp" line="457"/>
         <source>Data Grouping Footer</source>
         <translation>Datengruppierung Fuß</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="461"/>
-        <location filename="../mainwindow.cpp" line="2515"/>
+        <location filename="../mainwindow.cpp" line="464"/>
         <source>Master Header</source>
         <translation>Haupdaten Kopf</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="467"/>
-        <location filename="../mainwindow.cpp" line="2511"/>
+        <location filename="../mainwindow.cpp" line="470"/>
         <source>Master Footer</source>
         <translation>Hauptdaten Fuß</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="499"/>
+        <location filename="../mainwindow.cpp" line="495"/>
         <source>Line</source>
         <translation>Zeile</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="505"/>
+        <location filename="../mainwindow.cpp" line="501"/>
         <source>Line with arrow at the end</source>
         <translation>Zeile mit Pfeil am Ende</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="511"/>
+        <location filename="../mainwindow.cpp" line="507"/>
         <source>Line with arrow at the start</source>
         <translation>Zeile mit Pfeil am Anfang</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="517"/>
+        <location filename="../mainwindow.cpp" line="513"/>
         <source>Line with arrows at both side</source>
         <translation>Zeile mit Pfeilen an beiden Seiten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="523"/>
+        <location filename="../mainwindow.cpp" line="519"/>
         <source>Rectangle</source>
         <translation>Rechteck</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="529"/>
+        <location filename="../mainwindow.cpp" line="525"/>
         <source>Rounded rectangle</source>
         <translation>Abgerundetes Rechteck</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="535"/>
+        <location filename="../mainwindow.cpp" line="531"/>
         <source>Ellipse</source>
         <translation>Ellipse</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="541"/>
+        <location filename="../mainwindow.cpp" line="537"/>
         <source>Triangle</source>
         <translation>Dreieck</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="547"/>
+        <location filename="../mainwindow.cpp" line="543"/>
         <source>Rhombus</source>
         <translation>Rhombus</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="646"/>
+        <location filename="../mainwindow.cpp" line="645"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="803"/>
-        <location filename="../mainwindow.cpp" line="1054"/>
+        <location filename="../mainwindow.cpp" line="813"/>
+        <location filename="../mainwindow.cpp" line="1081"/>
         <source>Page %1</source>
         <translation>Seite %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="983"/>
-        <location filename="../mainwindow.cpp" line="995"/>
-        <location filename="../mainwindow.cpp" line="1830"/>
-        <location filename="../mainwindow.cpp" line="2643"/>
+        <location filename="../mainwindow.cpp" line="1008"/>
+        <location filename="../mainwindow.cpp" line="1020"/>
+        <location filename="../mainwindow.cpp" line="1772"/>
+        <location filename="../mainwindow.cpp" line="2601"/>
         <source>Saving</source>
         <translation>Speichern</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="983"/>
-        <location filename="../mainwindow.cpp" line="995"/>
-        <location filename="../mainwindow.cpp" line="1830"/>
-        <location filename="../mainwindow.cpp" line="2643"/>
+        <location filename="../mainwindow.cpp" line="1008"/>
+        <location filename="../mainwindow.cpp" line="1020"/>
+        <location filename="../mainwindow.cpp" line="1772"/>
+        <location filename="../mainwindow.cpp" line="2601"/>
         <source>The report was changed.
 Save the report?</source>
         <translation>Der Report wurde geändert. Speichern?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1010"/>
+        <location filename="../mainwindow.cpp" line="1035"/>
         <source>Select File</source>
         <translation>Datei auswählen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1338"/>
+        <location filename="../mainwindow.cpp" line="1262"/>
         <source>Going to make undo: </source>
         <translation>Mache rückgängig: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1346"/>
+        <location filename="../mainwindow.cpp" line="1269"/>
         <source>Going to make redo: </source>
         <translation>Wiederherstellen: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1528"/>
+        <location filename="../mainwindow.cpp" line="1453"/>
         <source>Save File</source>
         <translation>Datei speichern</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1528"/>
+        <location filename="../mainwindow.cpp" line="1453"/>
         <source>XML Files (*.xml)</source>
         <translation>XML-Dateien (*.xml)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1542"/>
-        <location filename="../mainwindow.cpp" line="2788"/>
+        <location filename="../mainwindow.cpp" line="1467"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1757"/>
+        <location filename="../mainwindow.cpp" line="1694"/>
         <source>Font</source>
         <translation>Schriftart</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1765"/>
+        <location filename="../mainwindow.cpp" line="1702"/>
         <source>Frame</source>
         <translation>Rahmen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2118"/>
+        <location filename="../mainwindow.cpp" line="2086"/>
         <source>Aligment hor</source>
         <translation>Horizontal ausrichten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2122"/>
-        <location filename="../mainwindow.cpp" line="2182"/>
-        <location filename="../mainwindow.cpp" line="2211"/>
+        <location filename="../mainwindow.cpp" line="2090"/>
+        <location filename="../mainwindow.cpp" line="2149"/>
+        <location filename="../mainwindow.cpp" line="2176"/>
         <source>Left</source>
         <translation>Links</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2127"/>
-        <location filename="../mainwindow.cpp" line="2155"/>
+        <location filename="../mainwindow.cpp" line="2095"/>
+        <location filename="../mainwindow.cpp" line="2123"/>
         <source>Center</source>
         <translation>Zentrum</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2132"/>
-        <location filename="../mainwindow.cpp" line="2221"/>
+        <location filename="../mainwindow.cpp" line="2100"/>
+        <location filename="../mainwindow.cpp" line="2186"/>
         <source>Right</source>
         <translation>Rechts</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2146"/>
+        <location filename="../mainwindow.cpp" line="2114"/>
         <source>Aligment ver</source>
         <translation>Vertikal ausrichten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2150"/>
-        <location filename="../mainwindow.cpp" line="2195"/>
-        <location filename="../mainwindow.cpp" line="2231"/>
+        <location filename="../mainwindow.cpp" line="2118"/>
+        <location filename="../mainwindow.cpp" line="2161"/>
+        <location filename="../mainwindow.cpp" line="2196"/>
         <source>Top</source>
         <translation>Oben</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2160"/>
-        <location filename="../mainwindow.cpp" line="2241"/>
+        <location filename="../mainwindow.cpp" line="2128"/>
+        <location filename="../mainwindow.cpp" line="2206"/>
         <source>Bottom</source>
         <translation>Uten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2169"/>
+        <location filename="../mainwindow.cpp" line="2137"/>
         <source>Height</source>
         <translation>Höhe</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2176"/>
+        <location filename="../mainwindow.cpp" line="2143"/>
         <source>Width</source>
         <translation>Breite</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2189"/>
+        <location filename="../mainwindow.cpp" line="2155"/>
         <source>Length</source>
         <translation>Länge</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2265"/>
+        <location filename="../mainwindow.cpp" line="2230"/>
         <source>FrameWidth</source>
         <translation>Rahmenbreite</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2285"/>
+        <location filename="../mainwindow.cpp" line="2250"/>
         <source>Size</source>
         <translation>Größe</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2334"/>
+        <location filename="../mainwindow.cpp" line="2298"/>
         <source>Printing</source>
         <translation>Drucken</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2340"/>
+        <location filename="../mainwindow.cpp" line="2304"/>
         <source>Start New Numeration</source>
         <translation>Starte neue Nummerierung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2346"/>
+        <location filename="../mainwindow.cpp" line="2310"/>
         <source>Show In Group</source>
         <translation>Zeige Gruppe</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2352"/>
+        <location filename="../mainwindow.cpp" line="2316"/>
         <source>Start New Page</source>
         <translation>Neue Seite beginnen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2358"/>
+        <location filename="../mainwindow.cpp" line="2322"/>
         <source>AutoHeight</source>
         <translation>Auto-Höhe</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2364"/>
+        <location filename="../mainwindow.cpp" line="2328"/>
         <source>IgnoreRatioAspect</source>
         <translation>Ignoriere Seitenverhältnis</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2370"/>
+        <location filename="../mainwindow.cpp" line="2334"/>
         <source>ArrowStart</source>
         <translation>Pfeil-Start</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2376"/>
+        <location filename="../mainwindow.cpp" line="2340"/>
         <source>ArrowEnd</source>
         <translation>Pfeil-Ende</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2382"/>
+        <location filename="../mainwindow.cpp" line="2346"/>
         <source>TextWrap</source>
         <translation>Texthülle</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2388"/>
+        <location filename="../mainwindow.cpp" line="2352"/>
         <source>BackgroundColor</source>
         <translation>Hintergrundfarbe</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2394"/>
+        <location filename="../mainwindow.cpp" line="2358"/>
         <source>BorderColor</source>
         <translation>Vordergrundfarbe</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2403"/>
+        <location filename="../mainwindow.cpp" line="2367"/>
         <source>FontColor</source>
         <translation>Schriftfarbe</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2409"/>
+        <location filename="../mainwindow.cpp" line="2373"/>
         <source>BarcodeType</source>
         <translation>Barcode-Typ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2415"/>
+        <location filename="../mainwindow.cpp" line="2379"/>
         <source>BarcodeFrameType</source>
         <translation>Barcode-Rahmentyp</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2491"/>
         <source>Report title</source>
-        <translation>Report-Titel</translation>
+        <translation type="vanished">Report-Titel</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2495"/>
         <source>Report summary</source>
-        <translation>Report-Zusammenfassung</translation>
+        <translation type="vanished">Report-Zusammenfassung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2499"/>
         <source>Page header</source>
-        <translation>Kopfzeile</translation>
+        <translation type="vanished">Kopfzeile</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2503"/>
         <source>Page footer</source>
-        <translation>Fußzeile</translation>
+        <translation type="vanished">Fußzeile</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2507"/>
         <source>Master data</source>
-        <translation>Hauptdaten</translation>
+        <translation type="vanished">Hauptdaten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2519"/>
         <source>Data Group Header</source>
-        <translation>Datengruppe Kopf</translation>
+        <translation type="vanished">Datengruppe Kopf</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2523"/>
         <source>Data Group Footer</source>
-        <translation>Datengruppe Fuß</translation>
+        <translation type="vanished">Datengruppe Fuß</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2788"/>
         <source>This object %1 can&apos;t be a parent for %2</source>
-        <translation>Das Objekt %1 kann nicht Basistyp von %2 sein</translation>
+        <translation type="vanished">Das Objekt %1 kann nicht Basistyp von %2 sein</translation>
     </message>
 </context>
 <context>
@@ -1683,29 +1757,96 @@ Save the report?</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../UndoCommands.cpp" line="44"/>
         <source>Changing Container&apos;s geometry</source>
-        <translation>Ändere Container-Geometrie</translation>
+        <translation type="vanished">Ändere Container-Geometrie</translation>
     </message>
     <message>
-        <location filename="../UndoCommands.cpp" line="102"/>
         <source>Adding Container</source>
-        <translation>Container hinzufügen</translation>
+        <translation type="vanished">Container hinzufügen</translation>
     </message>
     <message>
-        <location filename="../UndoCommands.cpp" line="167"/>
         <source>Deleting Container</source>
-        <translation>Container löschen</translation>
+        <translation type="vanished">Container löschen</translation>
     </message>
     <message>
-        <location filename="../UndoCommands.cpp" line="209"/>
+        <location filename="../Graphics/UndoRedoCommands.cpp" line="30"/>
+        <source>Moving box</source>
+        <translation>Bewegbare Box</translation>
+    </message>
+    <message>
+        <location filename="../Graphics/UndoRedoCommands.cpp" line="53"/>
+        <source>Moving line</source>
+        <translation>Bewegbare Linie</translation>
+    </message>
+    <message>
+        <location filename="../Graphics/UndoRedoCommands.cpp" line="93"/>
+        <source>Delete</source>
+        <translation>Löschen</translation>
+    </message>
+    <message>
+        <location filename="../Graphics/UndoRedoCommands.cpp" line="131"/>
+        <source>Add</source>
+        <translation>Hinzufügen</translation>
+    </message>
+    <message>
+        <location filename="../Graphics/UndoRedoCommands.cpp" line="163"/>
         <source>Changing Container&apos;s parameters</source>
         <translation>Ändere Container-Parameter</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/RptCrossTabObject.cpp" line="38"/>
+        <location filename="../../QtRPT/RptCrossTabObject.cpp" line="36"/>
         <source>Total</source>
         <translation>Gesamt</translation>
+    </message>
+    <message>
+        <location filename="../../QtRPT/RptCrossTabObject.cpp" line="265"/>
+        <source>R-Total</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="44"/>
+        <source>Report title</source>
+        <translation>Reporttitel</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="49"/>
+        <source>Report summary</source>
+        <translation>Reportzusammenfassung</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="54"/>
+        <source>Page header</source>
+        <translation>Kopfzeile</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="59"/>
+        <source>Page footer</source>
+        <translation>Fußzeile</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="64"/>
+        <source>Master band</source>
+        <translation>Masterband</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="69"/>
+        <source>Master footer</source>
+        <translation>Master-Fuß</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="74"/>
+        <source>Master header</source>
+        <translation>Master-Kopf</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="79"/>
+        <source>Data Group Header</source>
+        <translation>Datengruppen-Kopf</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="84"/>
+        <source>Data Group Footer</source>
+        <translation>Datengruppen-Fuß</translation>
     </message>
 </context>
 <context>
@@ -1810,12 +1951,12 @@ Save the report?</source>
 <context>
     <name>QtRPT</name>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1517"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1515"/>
         <source>Save as PDF</source>
         <translation>Speichere als PDF</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1522"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1520"/>
         <source>Save as HTML</source>
         <translation>Speichere als HTML</translation>
     </message>
@@ -1824,29 +1965,29 @@ Save the report?</source>
         <translation type="vanished">Speichere als ODT</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1528"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1526"/>
         <source>Save as XLSX</source>
         <translation>Als XLSX speichern</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1549"/>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1554"/>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1559"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1547"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1552"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1557"/>
         <source>Save File</source>
         <translation>Speichere Datei</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1549"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1547"/>
         <source>PDF Files (*.pdf)</source>
         <translation>PDF-Dateien (*.pdf)</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1554"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1552"/>
         <source>HTML Files (*.html)</source>
         <translation>HTML-Dateien (*.html)</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1559"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1557"/>
         <source>XLSX Files (*.xlsx)</source>
         <translation>XLSX Dateien (*.xlsx)</translation>
     </message>
@@ -1856,54 +1997,53 @@ Save the report?</source>
     </message>
 </context>
 <context>
+    <name>RepScrollArea</name>
+    <message>
+        <location filename="../RepScrollArea.cpp" line="114"/>
+        <source>%</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ReportBand</name>
     <message>
-        <location filename="../ReportBand.cpp" line="65"/>
         <source>Report title</source>
-        <translation>Report-Title</translation>
+        <translation type="vanished">Report-Title</translation>
     </message>
     <message>
-        <location filename="../ReportBand.cpp" line="71"/>
         <source>Report summary</source>
-        <translation>Report-Zusammenfassung</translation>
+        <translation type="vanished">Report-Zusammenfassung</translation>
     </message>
     <message>
-        <location filename="../ReportBand.cpp" line="77"/>
         <source>Page header</source>
-        <translation>Kopfzeile</translation>
+        <translation type="vanished">Kopfzeile</translation>
     </message>
     <message>
-        <location filename="../ReportBand.cpp" line="83"/>
         <source>Page footer</source>
-        <translation>Fußzeile</translation>
+        <translation type="vanished">Fußzeile</translation>
     </message>
     <message>
-        <location filename="../ReportBand.cpp" line="89"/>
         <source>Master band</source>
-        <translation>Hauptband</translation>
+        <translation type="vanished">Hauptband</translation>
     </message>
     <message>
-        <location filename="../ReportBand.cpp" line="96"/>
         <source>Master footer</source>
-        <translation>Hauptfuß</translation>
+        <translation type="vanished">Hauptfuß</translation>
     </message>
     <message>
-        <location filename="../ReportBand.cpp" line="102"/>
         <source>Master header</source>
-        <translation>Hauptkopf</translation>
+        <translation type="vanished">Hauptkopf</translation>
     </message>
     <message>
-        <location filename="../ReportBand.cpp" line="108"/>
         <source>Data Group Header</source>
-        <translation>Datengruppe Kopf</translation>
+        <translation type="vanished">Datengruppe Kopf</translation>
     </message>
     <message>
-        <location filename="../ReportBand.cpp" line="114"/>
         <source>Data Group Footer</source>
-        <translation>Datengruppe Fuß</translation>
+        <translation type="vanished">Datengruppe Fuß</translation>
     </message>
     <message>
-        <location filename="../ReportBand.cpp" line="133"/>
+        <location filename="../ReportBand.cpp" line="91"/>
         <source>Delete</source>
         <translation>Löschen</translation>
     </message>
@@ -2022,31 +2162,36 @@ Save the report?</source>
     </message>
     <message>
         <location filename="../SettingDlg.ui" line="176"/>
+        <source>Tamil தமிழ்</source>
+        <translation>Tamilischl</translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="181"/>
         <source>Ukraine Український</source>
         <translation>Ukrainisch</translation>
     </message>
     <message>
-        <location filename="../SettingDlg.ui" line="189"/>
+        <location filename="../SettingDlg.ui" line="194"/>
         <source>Check updates during start application</source>
         <translation>Prüfe auf Updates beim Programstart</translation>
     </message>
     <message>
-        <location filename="../SettingDlg.ui" line="211"/>
+        <location filename="../SettingDlg.ui" line="216"/>
         <source>Save</source>
         <translation>Speichern</translation>
     </message>
     <message>
-        <location filename="../SettingDlg.ui" line="218"/>
+        <location filename="../SettingDlg.ui" line="223"/>
         <source>Cancel</source>
         <translation>Abbrechen</translation>
     </message>
     <message>
-        <location filename="../SettingDlg.cpp" line="149"/>
+        <location filename="../SettingDlg.cpp" line="155"/>
         <source>Message QtRptDesigner</source>
         <translation>Nachricht QtRptDesigner</translation>
     </message>
     <message>
-        <location filename="../SettingDlg.cpp" line="149"/>
+        <location filename="../SettingDlg.cpp" line="155"/>
         <source>The language for this application has been changed.
 The change will take effect the next time the application is started.
 Restart application?</source>
@@ -2246,22 +2391,22 @@ Restart application?</source>
         <translation>Entf</translation>
     </message>
     <message>
-        <location filename="../SqlDesigner.cpp" line="114"/>
+        <location filename="../SqlDesigner.cpp" line="85"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../SqlDesigner.cpp" line="117"/>
+        <location filename="../SqlDesigner.cpp" line="88"/>
         <source>Info</source>
         <translation>Info</translation>
     </message>
     <message>
-        <location filename="../SqlDesigner.cpp" line="117"/>
+        <location filename="../SqlDesigner.cpp" line="88"/>
         <source>Connected</source>
         <translation>Verbunden</translation>
     </message>
     <message>
-        <location filename="../SqlDesigner.cpp" line="161"/>
+        <location filename="../SqlDesigner.cpp" line="156"/>
         <source>Select File</source>
         <translation>Datei auswählen</translation>
     </message>
@@ -2269,53 +2414,43 @@ Restart application?</source>
 <context>
     <name>TContainerField</name>
     <message>
-        <location filename="../TContainerField.cpp" line="28"/>
         <source>New Label</source>
-        <translation>Neuer Name</translation>
+        <translation type="vanished">Neuer Name</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="73"/>
         <source>Edit</source>
-        <translation>Bearbeiten</translation>
+        <translation type="vanished">Bearbeiten</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="77"/>
         <source>Delete</source>
-        <translation>Löschen</translation>
+        <translation type="vanished">Löschen</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="84"/>
         <source>Move forward</source>
-        <translation>Gehe Vorwärts</translation>
+        <translation type="vanished">Gehe Vorwärts</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="90"/>
         <source>Move back</source>
-        <translation>Gehe Rückwärts</translation>
+        <translation type="vanished">Gehe Rückwärts</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="284"/>
         <source>New image</source>
-        <translation>Neues Bild</translation>
+        <translation type="vanished">Neues Bild</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="291"/>
         <source>New diagram</source>
-        <translation>Neues Diagramm</translation>
+        <translation type="vanished">Neues Diagramm</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="675"/>
-        <location filename="../TContainerField.cpp" line="696"/>
         <source>Total</source>
-        <translation>Gesamt</translation>
+        <translation type="vanished">Gesamt</translation>
     </message>
 </context>
 <context>
     <name>TContainerLine</name>
     <message>
-        <location filename="../TContainerLine.cpp" line="243"/>
         <source>Delete</source>
-        <translation>Löschen</translation>
+        <translation type="vanished">Löschen</translation>
     </message>
 </context>
 <context>

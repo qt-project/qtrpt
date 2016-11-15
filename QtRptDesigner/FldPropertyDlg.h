@@ -1,12 +1,12 @@
 /*
 Name: QtRpt
-Version: 1.5.5
+Version: 2.0.0
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
 Web-site: http://www.aliks-os.tk
 
-Copyright 2012-2015 Aleksey Osipov
+Copyright 2012-2016 Aleksey Osipov
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ limitations under the License.
 #define FLDPROPERTYDLG_H
 
 #include <QDialog>
+#include "GraphicsBox.h"
 
 namespace Ui {
 class FldPropertyDlg;
@@ -37,7 +38,7 @@ class FldPropertyDlg : public QDialog
 public:
     explicit FldPropertyDlg(QWidget *parent = 0);
     ~FldPropertyDlg();
-    QString showThis(int index, QWidget *widget = 0, QString value = 0);
+    QString showThis(int index, GraphicsBox *widget = 0, QString value = 0);
     
 private:
     Ui::FldPropertyDlg *ui;

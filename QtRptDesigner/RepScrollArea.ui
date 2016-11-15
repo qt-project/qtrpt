@@ -246,7 +246,7 @@
          <number>0</number>
         </property>
         <item>
-         <widget class="QWidget" name="repWidget" native="true">
+         <widget class="QGraphicsView" name="graphicsView">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>

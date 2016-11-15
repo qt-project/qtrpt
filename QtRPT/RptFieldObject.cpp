@@ -1,12 +1,12 @@
 /*
 Name: QtRpt
-Version: 1.5.5
+Version: 2.0.0
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
 Web-site: http://www.aliks-os.tk
 
-Copyright 2012-2015 Aleksey Osipov
+Copyright 2012-2016 Aleksey Osipov
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -414,7 +414,7 @@ void RptFieldObject::setProperty(QtRPT *qtrpt, QDomElement e) {
         if (autoFillData == 1) {
             QDomNode g = e.firstChild();
             while(!g.isNull()) {
-                QDomElement ge = g.toElement(); // try to convert the node to an element.
+                QDomElement ge = g.toElement();
 
                 GraphParam param;
                 param.color = colorFromString( ge.attribute("color") );
@@ -431,16 +431,25 @@ void RptFieldObject::setProperty(QtRPT *qtrpt, QDomElement e) {
         crossTab = new RptCrossTabObject();
         crossTab->rect = this->rect;
         crossTab->parentField = this;
-        crossTab->addCol("C1");
-        crossTab->addCol("C2");
-        crossTab->addCol("C3");
-        crossTab->addRow("R1");
-        crossTab->addRow("R2");
-        crossTab->addRow("R3");
-        crossTab->setColHeaderVisible(true);
-        crossTab->setRowHeaderVisible(true);
-		crossTab->setColTotalVisible(true);
-        crossTab->setRowTotalVisible(true);
+
+        QDomNode g = e.firstChild();
+        while(!g.isNull()) {
+            QDomElement ge = g.toElement();
+            if (!ge.isNull() && ge.tagName() == "row") {
+                crossTab->addRow(ge.attribute("caption"));
+            }
+            if (!ge.isNull() && ge.tagName() == "col") {
+                crossTab->addCol(ge.attribute("caption"));
+            }
+
+            g = g.nextSibling();
+        }
+
+        crossTab->setColHeaderVisible(e.attribute("crossTabColHeaderVisible").toInt());
+        crossTab->setRowHeaderVisible(e.attribute("crossTabRowHeaderVisible").toInt());
+        crossTab->setColTotalVisible(e.attribute("crossTabColTotalVisible").toInt());
+        crossTab->setRowTotalVisible(e.attribute("crossTabRowTotalVisible").toInt());
+
         crossTab->initMatrix();
         //Fill values into matrix
 		for (int siRow=1; siRow <= crossTab->rowCount()-1; siRow++)

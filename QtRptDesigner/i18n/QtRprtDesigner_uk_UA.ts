@@ -27,9 +27,19 @@
         <translation type="vanished">Дякую:</translation>
     </message>
     <message>
+        <location filename="../aboutDlg.cpp" line="46"/>
+        <source>Web Site: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../aboutDlg.cpp" line="47"/>
+        <source>E-mail: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../aboutDlg.cpp" line="49"/>
-        <source>2012-2015 years</source>
-        <translation>2012-2015 роки</translation>
+        <source>2012-2016 years</source>
+        <translation>2012-2016 роки</translation>
     </message>
     <message>
         <location filename="../aboutDlg.cpp" line="50"/>
@@ -89,6 +99,11 @@
     <message>
         <location filename="../aboutDlg.cpp" line="64"/>
         <source>Manuel Soriano for Spanish translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../aboutDlg.cpp" line="65"/>
+        <source>Bagavathikumar for Tamil translation</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -230,6 +245,16 @@
     <message>
         <location filename="../EditFldDlg.ui" line="599"/>
         <source>Diagram</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="984"/>
+        <source>Show column Total by row</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../EditFldDlg.ui" line="991"/>
+        <source>Show row Total by column</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -401,16 +426,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.ui" line="984"/>
-        <source>Show row total</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../EditFldDlg.ui" line="991"/>
-        <source>Show column total</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../EditFldDlg.ui" line="1003"/>
         <source>Row headers</source>
         <translation type="unfinished"></translation>
@@ -442,24 +457,24 @@
     </message>
     <message>
         <location filename="../EditFldDlg.cpp" line="234"/>
-        <location filename="../EditFldDlg.cpp" line="294"/>
+        <location filename="../EditFldDlg.cpp" line="292"/>
         <source>Empty line</source>
         <translation>Порожній рядок</translation>
     </message>
     <message>
         <location filename="../EditFldDlg.cpp" line="234"/>
-        <location filename="../EditFldDlg.cpp" line="294"/>
+        <location filename="../EditFldDlg.cpp" line="292"/>
         <source>The field contains empty line at the end.
 Remove it?</source>
         <translation>Поле в кінці містить порожню рядок. Видалити її?</translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.cpp" line="575"/>
+        <location filename="../EditFldDlg.cpp" line="596"/>
         <source>Save Image As</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../EditFldDlg.cpp" line="577"/>
+        <location filename="../EditFldDlg.cpp" line="598"/>
         <source>Images (*.png)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -467,33 +482,33 @@ Remove it?</source>
 <context>
     <name>EditorDelegate</name>
     <message>
-        <location filename="../mainwindow.cpp" line="52"/>
+        <location filename="../mainwindow.cpp" line="54"/>
         <source>Left</source>
         <translation>Вліво</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="53"/>
-        <location filename="../mainwindow.cpp" line="63"/>
+        <location filename="../mainwindow.cpp" line="55"/>
+        <location filename="../mainwindow.cpp" line="65"/>
         <source>Center</source>
         <translation>По центру</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="54"/>
+        <location filename="../mainwindow.cpp" line="56"/>
         <source>Right</source>
         <translation>Управо</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="55"/>
+        <location filename="../mainwindow.cpp" line="57"/>
         <source>Justify</source>
         <translation>Вирівняти по ширині</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="62"/>
+        <location filename="../mainwindow.cpp" line="64"/>
         <source>Top</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="64"/>
+        <location filename="../mainwindow.cpp" line="66"/>
         <source>Bottom</source>
         <translation type="unfinished"></translation>
     </message>
@@ -634,6 +649,68 @@ Remove it?</source>
     </message>
 </context>
 <context>
+    <name>GraphicsBox</name>
+    <message>
+        <location filename="../Graphics/GraphicsBox.cpp" line="61"/>
+        <source>New Label</source>
+        <translation type="unfinished">Нова мітка</translation>
+    </message>
+    <message>
+        <location filename="../Graphics/GraphicsBox.cpp" line="590"/>
+        <location filename="../Graphics/GraphicsBox.cpp" line="616"/>
+        <source>Total</source>
+        <translation type="unfinished">Разом</translation>
+    </message>
+    <message>
+        <location filename="../Graphics/GraphicsBox.cpp" line="926"/>
+        <source>New image</source>
+        <translation type="unfinished">Нова картинка</translation>
+    </message>
+    <message>
+        <location filename="../Graphics/GraphicsBox.cpp" line="932"/>
+        <source>New diagram</source>
+        <translation type="unfinished">Нова діаграма</translation>
+    </message>
+    <message>
+        <location filename="../Graphics/GraphicsBox.cpp" line="1008"/>
+        <source>Edit</source>
+        <translation type="unfinished">Редагувати</translation>
+    </message>
+    <message>
+        <location filename="../Graphics/GraphicsBox.cpp" line="1012"/>
+        <source>Delete</source>
+        <translation type="unfinished">Видалити</translation>
+    </message>
+    <message>
+        <location filename="../Graphics/GraphicsBox.cpp" line="1018"/>
+        <source>Move forward</source>
+        <translation type="unfinished">Перемістити вперед</translation>
+    </message>
+    <message>
+        <location filename="../Graphics/GraphicsBox.cpp" line="1024"/>
+        <source>Move back</source>
+        <translation type="unfinished">Перемістити назад</translation>
+    </message>
+</context>
+<context>
+    <name>GraphicsLine</name>
+    <message>
+        <location filename="../Graphics/GraphicsLine.cpp" line="432"/>
+        <source>Delete</source>
+        <translation type="unfinished">Видалити</translation>
+    </message>
+    <message>
+        <location filename="../Graphics/GraphicsLine.cpp" line="438"/>
+        <source>Move forward</source>
+        <translation type="unfinished">Перемістити вперед</translation>
+    </message>
+    <message>
+        <location filename="../Graphics/GraphicsLine.cpp" line="444"/>
+        <source>Move back</source>
+        <translation type="unfinished">Перемістити назад</translation>
+    </message>
+</context>
+<context>
     <name>ItemPropertyDlg</name>
     <message>
         <location filename="../SQLDiagram/ItemPropertyDlg.ui" line="14"/>
@@ -691,8 +768,8 @@ Remove it?</source>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="152"/>
-        <location filename="../mainwindow.cpp" line="2112"/>
-        <location filename="../mainwindow.cpp" line="2275"/>
+        <location filename="../mainwindow.cpp" line="2080"/>
+        <location filename="../mainwindow.cpp" line="2240"/>
         <source>Name</source>
         <translation>Ім&apos;я</translation>
     </message>
@@ -708,7 +785,7 @@ Remove it?</source>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
-        <location filename="../mainwindow.cpp" line="307"/>
+        <location filename="../mainwindow.cpp" line="311"/>
         <source>Report</source>
         <translation>Звіт</translation>
     </message>
@@ -780,28 +857,28 @@ Remove it?</source>
     <message>
         <location filename="../mainwindow.ui" line="430"/>
         <location filename="../mainwindow.ui" line="433"/>
-        <location filename="../mainwindow.cpp" line="2137"/>
+        <location filename="../mainwindow.cpp" line="2105"/>
         <source>Justify</source>
         <translation>Вирівняти по ширині</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="445"/>
         <location filename="../mainwindow.ui" line="448"/>
-        <location filename="../mainwindow.cpp" line="2297"/>
+        <location filename="../mainwindow.cpp" line="2261"/>
         <source>Bold</source>
         <translation>Жирний</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="460"/>
         <location filename="../mainwindow.ui" line="463"/>
-        <location filename="../mainwindow.cpp" line="2307"/>
+        <location filename="../mainwindow.cpp" line="2271"/>
         <source>Italic</source>
         <translation>Курсив</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="475"/>
         <location filename="../mainwindow.ui" line="478"/>
-        <location filename="../mainwindow.cpp" line="2317"/>
+        <location filename="../mainwindow.cpp" line="2281"/>
         <source>Underline</source>
         <translation>Підкреслений</translation>
     </message>
@@ -1069,7 +1146,7 @@ Remove it?</source>
     <message>
         <location filename="../mainwindow.ui" line="997"/>
         <location filename="../mainwindow.ui" line="1000"/>
-        <location filename="../mainwindow.cpp" line="2327"/>
+        <location filename="../mainwindow.cpp" line="2291"/>
         <source>Strikeout</source>
         <translation>Перекреслений</translation>
     </message>
@@ -1174,362 +1251,347 @@ Remove it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="275"/>
+        <location filename="../mainwindow.cpp" line="280"/>
         <source>Frame width</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="417"/>
+        <location filename="../mainwindow.cpp" line="420"/>
         <source>Report Title</source>
         <translation>Заголовок звіту</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="423"/>
+        <location filename="../mainwindow.cpp" line="426"/>
         <source>Report Summary</source>
         <translation>Підсумок звіту</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="429"/>
+        <location filename="../mainwindow.cpp" line="432"/>
         <source>Page Header</source>
         <translation>Заголовок сторінки</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="435"/>
+        <location filename="../mainwindow.cpp" line="438"/>
         <source>Page Footer</source>
         <translation>Підвал сторінки</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="441"/>
+        <location filename="../mainwindow.cpp" line="444"/>
         <source>Master Data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="467"/>
-        <location filename="../mainwindow.cpp" line="2511"/>
+        <location filename="../mainwindow.cpp" line="470"/>
         <source>Master Footer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="461"/>
-        <location filename="../mainwindow.cpp" line="2515"/>
+        <location filename="../mainwindow.cpp" line="464"/>
         <source>Master Header</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="233"/>
+        <location filename="../mainwindow.cpp" line="238"/>
         <source>Font name</source>
         <translation>Ім&apos;я шрифту</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="236"/>
+        <location filename="../mainwindow.cpp" line="241"/>
         <source>Font size</source>
         <translation>Розмір шрфіту</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="261"/>
+        <location filename="../mainwindow.cpp" line="266"/>
         <source>Zoom</source>
         <translation>Масштабування</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="447"/>
+        <location filename="../mainwindow.cpp" line="450"/>
         <source>Data Grouping Header</source>
         <translation>Заголовок групи даних</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="454"/>
+        <location filename="../mainwindow.cpp" line="457"/>
         <source>Data Grouping Footer</source>
         <translation>Підвал групи даних</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="499"/>
+        <location filename="../mainwindow.cpp" line="495"/>
         <source>Line</source>
         <translation>Лінія</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="505"/>
+        <location filename="../mainwindow.cpp" line="501"/>
         <source>Line with arrow at the end</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="511"/>
+        <location filename="../mainwindow.cpp" line="507"/>
         <source>Line with arrow at the start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="517"/>
+        <location filename="../mainwindow.cpp" line="513"/>
         <source>Line with arrows at both side</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="523"/>
+        <location filename="../mainwindow.cpp" line="519"/>
         <source>Rectangle</source>
         <translation>Прямокутник</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="529"/>
+        <location filename="../mainwindow.cpp" line="525"/>
         <source>Rounded rectangle</source>
         <translation>Прямокутник, що закругляється</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="535"/>
+        <location filename="../mainwindow.cpp" line="531"/>
         <source>Ellipse</source>
         <translation>Еліпс</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="541"/>
+        <location filename="../mainwindow.cpp" line="537"/>
         <source>Triangle</source>
         <translation>Трикутник</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="547"/>
+        <location filename="../mainwindow.cpp" line="543"/>
         <source>Rhombus</source>
         <translation>Ромб</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="646"/>
+        <location filename="../mainwindow.cpp" line="645"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="803"/>
-        <location filename="../mainwindow.cpp" line="1054"/>
+        <location filename="../mainwindow.cpp" line="813"/>
+        <location filename="../mainwindow.cpp" line="1081"/>
         <source>Page %1</source>
         <translation>Сторінка %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="983"/>
-        <location filename="../mainwindow.cpp" line="995"/>
-        <location filename="../mainwindow.cpp" line="1830"/>
-        <location filename="../mainwindow.cpp" line="2643"/>
+        <location filename="../mainwindow.cpp" line="1008"/>
+        <location filename="../mainwindow.cpp" line="1020"/>
+        <location filename="../mainwindow.cpp" line="1772"/>
+        <location filename="../mainwindow.cpp" line="2601"/>
         <source>Saving</source>
         <translation>Збереження</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="983"/>
-        <location filename="../mainwindow.cpp" line="995"/>
-        <location filename="../mainwindow.cpp" line="1830"/>
-        <location filename="../mainwindow.cpp" line="2643"/>
+        <location filename="../mainwindow.cpp" line="1008"/>
+        <location filename="../mainwindow.cpp" line="1020"/>
+        <location filename="../mainwindow.cpp" line="1772"/>
+        <location filename="../mainwindow.cpp" line="2601"/>
         <source>The report was changed.
 Save the report?</source>
         <translation>Звіт був змінений. Зберегти звіт?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1010"/>
+        <location filename="../mainwindow.cpp" line="1035"/>
         <source>Select File</source>
         <translation>Вибір файлу</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1338"/>
+        <location filename="../mainwindow.cpp" line="1262"/>
         <source>Going to make undo: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1346"/>
+        <location filename="../mainwindow.cpp" line="1269"/>
         <source>Going to make redo: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1528"/>
+        <location filename="../mainwindow.cpp" line="1453"/>
         <source>Save File</source>
         <translation>Зберегти файл</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1528"/>
+        <location filename="../mainwindow.cpp" line="1453"/>
         <source>XML Files (*.xml)</source>
         <translation>XML Файли (*.xml)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1542"/>
-        <location filename="../mainwindow.cpp" line="2788"/>
+        <location filename="../mainwindow.cpp" line="1467"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1757"/>
+        <location filename="../mainwindow.cpp" line="1694"/>
         <source>Font</source>
         <translation>Шрифт</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1765"/>
+        <location filename="../mainwindow.cpp" line="1702"/>
         <source>Frame</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2118"/>
+        <location filename="../mainwindow.cpp" line="2086"/>
         <source>Aligment hor</source>
         <translation>Вирівнюванняпо  гір</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2122"/>
-        <location filename="../mainwindow.cpp" line="2182"/>
-        <location filename="../mainwindow.cpp" line="2211"/>
+        <location filename="../mainwindow.cpp" line="2090"/>
+        <location filename="../mainwindow.cpp" line="2149"/>
+        <location filename="../mainwindow.cpp" line="2176"/>
         <source>Left</source>
         <translation>Вліво</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2127"/>
-        <location filename="../mainwindow.cpp" line="2155"/>
+        <location filename="../mainwindow.cpp" line="2095"/>
+        <location filename="../mainwindow.cpp" line="2123"/>
         <source>Center</source>
         <translation>По центру</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2132"/>
-        <location filename="../mainwindow.cpp" line="2221"/>
+        <location filename="../mainwindow.cpp" line="2100"/>
+        <location filename="../mainwindow.cpp" line="2186"/>
         <source>Right</source>
         <translation>Управо</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2146"/>
+        <location filename="../mainwindow.cpp" line="2114"/>
         <source>Aligment ver</source>
         <translation>Вирівнювання по вір</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2150"/>
-        <location filename="../mainwindow.cpp" line="2195"/>
-        <location filename="../mainwindow.cpp" line="2231"/>
+        <location filename="../mainwindow.cpp" line="2118"/>
+        <location filename="../mainwindow.cpp" line="2161"/>
+        <location filename="../mainwindow.cpp" line="2196"/>
         <source>Top</source>
         <translation>Верх</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2160"/>
-        <location filename="../mainwindow.cpp" line="2241"/>
+        <location filename="../mainwindow.cpp" line="2128"/>
+        <location filename="../mainwindow.cpp" line="2206"/>
         <source>Bottom</source>
         <translation>Вниз</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2169"/>
+        <location filename="../mainwindow.cpp" line="2137"/>
         <source>Height</source>
         <translation>Висота</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2176"/>
+        <location filename="../mainwindow.cpp" line="2143"/>
         <source>Width</source>
         <translation>Ширіна</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2189"/>
+        <location filename="../mainwindow.cpp" line="2155"/>
         <source>Length</source>
         <translation>Довжина</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2265"/>
+        <location filename="../mainwindow.cpp" line="2230"/>
         <source>FrameWidth</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2285"/>
+        <location filename="../mainwindow.cpp" line="2250"/>
         <source>Size</source>
         <translation>Розмір</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2334"/>
+        <location filename="../mainwindow.cpp" line="2298"/>
         <source>Printing</source>
         <translation>Друк</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2340"/>
+        <location filename="../mainwindow.cpp" line="2304"/>
         <source>Start New Numeration</source>
         <translation>Починати нову нумерацію</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2346"/>
+        <location filename="../mainwindow.cpp" line="2310"/>
         <source>Show In Group</source>
         <translation>Показувати в групі</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2352"/>
+        <location filename="../mainwindow.cpp" line="2316"/>
         <source>Start New Page</source>
         <translation>Починати нову сторінку</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2358"/>
+        <location filename="../mainwindow.cpp" line="2322"/>
         <source>AutoHeight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2364"/>
+        <location filename="../mainwindow.cpp" line="2328"/>
         <source>IgnoreRatioAspect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2370"/>
+        <location filename="../mainwindow.cpp" line="2334"/>
         <source>ArrowStart</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2376"/>
+        <location filename="../mainwindow.cpp" line="2340"/>
         <source>ArrowEnd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2382"/>
+        <location filename="../mainwindow.cpp" line="2346"/>
         <source>TextWrap</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2388"/>
+        <location filename="../mainwindow.cpp" line="2352"/>
         <source>BackgroundColor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2394"/>
+        <location filename="../mainwindow.cpp" line="2358"/>
         <source>BorderColor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2403"/>
+        <location filename="../mainwindow.cpp" line="2367"/>
         <source>FontColor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2409"/>
+        <location filename="../mainwindow.cpp" line="2373"/>
         <source>BarcodeType</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2415"/>
+        <location filename="../mainwindow.cpp" line="2379"/>
         <source>BarcodeFrameType</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2491"/>
         <source>Report title</source>
-        <translation>Заголовок звіту</translation>
+        <translation type="vanished">Заголовок звіту</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2495"/>
         <source>Report summary</source>
-        <translation>Підсумок звіту</translation>
+        <translation type="vanished">Підсумок звіту</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2499"/>
         <source>Page header</source>
-        <translation>Заголовок сторінки</translation>
+        <translation type="vanished">Заголовок сторінки</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2503"/>
         <source>Page footer</source>
-        <translation>Підвал сторінки</translation>
+        <translation type="vanished">Підвал сторінки</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2507"/>
-        <source>Master data</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="2519"/>
         <source>Data Group Header</source>
-        <translation>Заголовок угрупування даних</translation>
+        <translation type="vanished">Заголовок угрупування даних</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2523"/>
         <source>Data Group Footer</source>
-        <translation>Підвал угрупування даних</translation>
+        <translation type="vanished">Підвал угрупування даних</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2788"/>
         <source>This object %1 can&apos;t be a parent for %2</source>
-        <translation>Цей об&apos;єкт %1 не може бути батьком для %2</translation>
+        <translation type="vanished">Цей об&apos;єкт %1 не може бути батьком для %2</translation>
     </message>
 </context>
 <context>
@@ -1686,29 +1748,84 @@ Save the report?</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../UndoCommands.cpp" line="44"/>
-        <source>Changing Container&apos;s geometry</source>
+        <location filename="../Graphics/UndoRedoCommands.cpp" line="30"/>
+        <source>Moving box</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../UndoCommands.cpp" line="102"/>
-        <source>Adding Container</source>
+        <location filename="../Graphics/UndoRedoCommands.cpp" line="53"/>
+        <source>Moving line</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../UndoCommands.cpp" line="167"/>
-        <source>Deleting Container</source>
+        <location filename="../Graphics/UndoRedoCommands.cpp" line="93"/>
+        <source>Delete</source>
+        <translation type="unfinished">Видалити</translation>
+    </message>
+    <message>
+        <location filename="../Graphics/UndoRedoCommands.cpp" line="131"/>
+        <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../UndoCommands.cpp" line="209"/>
+        <location filename="../Graphics/UndoRedoCommands.cpp" line="163"/>
         <source>Changing Container&apos;s parameters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../QtRPT/RptCrossTabObject.cpp" line="38"/>
+        <location filename="../../QtRPT/RptCrossTabObject.cpp" line="36"/>
         <source>Total</source>
         <translation type="unfinished">Разом</translation>
+    </message>
+    <message>
+        <location filename="../../QtRPT/RptCrossTabObject.cpp" line="265"/>
+        <source>R-Total</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="44"/>
+        <source>Report title</source>
+        <translation type="unfinished">Заголовок звіту</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="49"/>
+        <source>Report summary</source>
+        <translation type="unfinished">Підсумок звіту</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="54"/>
+        <source>Page header</source>
+        <translation type="unfinished">Заголовок сторінки</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="59"/>
+        <source>Page footer</source>
+        <translation type="unfinished">Підвал сторінки</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="64"/>
+        <source>Master band</source>
+        <translation type="unfinished">Основний бенд</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="69"/>
+        <source>Master footer</source>
+        <translation type="unfinished">Підвал даних</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="74"/>
+        <source>Master header</source>
+        <translation type="unfinished">Заголовок даних</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="79"/>
+        <source>Data Group Header</source>
+        <translation type="unfinished">Заголовок угрупування даних</translation>
+    </message>
+    <message>
+        <location filename="../ReportBand.cpp" line="84"/>
+        <source>Data Group Footer</source>
+        <translation type="unfinished">Підвал угрупування даних</translation>
     </message>
 </context>
 <context>
@@ -1773,92 +1890,91 @@ Save the report?</source>
 <context>
     <name>QtRPT</name>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1517"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1515"/>
         <source>Save as PDF</source>
         <translation>Зберегти як PDF</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1522"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1520"/>
         <source>Save as HTML</source>
         <translation>Зберегти як HTML</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1528"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1526"/>
         <source>Save as XLSX</source>
         <translation>Зберегти як XLSX</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1549"/>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1554"/>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1559"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1547"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1552"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1557"/>
         <source>Save File</source>
         <translation>Зберегти файл</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1549"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1547"/>
         <source>PDF Files (*.pdf)</source>
         <translation>PFD файли</translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1554"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1552"/>
         <source>HTML Files (*.html)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../QtRPT/qtrpt.cpp" line="1559"/>
+        <location filename="../../QtRPT/qtrpt.cpp" line="1557"/>
         <source>XLSX Files (*.xlsx)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RepScrollArea</name>
+    <message>
+        <location filename="../RepScrollArea.cpp" line="114"/>
+        <source>%</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ReportBand</name>
     <message>
-        <location filename="../ReportBand.cpp" line="65"/>
         <source>Report title</source>
-        <translation>Заголовок звіту</translation>
+        <translation type="vanished">Заголовок звіту</translation>
     </message>
     <message>
-        <location filename="../ReportBand.cpp" line="71"/>
         <source>Report summary</source>
-        <translation>Підсумок звіту</translation>
+        <translation type="vanished">Підсумок звіту</translation>
     </message>
     <message>
-        <location filename="../ReportBand.cpp" line="77"/>
         <source>Page header</source>
-        <translation>Заголовок сторінки</translation>
+        <translation type="vanished">Заголовок сторінки</translation>
     </message>
     <message>
-        <location filename="../ReportBand.cpp" line="83"/>
         <source>Page footer</source>
-        <translation>Підвал сторінки</translation>
+        <translation type="vanished">Підвал сторінки</translation>
     </message>
     <message>
-        <location filename="../ReportBand.cpp" line="89"/>
         <source>Master band</source>
-        <translation>Основний бенд</translation>
+        <translation type="vanished">Основний бенд</translation>
     </message>
     <message>
-        <location filename="../ReportBand.cpp" line="96"/>
         <source>Master footer</source>
-        <translation>Підвал даних</translation>
+        <translation type="vanished">Підвал даних</translation>
     </message>
     <message>
-        <location filename="../ReportBand.cpp" line="102"/>
         <source>Master header</source>
-        <translation>Заголовок даних</translation>
+        <translation type="vanished">Заголовок даних</translation>
     </message>
     <message>
-        <location filename="../ReportBand.cpp" line="108"/>
         <source>Data Group Header</source>
-        <translation>Заголовок угрупування даних</translation>
+        <translation type="vanished">Заголовок угрупування даних</translation>
     </message>
     <message>
-        <location filename="../ReportBand.cpp" line="114"/>
         <source>Data Group Footer</source>
-        <translation>Підвал угрупування даних</translation>
+        <translation type="vanished">Підвал угрупування даних</translation>
     </message>
     <message>
-        <location filename="../ReportBand.cpp" line="133"/>
+        <location filename="../ReportBand.cpp" line="91"/>
         <source>Delete</source>
         <translation>Видалити</translation>
     </message>
@@ -1967,6 +2083,11 @@ Save the report?</source>
     </message>
     <message>
         <location filename="../SettingDlg.ui" line="176"/>
+        <source>Tamil தமிழ்</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../SettingDlg.ui" line="181"/>
         <source>Ukraine Український</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1981,27 +2102,27 @@ Save the report?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingDlg.ui" line="189"/>
+        <location filename="../SettingDlg.ui" line="194"/>
         <source>Check updates during start application</source>
         <translation>Перевіряти оновлення під час старту програми</translation>
     </message>
     <message>
-        <location filename="../SettingDlg.ui" line="211"/>
+        <location filename="../SettingDlg.ui" line="216"/>
         <source>Save</source>
         <translation>Зберегти</translation>
     </message>
     <message>
-        <location filename="../SettingDlg.ui" line="218"/>
+        <location filename="../SettingDlg.ui" line="223"/>
         <source>Cancel</source>
         <translation>Відміна</translation>
     </message>
     <message>
-        <location filename="../SettingDlg.cpp" line="149"/>
+        <location filename="../SettingDlg.cpp" line="155"/>
         <source>Message QtRptDesigner</source>
         <translation>Повідомлення QtRptDesigner</translation>
     </message>
     <message>
-        <location filename="../SettingDlg.cpp" line="149"/>
+        <location filename="../SettingDlg.cpp" line="155"/>
         <source>The language for this application has been changed.
 The change will take effect the next time the application is started.
 Restart application?</source>
@@ -2175,22 +2296,22 @@ Restart application?</source>
         <translation>Закрити</translation>
     </message>
     <message>
-        <location filename="../SqlDesigner.cpp" line="114"/>
+        <location filename="../SqlDesigner.cpp" line="85"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../SqlDesigner.cpp" line="117"/>
+        <location filename="../SqlDesigner.cpp" line="88"/>
         <source>Info</source>
         <translation>Інфо</translation>
     </message>
     <message>
-        <location filename="../SqlDesigner.cpp" line="117"/>
+        <location filename="../SqlDesigner.cpp" line="88"/>
         <source>Connected</source>
         <translation>Підключено</translation>
     </message>
     <message>
-        <location filename="../SqlDesigner.cpp" line="161"/>
+        <location filename="../SqlDesigner.cpp" line="156"/>
         <source>Select File</source>
         <translation>Вибір файлу</translation>
     </message>
@@ -2198,53 +2319,43 @@ Restart application?</source>
 <context>
     <name>TContainerField</name>
     <message>
-        <location filename="../TContainerField.cpp" line="28"/>
         <source>New Label</source>
-        <translation>Нова мітка</translation>
+        <translation type="vanished">Нова мітка</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="73"/>
         <source>Edit</source>
-        <translation>Редагувати</translation>
+        <translation type="vanished">Редагувати</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="77"/>
         <source>Delete</source>
-        <translation>Видалити</translation>
+        <translation type="vanished">Видалити</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="84"/>
         <source>Move forward</source>
-        <translation>Перемістити вперед</translation>
+        <translation type="vanished">Перемістити вперед</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="90"/>
         <source>Move back</source>
-        <translation>Перемістити назад</translation>
+        <translation type="vanished">Перемістити назад</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="284"/>
         <source>New image</source>
-        <translation>Нова картинка</translation>
+        <translation type="vanished">Нова картинка</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="291"/>
         <source>New diagram</source>
-        <translation>Нова діаграма</translation>
+        <translation type="vanished">Нова діаграма</translation>
     </message>
     <message>
-        <location filename="../TContainerField.cpp" line="675"/>
-        <location filename="../TContainerField.cpp" line="696"/>
         <source>Total</source>
-        <translation>Разом</translation>
+        <translation type="vanished">Разом</translation>
     </message>
 </context>
 <context>
     <name>TContainerLine</name>
     <message>
-        <location filename="../TContainerLine.cpp" line="243"/>
         <source>Delete</source>
-        <translation>Видалити</translation>
+        <translation type="vanished">Видалити</translation>
     </message>
 </context>
 <context>

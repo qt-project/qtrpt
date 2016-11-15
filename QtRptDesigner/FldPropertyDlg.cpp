@@ -1,12 +1,12 @@
 /*
 Name: QtRpt
-Version: 1.5.5
+Version: 2.0.0
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
 Web-site: http://www.aliks-os.tk
 
-Copyright 2012-2015 Aleksey Osipov
+Copyright 2012-2016 Aleksey Osipov
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ FldPropertyDlg::FldPropertyDlg(QWidget *parent) : QDialog(parent), ui(new Ui::Fl
     ui->setupUi(this);
 }
 
-QString FldPropertyDlg::showThis(int index, QWidget *widget, QString value) {
+QString FldPropertyDlg::showThis(int index, GraphicsBox *widget, QString value) {
     QIcon iconFolder(QPixmap(QString::fromUtf8(":/new/prefix1/images/folder.png")));
     QIcon iconVariable(QPixmap(QString::fromUtf8(":/new/prefix1/images/variable.png")));
     QIcon iconFunction(QPixmap(QString::fromUtf8(":/new/prefix1/images/function1.png")));
@@ -223,7 +223,7 @@ QString FldPropertyDlg::showThis(int index, QWidget *widget, QString value) {
         }
         case 1: {
             this->setWindowTitle("Data Group property");
-            ReportBand *band = qobject_cast<ReportBand *>(widget);
+            ReportBand *band = static_cast<ReportBand *>(widget);
             ui->edtFiledGrouping->setText(band->getGroupingField());
             ui->chkStartLineNum->setChecked(band->getStartNewNumertaion());
             ui->chkStartNewPage->setChecked(band->getStartNewPage());
@@ -269,7 +269,7 @@ QString FldPropertyDlg::showThis(int index, QWidget *widget, QString value) {
                 break;
             }
             case 1: {
-                ReportBand *band = qobject_cast<ReportBand *>(widget);
+                ReportBand *band = static_cast<ReportBand *>(widget);
                 band->setGroupingField(ui->edtFiledGrouping->text());
                 band->setStartNewNumeration(ui->chkStartLineNum->checkState());
                 band->setStartNewPage(ui->chkStartNewPage->checkState());

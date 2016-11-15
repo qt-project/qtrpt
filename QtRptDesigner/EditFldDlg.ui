@@ -32,7 +32,7 @@
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>5</number>
      </property>
      <widget class="QWidget" name="page">
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -524,8 +524,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>98</width>
-            <height>28</height>
+            <width>509</width>
+            <height>311</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -981,14 +981,14 @@
           <item>
            <widget class="QCheckBox" name="chkRowTotal">
             <property name="text">
-             <string>Show row total</string>
+             <string>Show column Total by row</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="chkColTotal">
             <property name="text">
-             <string>Show column total</string>
+             <string>Show row Total by column</string>
             </property>
            </widget>
           </item>

@@ -1,11 +1,11 @@
 /*
 Name: QtRpt
-Version: 1.5.5
+Version: 2.0.0
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
-2012-2015
+2012-2016
 
-Copyright 2012-2015 Aleksey Osipov
+Copyright 2012-2016 Aleksey Osipov
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

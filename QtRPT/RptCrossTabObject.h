@@ -1,12 +1,12 @@
 /*
 Name: QtRpt
-Version: 1.5.5
+Version: 2.0.0
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
 Web-site: http://www.aliks-os.tk
 
-Copyright 2012-2015 Aleksey Osipov
+Copyright 2012-2016 Aleksey Osipov
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -61,8 +61,6 @@ public:
     bool isRowTotalVisible() const {return rowTotalVisible;}
     void setColTotalVisible(bool value);
     void setRowTotalVisible(bool value);
-    void setColTotalExists(bool value);
-    void setRowTotalExists(bool value);
 
     void addCol(QString colName);
     void addRow(QString rowName);
@@ -74,8 +72,6 @@ public:
     int rowCount() const;  //including Total if it visible
     int colDataCount() const;  //pure col count (without header and total)
     int rowDataCount() const;  //pure row count (without header and total)
-    int allColCount() const;
-    int allRowCount() const;
 
     void clear();
     void initMatrix();

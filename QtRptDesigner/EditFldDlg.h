@@ -1,12 +1,12 @@
 /*
 Name: QtRpt
-Version: 1.5.5
+Version: 2.0.0
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
 Web-site: http://www.aliks-os.tk
 
-Copyright 2012-2015 Aleksey Osipov
+Copyright 2012-2016 Aleksey Osipov
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -27,16 +27,12 @@ limitations under the License.
 #include <QDialog>
 #include <QTextCharFormat>
 #include "FldPropertyDlg.h"
-#include "TContainerField.h"
 #include "selectcolor.h"
 #include "Barcode.h"
 
 namespace Ui {
     class EditFldDlg;
 }
-
-class TContainerField;
-
 
 class EditFldDlg : public QDialog
 {
@@ -45,19 +41,19 @@ class EditFldDlg : public QDialog
 public:
     explicit EditFldDlg(QWidget *parent = 0);
     ~EditFldDlg();
-    int showText(TContainerField *cont);
-    int showTextRich(TContainerField *cont);
-    int showImage(TContainerField *cont);
-    int showDiagram(TContainerField *cont);
-    int showBarcode(TContainerField *cont);
-    int showCrosstab(TContainerField *cont);
+    int showText(QGraphicsItem *gItem);
+    int showTextRich(QGraphicsItem *gItem);
+    int showImage(QGraphicsItem *gItem);
+    int showDiagram(QGraphicsItem *gItem);
+    int showBarcode(QGraphicsItem *gItem);
+    int showCrosstab(QGraphicsItem *gItem);
 
 protected:
 
 private:
     Ui::EditFldDlg *ui;
     bool boolImage;  //Proccess TextFiled as a Image
-    TContainerField *m_cont;
+    GraphicsBox *m_cont;
     QString m_cond_printing;
     QString m_cond_higlighting;
     QString m_imgFormat;

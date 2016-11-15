@@ -1,11 +1,11 @@
 /*
 Name: QtRpt
-Version: 1.5.5
+Version: 2.0.0
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
-2012-2015
+2012-2016
 
-Copyright 2012-2015 Aleksey Osipov
+Copyright 2012-2016 Aleksey Osipov
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -97,7 +97,7 @@ void MainWindow::showReport() {
         if (report->loadReport(fileName) == false) {
             qDebug()<<"Report file not found";
         }
-        report->printPDF(dir.absolutePath()+"./example9.pdf",true);
+        report->printPDF(dir.absolutePath()+"/example9.pdf",true);
     } else if (ui->rBtn16->isChecked()) {
         QString fileName = dir.absolutePath()+"/examples_report/example16.xml";
         QtRPT *report = new QtRPT(this);

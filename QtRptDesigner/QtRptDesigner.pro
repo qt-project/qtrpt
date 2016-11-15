@@ -12,11 +12,12 @@ greaterThan(QT_MAJOR_VERSION, 4){
 }
 
 TARGET = QtRptDesigner
-VERSION = 1.5.5
+VERSION = 2.0.0
 DEFINES += VERSION=\\\"$$VERSION\\\"
 TEMPLATE = app
 
 include(../CommonFiles/CommonFiles_QtRptDesigner.pri)
+include(Graphics/Graphics.pri)
 include(../QtRPT/QtRPT.pri)
 include(SQLDiagram/SQLDiagram.pri)
 
@@ -26,33 +27,25 @@ SOURCES += main.cpp\
     mainwindow.cpp \
     PageSettingDlg.cpp \
     ReportBand.cpp \
-    RptContainer.cpp \
     EditFldDlg.cpp \
     aboutDlg.cpp \
     FldPropertyDlg.cpp \
     RepScrollArea.cpp \
     SettingDlg.cpp \
-    overlay.cpp \
     SqlDesigner.cpp \
-    TContainerLine.cpp \
-    TContainerField.cpp \
-    UndoCommands.cpp \
+#    TContainerField.cpp \
     XmlViewModel.cpp
 
 HEADERS  += mainwindow.h \
     PageSettingDlg.h \
     ReportBand.h \
-    RptContainer.h \
     EditFldDlg.h \
     aboutDlg.h \
     FldPropertyDlg.h \
     RepScrollArea.h \
     SettingDlg.h \
-    overlay.h \
     SqlDesigner.h \
-    TContainerLine.h \
-    TContainerField.h \
-    UndoCommands.h \
+#    TContainerField.h \
     XmlViewModel.h
 
 FORMS    += mainwindow.ui \

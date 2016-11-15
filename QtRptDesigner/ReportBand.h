@@ -1,12 +1,12 @@
 /*
 Name: QtRpt
-Version: 1.5.5
+Version: 2.0.0
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
 Web-site: http://www.aliks-os.tk
 
-Copyright 2012-2015 Aleksey Osipov
+Copyright 2012-2016 Aleksey Osipov
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -24,34 +24,21 @@ limitations under the License.
 #ifndef REPORTBAND_H
 #define REPORTBAND_H
 
-#include <QWidget>
-#include <QObject>
-#include <QMouseEvent>
 #include <QTreeWidgetItem>
-#include <XYZ_Label.h>
-#include "TContainerField.h"
-#include "TContainerLine.h"
+#include "GraphicsLine.h"
+#include "GraphicsBox.h"
 
-namespace Ui {
-    class ReportBand;
-}
-
-class ReportBand : public QWidget
+class ReportBand : public GraphicsBox
 {
-    Q_OBJECT
     
 public:
     BandType bandType;
     int titleHeight;
-    QTreeWidgetItem *itemInTree;
-    explicit ReportBand(QWidget *parent = 0, BandType type = ReportTitle, QTreeWidgetItem *item = 0);
-
-    QWidget *contWidget;
-    TContainerLine *newContLine;
-    void newFieldTreeItem(QObject *widget);
+    explicit ReportBand(BandType type = ReportTitle);
+    int type() const Q_DECL_OVERRIDE { return ItemType::GBand; }
     void setMenu(QMenu *menu_);
     qreal scale;
-    void setTitleHeight(int h);
+    void setHeight(qreal value);
     QString getGroupingField();
     void setGroupingField(QString value);
     int getStartNewNumertaion();
@@ -60,34 +47,19 @@ public:
     void setShowInGroup(bool value);
     bool getStartNewPage();
     void setStartNewPage(bool value);
-    ~ReportBand();
 
 private:
-    int mode;
     bool m_infocus;
-    void setCursorShape(const QPoint &e_pos);
     QString m_groupingField;
     bool m_startNewNumeration;
     bool m_showInGroup;
     bool m_startNewPage;
-    Ui::ReportBand *ui;
 
-signals:
-    void inFocus(bool mode);
-    void endResizing(QRect rect);
-    void delBand(QTreeWidgetItem *);
 
 protected:
     QPoint position;
     QPointF mousePos;
-    bool eventFilter( QObject *obj, QEvent *evt );
-    void resizeEvent (QResizeEvent *event);
-    void focusInEvent(QFocusEvent *);
-    void focusOutEvent(QFocusEvent *);
-    void mousePressEvent(QMouseEvent *);
-    void mouseReleaseEvent(QMouseEvent *);
-    void mouseMoveEvent(QMouseEvent *);
-    void keyPressEvent(QKeyEvent *);
+
 };
 
 #endif // REPORTBAND_H

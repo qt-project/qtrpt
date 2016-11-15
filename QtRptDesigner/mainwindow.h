@@ -1,12 +1,12 @@
 /*
 Name: QtRpt
-Version: 1.5.5
+Version: 2.0.0
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
 Web-site: http://www.aliks-os.tk
 
-Copyright 2012-2015 Aleksey Osipov
+Copyright 2012-2016 Aleksey Osipov
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -39,8 +39,9 @@ limitations under the License.
 #include "SettingDlg.h"
 #include <XYZ_DownloadManager.h>
 #include "SqlDesigner.h"
-#include "TContainerLine.h"
-#include "UndoCommands.h"
+#include "GraphicsBox.h"
+#include <QGraphicsItem>
+#include <QPointer>
 
 namespace Ui {
     class MainWindow;
@@ -80,9 +81,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    void setContainerConnections(RptContainer *cont);
-    QUndoStack *m_undoStack;
-    QWidget *widgetInFocus;
+    void setReportChanged();
 
 protected:
     bool eventFilter(QObject *obj, QEvent *e);
@@ -91,21 +90,21 @@ protected:
 private:
     Ui::MainWindow *ui;
     QListWidget *listFrameStyle;
-    QDomDocument *xmlDoc;    
-    QTreeWidgetItem *rootItem;    
-    RptContainer *m_newContainer;
-    RptContainer *cloneCont;
-    RptContainerList *cloneContList;
-    RptContainerList *newContList;
+    QDomDocument *xmlDoc;
+    QTreeWidgetItem *rootItem;
+    QList<QGraphicsItem*> *cloneContList;
     QFontComboBox *cbFontName;
     QComboBox *cbZoom;
     QComboBox *cbFontSize;
     QComboBox *cbFrameWidth;
-    bool newContMoving;
+    bool pasteCopy;
     QIcon icon;
     QString fileName;
     QMenu *contMenu;
     QMenu *bandMenu;
+    QLabel *m_status1;
+    QLabel *m_status2;
+    QLabel *m_status3;
 
     QAction *actRepTitle;
     QAction *actReportSummary;
@@ -123,22 +122,23 @@ private:
     enum { MaxRecentFiles = 5 };
     QAction *recentFileActs[MaxRecentFiles];
 
-    bool setXMLProperty(QDomElement *repElem, QWidget *widget);
+    QGraphicsItem *selectedGItem();
+    GraphicsHelperClass *gItemToHelper(QGraphicsItem *item);
+    bool setXMLProperty(QDomElement *repElem, void *ptr, int type);
     void selectItemInTree(QTreeWidgetItem *item);
     void showParamState();
     Command getCommand(QObject *obj);
     void execButtonCommand(Command command, QVariant value);
-    void processCommand(Command command, QVariant value, QWidget *widget);
+    void processCommand(Command command, QVariant value, QGraphicsItem *item);
     QTreeWidgetItem *findItemInTree(Command command);
-    void generateName(RptContainer *cont);
+
     void setParamTree(Command command, QVariant value = 0, bool child = false);
     void updateRecentFileActions();
     void setCurrentFile(const QString &fileName);
     QDomElement getDataSourceElement(QDomNode n);
-    void addContainer(RptContainer *container);
-    void shiftToDelta(QRect oldRect, QRect newRect, QObject *sender, bool change);
     void enableAdding();
-    QList<RptContainer *> getSelectedContainer();
+    QGraphicsItemList getSelectedItems();
+    GraphicsHelperList getSelectedHelperItems();
 
 private slots:
     void showAbout();
@@ -156,21 +156,19 @@ private slots:
     void addDiagram();
     void addDraw();
     void addBarcode();
-    void setWidgetInFocus(bool inFocus);
-    void delItemInTree(QTreeWidgetItem *);
-    void selTree(QTreeWidgetItem *item, int);
+    void sceneItemSelectionChanged(QGraphicsItem *item);
+    void delItemInTree(QGraphicsItem *gItem, QTreeWidgetItem *);
+    void selTree(QTreeWidgetItem *tItem, int);
     void itemChanged(QTreeWidgetItem *item, int column);
     void closeEditor();
     void changeTextFont();
-    void contGeomChanging(QRect oldRect, QRect newRect);
-    void contGeomChanged(QRect oldRect, QRect newRect);
     void setGroupingField();
     void clipBoard();
     void chooseColor();
     void showFrameStyle(QPoint pos);
     void setFrameStyle(QListWidgetItem * item);
     void changeFrameWidth();
-    void bandResing(int value);
+    void itemResizing(QGraphicsItem *item);
     void reportPageChanged(int index);
     void newReportPage();
     void deleteReportPage();
@@ -186,7 +184,9 @@ private slots:
     void undo();
     void redo();
     void openReadme();
-    void deleteByUser();
+    void mousePos(QPointF pos);
+    void sceneClick();
+    void generateName(QGraphicsItem *mItem);
 };
 
 MainWindow *getMW();

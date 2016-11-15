@@ -1,12 +1,12 @@
 /*
 Name: QtRpt
-Version: 1.5.5
+Version: 2.0.0
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
 Web-site: http://www.aliks-os.tk
 
-Copyright 2012-2015 Aleksey Osipov
+Copyright 2012-2016 Aleksey Osipov
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ limitations under the License.
 #include <QScrollArea>
 #include "PageSettingDlg.h"
 #include "ReportBand.h"
-#include "overlay.h"
+#include "GraphicsScene.h"
 
 namespace Ui {
     class RepScrollArea;
@@ -44,18 +44,20 @@ public:
     QWidget *repWidget;
     ~RepScrollArea();
     double setPaperSize(qreal scale);
-    void paintGrid();
     bool isShowGrid;
-    ReportBand *m_addBand(QString bandName, BandType type, QMenu *bandMenu, int m_height=0);
+    ReportBand *m_addBand(BandType type, QMenu *bandMenu, int m_height=0);
+    void newFieldTreeItem(QGraphicsItem *item);
     PageSetting pageSetting;
-    void correctBandGeom(QWidget *rep = 0);
+    void correctBandGeom(ReportBand *rep = 0);
     bool allowField();
     void clearReport();
-    QWidgetList getReportItems();
+    QList<QGraphicsItem *> getReportItems();
     QTreeWidgetItem *rootItem;
     QIcon icon;
     qreal getScale();
-    Overlay *overlay;
+    GraphicsScene * scene;
+    void setScale(const QString &scale);
+    QList<ReportBand *> getReportBands();
 
 protected:
     bool eventFilter(QObject *obj, QEvent *e);
@@ -67,13 +69,14 @@ private:
     QWidget *m_mainWindow;
     double koef;
     qreal m_scale;
-    void getKoef();    
+    void getKoef();
 
 public slots:
     void showGrid(bool value);
 
 private slots:
     void bandResing(QRect rect);
+    void vScrolling(int value);
 
 signals:
     void bandResing(int);

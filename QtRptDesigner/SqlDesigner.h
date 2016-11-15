@@ -1,12 +1,12 @@
 /*
 Name: QtRpt
-Version: 1.5.5
+Version: 2.0.0
 Web-site: http://www.qtrpt.tk
 Programmer: Aleksey Osipov
 E-mail: aliks-os@ukr.net
 Web-site: http://www.aliks-os.tk
 
-Copyright 2012-2015 Aleksey Osipov
+Copyright 2012-2016 Aleksey Osipov
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -36,13 +36,24 @@ namespace Ui {
     class SqlDesigner;
 }
 
+struct DocumentSet {
+    DiagramDocument* document;
+    QDomElement element;
+};
+
 class SqlDesigner : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit SqlDesigner(QWidget *parent = 0);
-    void showDataSource(QDomElement e);
+    explicit SqlDesigner(QDomDocument *xmlDoc, QWidget *parent = 0);
+    void showDSData(QDomElement e);
+    void showDSData(int pageNo);
+    DiagramDocument *addDiagramDocument(QDomElement e);
+    void loadDiagramDocument(int pageNo, QDomElement e);
+    void removeDiagramDocument(int pageNo);
+    void setCurrentPage(int pageNo);
+    void clearAll();
     QDomElement saveParamToXML(QDomDocument *xmlDoc);
     ~SqlDesigner();
 
@@ -52,9 +63,14 @@ protected:
 private:
     Ui::SqlDesigner *ui;
     QSqlDatabase db;
-    DiagramDocument *scene = nullptr;
+    DiagramDocument *currentScene = nullptr;
+    QList<DocumentSet> diagramDocumentList;
     void refreshTable(QSqlDatabase *db);
     void newDiagramDocument();
+    DocumentSet newDocumentSet(QDomElement e);
+    QDomElement buildDomElem();
+    int m_currentPageNo;
+    QDomDocument *m_xmlDoc;
 
 private slots:
     void rbChecked();
