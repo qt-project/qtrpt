@@ -38,7 +38,7 @@ GraphicsBox::GraphicsBox():
     _location = QPointF(0,0);
     _dragStart = QPointF(0,0);
     _width = 200;
-    _height = 80;
+    _height = 50;
 
     _XcornerGrabBuffer = -3;
     _YcornerGrabBuffer = -3;
@@ -54,6 +54,7 @@ GraphicsBox::GraphicsBox():
     setFlag(QGraphicsItem::ItemIsMovable,true);
     setFlag(ItemSendsGeometryChanges,true);
 
+    m_autoHeight = false;
     m_borderIsVisible = true;
     m_backgroundColor = Qt::white;
     m_highlighting = "";
@@ -204,10 +205,7 @@ bool GraphicsBox::sceneEventFilter ( QGraphicsItem * watched, QEvent * event ) {
         int yMoved = corner->mouseDownY - y;
 
         int newWidth = _width + ( XaxisSign * xMoved);
-        if ( newWidth < 40 ) newWidth  = 40;
-
         int newHeight = _height + (YaxisSign * yMoved) ;
-        if ( newHeight < 40 ) newHeight = 40;
 
         int deltaWidth  =   newWidth - _width ;
         int deltaHeight =   newHeight - _height ;
@@ -410,7 +408,6 @@ QRectF GraphicsBox::boundingRect() const {
 
 void GraphicsBox::paint (QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) {
     QBrush brush2(m_backgroundColor,Qt::SolidPattern);
-    painter->setBrush( brush2);
 
     _outterborderPen.setCapStyle(Qt::RoundCap);
     _outterborderPen.setStyle(borderStyle());
@@ -448,7 +445,8 @@ void GraphicsBox::paint (QPainter *painter, const QStyleOptionGraphicsItem *, QW
             case Text:
             case TextImage:
                 {
-                painter->fillRect(rc, brush2);
+                if (m_backgroundColor != Qt::white)
+                    painter->fillRect(rc, brush2);
 
                 if (borderIsCheck(FrameTop))
                     painter->drawLine(0,0, getWidth()-1,0);  //top
@@ -489,6 +487,7 @@ void GraphicsBox::paint (QPainter *painter, const QStyleOptionGraphicsItem *, QW
                 break;
             }
             case Circle: {
+                painter->setBrush(brush2);
                 painter->drawEllipse(0, 0, getWidth() - 1, getHeight() - 1);
                 break;
             }
@@ -640,8 +639,6 @@ void GraphicsBox::paint (QPainter *painter, const QStyleOptionGraphicsItem *, QW
             }
         }
     }
-
-    painter->setBrush(brush2);
 }
 
 void GraphicsBox::mouseMoveEvent(QGraphicsSceneDragDropEvent *event) {

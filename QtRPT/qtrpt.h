@@ -68,7 +68,9 @@ class RptFieldObject;
 class RptCrossTabObject;
 
 QScriptValue funcAggregate(QScriptContext *context, QScriptEngine *engine);
-QScriptValue funcText(QScriptContext *context, QScriptEngine *engine);
+QScriptValue funcToUpper(QScriptContext *context, QScriptEngine *engine);
+QScriptValue funcToLower(QScriptContext *context, QScriptEngine *engine);
+QScriptValue funcNumberToWords(QScriptContext *context, QScriptEngine *engine);
 QScriptValue funcFrac(QScriptContext *context, QScriptEngine *engine);
 QScriptValue funcFloor(QScriptContext *context, QScriptEngine *engine);
 QScriptValue funcCeil(QScriptContext *context, QScriptEngine *engine);

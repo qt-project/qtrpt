@@ -166,7 +166,7 @@ void GraphicsScene::keyPressEvent(QKeyEvent *event){
     for(auto item : this->items()) {
         bool isSelected = false;
         GraphicsBox *box = nullptr;
-        if (item->type() == ItemType::GBox) {
+        if (item->type() == ItemType::GBox || item->type() == ItemType::GBand) {
             box = static_cast<GraphicsBox*>(item);
             isSelected = box->isSelected();
         }
@@ -176,9 +176,9 @@ void GraphicsScene::keyPressEvent(QKeyEvent *event){
             isSelected = line->isSelected();
         }
 
-        if (item->type() == ItemType::GBox || item->type() == ItemType::GLine) {
+        if (item->type() == ItemType::GBox || item->type() == ItemType::GLine || item->type() == ItemType::GBand) {
             if (isSelected) {
-                if(event->key() == Qt::Key_Left) {
+                if(event->key() == Qt::Key_Left && item->type() != ItemType::GBand) {
                     if (QApplication::keyboardModifiers() == Qt::ControlModifier) {
                         if (box != nullptr)
                             box->setPos(box->pos().x()-1, box->pos().y());
@@ -194,7 +194,7 @@ void GraphicsScene::keyPressEvent(QKeyEvent *event){
                     getMW()->setReportChanged();
                 }
                 if(event->key() == Qt::Key_Up) {
-                    if (QApplication::keyboardModifiers() == Qt::ControlModifier) {
+                    if (QApplication::keyboardModifiers() == Qt::ControlModifier && item->type() != ItemType::GBand) {
                         if (box != nullptr)
                             box->setPos(box->pos().x(), box->pos().y()-1);
                         if (line != nullptr)
@@ -206,7 +206,7 @@ void GraphicsScene::keyPressEvent(QKeyEvent *event){
                     }
                     getMW()->setReportChanged();
                 }
-                if(event->key() == Qt::Key_Right) {
+                if(event->key() == Qt::Key_Right && item->type() != ItemType::GBand) {
                     if (QApplication::keyboardModifiers() == Qt::ControlModifier) {
                         if (box != nullptr)
                             box->setPos(box->pos().x()+1, box->pos().y());
@@ -222,7 +222,7 @@ void GraphicsScene::keyPressEvent(QKeyEvent *event){
                     getMW()->setReportChanged();
                 }
                 if(event->key() == Qt::Key_Down) {
-                    if (QApplication::keyboardModifiers() == Qt::ControlModifier) {
+                    if (QApplication::keyboardModifiers() == Qt::ControlModifier && item->type() != ItemType::GBand) {
                         if (box != nullptr)
                             box->setPos(box->pos().x(), box->pos().y()+1);
                         if (line != nullptr)
@@ -236,6 +236,7 @@ void GraphicsScene::keyPressEvent(QKeyEvent *event){
                 }
             }
         }
+        emit itemResized(item);
     }
 }
 

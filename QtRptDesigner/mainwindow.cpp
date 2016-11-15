@@ -680,6 +680,10 @@ void MainWindow::itemResizing(QGraphicsItem *item) {
         GraphicsBox *box = static_cast<GraphicsBox*>(item);
         setParamTree(Height, box->getHeight());
 
+        if (item->type() == ItemType::GBand) {
+            RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->widget(ui->tabWidget->currentIndex()));
+            repPage->correctBandGeom(0);
+        }
         if (item->type() == ItemType::GBox) {
             ReportBand *band = static_cast<ReportBand *>(item->parentItem());
             setParamTree(Width, box->getWidth());
@@ -2811,6 +2815,7 @@ void MainWindow::clipBoard() {
                     GraphicsBox *newBox = box->clone();
                     generateName(newBox);
                     scene->addItem(newBox);
+                    newBox->setParentItem(band);
                     repPage->newFieldTreeItem(newBox);
                     newBox->setSelected(true);
                     newBox->setMenu(contMenu);

@@ -75,11 +75,7 @@ public slots:
     void showGrid(bool value);
 
 private slots:
-    void bandResing(QRect rect);
     void vScrolling(int value);
-
-signals:
-    void bandResing(int);
 
 };
 

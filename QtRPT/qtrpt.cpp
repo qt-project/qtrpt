@@ -1015,7 +1015,19 @@ QScriptValue funcAggregate(QScriptContext *context, QScriptEngine *engine) {
     return 0;
 }
 
-QScriptValue funcText(QScriptContext *context, QScriptEngine *engine) {
+QScriptValue funcToUpper(QScriptContext *context, QScriptEngine *engine) {
+    Q_UNUSED(engine);
+    QString param = context->argument(0).toString();
+    return param.toUpper();
+}
+
+QScriptValue funcToLower(QScriptContext *context, QScriptEngine *engine) {
+    Q_UNUSED(engine);
+    QString param = context->argument(0).toString();
+    return param.toLower();
+}
+
+QScriptValue funcNumberToWords(QScriptContext *context, QScriptEngine *engine) {
     Q_UNUSED(engine);
     QString paramLanguage = context->argument(0).toString();
     double value = context->argument(1).toString().toDouble();
@@ -1188,10 +1200,13 @@ QString QtRPT::sectionField(RptBandObject *band, QString value, bool exp, bool f
                         !tl.at(j-1).toUpper().contains("NumberToWords") &&
                         !tl.at(j-1).toUpper().contains("Frac") &&
                         !tl.at(j-1).toUpper().contains("Floor") &&
-                        !tl.at(j-1).toUpper().contains("Ceil")
+                        !tl.at(j-1).toUpper().contains("Ceil") &&
+                        !tl.at(j-1).toUpper().contains("Round") &&
+                        !tl.at(j-1).toUpper().contains("ToUpper") &&
+                        !tl.at(j-1).toUpper().contains("ToLower")
                     ) {
                         if (rtpSqlVector.size() > 0 && rtpSqlVector[m_pageReport] != 0 ) {  //if we have Sql DataSource
-                        /*???   After testing - remove commented
+                        /*todo   After testing - remove commented
                          * if (tl.at(j).contains("[") && tl.at(j).contains("]") && !tl.at(j).contains("<") ) {
                          */
                             if (tl.at(j).contains(rtpSqlVector[m_pageReport]->objectName())) {
@@ -1215,7 +1230,13 @@ QString QtRPT::sectionField(RptBandObject *band, QString value, bool exp, bool f
                 QScriptValue fun = myEngine.newFunction(funcAggregate);
                 myEngine.globalObject().setProperty("Sum", fun);
 
-                fun = myEngine.newFunction(funcText);
+                fun = myEngine.newFunction(funcToUpper);
+                myEngine.globalObject().setProperty("ToUpper", fun);
+
+                fun = myEngine.newFunction(funcToLower);
+                myEngine.globalObject().setProperty("ToLower", fun);
+
+                fun = myEngine.newFunction(funcNumberToWords);
                 myEngine.globalObject().setProperty("NumberToWords", fun);
 
                 fun = myEngine.newFunction(funcFrac);

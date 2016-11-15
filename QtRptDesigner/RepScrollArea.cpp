@@ -366,11 +366,6 @@ bool RepScrollArea::eventFilter(QObject *obj, QEvent *e) {
     return QWidget::eventFilter(obj,e);
 }
 
-void RepScrollArea::bandResing(QRect rect) {
-    correctBandGeom(0);
-    emit bandResing(rect.height() - 17);
-}
-
 QList<ReportBand *> RepScrollArea::getReportBands() {
     QList<ReportBand *> allReportBand;
     for(auto item : scene->items())

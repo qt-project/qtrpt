@@ -138,6 +138,20 @@ QString FldPropertyDlg::showThis(int index, GraphicsBox *widget, QString value) 
 
                 item = new QTreeWidgetItem(f1);
                 item->setIcon(0,iconFunction);
+                item->setToolTip(0,tr("To upper case"));
+                item->setText(0,"To Upper");
+                item->setData(0,Qt::UserRole,"<ToUpper(Word)>");
+                f1->addChild(item);
+
+                item = new QTreeWidgetItem(f1);
+                item->setIcon(0,iconFunction);
+                item->setToolTip(0,tr("To lower case"));
+                item->setText(0,"To Lower");
+                item->setData(0,Qt::UserRole,"<ToLower(Word)>");
+                f1->addChild(item);
+
+                item = new QTreeWidgetItem(f1);
+                item->setIcon(0,iconFunction);
                 item->setToolTip(0,tr("English"));
                 item->setText(0,"NumberToWords (ENG)");
                 item->setData(0,Qt::UserRole,"<NumberToWords('ENG', )>");
