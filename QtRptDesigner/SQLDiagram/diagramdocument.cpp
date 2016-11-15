@@ -82,27 +82,27 @@ void DiagramDocument::_updateLines() {
 
 void DiagramDocument::updateLines(QSet<DiagramObject *> objectsToUpdate) {
     QSet<Hub *> hubsToUpdate;
-	foreach (DiagramObject *obj, objectsToUpdate) {
+    for(DiagramObject *obj : objectsToUpdate) {
 		hubsToUpdate.insert(obj->hub());
-		foreach (Connector *conn, obj->hub()->connectors()) {
+        for(Connector *conn : obj->hub()->connectors()) {
 			hubsToUpdate.insert(conn->otherEnd()->hub());
 		}
 	}
-	foreach (Hub *hub, hubsToUpdate) {
+    for(Hub *hub : hubsToUpdate) {
         hub->update();
 	}
-    foreach (Line *line, d->linesToUpdate) {
+    for(Line *line : d->linesToUpdate) {
 		line->updateLayout();
 		line->update();
 	}
     d->linesToUpdate.clear();
 
-    foreach (DiagramItem *item, d->itemsToShow) {
+    for(DiagramItem *item : d->itemsToShow) {
 		item->show();
 	}
     d->itemsToShow.clear();
 
-    foreach (DiagramItem *item, d->itemsToRemove) {
+    for(DiagramItem *item : d->itemsToRemove) {
 		removeItem(item);
 	}
     d->itemsToRemove.clear();
@@ -124,7 +124,7 @@ void DiagramDocument::removeItemLater(DiagramItem *item) {
 }
 
 void DiagramDocument::deleteSelectedItems() {
-    foreach (DiagramItem *item, selectedItems()) {
+    for(DiagramItem *item : selectedItems()) {
 		DiagramObject *obj = qobject_cast<DiagramObject *>(item);
 		if (obj) {
 			undoStack()->push(new RemoveObjectCommand(this, obj));
@@ -143,13 +143,13 @@ void DiagramDocument::save(QDomDocument *xmlDoc, QDomElement element) {
     QDomElement root = xmlDoc->createElement("diagram");
     element.appendChild(root);
 
-	foreach (DiagramObject *item, itemsByType<DiagramObject>()) {
+    for(DiagramObject *item : itemsByType<DiagramObject>()) {
         QDomElement element = xmlDoc->createElement("item");
         root.appendChild(element);
         item->saveToXml(element, *xmlDoc);
 	}
 
-	foreach (Line *item, itemsByType<Line>()) {
+    for(Line *item : itemsByType<Line>()) {
         QDomElement element = xmlDoc->createElement("item");
         root.appendChild(element);
         item->saveToXml(element, *xmlDoc);
@@ -178,7 +178,7 @@ bool DiagramDocument::load(QDomElement element) {
 template <class T> QList<T *>
 DiagramDocument::itemsByType() {
     QList<T *> result;
-    foreach(QGraphicsItem *item, items()) {
+    for(QGraphicsItem *item : items()) {
         T *typedItem = dynamic_cast<T *>(item);
         if (typedItem) {
             result.append(typedItem);
@@ -199,7 +199,7 @@ DatabaseTable *DiagramDocument::selectedTable() {
 
 QList<Line *> DiagramDocument::findConnections(DiagramObject *object) {
     QList<Line *> result;
-    foreach (Line *connection, itemsByType<Line>())
+    for(Line *connection : itemsByType<Line>())
         if (connection->connector(0)->connectedObject() == object || connection->connector(1)->connectedObject() == object)
             result.append(connection);
     return result;
@@ -225,7 +225,7 @@ void DiagramDocument::updateLineLayout(Line *line) {
 }
 
 DiagramItem *DiagramDocument::itemById(const QUuid &id) {
-	foreach (DiagramItem *item, itemsByType<DiagramItem>())
+    for(DiagramItem *item : itemsByType<DiagramItem>())
 		if (item->id() == id)
 			return item;
 	return 0;
@@ -233,7 +233,7 @@ DiagramItem *DiagramDocument::itemById(const QUuid &id) {
 
 QList<DiagramItem *> DiagramDocument::selectedItems() {
     QList<DiagramItem *> result;
-    foreach(QGraphicsItem *item, QGraphicsScene::selectedItems()) {
+    for(QGraphicsItem *item : QGraphicsScene::selectedItems()) {
         DiagramItem *typedItem = dynamic_cast<DiagramItem *>(item);
         if (typedItem) {
             result.append(typedItem);
@@ -402,7 +402,7 @@ void DiagramDocument::makeSQLQuery() {
     QList<DatabaseTable *> tmpLst;
     QString sqlQueryStr;
     QString selectedColumns;
-    foreach(DatabaseTable *item, itemsByType<DatabaseTable>()) {
+    for(DatabaseTable *item : itemsByType<DatabaseTable>()) {
         if (item->hub()) {
             if (item->hub()->outgoingLines().count() == 0 && item->hub()->incomingLines().count() == 0 ) { //have outgoing
                 if (sqlQueryStr.isEmpty())
