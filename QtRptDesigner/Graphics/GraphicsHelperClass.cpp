@@ -284,7 +284,7 @@ void GraphicsHelperClass::edit() {
             BArrayList newList = ParamCommand::getBArrayFromContList(selContList);
             QList<PairCont> lst = ParamCommand::compoundArrays(oldList,newList);
 
-            GraphicsScene *scene = qobject_cast<GraphicsScene*>(graphicsItem->scene());
+            auto scene = qobject_cast<GraphicsScene*>(graphicsItem->scene());
             scene->m_undoStack->push( new ParamCommand( lst, scene ) );
         }
 
@@ -349,11 +349,11 @@ bool GraphicsHelperClass::helperIsSelected() {
 
 void GraphicsHelperClass::helperSelect(bool value) {
     if (graphicsItem->type() == ItemType::GBox || graphicsItem->type() == ItemType::GBand) {
-        GraphicsBox *box = static_cast<GraphicsBox*>(graphicsItem);
+        auto box = static_cast<GraphicsBox*>(graphicsItem);
         box->setSelected(value);
     }
     if (graphicsItem->type() == ItemType::GLine) {
-        GraphicsLine *line = static_cast<GraphicsLine*>(graphicsItem);
+        auto line = static_cast<GraphicsLine*>(graphicsItem);
         line->setSelected(value);
     }
 }

@@ -295,7 +295,7 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent), ui(new Ui::MainW
     QObject::connect(listFrameStyle, SIGNAL(itemClicked(QListWidgetItem *)), this, SLOT(setFrameStyle(QListWidgetItem *)));
 
     for (int i=1; i < 7; i++) {
-        QListWidgetItem *item = new QListWidgetItem(listFrameStyle);
+        auto item = new QListWidgetItem(listFrameStyle);
         QIcon icn;
         icn.addPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/images/fs%1.png").arg(i)), QIcon::Normal, QIcon::On);
         item->setIcon(icn);
@@ -681,7 +681,7 @@ void MainWindow::itemResizing(QGraphicsItem *item) {
         setParamTree(Height, box->getHeight());
 
         if (item->type() == ItemType::GBand) {
-            RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->widget(ui->tabWidget->currentIndex()));
+            auto repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->widget(ui->tabWidget->currentIndex()));
             repPage->correctBandGeom(0);
         }
         if (item->type() == ItemType::GBox) {
@@ -749,7 +749,7 @@ void MainWindow::setFrameStyle(QListWidgetItem * item) {
 }
 
 void MainWindow::showAbout() {
-    AboutDlg *dlg = new AboutDlg(this);
+    auto dlg = new AboutDlg(this);
     dlg->exec();
     delete dlg;
 }
@@ -772,7 +772,7 @@ void MainWindow::reportPageChanged(int index) {
     else
         ui->actDeleteReportPage->setEnabled(true);
 
-    RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->widget(index));
+    auto repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->widget(index));
     QList<ReportBand *> allReportBand = repPage->getReportBands();
     if (allReportBand.size() != 0)
         qSort(allReportBand.begin(), allReportBand.end(), compareBandType);
@@ -799,7 +799,7 @@ void MainWindow::reportPageChanged(int index) {
 
 void MainWindow::newReportPage() {
     ui->tabWidget->setUpdatesEnabled(false);
-    RepScrollArea *repPage = new RepScrollArea(this);
+    auto repPage = new RepScrollArea(this);
     QObject::connect(repPage->scene->m_undoStack, SIGNAL(canUndoChanged(bool)), ui->actUndo, SLOT(setEnabled(bool)));
     QObject::connect(repPage->scene->m_undoStack, SIGNAL(canRedoChanged(bool)), ui->actRedo, SLOT(setEnabled(bool)));
     repPage->rootItem = rootItem;
@@ -833,7 +833,7 @@ void MainWindow::deleteReportPage() {
 }
 
 void MainWindow::generateName(QGraphicsItem *mItem) {
-    GraphicsHelperClass *cont = gItemToHelper(mItem);
+    auto cont = gItemToHelper(mItem);
 
     bool good = false;
     QString contName;
@@ -935,7 +935,7 @@ void MainWindow::clickOnTBtn() {
 
 void MainWindow::showPageSetting() {
     PageSettingDlg *dialog = new PageSettingDlg(this);
-    RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->widget( ui->tabWidget->currentIndex() ));
+    auto repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->widget( ui->tabWidget->currentIndex() ));
     dialog->showThis(repPage->pageSetting);
     if (dialog->result() == QDialog::Accepted) {
         repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->widget(ui->tabWidget->currentIndex()));
@@ -996,7 +996,7 @@ void MainWindow::delItemInTree(QGraphicsItem *gItem, QTreeWidgetItem *item) {
     ReportBand *reportBand = static_cast<ReportBand *>(gItem);
     if (reportBand == 0) return;
 
-    RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
+    auto repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
     if (repPage != 0) repPage->correctBandGeom(reportBand);
 
     if (reportBand->bandType == ReportTitle) actRepTitle->setEnabled(true);
@@ -1266,21 +1266,21 @@ Command MainWindow::getCommand(QObject *widget) {
 }
 
 void MainWindow::undo() {
-    RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
+    auto repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
     qDebug()<<tr("Going to make undo: ")<<repPage->scene->m_undoStack->undoText();
     repPage->scene->m_undoStack->undo();
     showParamState();
 }
 
 void MainWindow::redo() {
-    RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
+    auto repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
     qDebug()<<tr("Going to make redo: ")<<repPage->scene->m_undoStack->undoText();
     repPage->scene->m_undoStack->redo();
     showParamState();
 }
 
 void MainWindow::setGroupingField() {
-    RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
+    auto repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
     QString groupName = "";
     if (sender() == ui->actGroup) {
         groupName = "group%1";
@@ -1875,7 +1875,7 @@ void MainWindow::processCommand(Command command, QVariant value, QGraphicsItem *
     ReportBand *band = 0;
     GraphicsLine *line = 0;
     GraphicsBox *box = 0;
-    GraphicsHelperClass *helper = gItemToHelper(item);
+    auto helper = gItemToHelper(item);
     if (helper == nullptr) return;
     if (item->type() == ItemType::GBox)
         box = static_cast<GraphicsBox*>(item);

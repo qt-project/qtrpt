@@ -94,7 +94,7 @@ void SqlDesigner::refreshTable(QSqlDatabase *db) {
     QIcon icon;
     QStringList lst = db->tables(QSql::Tables);
     for (int i=0; i<lst.size(); i++) {
-        QTreeWidgetItem *tableItem = new QTreeWidgetItem(ui->tablesTree);
+        auto tableItem = new QTreeWidgetItem(ui->tablesTree);
         tableItem->setText(0,lst.at(i));
         icon.addPixmap(QPixmap(":/new/prefix1/images/table.png"), QIcon::Normal, QIcon::On);
         tableItem->setIcon(0, icon);

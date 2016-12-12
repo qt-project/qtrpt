@@ -252,12 +252,12 @@ void GraphicsScene::itemRemoving() {
 void GraphicsScene::removeItem(QGraphicsItem *item) {
     GraphicsHelperClass *helper = 0;
     if (item->type() == ItemType::GBand || item->type() == ItemType::GBox) {
-        GraphicsBox *box = static_cast<GraphicsBox*>(item);
+        auto box = static_cast<GraphicsBox*>(item);
         helper = static_cast<GraphicsHelperClass*>(box);
         emit itemDeleting(box, helper->itemInTree);
     }
     if (item->type() == ItemType::GLine) {
-        GraphicsLine *line = static_cast<GraphicsLine*>(item);
+        auto line = static_cast<GraphicsLine*>(item);
         helper = static_cast<GraphicsHelperClass*>(line);
         emit itemDeleting(line, helper->itemInTree);
     }
@@ -298,13 +298,13 @@ void GraphicsScene::itemMoving(QGraphicsItem *item) {
 void GraphicsScene::unselectAll() {
     for(auto item : this->items()) {
         if (item->type() == ItemType::GLine) {
-            GraphicsLine *line = static_cast<GraphicsLine*>(item);
+            auto line = static_cast<GraphicsLine*>(item);
             line->setSelected(false);
         } else if (item->type() == ItemType::GBox) {
-            GraphicsBox *box = static_cast<GraphicsBox*>(item);
+            auto box = static_cast<GraphicsBox*>(item);
             box->setSelected(false);
         } else if (item->type() == ItemType::GBand) {
-            GraphicsBox *box = static_cast<GraphicsBox*>(item);
+            auto box = static_cast<GraphicsBox*>(item);
             box->setSelected(false);
         } else
             item->setSelected(false);
