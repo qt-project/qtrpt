@@ -30,7 +30,7 @@ limitations under the License.
 RepScrollArea::RepScrollArea(QWidget *parent) : QScrollArea(parent), ui(new Ui::RepScrollArea) {
     ui->setupUi(this);
     m_mainWindow = parent;
-    QScrollBar *bar = verticalScrollBar();
+    auto bar = verticalScrollBar();
     QObject::connect(bar, SIGNAL(valueChanged(int)), this, SLOT(vScrolling(int)));
 
     scene = new GraphicsScene(this);
@@ -323,10 +323,10 @@ void RepScrollArea::newFieldTreeItem(QGraphicsItem *item) {
         bandItem->setExpanded(true);
     }
     if (gLine != nullptr) {
-        QTreeWidgetItem *bandItem = static_cast<GraphicsBox*>(gLine->parentItem())->itemInTree;
+        auto bandItem = static_cast<GraphicsBox*>(gLine->parentItem())->itemInTree;
 
         rootItem->treeWidget()->clearSelection();
-        QTreeWidgetItem *item = new QTreeWidgetItem(bandItem);
+        auto item = new QTreeWidgetItem(bandItem);
         gLine->itemInTree = item;
 
         icon.addPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/images/line2.png")), QIcon::Normal, QIcon::On);
@@ -343,7 +343,7 @@ void RepScrollArea::correctBandGeom(ReportBand *rep) {
     QPointF p = ui->graphicsView->mapToScene(0,0);
     int top_ = p.y()+pageSetting.marginsTop;
 
-    QList<ReportBand *> allReportBand = getReportBands();
+    auto allReportBand = getReportBands();
     if (allReportBand.size() != 0)
         qSort(allReportBand.begin(), allReportBand.end(), compareBandType);
 

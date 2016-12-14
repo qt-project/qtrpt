@@ -1322,7 +1322,7 @@ void MainWindow::setGroupingField() {
 }
 
 QGraphicsItem *MainWindow::selectedGItem() {
-    RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
+    auto repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
     if (repPage->scene->selectedItems().size() == 0) return 0;
     return repPage->scene->selectedItems().at(0);
 }
@@ -1330,11 +1330,11 @@ QGraphicsItem *MainWindow::selectedGItem() {
 GraphicsHelperClass *MainWindow::gItemToHelper(QGraphicsItem *item) {
     GraphicsHelperClass *helper = nullptr;
     if (item->type() == ItemType::GBox || item->type() == ItemType::GBand) {
-        GraphicsBox *box = static_cast<GraphicsBox*>(item);
+        auto box = static_cast<GraphicsBox*>(item);
         helper = static_cast<GraphicsHelperClass *>(box);
     }
     if (item->type() == ItemType::GLine) {
-        GraphicsLine *line = static_cast<GraphicsLine*>(item);
+        auto line = static_cast<GraphicsLine*>(item);
         helper = static_cast<GraphicsHelperClass *>(line);
     }
     return helper;
@@ -1489,7 +1489,7 @@ bool MainWindow::setXMLProperty(QDomElement *repElem, void *ptr, int type) {
         gItem = static_cast<QGraphicsItem *>(ptr);
 
     if (gItem != nullptr && gItem->type() == ItemType::GBand) {
-        ReportBand *band = static_cast<ReportBand *>(ptr);
+        auto band = static_cast<ReportBand *>(ptr);
         elem = xmlDoc->createElement("ReportBand");
         QString type;
         if (band->bandType == ReportTitle)

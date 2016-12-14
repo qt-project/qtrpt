@@ -53,7 +53,7 @@ void EditFldDlg::chooseColor() {
         color = colorFromString(ui->lblColorF->styleSheet());
     if (sender() == ui->btnColorB)
         color = colorFromString(ui->lblColorB->styleSheet());
-    QColorDialog *dlg = new QColorDialog(color, this);
+    auto dlg = new QColorDialog(color, this);
     if (dlg->exec() == QDialog::Accepted) {
         color = dlg->selectedColor();
     } else return;
@@ -179,7 +179,7 @@ void EditFldDlg::textDirection() {
 }
 
 int EditFldDlg::showText(QGraphicsItem *gItem) {
-    GraphicsBox *cont = static_cast<GraphicsBox*>(gItem);
+    auto cont = static_cast<GraphicsBox*>(gItem);
     ui->textEdit->setPlainText(cont->getText());
     ui->stackedWidget->setCurrentIndex(0);
     ui->textEdit->setFocus();
@@ -285,7 +285,7 @@ int EditFldDlg::showTextRich(QGraphicsItem *gItem) {
 
     if (this->exec()) {
         QString plainTextEditContents = ui->textEditRich->textEdit->toHtml();
-        QStringList lines = plainTextEditContents.split("\n");
+        auto lines = plainTextEditContents.split("\n");
 
         if (lines.count() > 1 && lines.last().trimmed().isEmpty()) {
             QMessageBox::StandardButton reply;
@@ -316,7 +316,7 @@ int EditFldDlg::showTextRich(QGraphicsItem *gItem) {
 }
 
 int EditFldDlg::showImage(QGraphicsItem *gItem) {
-    GraphicsBox *cont = static_cast<GraphicsBox*>(gItem);
+    auto cont = static_cast<GraphicsBox*>(gItem);
 
     ui->stackedWidget->setCurrentIndex(1);
     ui->label->setPixmap(cont->getImage());
@@ -334,7 +334,7 @@ int EditFldDlg::showImage(QGraphicsItem *gItem) {
 }
 
 int EditFldDlg::showBarcode(QGraphicsItem *gItem) {
-    GraphicsBox *cont = static_cast<GraphicsBox*>(gItem);
+    auto cont = static_cast<GraphicsBox*>(gItem);
     ui->stackedWidget->setCurrentIndex(3);
     QObject::connect(ui->edtValue, SIGNAL(textChanged(QString)), ui->wBarcode, SLOT(setValue(QString)));
     QObject::connect(ui->bstyle, SIGNAL(activated(int)), SLOT(update_preview()));
@@ -368,7 +368,7 @@ int EditFldDlg::showBarcode(QGraphicsItem *gItem) {
 }
 
 int EditFldDlg::showCrosstab(QGraphicsItem *gItem) {
-    GraphicsBox *cont = static_cast<GraphicsBox*>(gItem);
+    auto cont = static_cast<GraphicsBox*>(gItem);
     RptCrossTabObject *m_crossTab = cont->getCrossTab();
     if (m_crossTab == nullptr)
         return QDialog::Rejected;
@@ -382,11 +382,11 @@ int EditFldDlg::showCrosstab(QGraphicsItem *gItem) {
     ui->tblColHeaders->setRowCount(m_crossTab->colDataCount());
     ui->tblRowHeaders->setRowCount(m_crossTab->rowDataCount());
     for(int i=0; i<ui->tblColHeaders->rowCount(); i++) {
-        QTableWidgetItem *newItem = new QTableWidgetItem(m_crossTab->getColName(i));
+        auto newItem = new QTableWidgetItem(m_crossTab->getColName(i));
         ui->tblColHeaders->setItem(i,0,newItem);
     }
     for(int i=0; i<ui->tblRowHeaders->rowCount(); i++) {
-        QTableWidgetItem *newItem = new QTableWidgetItem(m_crossTab->getRowName(i));
+        auto newItem = new QTableWidgetItem(m_crossTab->getRowName(i));
         ui->tblRowHeaders->setItem(i,0,newItem);
     }
     QObject::connect(ui->spnRowCount, SIGNAL(valueChanged(int)), SLOT(setCrossTabRowCount(int)));
@@ -563,7 +563,7 @@ void EditFldDlg::moveRow() {
 
 void EditFldDlg::selectGraphColor() {
     QColor color;
-    QColorDialog *dlg = new QColorDialog(color, this);
+    auto dlg = new QColorDialog(color, this);
     if (dlg->exec() == QDialog::Accepted) {
         color = dlg->selectedColor();
     } else return;
