@@ -166,11 +166,10 @@ void RptPageObject::addBand(RptBandObject *band) {
     \sa RptBandObject
 */
 RptBandObject *RptPageObject::getBand(BandType type) {
-    RptBandObject *result = 0;
-    for (int i=0; i<bandList.size(); i++)
-        if (bandList.at(i)->type == type)
-            result = bandList.at(i);
-    return result;
+    for (auto band : bandList)
+        if (band->type == type)
+            return band;
+    return nullptr;
 }
 
 /*!
@@ -181,10 +180,10 @@ RptBandObject *RptPageObject::getBand(BandType type) {
     \sa RptFieldObject
 */
 RptFieldObject *RptPageObject::findFieldObjectByName(QString name) {
-    for (int i=0; i<bandList.size(); i++)
-        for (int j=0; j<bandList.at(i)->fieldList.size(); j++)
-            if (bandList.at(i)->fieldList.at(j)->name == name)
-                return bandList.at(i)->fieldList.at(j);
+    for (auto band : bandList)
+        for (auto field : band->fieldList)
+            if (field->name == name)
+                return field;
     return 0;
 }
 

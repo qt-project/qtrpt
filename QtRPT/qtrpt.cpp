@@ -816,20 +816,20 @@ void QtRPT::drawLines(RptFieldObject *fieldObject, int bandTop) {
 void QtRPT::drawBandRow(RptBandObject *band, int bandTop, bool allowDraw) {
     band->realHeight = band->height; //set a 'realHeight' to default value
     /*First pass used to determine a max height of the band*/
-    for (int i=0; i<band->fieldList.size(); i++) {
-        if (band->fieldList.at(i)->fieldType != Line && isFieldVisible(band->fieldList.at(i))) {
-            drawFields(band->fieldList.at(i),bandTop,false);
+    for (auto field : band->fieldList) {
+        if (field->fieldType != Line && isFieldVisible(field)) {
+            drawFields(field,bandTop,false);
         }
     }
 
     /*Second pass used for drawing*/
     if (allowDraw) {
-        for (int i=0; i<band->fieldList.size(); i++) {
-            if (isFieldVisible(band->fieldList.at(i))) {
-                if (band->fieldList.at(i)->fieldType != Line) {
-                    drawFields(band->fieldList.at(i),bandTop,true);
+        for (auto field : band->fieldList) {
+            if (isFieldVisible(field)) {
+                if (field->fieldType != Line) {
+                    drawFields(field,bandTop,true);
                 } else {
-                    drawLines(band->fieldList.at(i),bandTop);
+                    drawLines(field,bandTop);
                 }
             }
         }
@@ -1444,6 +1444,7 @@ void QtRPT::printHTML(const QString &filePath, bool open) {
 void QtRPT::printXLSX(const QString &filePath, bool open) {
 #ifndef QT_NO_PRINTER
     Q_UNUSED(open);
+
     crossTab = new RptCrossTabObject();
     m_printMode = QtRPT::Xlsx;
     //if (m_xlsx != 0) delete m_xlsx;
@@ -1453,13 +1454,13 @@ void QtRPT::printXLSX(const QString &filePath, bool open) {
     //if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
     //    return;
 
-    if (printer == 0){
+    if (printer == nullptr)
         printer = new QPrinter(m_resolution);
-    };
+
     printer->setOutputFormat(QPrinter::PdfFormat);
-    if (painter == 0){
+    if (painter == nullptr)
         painter = new QPainter();
-    };
+
     printPreview(printer);
 
     crossTab->resortMatrix();
@@ -1496,9 +1497,8 @@ void QtRPT::printExec(bool maximum, bool direct, QString printerName) {
 #ifndef QT_NO_PRINTER
     m_printMode = QtRPT::Printer;
 
-    if (printer == 0){
+    if (printer == nullptr)
         printer = new QPrinter(m_resolution);
-    };
 
     if (!printerName.isEmpty() && !printerName.isNull()) {
         printer->setPrinterName(printerName);
@@ -1506,16 +1506,15 @@ void QtRPT::printExec(bool maximum, bool direct, QString printerName) {
             printer->setPrinterName(QPrinterInfo::defaultPrinter().printerName());
     }
 
-    if (painter == 0){
+    if (painter == nullptr)
         painter = new QPainter();
-    };
 
     if (!direct) {
         QPrintPreviewDialog preview(printer, qobject_cast<QWidget *>(this->parent()), Qt::Window);
 
         if (maximum) {
-            QList<QPrintPreviewWidget *> list = preview.findChildren<QPrintPreviewWidget *>();
-            if(!list.isEmpty()) // paranoiac safety check
+            auto list = preview.findChildren<QPrintPreviewWidget *>();
+            if (!list.isEmpty()) // paranoiac safety check
                 list.first()->setZoomMode(QPrintPreviewWidget::FitToWidth);
         }
 
@@ -1612,9 +1611,9 @@ void QtRPT::printPreview(QPrinter *printer) {
     if (pageList.size() == 0) return;
     setPageSettings(printer,0);
 
-    if (painter == 0){
+    if (painter == nullptr)
         painter = new QPainter();
-    };
+
     painter->begin(printer);
 
     fromPage = printer->fromPage();
@@ -1748,9 +1747,9 @@ void QtRPT::processReport(QPrinter *printer, bool draw, int pageReport) {
  */
 bool QtRPT::eventFilter(QObject *obj, QEvent *e) {
     if (obj == pr && e->type()==QEvent::Show)  {
-        for (int i = 0; i < lst.size(); i++) {
-            if (lst.at(i)->text().contains("Previous page", Qt::CaseInsensitive))
-                lst.at(i)->trigger();
+        for (auto action : lst) {
+            if (action->text().contains("Previous page", Qt::CaseInsensitive))
+                action->trigger();
         }
 
         pr->setCurrentPage(0);
@@ -1858,8 +1857,8 @@ void QtRPT::processGroupHeader(QPrinter *printer, int &y, bool draw, int pageRep
             for (int j = 0; j < listOfPair.size(); ++j) {
                 if (pageList.at(pageReport)->getBand(DataGroupHeader) !=0 && listOfPair.at(j).pageReport == pageReport && listOfPair.at(j).paramName == pageList.at(pageReport)->getBand(DataGroupHeader)->groupingField) {
                     bool founded = false;
-                    for (int i=0; i < listOfGroup.size(); ++i) {
-                        if (listOfGroup.at(i) == listOfPair.at(j).paramValue)
+                    for (auto group : listOfGroup) {
+                        if (group == listOfPair.at(j).paramValue)
                             founded = true;
                     }
 

@@ -326,9 +326,8 @@ RptFieldObject::RptFieldObject() {
     Destructs a RptFieldObject object.
 */
 RptFieldObject::~RptFieldObject() {
-    if (fieldType == CrossTab) {
+    if (fieldType == CrossTab)
         delete crossTab;
-    }
 }
 
 /*!
