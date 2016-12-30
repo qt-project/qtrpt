@@ -316,21 +316,21 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent), ui(new Ui::MainW
     ui->splitter->setSizes(lst);
 
     cloneContList = new QList<QGraphicsItem*>();
-    for(auto widget : ui->toolBar->findChildren<QWidget*>())
+    for (auto widget : ui->toolBar->findChildren<QWidget*>())
         widget->installEventFilter(this);
 
-    QActionGroup *alignmentHGroup = new QActionGroup(this);
+    auto alignmentHGroup = new QActionGroup(this);
     alignmentHGroup->addAction(ui->actAlignLeft);
     alignmentHGroup->addAction(ui->actAlignRight);
     alignmentHGroup->addAction(ui->actAlignJustify);
     alignmentHGroup->addAction(ui->actAlignCenter);
 
-    QActionGroup *alignmentVGroup = new QActionGroup(this);
+    auto alignmentVGroup = new QActionGroup(this);
     alignmentVGroup->addAction(ui->actAlignTop);
     alignmentVGroup->addAction(ui->actAlignBottom);
     alignmentVGroup->addAction(ui->actAlignVCenter);
 
-    QActionGroup *addGroup = new QActionGroup(this);
+    auto addGroup = new QActionGroup(this);
     addGroup->addAction(ui->actionInsert_band);
     addGroup->addAction(ui->actSelect_tool);
     addGroup->addAction(ui->actAddField);
@@ -677,7 +677,7 @@ void MainWindow::setCurrentFile(const QString &fileName) {
 
 void MainWindow::itemResizing(QGraphicsItem *item) {
     if (item->type() == ItemType::GBox || item->type() == ItemType::GBand) {
-        GraphicsBox *box = static_cast<GraphicsBox*>(item);
+        auto box = static_cast<GraphicsBox*>(item);
         setParamTree(Height, box->getHeight());
 
         if (item->type() == ItemType::GBand) {
@@ -685,14 +685,14 @@ void MainWindow::itemResizing(QGraphicsItem *item) {
             repPage->correctBandGeom(0);
         }
         if (item->type() == ItemType::GBox) {
-            ReportBand *band = static_cast<ReportBand *>(item->parentItem());
+            auto band = static_cast<ReportBand *>(item->parentItem());
             setParamTree(Width, box->getWidth());
             setParamTree(Top, box->pos().y() - band->titleHeight);
             setParamTree(Left, box->pos().x());
         }
     }
     if (item->type() == ItemType::GLine) {
-        GraphicsLine *line = static_cast<GraphicsLine*>(item);
+        auto line = static_cast<GraphicsLine*>(item);
         setParamTree(Length, (int)line->getLength());
     }
 
@@ -714,37 +714,32 @@ void MainWindow::showFrameStyle(QPoint pos) {
 void MainWindow::setFrameStyle(QListWidgetItem * item) {
     listFrameStyle->close();
 
-    if (selectedGItem() == 0) return;
-    GraphicsBox *field = static_cast<GraphicsBox *>(selectedGItem());
-    if (field == 0) return;
+    auto gItem = selectedGItem();
+    if (gItem == nullptr) return;
+    auto field = qgraphicsitem_cast<GraphicsBox *>(gItem);
+    if (field == nullptr) return;
 
     setReportChanged();
 
     switch (item->data(Qt::UserRole).toInt()) {
-        case 1: {
+        case 1:
             field->setBorder(FrameStyle,Solid);
             break;
-        }
-        case 2: {
+        case 2:
             field->setBorder(FrameStyle,Dashed);
             break;
-        }
-        case 3: {
+        case 3:
             field->setBorder(FrameStyle,Dotted);
             break;
-        }
-        case 4: {
+        case 4:
             field->setBorder(FrameStyle,Dot_dash);
             break;
-        }
-        case 5: {
+        case 5:
             field->setBorder(FrameStyle,Dot_dot_dash);
             break;
-        }
-        case 6: {
+        case 6:
             field->setBorder(FrameStyle,Double);
             break;
-        }
     }
 }
 
@@ -777,7 +772,7 @@ void MainWindow::reportPageChanged(int index) {
     if (allReportBand.size() != 0)
         qSort(allReportBand.begin(), allReportBand.end(), compareBandType);
 
-    for(auto band : allReportBand) {
+    for (auto band : allReportBand) {
         rootItem->addChild(band->itemInTree);
         band->itemInTree->setExpanded(true);
         band->setFocus();
@@ -897,16 +892,16 @@ void MainWindow::generateName(QGraphicsItem *mItem) {
 
         for (int t=0; t<ui->tabWidget->count(); t++) {
             RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->widget( t ));
-            for(auto item : repPage->scene->items()) {
+            for (auto item : repPage->scene->items()) {
                 if (item->type() == ItemType::GBox || item->type() == ItemType::GBand) {
-                    GraphicsBox *gItem = static_cast<GraphicsBox *>(item);
+                    auto gItem = static_cast<GraphicsBox *>(item);
                     if (gItem->objectName() == QString(contName).arg(cf)) {
                         fnd = true;
                         break;
                     }
                 }
                 if (item->type() == ItemType::GLine) {
-                    GraphicsLine *gItem = static_cast<GraphicsLine *>(item);
+                    auto gItem = static_cast<GraphicsLine *>(item);
                     if (gItem->objectName() == QString(contName).arg(cf)) {
                         fnd = true;
                         break;
@@ -1290,7 +1285,7 @@ void MainWindow::setGroupingField() {
             bool fnd = false;
             for(auto item : repPage->scene->items()) {
                 if (item->type() == ItemType::GLine || item->type() == ItemType::GBox) {
-                    GraphicsHelperClass *helper = gItemToHelper(item);
+                    auto helper = gItemToHelper(item);
                     if (helper->getGroupName() == QString(groupName).arg(cf)) {
                         fnd = true;
                         break;
@@ -1307,9 +1302,9 @@ void MainWindow::setGroupingField() {
         }
     }
 
-    for(auto item : repPage->scene->items()) {
+    for (auto item : repPage->scene->items()) {
         if (item->type() == ItemType::GLine || item->type() == ItemType::GBox) {
-            GraphicsHelperClass *helper = gItemToHelper(item);
+            auto helper = gItemToHelper(item);
 
             if (sender() == ui->actUngroup && helper->getGroupName() == gItemToHelper(selectedGItem())->getGroupName()) {
                 helper->setGroupName("");
@@ -1323,7 +1318,7 @@ void MainWindow::setGroupingField() {
 
 QGraphicsItem *MainWindow::selectedGItem() {
     auto repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
-    if (repPage->scene->selectedItems().size() == 0) return 0;
+    if (repPage->scene->selectedItems().isEmpty()) return nullptr;
     return repPage->scene->selectedItems().at(0);
 }
 
@@ -1353,7 +1348,7 @@ void MainWindow::sceneItemSelectionChanged(QGraphicsItem *item) {
     GraphicsHelperClass *calling_helper = gItemToHelper(item);
 
     if (QApplication::keyboardModifiers() != Qt::ControlModifier) {
-        for(auto m_item : scene->items()) {
+        for (auto m_item : scene->items()) {
             if (item != m_item) {
                 if (m_item->type() == ItemType::GLine || m_item->type() == ItemType::GBox || m_item->type() == ItemType::GBand) {
                      GraphicsHelperClass *helper = gItemToHelper(m_item);
@@ -1379,7 +1374,7 @@ void MainWindow::alignFields() {
     RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
     GraphicsBox *etalon = static_cast<GraphicsBox*>(selectedGItem());
 
-    for(auto item : repPage->scene->items()) {
+    for (auto item : repPage->scene->items()) {
         if (item->type() == ItemType::GBox) {
             GraphicsBox *box = static_cast<GraphicsBox*>(item);
             if (box->isSelected() && box != etalon) {

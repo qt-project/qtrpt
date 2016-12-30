@@ -92,10 +92,9 @@ void SqlDesigner::connectDB() {
 void SqlDesigner::refreshTable(QSqlDatabase *db) {
     ui->tablesTree->clear();
     QIcon icon;
-    QStringList lst = db->tables(QSql::Tables);
-    for (int i=0; i<lst.size(); i++) {
+    for (auto tableName : db->tables(QSql::Tables)) {
         auto tableItem = new QTreeWidgetItem(ui->tablesTree);
-        tableItem->setText(0,lst.at(i));
+        tableItem->setText(0,tableName);
         icon.addPixmap(QPixmap(":/new/prefix1/images/table.png"), QIcon::Normal, QIcon::On);
         tableItem->setIcon(0, icon);
         tableItem->setData(0,Qt::UserRole,3);  //Table
@@ -184,9 +183,9 @@ void SqlDesigner::rbChecked() {
 }
 
 void SqlDesigner::btnClose() {
-    this->setVisible(false);
-    QAction *act1 = this->parentWidget()->parentWidget()->findChild<QAction *>("actDataSource");
-    QAction *act2 = this->parentWidget()->parentWidget()->findChild<QAction *>("actSaveReport");
+    setVisible(false);
+    auto act1 = this->parentWidget()->parentWidget()->findChild<QAction *>("actDataSource");
+    auto act2 = this->parentWidget()->parentWidget()->findChild<QAction *>("actSaveReport");
     if (act1 != 0) {
         act1->setChecked(false);
         act2->setEnabled(true);
@@ -199,17 +198,17 @@ void SqlDesigner::btnClose() {
 bool SqlDesigner::eventFilter(QObject *obj, QEvent *e) {
     if (obj == ui->tablesTree->viewport()) {
         if (e->type() == QEvent::MouseButtonPress) {
-            QMouseEvent  *me = static_cast<QMouseEvent *>(e);
+            QMouseEvent *me = static_cast<QMouseEvent *>(e);
             if (me->buttons() & Qt::LeftButton) {
-                QTreeWidgetItem *item = ui->tablesTree->itemAt(me->pos());
+                auto item = ui->tablesTree->itemAt(me->pos());
 
                 if (item) {
-                    ColumnList *colLst = new ColumnList(NULL);
+                    auto colLst = new ColumnList(NULL);
 
                     QSqlQuery q("select * from "+item->text(0)+" LIMIT 0, 0",db);
                     QSqlRecord rec = q.record();
                     for (int i=0; i<rec.count(); i++) {
-                        Column *col = new Column(colLst);
+                        auto col = new Column(colLst);
                         col->setName(rec.fieldName(i));
                         col->setDataType( QVariant::typeToName(rec.field(i).type()) );
                         colLst->appendColumn(col);
