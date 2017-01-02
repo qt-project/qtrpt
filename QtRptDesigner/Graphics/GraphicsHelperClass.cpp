@@ -192,30 +192,24 @@ void GraphicsHelperClass::setBorder(Command command, QVariant values, bool yesFr
         case FrameStyle: {
             BorderStyle borderStyle = (BorderStyle)values.toInt();
             switch(borderStyle) {
-                case Solid: {
+                case Solid:
                     m_borderStyle = Qt::SolidLine;
                     break;
-                }
-                case Dashed: {
+                case Dashed:
                     m_borderStyle = Qt::DashLine;
                     break;
-                }
-                case Dotted: {
+                case Dotted:
                     m_borderStyle = Qt::DotLine;
                     break;
-                }
-                case Dot_dash: {
+                case Dot_dash:
                     m_borderStyle = Qt::DashDotLine;
                     break;
-                }
-                case Dot_dot_dash: {
+                case Dot_dot_dash:
                     m_borderStyle = Qt::DashDotDotLine;
                     break;
-                }
-                case Double: {
+                case Double:
                     m_borderStyle = Qt::CustomDashLine;
                     break;
-                }
                 default: return;
             }
             break;
@@ -313,12 +307,11 @@ void GraphicsHelperClass::loadParamFromXML(QDomElement e) {
 
 QDomElement GraphicsHelperClass::saveParamToXML(QDomDocument *xmlDoc) {
     QDomElement elem;
-    if (graphicsItem->type() == ItemType::GBox) {
+    if (graphicsItem->type() == ItemType::GBox)
         elem = xmlDoc->createElement("TContainerField");
-    }
-    if (graphicsItem->type() == ItemType::GLine) {
+    if (graphicsItem->type() == ItemType::GLine)
         elem = xmlDoc->createElement("TContainerLine");
-    }
+
     elem.setAttribute("type",QtRPT::getFieldTypeName(m_type));
     elem.setAttribute("name",this->objectName());
     elem.setAttribute("printing",this->getPrinting());

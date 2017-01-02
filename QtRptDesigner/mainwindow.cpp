@@ -69,21 +69,17 @@ QWidget* EditorDelegate::createEditor(QWidget *parent,
                 break;
             }
             case BarcodeType: {
-                QComboBox *editor = new QComboBox(parent);
-                BarCode::BarcodeTypePairList list = BarCode::getTypeList();
-                for (int i=0; i < list.size(); i++) {
-                    editor->addItem(list.at(i).second,list.at(i).first);
-                }
+                auto editor = new QComboBox(parent);
+                for (auto pair : BarCode::getTypeList())
+                    editor->addItem(pair.second, pair.first);
                 connect(editor, SIGNAL(activated(int)), this, SLOT(commitAndCloseEditor()));
                 return editor;
                 break;
             }
             case BarcodeFrameType: {
-                QComboBox *editor = new QComboBox(parent);
-                BarCode::FrameTypePairList list = BarCode::getFrameTypeList();
-                for (int i=0; i < list.size(); i++) {
-                    editor->addItem(list.at(i).second,list.at(i).first);
-                }
+                auto editor = new QComboBox(parent);
+                for (auto pair : BarCode::getFrameTypeList())
+                    editor->addItem(pair.second, pair.first);
                 connect(editor, SIGNAL(activated(int)), this, SLOT(commitAndCloseEditor()));
                 return editor;
                 break;
@@ -769,7 +765,7 @@ void MainWindow::reportPageChanged(int index) {
 
     auto repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->widget(index));
     QList<ReportBand *> allReportBand = repPage->getReportBands();
-    if (allReportBand.size() != 0)
+    if (!allReportBand.isEmpty())
         qSort(allReportBand.begin(), allReportBand.end(), compareBandType);
 
     for (auto band : allReportBand) {
@@ -833,54 +829,42 @@ void MainWindow::generateName(QGraphicsItem *mItem) {
     bool good = false;
     QString contName;
     switch(cont->getFieldType()) {
-        case Barcode: {
+        case Barcode:
             contName = "barcode%1";
             break;
-        }
-        case Text: {
+        case Text:
             contName = "field%1";
             break;
-        }
-        case TextRich: {
+        case TextRich:
             contName = "richText%1";
             break;
-        }
-        case Image: {
+        case Image:
             contName = "image%1";
             break;
-        }
-        case Diagram: {
+        case Diagram:
             contName = "diagram%1";
             break;
-        }
-        case Reactangle: {
+        case Reactangle:
             contName = "reactangle%1";
             break;
-        }
-        case Circle: {
+        case Circle:
             contName = "circle%1";
             break;
-        }
-        case RoundedReactangle: {
+        case RoundedReactangle:
             contName = "roundedReactangle%1";
             break;
-        }
-        case Triangle: {
+        case Triangle:
             contName = "triangle%1";
             break;
-        }
-        case Rhombus: {
+        case Rhombus:
             contName = "rhombus%1";
             break;
-        }
-        case QtRptName::Line: {
+        case QtRptName::Line:
             contName = "line%1";
             break;
-        }
-        case QtRptName::CrossTab: {
+        case QtRptName::CrossTab:
             contName = "crosstab%1";
             break;
-        }
         default:
             contName = "field%1";
     }
@@ -1170,7 +1154,7 @@ void MainWindow::openFile() {
 //Select color from dialog and set param
 void MainWindow::chooseColor() {
     EditorDelegate *ed = qobject_cast<EditorDelegate*>(sender());
-    if (selectedGItem() == 0) return;
+    if (selectedGItem() == nullptr) return;
     QColor color;
     QColorDialog *dlg = new QColorDialog(color, this);
     if (dlg->exec() == QDialog::Accepted) {
@@ -1179,27 +1163,27 @@ void MainWindow::chooseColor() {
     } else return;
 
     Command command;
-    if (ed != 0) {
+    if (ed != nullptr)
         command = (Command)ui->treeParams->currentItem()->data(1,Qt::UserRole).toInt();
-    } else {
+    else
         command = getCommand(sender());
-    }
+
     execButtonCommand(command,color);
 
     delete dlg;
 }
 
 void MainWindow::changeTextFont() {
-    if (selectedGItem() == 0) return;
+    if (selectedGItem() == nullptr) return;
     GraphicsBox *gItem = static_cast<GraphicsBox *>(selectedGItem());
-    if (gItem == 0) return;
+    if (gItem == nullptr) return;
     if (gItem->type() != GBox) return;
 
     QAction *action = qobject_cast<QAction *>(sender());
     QComboBox *cmb = qobject_cast<QComboBox *>(sender());
     Command command = getCommand(sender());
     QVariant v;
-    if (action != 0) {
+    if (action != nullptr) {
         v = action->isChecked();
         if (action == ui->actAlignLeft) v=0;
         if (action == ui->actAlignRight) v=2;
@@ -1209,9 +1193,8 @@ void MainWindow::changeTextFont() {
         if (action == ui->actAlignVCenter) v=1;
         if (action == ui->actAlignBottom) v=2;
     }
-    if (cmb != 0) {
+    if (cmb != nullptr)
         v = cmb->itemText(cmb->currentIndex());
-    }
 
     execButtonCommand(command,v);
     ui->actSaveReport->setEnabled(true);
@@ -1219,10 +1202,10 @@ void MainWindow::changeTextFont() {
 
 //Определяем, тип команды в зависимости от нажатой кнопки
 Command MainWindow::getCommand(QObject *widget) {
-    if (widget == 0) return None;
+    if (widget == nullptr) return None;
     QAction *action = qobject_cast<QAction *>(widget);
     QComboBox *cmb = qobject_cast<QComboBox *>(widget);
-    if (action != 0) {
+    if (action != nullptr) {
         if (action == ui->actionBold) return Bold;
         else if (action == ui->actionItalic) return Italic;
         else if (action == ui->actionUnderline) return Underline;
@@ -1246,7 +1229,7 @@ Command MainWindow::getCommand(QObject *widget) {
         else if (action == ui->actFontColor) return FontColor;
         else return None;
     }
-    if (cmb != 0) {
+    if (cmb != nullptr) {
         if (cmb == cbFontSize)
             return FontSize;
         if (cmb == cbFontName)
@@ -1281,7 +1264,7 @@ void MainWindow::setGroupingField() {
         int cf = 1;
         while (!good) {
             bool fnd = false;
-            for(auto item : repPage->scene->items()) {
+            for (auto item : repPage->scene->items()) {
                 if (item->type() == ItemType::GLine || item->type() == ItemType::GBox) {
                     auto helper = gItemToHelper(item);
                     if (helper->getGroupName() == QString(groupName).arg(cf)) {
@@ -1819,7 +1802,7 @@ QGraphicsItemList MainWindow::getSelectedItems() {
 GraphicsHelperList MainWindow::getSelectedHelperItems() {
     GraphicsHelperList list;
     RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
-    for(auto item : repPage->scene->items()) {
+    for (auto item : repPage->scene->items()) {
         if (item->type() == ItemType::GBox || item->type() == ItemType::GBand || item->type() == ItemType::GLine) {
             if (gItemToHelper(item)->helperIsSelected())
                 list.append(gItemToHelper(item));
@@ -1830,7 +1813,7 @@ GraphicsHelperList MainWindow::getSelectedHelperItems() {
 
 void MainWindow::execButtonCommand(Command command, QVariant value) {
     if (command == None) return;
-    if (selectedGItem() == 0) return;
+    if (selectedGItem() == nullptr) return;
 
     RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
 
@@ -1918,9 +1901,9 @@ void MainWindow::processCommand(Command command, QVariant value, QGraphicsItem *
             break;
         }
         case FrameWidth: {
-            if (box != 0)
+            if (box != nullptr)
                 box->setBorder(command,value);
-            if (line != 0)
+            if (line != nullptr)
                 line->setBorder(command,value);
             break;
         }
@@ -1992,12 +1975,10 @@ void MainWindow::processCommand(Command command, QVariant value, QGraphicsItem *
             break;
         }
         case Height: {
-            if (band != 0) {
+            if (band != nullptr)
                 band->setHeight(value.toInt()+band->titleHeight);
-            }
-            if (box != 0) {
+            if (box != nullptr)
                 box->setHeight(value.toInt());
-            }
             break;
         }
         case Length: {
@@ -2055,9 +2036,8 @@ void MainWindow::processCommand(Command command, QVariant value, QGraphicsItem *
         default: break;
     }
 
-    if (box != 0) {
+    if (box != nullptr)
         box->setFont(fnt);
-    }
 }
 
 //Sets params in the tree
@@ -2065,8 +2045,8 @@ void MainWindow::setParamTree(Command command, QVariant value, bool child) {
     if (command == None) return;
 
     QTreeWidgetItem *item = findItemInTree(command);
-    QTreeWidgetItem *parentNode = 0;
-    if (item == 0 && !child) {
+    QTreeWidgetItem *parentNode = nullptr;
+    if (item == nullptr && !child) {
         item = new QTreeWidgetItem(ui->treeParams);
     }
 
@@ -2166,7 +2146,7 @@ void MainWindow::setParamTree(Command command, QVariant value, bool child) {
         }
         case FrameLeft: {
             parentNode = findItemInTree(Frame);
-            if (item == 0)
+            if (item == nullptr)
                 item = new QTreeWidgetItem(parentNode);
             item->setText(0,tr("Left"));
             if (value.toBool()) item->setCheckState(1,Qt::Checked);
@@ -2176,7 +2156,7 @@ void MainWindow::setParamTree(Command command, QVariant value, bool child) {
         }
         case FrameRight: {
             parentNode = findItemInTree(Frame);
-            if (item == 0)
+            if (item == nullptr)
                 item = new QTreeWidgetItem(parentNode);
             item->setText(0,tr("Right"));
             if (value.toBool()) item->setCheckState(1,Qt::Checked);
@@ -2230,7 +2210,7 @@ void MainWindow::setParamTree(Command command, QVariant value, bool child) {
         }
         case FontName: {
             parentNode = findItemInTree(Font);
-            if (item == 0)
+            if (item == nullptr)
                 item = new QTreeWidgetItem(parentNode);
             item->setText(0,tr("Name"));
             item->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsEditable);
@@ -2240,7 +2220,7 @@ void MainWindow::setParamTree(Command command, QVariant value, bool child) {
         }
         case FontSize: {
             parentNode = findItemInTree(Font);
-            if (item == 0)
+            if (item == nullptr)
                 item = new QTreeWidgetItem(parentNode);
             item->setText(0,tr("Size"));
             item->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsEditable);
@@ -2251,7 +2231,7 @@ void MainWindow::setParamTree(Command command, QVariant value, bool child) {
         }
         case Bold: {
             parentNode = findItemInTree(Font);
-            if (item == 0)
+            if (item == nullptr)
                 item = new QTreeWidgetItem(parentNode);
             item->setText(0,tr("Bold"));
             if (value.toBool()) item->setCheckState(1,Qt::Checked);
@@ -2261,7 +2241,7 @@ void MainWindow::setParamTree(Command command, QVariant value, bool child) {
         }
         case Italic: {
             parentNode = findItemInTree(Font);
-            if (item == 0)
+            if (item == nullptr)
                 item = new QTreeWidgetItem(parentNode);
             item->setText(0,tr("Italic"));
             if (value.toBool()) item->setCheckState(1,Qt::Checked);
@@ -2271,7 +2251,7 @@ void MainWindow::setParamTree(Command command, QVariant value, bool child) {
         }
         case Underline: {
             parentNode = findItemInTree(Font);
-            if (item == 0)
+            if (item == nullptr)
                 item = new QTreeWidgetItem(parentNode);
             item->setText(0,tr("Underline"));
             if (value.toBool()) item->setCheckState(1,Qt::Checked);
@@ -2281,7 +2261,7 @@ void MainWindow::setParamTree(Command command, QVariant value, bool child) {
         }
         case Strikeout: {
             parentNode = findItemInTree(Font);
-            if (item == 0)
+            if (item == nullptr)
                 item = new QTreeWidgetItem(parentNode);
             item->setText(0,tr("Strikeout"));
             if (value.toBool()) item->setCheckState(1,Qt::Checked);
@@ -2357,7 +2337,7 @@ void MainWindow::setParamTree(Command command, QVariant value, bool child) {
         }
         case FontColor: {
             parentNode = findItemInTree(Font);
-            if (item == 0)
+            if (item == nullptr)
                 item = new QTreeWidgetItem(parentNode);
             item->setText(0,tr("FontColor"));
             item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsEditable);
@@ -2637,9 +2617,8 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *e) {
         }
     }
     if (e->type() == QEvent::Leave) {
-        if (obj->objectName() == "RepScrollArea") {
+        if (obj->objectName() == "RepScrollArea")
             setCursor(Qt::ArrowCursor);
-        }
     }
     if (e->type() == QMouseEvent::MouseButtonPress) {
         if (!ui->actMagnifying->isChecked()) {
@@ -2654,7 +2633,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *e) {
 //Process click on CheckBox
 void MainWindow::itemChanged(QTreeWidgetItem *item, int column) {
     if (column == 1 ) {
-        if (selectedGItem() == 0) return;
+        if (selectedGItem() == nullptr) return;
             QVariant v;
             Command command = (Command)item->data(1,Qt::UserRole).toInt();
             switch (command) {
@@ -2689,35 +2668,37 @@ void MainWindow::itemChanged(QTreeWidgetItem *item, int column) {
 
 //Change param in paramTree
 void MainWindow::closeEditor() {
-    QTreeWidgetItem *item = ui->treeParams->currentItem();
-    if (item == 0) return;
-    if (selectedGItem() == 0) return;
-        QVariant v;
-        Command command = (Command)item->data(1,Qt::UserRole).toInt();
-        switch (command) {
-            case Name:
-            case Left:
-            case Top:            
-            case Height:
-            case Length:
-            case AligmentH:
-            case AligmentV:
-            case BarcodeType:
-            case BarcodeFrameType:
-            case FrameWidth:
-            case FontName:
-            case FontSize:
-                v = item->text(1);
-                ReportBand *rep = static_cast<ReportBand *>(selectedGItem());
-                if (rep->type() == ItemType::GBand && command == Height && rep != 0)
-                    v = item->text(1).toInt()+rep->titleHeight;
-                break;
-            case Width:
-                v = item->text(1).toInt()+1;
-                break;
-            default:
-                return;
+    auto item = ui->treeParams->currentItem();
+    if (item == nullptr) return;
+    if (selectedGItem() == nullptr) return;
+    QVariant v;
+    Command command = (Command)item->data(1,Qt::UserRole).toInt();
+    switch (command) {
+        case Name:
+        case Left:
+        case Top:
+        case Height:
+        case Length:
+        case AligmentH:
+        case AligmentV:
+        case BarcodeType:
+        case BarcodeFrameType:
+        case FrameWidth:
+        case FontName:
+        case FontSize: {
+            v = item->text(1);
+            auto rep = static_cast<ReportBand *>(selectedGItem());
+            if (rep->type() == ItemType::GBand && command == Height && rep != nullptr)
+                v = item->text(1).toInt() + rep->titleHeight;
+            break;
         }
+        case Width: {
+            v = item->text(1).toInt()+1;
+            break;
+        }
+        default:
+            return;
+    }
     execButtonCommand(command,v);
 }
 

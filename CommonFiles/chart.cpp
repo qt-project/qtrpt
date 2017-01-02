@@ -127,11 +127,10 @@ void Chart::setParams(bool drawGrid, bool drawHistory, bool drawCaption, bool dr
     m_showPercent = showPercent;
     m_autoFillData = autoFillData;
 
-    if (drawHistory) {
+    if (drawHistory)
         m_rightSpaceWidth = 110;
-    } else {
+    else
         m_rightSpaceWidth = 30;
-    }
 
     if (m_drawGraphCaption) {
         //m_bottomSpaceHeight = 30;
@@ -148,34 +147,27 @@ GraphParamList Chart::getGraphParamList() {
 
 QVariant Chart::getParam(ChartParam param) {
     switch(param) {
-        case DrawGrid: {
+        case DrawGrid:
             return m_drawGrid;
             break;
-        }
-        case ShowCaption: {
+        case ShowCaption:
             return m_drawCaption;
             break;
-        }
-        case ShowLegend: {
+        case ShowLegend:
             return m_drawHistory;
             break;
-        }
-        case ShowGraphCaption: {
+        case ShowGraphCaption:
             return m_drawGraphCaption;
             break;
-        }
-        case ShowPercent: {
+        case ShowPercent:
             return m_showPercent;
             break;
-        }
-        case Caption: {
+        case Caption:
             return m_caption;
             break;
-        }
-        case AutoFillData: {
+        case AutoFillData:
             return m_autoFillData;
             break;
-        }
         default: return QVariant();
     }
 }

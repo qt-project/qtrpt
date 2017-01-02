@@ -437,9 +437,9 @@ void RptCrossTabObject::addElement(RptTabElement element) {
 void RptCrossTabObject::resortMatrix() {
     //resort rows
     int n = m_rowHeader.size();
-    for(int i=0; i<n; ++i)
+    for (int i=0; i<n; ++i)
         for(int j=i+1; j<n; ++j)
-            if(QString(m_rowHeader[j]).toInt() < QString(m_rowHeader[i]).toInt()) {
+            if (QString(m_rowHeader[j]).toInt() < QString(m_rowHeader[i]).toInt()) {
                 qSwap(m_rowHeader[i], m_rowHeader[j]);
                 qSwap(valuesArray[i], valuesArray[j]);
             }
@@ -450,7 +450,7 @@ void RptCrossTabObject::resortMatrix() {
         for(int j=i+1; j<n; ++j)
             if(QString(m_colHeader[j]).toInt() < QString(m_colHeader[i]).toInt()) {
                 qSwap(m_colHeader[i], m_colHeader[j]);
-                for(int row=0; row<m_rowHeader.size(); row++) {
+                for (int row=0; row<m_rowHeader.size(); row++) {
                     qSwap(valuesArray[row][i], valuesArray[row][j]);
                 }
             }

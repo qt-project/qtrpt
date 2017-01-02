@@ -24,7 +24,7 @@ limitations under the License.
 #include "selectcolor.h"
 
 SelectColor::SelectColor(QWidget *parent, QString rgbColor) : QWidget(parent) {
-    QWidget *colorBox = new QWidget(this);
+    auto colorBox = new QWidget(this);
     colorBox->setObjectName("colorBox");
     QString stl = "QWidget#colorBox {;"
                   "border-width:1px;"

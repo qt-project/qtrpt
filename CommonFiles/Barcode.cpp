@@ -30,9 +30,9 @@ void BarCode::paintEvent(QPaintEvent * event) {
     Q_UNUSED(event);
     QPainter painter(this);
     #ifndef NO_BARCODE
-        if (bc == 0) {
+        if (bc == 0)
             painter.drawText(QPointF(0,0),"Zint library not found");
-        } else
+        else
             drawBarcode(&painter, 0, 0, this->width(), this->height());
 
     #else
