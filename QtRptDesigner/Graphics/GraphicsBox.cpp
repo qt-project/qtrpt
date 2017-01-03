@@ -85,7 +85,7 @@ void GraphicsBox::setWidth(qreal value) {
     _width = value;
     adjustSize(0,0);
     setCornerPositions();
-    if (this->scene() != 0)
+    if (this->scene() != nullptr)
         this->scene()->update();
 }
 
@@ -93,7 +93,7 @@ void GraphicsBox::setHeight(qreal value) {
     _height = value;
     adjustSize(0,0);
     setCornerPositions();
-    if (this->scene() != 0)
+    if (this->scene() != nullptr)
         this->scene()->update();
 }
 

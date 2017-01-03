@@ -94,24 +94,24 @@ DelItemCommand::DelItemCommand(GraphicsScene *scene, QUndoCommand *parent) : QUn
 }
 
 void DelItemCommand::undo() {
-    for (int i=0; i<itemList.size(); i++) {
-        myGraphicsScene->addItem(itemList[i]);
-        if (itemList[i]->type() == ItemType::GBox || itemList[i]->type() == ItemType::GLine) {
-            itemList.at(i)->setParentItem(parentList[i]);
+    for (auto item : itemList) {
+        myGraphicsScene->addItem(item);
+        if (item->type() == ItemType::GBox || item->type() == ItemType::GLine) {
+            item->setParentItem(parentList[i]);
 
             RepScrollArea *area = qobject_cast<RepScrollArea*>(myGraphicsScene->parent());
-            area->newFieldTreeItem(itemList.at(i));
+            area->newFieldTreeItem(item);
         }
         if (itemList[i]->type() == ItemType::GBand) {
             RepScrollArea *area = qobject_cast<RepScrollArea*>(myGraphicsScene->parent());
-            area->newFieldTreeItem(itemList.at(i));
+            area->newFieldTreeItem(item);
         }
     }
     myGraphicsScene->update();
 }
 
 void DelItemCommand::redo() {
-    for(auto cont1 : itemList) {
+    for (auto cont1 : itemList) {
         parentList << cont1->parentItem();
         myGraphicsScene->removeItem(cont1);
     }
@@ -168,52 +168,22 @@ ParamCommand::~ParamCommand() {
 }
 
 void ParamCommand::undo() {
-    for (int i=0; i<m_dataList.size(); i++) {
-        PairCont pair = m_dataList[i];
+    for (PairCont pair : m_dataList) {
         QDataStream in(pair.oldBArray);
         GraphicsHelperClass *second = qobject_cast<GraphicsHelperClass *>(pair.gHelper);
         if (second == 0) continue;
         in >> *second;
         pair.gHelper = second;
-
-        /*if (pair.third != QtRptName::Line) {
-            TContainerField *second = qobject_cast<TContainerField *>(pair.second);
-            if (second == 0) continue;
-            in >> *second;
-            pair.second = second;
-        } else {
-            TContainerLine *second = qobject_cast<TContainerLine *>(pair.second);
-            if (second == 0) continue;
-            in >> *second;
-            pair.second = second;
-        }*/
-        //pair.second->itemInTree->setText(0,pair.second->objectName());
     }
     myGraphicsScene->update();
 }
 
 void ParamCommand::redo() {
-    /*if (m_create) {
-        m_create = false;
-        return;
-    }*/
-    for (int i=0; i<m_dataList.size(); i++) {
-        PairCont pair = m_dataList[i];
+    for (PairCont pair : m_dataList) {
         QDataStream in(pair.newBArray);
         GraphicsHelperClass *second = qobject_cast<GraphicsHelperClass *>(pair.gHelper);
         in >> *second;
         pair.gHelper = second;
-
-        /*if (pair.third != QtRptName::Line) {
-            TContainerField *second = qobject_cast<TContainerField *>(pair.second);
-            in >> *second;
-            pair.second = second;
-        } else {
-            TContainerLine *second = qobject_cast<TContainerLine *>(pair.second);
-            in >> *second;
-            pair.second = second;
-        }*/
-        //pair.second->itemInTree->setText(0,pair.second->objectName());
     }
     myGraphicsScene->update();
 }
@@ -221,17 +191,9 @@ void ParamCommand::redo() {
 BArrayList ParamCommand::getBArrayFromContList(GraphicsHelperList contList) {
     BArrayList list;
     for(auto cont1 : contList) {
-//        cont1->setProperties();
         QByteArray byteArray;
         QDataStream out(&byteArray, QIODevice::WriteOnly);
         out << *cont1;
-
-//        TContainerField *contF = qobject_cast<TContainerField *>(cont1);
-//        if (contF != 0)
-//            out << *contF;
-//        TContainerLine *contL = qobject_cast<TContainerLine *>(cont1);
-//        if (contL != 0)
-//            out << *contL;
 
         QPair<QByteArray, GraphicsHelperClass*> pair;
         pair.first = byteArray;
