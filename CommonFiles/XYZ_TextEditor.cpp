@@ -33,7 +33,7 @@ XYZTextEditor::XYZTextEditor(QWidget *parent) : QWidget(parent), m_ui(new Ui::XY
     alignmentChanged(m_ui->textEdit->alignment());
     m_ui->textEdit->setFocus();
     textEdit = m_ui->textEdit;
-    QButtonGroup *btnGroup = new QButtonGroup(this);
+    auto btnGroup = new QButtonGroup(this);
     btnGroup->addButton(m_ui->btnAlignCenter);
     btnGroup->addButton(m_ui->btnAlignJustify);
     btnGroup->addButton(m_ui->btnAlignLeft);

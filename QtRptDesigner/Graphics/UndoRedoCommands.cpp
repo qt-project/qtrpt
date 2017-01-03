@@ -54,13 +54,13 @@ MoveLineCommand::MoveLineCommand(const ItemsAndParams &itm, QUndoCommand *parent
 }
 
 void MoveLineCommand::redo() {
-    GraphicsLine *line = static_cast<GraphicsLine*>(m_itm.item);
+    auto line = static_cast<GraphicsLine*>(m_itm.item);
     line->setPos(m_itm.newPos);
     line->setPointList(m_itm.newPointList);
 }
 
 void MoveLineCommand::undo() {
-    GraphicsLine *line = static_cast<GraphicsLine*>(m_itm.item);
+    auto line = static_cast<GraphicsLine*>(m_itm.item);
     line->setPos(m_itm.oldPos);
     line->setPointList(m_itm.oldPointList);
 }
@@ -94,17 +94,16 @@ DelItemCommand::DelItemCommand(GraphicsScene *scene, QUndoCommand *parent) : QUn
 }
 
 void DelItemCommand::undo() {
-    for (auto item : itemList) {
-        myGraphicsScene->addItem(item);
-        if (item->type() == ItemType::GBox || item->type() == ItemType::GLine) {
-            item->setParentItem(parentList[i]);
+    auto area = qobject_cast<RepScrollArea*>(myGraphicsScene->parent());
 
-            RepScrollArea *area = qobject_cast<RepScrollArea*>(myGraphicsScene->parent());
-            area->newFieldTreeItem(item);
+    for (int i=0; i<itemList.size(); i++) {
+        myGraphicsScene->addItem(itemList[i]);
+        if (itemList[i]->type() == ItemType::GBox || itemList[i]->type() == ItemType::GLine) {
+            itemList.at(i)->setParentItem(parentList[i]);
+            area->newFieldTreeItem(itemList.at(i));
         }
         if (itemList[i]->type() == ItemType::GBand) {
-            RepScrollArea *area = qobject_cast<RepScrollArea*>(myGraphicsScene->parent());
-            area->newFieldTreeItem(item);
+            area->newFieldTreeItem(itemList.at(i));
         }
     }
     myGraphicsScene->update();

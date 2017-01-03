@@ -234,7 +234,7 @@ void RepScrollArea::paintVerRuler() {
 
 ReportBand *RepScrollArea::m_addBand(BandType type, QMenu *bandMenu, int m_height) {
     QMenu m_bandMenu;
-    for(auto action : bandMenu->actions()) {
+    for (auto action : bandMenu->actions()) {
         if (type == DataGroupHeader) {
             m_bandMenu.addAction(action);
         } else {
@@ -244,7 +244,7 @@ ReportBand *RepScrollArea::m_addBand(BandType type, QMenu *bandMenu, int m_heigh
         }
     }
 
-    ReportBand *reportBand = new ReportBand(type);
+    auto reportBand = new ReportBand(type);
     reportBand->setMenu(&m_bandMenu);
     reportBand->setZValue(10);
 
@@ -297,10 +297,10 @@ void RepScrollArea::newFieldTreeItem(QGraphicsItem *item) {
             newFieldTreeItem(gBand->childItems().at(i));
     }
     if (gItem != nullptr) {
-        QTreeWidgetItem *bandItem = static_cast<GraphicsBox*>(gItem->parentItem())->itemInTree;
+        auto bandItem = static_cast<GraphicsBox*>(gItem->parentItem())->itemInTree;
 
         rootItem->treeWidget()->clearSelection();
-        QTreeWidgetItem *item = new QTreeWidgetItem(bandItem);
+        auto item = new QTreeWidgetItem(bandItem);
         gItem->itemInTree = item;
         if (gItem->getFieldType() == Text || gItem->getFieldType() == TextImage || gItem->getFieldType() == DatabaseImage)
             icon.addPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/images/field.png")), QIcon::Normal, QIcon::On);
@@ -344,10 +344,10 @@ void RepScrollArea::correctBandGeom(ReportBand *rep) {
     int top_ = p.y()+pageSetting.marginsTop;
 
     auto allReportBand = getReportBands();
-    if (allReportBand.size() != 0)
+    if (!allReportBand.isEmpty())
         qSort(allReportBand.begin(), allReportBand.end(), compareBandType);
 
-    for(auto band : allReportBand) {
+    for (auto band : allReportBand) {
         if (band == rep) continue;
         band->setPos( QPointF(band->pos().x(), top_) );
         top_ += band->getHeight()+15;

@@ -62,7 +62,7 @@ void BoxSideHub::update() {
 	QHash<Side, QList<ConnectorRealPair> > sides;
     DiagramObject *item = owner();
 	QRectF rect = item->boundingRect().translated(item->pos());
-    for(Connector *connector : connectors()) {
+    for (Connector *connector : connectors()) {
 		Line *connection = connector->owner();
 		Connector *connector1 = connection->connector(0);
 		Connector *connector2 = connection->connector(1);

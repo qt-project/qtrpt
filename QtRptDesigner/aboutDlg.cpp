@@ -74,10 +74,8 @@ AboutDlg::AboutDlg(QWidget *parent) : QDialog(parent) {
     hLayout2->addStretch();
 
     QHBoxLayout *hLayout1 = new QHBoxLayout;
-    //hLayout->addSpacerItem(spacer1);
     hLayout1->addStretch();
     hLayout1->addWidget(btnOK);
-    //hLayout->addSpacerItem(spacer2);
     hLayout1->addStretch();
 
     QVBoxLayout *vLayout = new QVBoxLayout;

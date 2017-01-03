@@ -184,7 +184,7 @@ RptFieldObject *RptPageObject::findFieldObjectByName(QString name) {
         for (auto field : band->fieldList)
             if (field->name == name)
                 return field;
-    return 0;
+    return nullptr;
 }
 
 /*!

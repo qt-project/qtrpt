@@ -150,41 +150,36 @@ void PageSettingDlg::saveSettings() {
         pageSetting.pageOrientation = 1;
     if (ui->rPortrait->isChecked())
         pageSetting.pageOrientation = 0;
+
     switch(ui->cmbBorderStyle->currentIndex()) {
-        case 0: {
+        case 0:
             pageSetting.borderStyle = "solid";
             break;
-        }
-        case 1: {
+        case 1:
             pageSetting.borderStyle = "dashed";
             break;
-        }
-        case 2: {
+        case 2:
             pageSetting.borderStyle = "dotted";
             break;
-        }
-        case 3: {
+        case 3:
             pageSetting.borderStyle = "dot-dash";
             break;
-        }
-        case 4: {
+        case 4:
             pageSetting.borderStyle = "dot-dot-dash";
             break;
-        }
-        case 5: {
+        case 5:
             pageSetting.borderStyle = "double";
             break;
-        }
         default: break;
     }
 }
 
 void PageSettingDlg::selectColor() {
     QColor color;
-    QColorDialog *dlg = new QColorDialog(color, this);
-    if (dlg->exec() == QDialog::Accepted) {
+    auto dlg = new QColorDialog(color, this);
+    if (dlg->exec() == QDialog::Accepted)
         color = dlg->selectedColor();
-    } else return;
+    else return;
 
     strColor = colorToString(color);
     pageSetting.borderColor = strColor;

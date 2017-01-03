@@ -37,6 +37,7 @@ QString FldPropertyDlg::showThis(int index, GraphicsBox *widget, QString value) 
         ui->stackedWidget->setCurrentIndex(0);
     else
         ui->stackedWidget->setCurrentIndex(index);
+
     switch(index) {
         case 0:
         case 3: {

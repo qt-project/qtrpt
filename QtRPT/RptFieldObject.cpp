@@ -318,7 +318,7 @@ RptFieldObject::RptFieldObject() {
     this->borderLeft = Qt::black;
     this->borderTop = Qt::black;
     this->aligment = Qt::AlignVCenter | Qt::AlignLeft;
-    this->parentBand = 0;
+    this->parentBand = nullptr;
 }
 
 /*!
@@ -472,9 +472,8 @@ void RptFieldObject::updateHighlightingParam() {
 
 void RptFieldObject::updateDiagramValue() {
     if (autoFillData == 1) {
-        for (int h=0; h<graphList.size(); h++) {
+        for (int h=0; h<graphList.size(); h++)
             graphList[h].valueReal = m_qtrpt->sectionField(this->parentBand, graphList.at(h).formula, false).toFloat();
-        }
     }
 }
 
