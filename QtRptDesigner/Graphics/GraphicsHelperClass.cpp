@@ -136,11 +136,11 @@ bool GraphicsHelperClass::borderIsCheck(Command command) {
 
 void GraphicsHelperClass::setBorder(Command command, QVariant values, bool yesFrame) {
     QColor color = values.value<QColor>();
-    if (color.isValid()) {
+    if (color.isValid())
         m_borderColor = color;
-    } else {
+    else
         color = getColorValue(BorderColor);
-    }
+
     m_borderColor = color;
 
     switch(command) {

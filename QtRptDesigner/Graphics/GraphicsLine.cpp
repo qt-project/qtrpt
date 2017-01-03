@@ -90,9 +90,8 @@ bool GraphicsLine::sceneEventFilter ( QGraphicsItem * watched, QEvent * event ) 
 
         //Посылаем сигнал в сцену для отслеживания Ундо при перемещении концов
         GraphicsScene *model = qobject_cast<GraphicsScene *>(scene());
-        if (model) {
+        if (model)
         	model->itemMoving(this);
-        }
         break;
 	}
     case QEvent::GraphicsSceneMouseRelease: {
@@ -180,6 +179,7 @@ void GraphicsLine::mouseMoveEvent ( QGraphicsSceneMouseEvent * event ) {
 
     GraphicsScene *m_scene = qobject_cast<GraphicsScene *>(scene());
     m_scene->itemResizing(this);
+    this->scene()->update();
 }
 
 void GraphicsLine::setSelected(bool selected_) {
@@ -229,15 +229,6 @@ void GraphicsLine::destroyCorners() {
             _corners[p] = nullptr;
         }
     }
-}
-
-void GraphicsLine::hoverLeaveEvent ( QGraphicsSceneHoverEvent * ) {
-    //destroyCorners();
-    //QApplication::restoreOverrideCursor();
-}
-
-void GraphicsLine::hoverEnterEvent (QGraphicsSceneHoverEvent *) {
-    //createCorners();
 }
 
 void GraphicsLine::setCornerPositions() {
@@ -337,9 +328,8 @@ void GraphicsLine::mousePressEvent(QGraphicsSceneDragDropEvent *event) {
 QVariant GraphicsLine::itemChange(GraphicsItemChange change, const QVariant &value) {
     if (change == ItemPositionChange) {
         GraphicsScene *model = qobject_cast<GraphicsScene *>(scene());
-        if (model) {
+        if (model)
             model->itemMoving(this);
-        }
     }
 
     return QGraphicsItem::itemChange(change, value);
@@ -423,23 +413,20 @@ void GraphicsLine::setLength(qreal value) {
 
 void GraphicsLine::setMenu(QMenu *menu_) {
     QIcon icon;
-//    QAction *actContEdit = new QAction(tr("Edit"),this);
-//    actContEdit->setObjectName("actContEdit");
-//    QObject::connect(actContEdit, SIGNAL(triggered()), this, SLOT(edit()));
 
-    QAction *actContDel = new QAction(tr("Delete"),this);
+    auto actContDel = new QAction(tr("Delete"),this);
     icon.addPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/images/delete.png")), QIcon::Normal, QIcon::On);
     actContDel->setObjectName("actContDel");
     actContDel->setIcon(icon);
     QObject::connect(actContDel, SIGNAL(triggered()), this, SLOT(deleteLater()));
 
-    QAction *actContMoveForward = new QAction(tr("Move forward"),this);
+    auto actContMoveForward = new QAction(tr("Move forward"),this);
     actContMoveForward->setObjectName("actContMoveForward");
     icon.addPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/images/moveForward.png")), QIcon::Normal, QIcon::On);
     actContMoveForward->setIcon(icon);
     QObject::connect(actContMoveForward, SIGNAL(triggered()), this, SLOT(moveForward()));
 
-    QAction *actContMoveBack = new QAction(tr("Move back"),this);
+    auto actContMoveBack = new QAction(tr("Move back"),this);
     actContMoveBack->setObjectName("actContMoveBack");
     icon.addPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/images/moveBack.png")), QIcon::Normal, QIcon::On);
     actContMoveBack->setIcon(icon);
@@ -447,7 +434,6 @@ void GraphicsLine::setMenu(QMenu *menu_) {
 
     m_menu->clear();
     m_menu->insertActions(0,menu_->actions());
-//    m_menu->addAction(actContEdit);
     m_menu->addAction(actContDel);
     m_menu->addSeparator();
     m_menu->addAction(actContMoveForward);

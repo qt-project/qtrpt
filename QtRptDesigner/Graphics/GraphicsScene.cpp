@@ -250,7 +250,7 @@ void GraphicsScene::itemRemoving() {
 }
 
 void GraphicsScene::removeItem(QGraphicsItem *item) {
-    GraphicsHelperClass *helper = 0;
+    GraphicsHelperClass *helper = nullptr;
     if (item->type() == ItemType::GBand || item->type() == ItemType::GBox) {
         auto box = static_cast<GraphicsBox*>(item);
         helper = static_cast<GraphicsHelperClass*>(box);

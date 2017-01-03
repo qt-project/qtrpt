@@ -280,7 +280,7 @@ void GraphicsBox::mouseMoveEvent ( QGraphicsSceneMouseEvent * event ) {
     GraphicsScene *m_scene = qobject_cast<GraphicsScene *>(scene());
 
     ReportBand *band = static_cast<ReportBand*>(this->parentItem());
-    if (band != 0) {
+    if (band != nullptr) {
         bool toBound = false;
         if (x() <= 0) {
             setPos(0, y());
@@ -599,7 +599,7 @@ void GraphicsBox::paint (QPainter *painter, const QStyleOptionGraphicsItem *, QW
                         }
                     }
                 }
-                for(int col=0; col<m_crossTab->colCount()+1; col++) {
+                for (int col=0; col<m_crossTab->colCount()+1; col++) {
                     QPoint p1(col*fieldWidth, 0),
                            p2(col*fieldWidth, this->getHeight());
                     if (col != m_crossTab->colCount() )
@@ -1015,24 +1015,25 @@ void GraphicsBox::contextMenuEvent(QGraphicsSceneContextMenuEvent *event) {
 
 void GraphicsBox::setMenu(QMenu *menu_) {
     if (this->type() == ItemType::GBand) return;
+
     QIcon icon;
-    QAction *actContEdit = new QAction(tr("Edit"),this);
+    auto actContEdit = new QAction(tr("Edit"),this);
     actContEdit->setObjectName("actContEdit");
     QObject::connect(actContEdit, SIGNAL(triggered()), this, SLOT(edit()));
 
-    QAction *actContDel = new QAction(tr("Delete"),this);
+    auto actContDel = new QAction(tr("Delete"),this);
     icon.addPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/images/delete.png")), QIcon::Normal, QIcon::On);
     actContDel->setObjectName("actContDel");
     actContDel->setIcon(icon);
     QObject::connect(actContDel, SIGNAL(triggered()), this, SLOT(deleteLater()));
 
-    QAction *actContMoveForward = new QAction(tr("Move forward"),this);
+    auto actContMoveForward = new QAction(tr("Move forward"),this);
     actContMoveForward->setObjectName("actContMoveForward");
     icon.addPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/images/moveForward.png")), QIcon::Normal, QIcon::On);
     actContMoveForward->setIcon(icon);
     QObject::connect(actContMoveForward, SIGNAL(triggered()), this, SLOT(moveForward()));
 
-    QAction *actContMoveBack = new QAction(tr("Move back"),this);
+    auto actContMoveBack = new QAction(tr("Move back"),this);
     actContMoveBack->setObjectName("actContMoveBack");
     icon.addPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/images/moveBack.png")), QIcon::Normal, QIcon::On);
     actContMoveBack->setIcon(icon);
