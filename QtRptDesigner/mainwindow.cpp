@@ -649,7 +649,7 @@ void MainWindow::updateRecentFileActions() {
 }
 
 void MainWindow::openRecentFile() {
-    QAction *action = qobject_cast<QAction *>(sender());
+    auto action = qobject_cast<QAction *>(sender());
     if (action) {
         fileName = action->data().toString();
         openFile();
@@ -955,13 +955,13 @@ QDomElement MainWindow::getDataSourceElement(QDomNode n) {
 }
 
 void MainWindow::delItemInTree(QGraphicsItem *gItem, QTreeWidgetItem *item) {
-    if (item == 0) return;
+    if (item == nullptr) return;
     QTreeWidgetItem *itemAbove = ui->treeWidget->itemAbove(item);
-    if (itemAbove == 0) return;
+    if (itemAbove == nullptr) return;
     QTreeWidgetItem *parent = item->parent();
     while (item->childCount() > 0) {
         QTreeWidgetItem *tmp = item->takeChild(0);
-        tmp = 0;
+        tmp = nullptr;
         delete tmp;
     }
     int index = parent->indexOfChild(item);
@@ -971,10 +971,10 @@ void MainWindow::delItemInTree(QGraphicsItem *gItem, QTreeWidgetItem *item) {
 
     //Корректируем расположение бэндов
     ReportBand *reportBand = static_cast<ReportBand *>(gItem);
-    if (reportBand == 0) return;
+    if (reportBand == nullptr) return;
 
     auto repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
-    if (repPage != 0) repPage->correctBandGeom(reportBand);
+    if (repPage != nullptr) repPage->correctBandGeom(reportBand);
 
     if (reportBand->bandType == ReportTitle) actRepTitle->setEnabled(true);
     if (reportBand->bandType == ReportSummary) actReportSummary->setEnabled(true);
@@ -1352,12 +1352,12 @@ void MainWindow::sceneItemSelectionChanged(QGraphicsItem *item) {
 }
 
 void MainWindow::alignFields() {
-    RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
-    GraphicsBox *etalon = static_cast<GraphicsBox*>(selectedGItem());
+    auto repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
+    auto etalon = qgraphicsitem_cast<GraphicsBox*>(selectedGItem());
 
     for (auto item : repPage->scene->items()) {
         if (item->type() == ItemType::GBox) {
-            auto box = static_cast<GraphicsBox*>(item);
+            auto box = qgraphicsitem_cast<GraphicsBox*>(item);
             if (box->isSelected() && box != etalon) {
                 if (sender() == ui->actFieldLeft)
                     item->setPos(etalon->pos().x(), item->pos().y());
@@ -2166,7 +2166,7 @@ void MainWindow::setParamTree(Command command, QVariant value, bool child) {
         }
         case FrameTop: {
             parentNode = findItemInTree(Frame);
-            if (item == 0)
+            if (item == nullptr)
                 item = new QTreeWidgetItem(parentNode);
             item->setText(0,tr("Top"));
             if (value.toBool()) item->setCheckState(1,Qt::Checked);
@@ -2176,7 +2176,7 @@ void MainWindow::setParamTree(Command command, QVariant value, bool child) {
         }
         case FrameBottom: {
             parentNode = findItemInTree(Frame);
-            if (item == 0)
+            if (item == nullptr)
                 item = new QTreeWidgetItem(parentNode);
             item->setText(0,tr("Bottom"));
             if (value.toBool()) item->setCheckState(1,Qt::Checked);
@@ -2386,7 +2386,7 @@ void MainWindow::setParamTree(Command command, QVariant value, bool child) {
 
     item->setData(1,Qt::UserRole,command);
 
-    if (parentNode == 0)
+    if (parentNode == nullptr)
         ui->treeParams->addTopLevelItem(item);
     else
         parentNode->addChild(item);
@@ -2519,11 +2519,10 @@ void MainWindow::addDraw() {
 
 void MainWindow::showPreview() {
     QtRPT *report = new QtRPT(this);
-    if (fileName.isEmpty()) {
+    if (fileName.isEmpty())
         report->loadReport(*xmlDoc);
-    } else {
+    else
         report->loadReport(fileName);
-    }
     report->printExec();
 }
 
@@ -2710,9 +2709,8 @@ void MainWindow::clipBoard() {
         for(auto item : repPage->scene->items()) {
             if (item->type() == ItemType::GLine || item->type() == ItemType::GBox) {
                 GraphicsHelperClass *helper = gItemToHelper(item);
-                if (helper->helperIsSelected()) {
+                if (helper->helperIsSelected())
                     cloneContList->append(item);
-                }
             }
         }
         ui->actPaste->setEnabled(true);
@@ -2737,7 +2735,7 @@ void MainWindow::clipBoard() {
         RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
         GraphicsScene *scene = repPage->scene;
         ReportBand *band = nullptr;
-        if (scene->selectedItems().size() > 0) {
+        if (!scene->selectedItems().isEmpty()) {
             auto item = scene->selectedItems().at(0);
             if (item->type() == ItemType::GBand)
                 band = static_cast<ReportBand *>(item);
@@ -2805,10 +2803,9 @@ MainWindow::~MainWindow() {
 
 MainWindow *getMW(){
     MainWindow *mw = nullptr;
-    for(auto widget : qApp->topLevelWidgets())
-        if(widget->inherits("QMainWindow")) {
+    for (auto widget : qApp->topLevelWidgets())
+        if (widget->inherits("QMainWindow"))
             mw = qobject_cast<MainWindow *>(widget);
-        }
     return mw;
 }
 
