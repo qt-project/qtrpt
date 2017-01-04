@@ -1789,12 +1789,10 @@ void MainWindow::selectItemInTree(QTreeWidgetItem *item) {
 QGraphicsItemList MainWindow::getSelectedItems() {
     QGraphicsItemList list;
     RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
-    for(auto item : repPage->scene->items()) {
-        if (item->type() == ItemType::GBox || item->type() == ItemType::GBand || item->type() == ItemType::GLine) {
-            if (gItemToHelper(item)->helperIsSelected()) {
+    for (auto item : repPage->scene->items()) {
+        if (item->type() == ItemType::GBox || item->type() == ItemType::GBand || item->type() == ItemType::GLine)
+            if (gItemToHelper(item)->helperIsSelected())
                 list.append(item);
-            }
-        }
     }
     return list;
 }
@@ -2046,9 +2044,8 @@ void MainWindow::setParamTree(Command command, QVariant value, bool child) {
 
     QTreeWidgetItem *item = findItemInTree(command);
     QTreeWidgetItem *parentNode = nullptr;
-    if (item == nullptr && !child) {
+    if (item == nullptr && !child)
         item = new QTreeWidgetItem(ui->treeParams);
-    }
 
     switch (command) {
         case Name: {

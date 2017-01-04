@@ -52,12 +52,10 @@ void GraphicsScene::addItem(QGraphicsItem * item) {
     if (item->type() == ItemType::GLine) {
         GraphicsLine *line = static_cast<GraphicsLine*>(item);
         QObject::connect(line, SIGNAL(itemRemoving()), this, SLOT(itemRemoving()));
-        //connect(line, SIGNAL(itemChanged(QGraphicsItem*)), this, SIGNAL(itemChanged(QGraphicsItem*)));
     }
     if (item->type() == ItemType::GBox || item->type() == ItemType::GBand) {
         GraphicsBox *box = static_cast<GraphicsBox*>(item);
         QObject::connect(box, SIGNAL(itemRemoving()), this, SLOT(itemRemoving()));
-        //connect(box, SIGNAL(itemChanged(QGraphicsItem*)), this, SIGNAL(itemChanged(QGraphicsItem*)));
     }
     QGraphicsScene::addItem(item);
 }
@@ -72,7 +70,7 @@ void GraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *event){
     m_trackingMoves = true;
 
     QGraphicsItem *pItem = itemAt(event->scenePos(), this->views().at(0)->transform() );
-    if (pItem == 0) return;
+    if (pItem == nullptr) return;
     if (pItem->type() == ItemType::GBox)
         pItem = pItem->parentItem();
 

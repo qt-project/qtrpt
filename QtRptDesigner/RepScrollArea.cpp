@@ -59,7 +59,7 @@ RepScrollArea::RepScrollArea(QWidget *parent) : QScrollArea(parent), ui(new Ui::
     this->installEventFilter(parent);
     scene->installEventFilter(parent);
     
-	ui->horRuler->installEventFilter(this);
+    ui->horRuler->installEventFilter(this);
     ui->verRuler->installEventFilter(this);
 
     this->setVisible(true);
@@ -145,7 +145,7 @@ void RepScrollArea::clearReport() {
 
 bool RepScrollArea::allowField() {
     bool hasBand = false;
-    for(auto item : scene->items()){
+    for (auto item : scene->items()){
         if (item->type() == ItemType::GBand) hasBand = true;
     }
     return hasBand;
@@ -355,11 +355,11 @@ void RepScrollArea::correctBandGeom(ReportBand *rep) {
 }
 
 bool RepScrollArea::eventFilter(QObject *obj, QEvent *e) {
-    if(obj==ui->horRuler && e->type()==QEvent::Paint) {
+    if (obj==ui->horRuler && e->type()==QEvent::Paint) {
         paintHorRuler();
         return true;
     }
-    if(obj==ui->verRuler && e->type()==QEvent::Paint) {
+    if (obj==ui->verRuler && e->type()==QEvent::Paint) {
         paintVerRuler();        
         return true;
     }
@@ -368,7 +368,7 @@ bool RepScrollArea::eventFilter(QObject *obj, QEvent *e) {
 
 QList<ReportBand *> RepScrollArea::getReportBands() {
     QList<ReportBand *> allReportBand;
-    for(auto item : scene->items())
+    for (auto item : scene->items())
         if (item->type() == ItemType::GBand)
             allReportBand << static_cast<ReportBand*>(item);
     return allReportBand;

@@ -114,7 +114,7 @@ bool GraphicsLine::sceneEventFilter ( QGraphicsItem * watched, QEvent * event ) 
         m_scene->itemResizing(this);
 
         createCustomPath(mevent->pos(), corner);
-        this->scene()->update();  //this->update();
+        this->scene()->update();
     }
 
     return true;// true => do not send event to watched - we are finished with this event
@@ -154,6 +154,14 @@ void GraphicsLine::createCustomPath(QPointF mouseLocation, CornerGrabber* corner
         int cornerHeight = ( _corners[0]->boundingRect().height())/2;
         _corners[idx]->setPos(m_pointList[idx].x() - cornerWidth, m_pointList[idx].y() - cornerHeight );
     }
+}
+
+void GraphicsLine::hoverLeaveEvent ( QGraphicsSceneHoverEvent * ) {
+    this->scene()->update();
+}
+
+void GraphicsLine::hoverEnterEvent ( QGraphicsSceneHoverEvent * ) {
+    this->scene()->update();
 }
 
 // for supporting moving the box across the scene
@@ -196,6 +204,7 @@ void GraphicsLine::setSelected(bool selected_) {
         destroyCorners();
         this->setZValue(2);
     }
+    this->scene()->update();
 }
 
 bool GraphicsLine::isSelected() {

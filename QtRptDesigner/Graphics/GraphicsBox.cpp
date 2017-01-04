@@ -258,6 +258,14 @@ void GraphicsBox::setPos(qreal x, qreal y) {
     setPos(QPoint(x,y));
 }
 
+void GraphicsBox::hoverLeaveEvent ( QGraphicsSceneHoverEvent * ) {
+    this->scene()->update();
+}
+
+void GraphicsBox::hoverEnterEvent ( QGraphicsSceneHoverEvent * ) {
+    this->scene()->update();
+}
+
 //for supporting moving the box across the scene
 void GraphicsBox::mouseReleaseEvent ( QGraphicsSceneMouseEvent * event ) {
     QGraphicsItem::mouseReleaseEvent(event);
@@ -317,6 +325,7 @@ void GraphicsBox::setSelected(bool selected_) {
         emit m_scene->itemSelected(this);
     } else
         destroyCorners();
+    this->scene()->update();
 }
 
 bool GraphicsBox::isSelected() {
@@ -377,10 +386,6 @@ void GraphicsBox::destroyCorners() {
             _corners[i] = nullptr;
         }
     }
-}
-
-void GraphicsBox::hoverLeaveEvent ( QGraphicsSceneHoverEvent * ) {
-    QApplication::restoreOverrideCursor();
 }
 
 void GraphicsBox::setCornerPositions() {

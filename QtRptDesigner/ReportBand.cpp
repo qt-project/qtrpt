@@ -31,7 +31,7 @@ ReportBand::ReportBand(BandType type) {
     m_menu = new QMenu;
     bandType = type;
     m_infocus = false;
-    itemInTree = 0;
+    itemInTree = nullptr;
     titleHeight = 20;
 
     m_groupingField = "";
