@@ -363,8 +363,6 @@ GraphicsLine *GraphicsLine::clone() {
 void GraphicsLine::loadParamFromXML(QDomElement e) {
     GraphicsHelperClass::loadParamFromXML(e);
 
-    this->setPos(e.attribute("left").toInt(), e.attribute("top").toInt()+20);
-
 	m_pointList.clear();
     m_pointList << QPointF(e.attribute("lineStartX").toInt(), e.attribute("lineStartY").toInt());
     m_pointList << QPointF(e.attribute("lineEndX").toInt(), e.attribute("lineEndY").toInt());
@@ -378,13 +376,11 @@ void GraphicsLine::loadParamFromXML(QDomElement e) {
 QDomElement GraphicsLine::saveParamToXML(QDomDocument *xmlDoc) {
     QDomElement elem = GraphicsHelperClass::saveParamToXML(xmlDoc);
 
-    elem.setAttribute("top",this->_location.y()-20);
-    elem.setAttribute("left",this->_location.x());
+    elem.setAttribute("lineStartX", (int)mapToParent(m_pointList[0]).x());
+    elem.setAttribute("lineStartY", (int)mapToParent(m_pointList[0]).y());
+    elem.setAttribute("lineEndX", (int)mapToParent(m_pointList[1]).x());
+    elem.setAttribute("lineEndY", (int)mapToParent(m_pointList[1]).y());
 
-    elem.setAttribute("lineStartX",(int)m_pointList[0].x());
-    elem.setAttribute("lineStartY",(int)m_pointList[0].y());
-    elem.setAttribute("lineEndX",(int)m_pointList[1].x());
-    elem.setAttribute("lineEndY",(int)m_pointList[1].y());
     elem.setAttribute("arrowStart",this->m_arrowStart);
     elem.setAttribute("arrowEnd",this->m_arrowEnd);
 

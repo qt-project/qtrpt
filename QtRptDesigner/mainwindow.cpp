@@ -1035,9 +1035,8 @@ void MainWindow::openFile() {
     QDomElement docElem = xmlDoc->documentElement();  //get root element
     QDomElement repElem;
 
-    while (ui->tabWidget->count() > 1) {
+    while (ui->tabWidget->count() > 1)
         ui->tabWidget->removeTab(ui->tabWidget->count()-1);
-    }
 
     sqlDesigner->clearAll();
 
