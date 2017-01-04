@@ -568,7 +568,7 @@ void GraphicsBox::paint (QPainter *painter, const QStyleOptionGraphicsItem *, QW
 
                 int fieldWidth = m_crossTab->rect.width()/m_crossTab->colCount();
                 int fieldheight = m_crossTab->rect.height()/m_crossTab->rowCount();
-                int posInCell_V = fieldheight/2;
+                int posInCell_V = fieldheight/2+5;
                 int posInCell_H = 5;
 
                 //grid drawing
