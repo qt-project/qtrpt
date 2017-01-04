@@ -159,8 +159,8 @@ void GraphicsScene::keyPressEvent(QKeyEvent *event){
         m_undoStack->push(new DelItemCommand(this));
         update();
         return;
-    } /*else
-        QGraphicsScene::keyPressEvent(event);*/
+    }
+
     for(auto item : this->items()) {
         bool isSelected = false;
         GraphicsBox *box = nullptr;

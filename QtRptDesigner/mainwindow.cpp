@@ -1106,7 +1106,7 @@ void MainWindow::openFile() {
                     QDomElement e = c.toElement(); // try to convert the node to an element.
                     if (!e.isNull() && (e.tagName() == "TContainerField" || e.tagName() == "TContainerLine")) {
                         if (e.tagName() == "TContainerField") {
-                            GraphicsBox *contField = new GraphicsBox();
+                            auto contField = new GraphicsBox();
                             repPage->scene->addItem(contField);
                             contField->setParentItem(reportBand);
                             contField->setMenu(contMenu);
@@ -1114,7 +1114,7 @@ void MainWindow::openFile() {
                             repPage->newFieldTreeItem(contField);
                         }
                         if (e.tagName() == "TContainerLine") {
-                            GraphicsLine *contLine = new GraphicsLine();
+                            auto contLine = new GraphicsLine();
                             repPage->scene->addItem(contLine);
                             contLine->setParentItem(reportBand);
                             contLine->setMenu(contMenu);
@@ -1174,7 +1174,7 @@ void MainWindow::chooseColor() {
 
 void MainWindow::changeTextFont() {
     if (selectedGItem() == nullptr) return;
-    GraphicsBox *gItem = static_cast<GraphicsBox *>(selectedGItem());
+    auto gItem = qgraphicsitem_cast<GraphicsBox *>(selectedGItem());
     if (gItem == nullptr) return;
     if (gItem->type() != GBox) return;
 
@@ -1202,8 +1202,8 @@ void MainWindow::changeTextFont() {
 //Определяем, тип команды в зависимости от нажатой кнопки
 Command MainWindow::getCommand(QObject *widget) {
     if (widget == nullptr) return None;
-    QAction *action = qobject_cast<QAction *>(widget);
-    QComboBox *cmb = qobject_cast<QComboBox *>(widget);
+    auto action = qobject_cast<QAction *>(widget);
+    auto cmb = qobject_cast<QComboBox *>(widget);
     if (action != nullptr) {
         if (action == ui->actionBold) return Bold;
         else if (action == ui->actionItalic) return Italic;
@@ -1787,7 +1787,7 @@ void MainWindow::selectItemInTree(QTreeWidgetItem *item) {
 
 QGraphicsItemList MainWindow::getSelectedItems() {
     QGraphicsItemList list;
-    RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
+    auto repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
     for (auto item : repPage->scene->items()) {
         if (item->type() == ItemType::GBox || item->type() == ItemType::GBand || item->type() == ItemType::GLine)
             if (gItemToHelper(item)->helperIsSelected())
@@ -1798,7 +1798,7 @@ QGraphicsItemList MainWindow::getSelectedItems() {
 
 GraphicsHelperList MainWindow::getSelectedHelperItems() {
     GraphicsHelperList list;
-    RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
+    auto repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
     for (auto item : repPage->scene->items()) {
         if (item->type() == ItemType::GBox || item->type() == ItemType::GBand || item->type() == ItemType::GLine) {
             if (gItemToHelper(item)->helperIsSelected())
@@ -2452,7 +2452,7 @@ void MainWindow::addBand() {
     action->setEnabled(false);
     ui->actSaveReport->setEnabled(true);
 
-    RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
+    auto repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
     if (repPage != nullptr) {
         repPage->m_addBand(type, bandMenu);
         enableAdding();
