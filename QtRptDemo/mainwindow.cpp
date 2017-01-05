@@ -124,12 +124,7 @@ void MainWindow::showReport() {
         }
         report->printExec();
     } else if (ui->rBtn18->isChecked()) {
-        QString fileName = dir.absolutePath()+"/examples_report/example18.xml";
-        QtRPT *report = new QtRPT(this);
-        if (report->loadReport(fileName) == false) {
-            qDebug()<<"Report file not found";
-        }
-        report->printExec();
+        dlg = new ExampleDlg18(this);
     } else if (ui->rBtnRussian->isChecked()) {
         QString fileName = dir.absolutePath()+"/examples_report/RussianInvaders.xml";
         QtRPT *report = new QtRPT(this);

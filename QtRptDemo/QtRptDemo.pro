@@ -33,7 +33,7 @@ SOURCES += main.cpp\
     exampledlg8.cpp \
     exampledlg13.cpp \
     exampledlg14.cpp \
-    exampleDlg18.cpp
+    exampledlg18.cpp
 
 HEADERS  += mainwindow.h \
     exampledlg1.h \
@@ -46,7 +46,7 @@ HEADERS  += mainwindow.h \
     exampledlg8.h \
     exampledlg13.h \
     exampledlg14.h \
-    exampleDlg18.h
+    exampledlg18.h
 
 FORMS    += mainwindow.ui \
     exampledlg1.ui \
@@ -59,7 +59,7 @@ FORMS    += mainwindow.ui \
     exampledlg8.ui \
     exampledlg13.ui \
     exampledlg14.ui \
-    ExampleDlg18.ui
+    exampledlg18.ui
 
 RESOURCES += \
     resurce.qrc
