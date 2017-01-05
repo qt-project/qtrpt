@@ -34,8 +34,17 @@ RptCrossTabObject::RptCrossTabObject() {
     rect.setWidth(500);
     rect.setHeight(500);
 	stTotal = QObject::tr("Total");
+    m_rowHeight = 20;
 
     qRegisterMetaType<RptCrossTabObject>( "RptCrossTabObject" );
+}
+
+int RptCrossTabObject::rowHeight() {
+    return m_rowHeight;
+}
+
+void RptCrossTabObject::setRowHeight(int height) {
+    m_rowHeight = height;
 }
 
 int RptCrossTabObject::colCount() const {

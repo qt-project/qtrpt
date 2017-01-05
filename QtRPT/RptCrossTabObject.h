@@ -73,6 +73,9 @@ public:
     int colDataCount() const;  //pure col count (without header and total)
     int rowDataCount() const;  //pure row count (without header and total)
 
+    int rowHeight();
+    void setRowHeight(int height);
+
     void clear();
     void initMatrix();
     QVariant getMatrixValue(int col,int row) const;
@@ -100,6 +103,7 @@ private:
     QStringList m_rowHeader;
     int m_colCount;
     int m_rowCount;
+    int m_rowHeight;
 	QString	stTotal;
 
     void addField(RptFieldObject *field);

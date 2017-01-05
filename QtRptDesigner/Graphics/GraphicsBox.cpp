@@ -38,7 +38,7 @@ GraphicsBox::GraphicsBox():
     _location = QPointF(0,0);
     _dragStart = QPointF(0,0);
     _width = 200;
-    _height = 50;
+    _height = 20;
 
     _XcornerGrabBuffer = -3;
     _YcornerGrabBuffer = -3;
@@ -402,9 +402,9 @@ void GraphicsBox::setCornerPositions() {
     if (_corners[5] != nullptr) //top-center
         _corners[5]->setPos((_drawingWidth-_drawingOrigenX)/2, _drawingOrigenY);
     if (_corners[6] != nullptr) //left-center
-        _corners[6]->setPos(_drawingOrigenX, (_drawingHeight-_drawingOrigenY)/2);
+        _corners[6]->setPos(_drawingOrigenX, (_drawingHeight+_drawingOrigenY)/2);
     if (_corners[7] != nullptr) //rigth-center
-        _corners[7]->setPos(_drawingWidth, (_drawingHeight-_drawingOrigenY)/2);
+        _corners[7]->setPos(_drawingWidth, (_drawingHeight+_drawingOrigenY)/2);
 }
 
 QRectF GraphicsBox::boundingRect() const {
@@ -567,44 +567,34 @@ void GraphicsBox::paint (QPainter *painter, const QStyleOptionGraphicsItem *, QW
                 painter->setPen(QPen( getColorValue(BorderColor), 1, Qt::SolidLine, Qt::RoundCap));
 
                 int fieldWidth = m_crossTab->rect.width()/m_crossTab->colCount();
-                int fieldheight = m_crossTab->rect.height()/m_crossTab->rowCount();
+                int fieldheight = m_crossTab->rowHeight(); //m_crossTab->rect.height()/m_crossTab->rowCount();
                 int posInCell_V = fieldheight/2+5;
                 int posInCell_H = 5;
 
-                //grid drawing
-                for(int row=0; row<m_crossTab->rowCount()+1; row++) {
-                    QPoint p1(0, row*fieldheight),
-                           p2(this->getWidth(), row*fieldheight);
-                    if (row != m_crossTab->rowCount() )
-                        painter->drawLine(p1,p2);
-                    else {
-                        QPoint p1(0, m_crossTab->rect.height()),
-                               p2(this->getWidth(), m_crossTab->rect.height());
-                        painter->drawLine(p1,p2);
-                    }
+                QVarLengthArray<QLineF, 100> lines;
+                painter->drawRect(0, 0,
+                                  m_crossTab->rect.width(),
+                                  m_crossTab->rect.height());
 
-                    if (m_crossTab->isRowHeaderVisible()) {
-                        if (row<m_crossTab->rowDataCount()) {
-                            int tmpRow = row;
-                            if (m_crossTab->isColHeaderVisible()) {
-                                tmpRow += 1;
-                            }
+                painter->setPen(QPen( getColorValue(BorderColor), 1, Qt::DashLine, Qt::RoundCap));
 
-                            QString row_txt = m_crossTab->getRowName(row);
-                            QPoint p1(posInCell_H, (tmpRow)*fieldheight+posInCell_V);
-                            painter->drawText(p1,row_txt);
-                        }
+                //vertical lines
+                for (qreal x = 0; x <= m_crossTab->rect.right(); x += fieldWidth)
+                    lines.append(QLineF(x, 0,
+                                        x, m_crossTab->rect.bottom()));
 
-                        //Row "total" - total per col
-                        if (m_crossTab->isColTotalVisible()) {
-                            if (row == m_crossTab->rowCount()) {
-                                QPoint p1(posInCell_H, (m_crossTab->rowCount()-1)*fieldheight+posInCell_V);
-                                painter->drawText(p1,tr("Total"));
-                            }
-                        }
-                    }
-                }
-                for (int col=0; col<m_crossTab->colCount()+1; col++) {
+                //horizontal lines
+                for (qreal y = 0; y <= m_crossTab->rect.bottom(); y += fieldheight)
+                    lines.append(QLineF(m_crossTab->rect.left(), y,
+                                        m_crossTab->rect.right(), y));
+
+                painter->drawLines(lines.data(), lines.size());
+
+                painter->setPen(QPen( getColorValue(BorderColor), 1, Qt::SolidLine, Qt::RoundCap));
+
+
+
+                /*for (int col=0; col<m_crossTab->colCount()+1; col++) {
                     QPoint p1(col*fieldWidth, 0),
                            p2(col*fieldWidth, this->getHeight());
                     if (col != m_crossTab->colCount() )
@@ -635,7 +625,7 @@ void GraphicsBox::paint (QPainter *painter, const QStyleOptionGraphicsItem *, QW
                             }
                         }
                     }
-                }
+                }*/
 
                 break;
             }
@@ -739,6 +729,8 @@ void GraphicsBox::loadParamFromXML(QDomElement e) {
         setBarcodeFrameType( (BarCode::FrameTypes)e.attribute("barcodeFrameType","0").toInt() );
         setBarcodeHeight(e.attribute("barcodeHeight","50").toInt() );
     } else if (this->m_type == CrossTab) {
+        m_crossTab->setRowHeight(e.attribute("rowHeight","20").toInt());
+
         m_crossTab->setColHeaderVisible(e.attribute("crossTabColHeaderVisible","1").toInt());
         m_crossTab->setRowHeaderVisible(e.attribute("crossTabRowHeaderVisible","1").toInt());
         m_crossTab->setColTotalVisible(e.attribute("crossTabColTotalVisible","1").toInt());
@@ -856,6 +848,8 @@ QDomElement GraphicsBox::saveParamToXML(QDomDocument *xmlDoc) {
         elem.setAttribute("barcodeHeight",m_barcode->getHeight());
     }
     if (this->m_type == CrossTab) {
+        elem.setAttribute("rowHeight",m_crossTab->rowHeight());
+
         elem.setAttribute("crossTabColHeaderVisible",m_crossTab->isColHeaderVisible());
         elem.setAttribute("crossTabRowHeaderVisible",m_crossTab->isRowHeaderVisible());
         elem.setAttribute("crossTabColTotalVisible",m_crossTab->isColTotalVisible());

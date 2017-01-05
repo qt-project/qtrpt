@@ -372,9 +372,12 @@ int EditFldDlg::showCrosstab(QGraphicsItem *gItem) {
     RptCrossTabObject *m_crossTab = cont->getCrossTab();
     if (m_crossTab == nullptr)
         return QDialog::Rejected;
+
     ui->stackedWidget->setCurrentIndex(5);
     ui->spnRowCount->setValue(m_crossTab->rowDataCount());
     ui->spnColCount->setValue(m_crossTab->colDataCount());
+    ui->spnRowHeight->setValue(m_crossTab->rowHeight());
+
     ui->chkRowHeader->setChecked(m_crossTab->isRowHeaderVisible());
     ui->chkColHeader->setChecked(m_crossTab->isColHeaderVisible());
     ui->chkRowTotal->setChecked(m_crossTab->isRowTotalVisible());
@@ -396,6 +399,8 @@ int EditFldDlg::showCrosstab(QGraphicsItem *gItem) {
         m_crossTab->setColHeaderVisible(ui->chkColHeader->isChecked());
         m_crossTab->setRowTotalVisible(ui->chkRowTotal->isChecked());
         m_crossTab->setColTotalVisible(ui->chkColTotal->isChecked());
+        m_crossTab->setRowHeight(ui->spnRowHeight->value());
+
         m_crossTab->clear();
         for(int i=0; i<ui->tblColHeaders->rowCount(); i++)
             if (ui->tblColHeaders->item(i,0) == 0)
