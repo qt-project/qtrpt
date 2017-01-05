@@ -567,7 +567,7 @@ void GraphicsBox::paint (QPainter *painter, const QStyleOptionGraphicsItem *, QW
                 painter->setPen(QPen( getColorValue(BorderColor), 1, Qt::SolidLine, Qt::RoundCap));
 
                 int fieldWidth = m_crossTab->rect.width()/m_crossTab->colCount();
-                int fieldheight = m_crossTab->rowHeight(); //m_crossTab->rect.height()/m_crossTab->rowCount();
+                int fieldheight = m_crossTab->rowHeight();
                 int posInCell_V = fieldheight/2+5;
                 int posInCell_H = 5;
 
@@ -739,15 +739,13 @@ void GraphicsBox::loadParamFromXML(QDomElement e) {
         QDomNode g = e.firstChild();
         while(!g.isNull()) {
             QDomElement ge = g.toElement(); // try to convert the node to an element.
-            if (ge.nodeName() == "row") {
-                m_crossTab->addRow(ge.attribute("caption"));
-            }
-            if (ge.nodeName() == "col") {
-                m_crossTab->addCol(ge.attribute("caption"));
-            }
+//            if (ge.nodeName() == "row")
+//                m_crossTab->addRow(ge.attribute("caption"));
+//            if (ge.nodeName() == "col")
+//                m_crossTab->addCol(ge.attribute("caption"));
+
             g = g.nextSibling();
         }
-        m_crossTab->initMatrix();
     }
     m_text = e.attribute("value");
 
@@ -854,16 +852,16 @@ QDomElement GraphicsBox::saveParamToXML(QDomDocument *xmlDoc) {
         elem.setAttribute("crossTabRowHeaderVisible",m_crossTab->isRowHeaderVisible());
         elem.setAttribute("crossTabColTotalVisible",m_crossTab->isColTotalVisible());
         elem.setAttribute("crossTabRowTotalVisible",m_crossTab->isRowTotalVisible());
-        for(int i=0; i<m_crossTab->rowDataCount(); i++) {
-            QDomElement row = xmlDoc->createElement("row");
-            row.setAttribute("caption",m_crossTab->getRowName(i));
-            elem.appendChild(row);
-        }
-        for(int i=0; i<m_crossTab->colDataCount(); i++) {
-            QDomElement col = xmlDoc->createElement("col");
-            col.setAttribute("caption",m_crossTab->getColName(i));
-            elem.appendChild(col);
-        }
+//        for(int i=0; i<m_crossTab->rowDataCount(); i++) {
+//            QDomElement row = xmlDoc->createElement("row");
+//            row.setAttribute("caption",m_crossTab->getRowName(i));
+//            elem.appendChild(row);
+//        }
+//        for(int i=0; i<m_crossTab->colDataCount(); i++) {
+//            QDomElement col = xmlDoc->createElement("col");
+//            col.setAttribute("caption",m_crossTab->getColName(i));
+//            elem.appendChild(col);
+//        }
     }
 
     QString hAl, vAl;
@@ -967,23 +965,23 @@ void GraphicsBox::setFieldType(FieldType value) {
             m_crossTab = new RptCrossTabObject();
             m_crossTab->rect.setHeight(this->getHeight());
             m_crossTab->rect.setWidth(this->getWidth());
-            m_crossTab->addCol("C1");
-            m_crossTab->addCol("C2");
-            m_crossTab->addCol("C3");
-            m_crossTab->addRow("R1");
-            m_crossTab->addRow("R2");
-            m_crossTab->addRow("R3");
+//            m_crossTab->addCol("C1");
+//            m_crossTab->addCol("C2");
+//            m_crossTab->addCol("C3");
+//            m_crossTab->addRow("R1");
+//            m_crossTab->addRow("R2");
+//            m_crossTab->addRow("R3");
             m_crossTab->setColHeaderVisible(true);
             m_crossTab->setRowHeaderVisible(true);
             m_crossTab->setColTotalVisible(true);
             m_crossTab->setRowTotalVisible(true);
-            m_crossTab->initMatrix();
-            //Fill values into matrix
-            for (int r=0; r<m_crossTab->rowDataCount(); r++)
-                for (int c=0; c<m_crossTab->colDataCount(); c++)
-                    m_crossTab->setMatrixValue(QString::number(c),
-                                               QString::number(r),
-                                               QString("%1%2").arg(c).arg(r).toDouble());
+//            m_crossTab->initMatrix();
+//            //Fill values into matrix
+//            for (int r=0; r<m_crossTab->rowDataCount(); r++)
+//                for (int c=0; c<m_crossTab->colDataCount(); c++)
+//                    m_crossTab->setMatrixValue(QString::number(c),
+//                                               QString::number(r),
+//                                               QString("%1%2").arg(c).arg(r).toDouble());
             break;
         }
         default:

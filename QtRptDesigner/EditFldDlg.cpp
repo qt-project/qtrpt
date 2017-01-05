@@ -374,24 +374,24 @@ int EditFldDlg::showCrosstab(QGraphicsItem *gItem) {
         return QDialog::Rejected;
 
     ui->stackedWidget->setCurrentIndex(5);
-    ui->spnRowCount->setValue(m_crossTab->rowDataCount());
-    ui->spnColCount->setValue(m_crossTab->colDataCount());
+    ui->spnRowCount->setValue(m_crossTab->rowCount());
+    ui->spnColCount->setValue(m_crossTab->colCount());
     ui->spnRowHeight->setValue(m_crossTab->rowHeight());
 
     ui->chkRowHeader->setChecked(m_crossTab->isRowHeaderVisible());
     ui->chkColHeader->setChecked(m_crossTab->isColHeaderVisible());
     ui->chkRowTotal->setChecked(m_crossTab->isRowTotalVisible());
     ui->chkColTotal->setChecked(m_crossTab->isColTotalVisible());
-    ui->tblColHeaders->setRowCount(m_crossTab->colDataCount());
-    ui->tblRowHeaders->setRowCount(m_crossTab->rowDataCount());
-    for(int i=0; i<ui->tblColHeaders->rowCount(); i++) {
-        auto newItem = new QTableWidgetItem(m_crossTab->getColName(i));
-        ui->tblColHeaders->setItem(i,0,newItem);
-    }
-    for(int i=0; i<ui->tblRowHeaders->rowCount(); i++) {
-        auto newItem = new QTableWidgetItem(m_crossTab->getRowName(i));
-        ui->tblRowHeaders->setItem(i,0,newItem);
-    }
+//    ui->tblColHeaders->setRowCount(m_crossTab->colDataCount());
+//    ui->tblRowHeaders->setRowCount(m_crossTab->rowDataCount());
+//    for(int i=0; i<ui->tblColHeaders->rowCount(); i++) {
+//        auto newItem = new QTableWidgetItem(m_crossTab->getColName(i));
+//        ui->tblColHeaders->setItem(i,0,newItem);
+//    }
+//    for(int i=0; i<ui->tblRowHeaders->rowCount(); i++) {
+//        auto newItem = new QTableWidgetItem(m_crossTab->getRowName(i));
+//        ui->tblRowHeaders->setItem(i,0,newItem);
+//    }
     QObject::connect(ui->spnRowCount, SIGNAL(valueChanged(int)), SLOT(setCrossTabRowCount(int)));
     QObject::connect(ui->spnColCount, SIGNAL(valueChanged(int)), SLOT(setCrossTabColCount(int)));
     if (this->exec()) {
@@ -399,22 +399,25 @@ int EditFldDlg::showCrosstab(QGraphicsItem *gItem) {
         m_crossTab->setColHeaderVisible(ui->chkColHeader->isChecked());
         m_crossTab->setRowTotalVisible(ui->chkRowTotal->isChecked());
         m_crossTab->setColTotalVisible(ui->chkColTotal->isChecked());
+
+        m_crossTab->setRowCount(ui->spnRowCount->value());
+        m_crossTab->setColCount(ui->spnColCount->value());
         m_crossTab->setRowHeight(ui->spnRowHeight->value());
 
-        m_crossTab->clear();
-        for(int i=0; i<ui->tblColHeaders->rowCount(); i++)
-            if (ui->tblColHeaders->item(i,0) == 0)
-                m_crossTab->addCol("");
-            else
-                m_crossTab->addCol(ui->tblColHeaders->item(i,0)->text());
+//        m_crossTab->clear();
+//        for(int i=0; i<ui->tblColHeaders->rowCount(); i++)
+//            if (ui->tblColHeaders->item(i,0) == 0)
+//                m_crossTab->addCol("");
+//            else
+//                m_crossTab->addCol(ui->tblColHeaders->item(i,0)->text());
 
-        for(int i=0; i<ui->tblRowHeaders->rowCount(); i++)
-            if (ui->tblRowHeaders->item(i,0) == 0)
-                m_crossTab->addRow("");
-            else
-                m_crossTab->addRow(ui->tblRowHeaders->item(i,0)->text());
+//        for(int i=0; i<ui->tblRowHeaders->rowCount(); i++)
+//            if (ui->tblRowHeaders->item(i,0) == 0)
+//                m_crossTab->addRow("");
+//            else
+//                m_crossTab->addRow(ui->tblRowHeaders->item(i,0)->text());
 
-        m_crossTab->initMatrix();
+//        m_crossTab->initMatrix();
         return QDialog::Accepted;
     } else return QDialog::Rejected;
 }

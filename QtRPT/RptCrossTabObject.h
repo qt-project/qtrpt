@@ -52,6 +52,13 @@ public:
     ~RptCrossTabObject();
     QString name;
     QRect rect;
+    int colCount() const;
+    void setColCount(int value);
+    int rowCount() const;
+    void setRowCount(int value);
+    int rowHeight();
+    void setRowHeight(int height);
+    //****
     bool isColHeaderVisible() const {return colHeaderVisible;}
     bool isRowHeaderVisible() const {return rowHeaderVisible;}
     void setColHeaderVisible(bool value) {colHeaderVisible = value;}
@@ -62,25 +69,8 @@ public:
     void setColTotalVisible(bool value);
     void setRowTotalVisible(bool value);
 
-    void addCol(QString colName);
-    void addRow(QString rowName);
-    QString getColName(int col) const;
-    QString getRowName(int row) const;
-    int getColIndex(QString stCol) const;
-    int getRowIndex(QString stRow) const;
-    int colCount() const;  //including Total if it visible
-    int rowCount() const;  //including Total if it visible
-    int colDataCount() const;  //pure col count (without header and total)
-    int rowDataCount() const;  //pure row count (without header and total)
-
-    int rowHeight();
-    void setRowHeight(int height);
 
     void clear();
-    void initMatrix();
-    QVariant getMatrixValue(int col,int row) const;
-    void setMatrixValue(QString stCol, QString stRow, QVariant value);
-    void setMatrixElement(int col, int row, RptTabElement &element);
     QVector<VectorRptTabElement > valuesArray;
 
     void makeFeelMatrix();
@@ -88,11 +78,13 @@ public:
     RptFieldObject *parentField;
 
     void addElement(RptTabElement element);
-    int appendRow(QString rowName);
-    int appendColumn(QString colName);
     void resortMatrix();
 
 private:
+    int m_colCount;
+    int m_rowCount;
+    int m_rowHeight;
+    //****
     bool colHeaderVisible;
     bool rowHeaderVisible;
     bool colTotalVisible;
@@ -100,10 +92,7 @@ private:
     bool colTotalExists;
     bool rowTotalExists;
     QStringList m_colHeader;
-    QStringList m_rowHeader;
-    int m_colCount;
-    int m_rowCount;
-    int m_rowHeight;
+
 	QString	stTotal;
 
     void addField(RptFieldObject *field);

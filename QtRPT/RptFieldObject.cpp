@@ -434,12 +434,10 @@ void RptFieldObject::setProperty(QtRPT *qtrpt, QDomElement e) {
         QDomNode g = e.firstChild();
         while(!g.isNull()) {
             QDomElement ge = g.toElement();
-            if (!ge.isNull() && ge.tagName() == "row") {
-                crossTab->addRow(ge.attribute("caption"));
-            }
-            if (!ge.isNull() && ge.tagName() == "col") {
-                crossTab->addCol(ge.attribute("caption"));
-            }
+//            if (!ge.isNull() && ge.tagName() == "row")
+//                crossTab->addRow(ge.attribute("caption"));
+//            if (!ge.isNull() && ge.tagName() == "col")
+//                crossTab->addCol(ge.attribute("caption"));
 
             g = g.nextSibling();
         }
@@ -449,12 +447,11 @@ void RptFieldObject::setProperty(QtRPT *qtrpt, QDomElement e) {
         crossTab->setColTotalVisible(e.attribute("crossTabColTotalVisible").toInt());
         crossTab->setRowTotalVisible(e.attribute("crossTabRowTotalVisible").toInt());
 
-        crossTab->initMatrix();
         //Fill values into matrix
-		for (int siRow=1; siRow <= crossTab->rowCount()-1; siRow++)
-            for (int siCol=1; siCol <= crossTab->colCount()-1; siCol++)
-                crossTab->setMatrixValue(QString("C%1").arg(siCol),
-					QString("R%1").arg(siRow), QString("%1%2").arg(siCol).arg(siRow).toDouble());
+//		for (int siRow=1; siRow <= crossTab->rowCount()-1; siRow++)
+//            for (int siCol=1; siCol <= crossTab->colCount()-1; siCol++)
+//                crossTab->setMatrixValue(QString("C%1").arg(siCol),
+//					QString("R%1").arg(siRow), QString("%1%2").arg(siCol).arg(siRow).toDouble());
     }
 }
 
