@@ -148,14 +148,8 @@ private slots:
     void showPageSetting();
     void clickOnTBtn();
     void addBand();
-    void addFieldText();
-    void addFieldTextRich();
-    void addFieldCrossTab();
     void addField(FieldType type);
-    void AddPicture();
-    void addDiagram();
     void addDraw();
-    void addBarcode();
     void sceneItemSelectionChanged(QGraphicsItem *item);
     void delItemInTree(QGraphicsItem *gItem, QTreeWidgetItem *);
     void selTree(QTreeWidgetItem *tItem, int);
@@ -183,7 +177,6 @@ private slots:
     void showDataSource();
     void undo();
     void redo();
-    void openReadme();
     void mousePos(QPointF pos);
     void sceneClick();
     void generateName(QGraphicsItem *mItem);

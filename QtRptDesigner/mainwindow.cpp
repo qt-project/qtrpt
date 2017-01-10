@@ -353,14 +353,12 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent), ui(new Ui::MainW
 
     QObject::connect(ui->actUndo, SIGNAL(triggered()), this, SLOT(undo()));
     QObject::connect(ui->actRedo, SIGNAL(triggered()), this, SLOT(redo()));
-    QObject::connect(ui->actAddBarcode, SIGNAL(triggered()), this, SLOT(addBarcode()));
-    QObject::connect(ui->actAddField, SIGNAL(triggered()), this, SLOT(addFieldText()));
-    QObject::connect(ui->actAddPicture, SIGNAL(triggered()), this, SLOT(AddPicture()));
-    QObject::connect(ui->actAddRichText, SIGNAL(triggered()), this, SLOT(addFieldTextRich()));
-    //QObject::connect(ui->actAddDiagram, SIGNAL(triggered()), this, SLOT(addDiagram()));
     QObject::connect(ui->actAddDiagram, QAction::triggered, [=] { addField(Diagram); });
-
-    QObject::connect(ui->actAddCrossTab, SIGNAL(triggered()), this, SLOT(addFieldCrossTab()));
+    QObject::connect(ui->actAddPicture, QAction::triggered, [=] { addField(Image); });
+    QObject::connect(ui->actAddBarcode, QAction::triggered, [=] { addField(Barcode); });
+    QObject::connect(ui->actAddCrossTab, QAction::triggered, [=] { addField(CrossTab); });
+    QObject::connect(ui->actAddRichText, QAction::triggered, [=] { addField(TextRich); });
+    QObject::connect(ui->actAddField, QAction::triggered, [=] { addField(Text); });
     QObject::connect(ui->actGroup, SIGNAL(triggered()), this, SLOT(setGroupingField()));
     QObject::connect(ui->actUngroup, SIGNAL(triggered()), this, SLOT(setGroupingField()));
     QObject::connect(ui->actionOpenReport, SIGNAL(triggered()), this, SLOT(openFile()));
@@ -413,6 +411,7 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent), ui(new Ui::MainW
     QObject::connect(ui->actPreview, SIGNAL(triggered()), this, SLOT(showPreview()));
     QObject::connect(ui->actDataSource, SIGNAL(triggered()), this, SLOT(showDataSource()));
     QObject::connect(ui->actReadme, SIGNAL(triggered()), this, SLOT(openReadme()));
+    QObject::connect(ui->actReadme, QAction::triggered, [=] { QDesktopServices::openUrl(QUrl("file:///"+QCoreApplication::applicationDirPath()+"/readme.pdf", QUrl::TolerantMode)); });
 
     actRepTitle = new QAction(tr("Report Title"),this);
     actRepTitle->setObjectName("actRepTitle");
@@ -471,7 +470,7 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent), ui(new Ui::MainW
     QObject::connect(actMasterFooter, SIGNAL(triggered()), this, SLOT(addBand()));
 
     //Menu for selecting bands type
-    QMenu *subBand1 = new QMenu(this);
+    auto subBand1 = new QMenu(this);
     subBand1->setObjectName("subBand1");
     subBand1->addAction(actRepTitle);
     subBand1->addAction(actPageHeader);
@@ -544,7 +543,7 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent), ui(new Ui::MainW
     QObject::connect(actDrawRhombus, SIGNAL(triggered()), this, SLOT(addDraw()));
 
     //Menu for selecting drawing
-    QMenu *subBand2 = new QMenu(this);
+    auto subBand2 = new QMenu(this);
     subBand2->setObjectName("subBand2");
     //subBand2->addAction(actDrawLine1);
     subBand2->addAction(actDrawLine2);
@@ -600,10 +599,6 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent), ui(new Ui::MainW
         openFile();
     }
     this->installEventFilter(this);
-}
-
-void MainWindow::openReadme() {
-    QDesktopServices::openUrl(QUrl("file:///"+QCoreApplication::applicationDirPath()+"/readme.pdf", QUrl::TolerantMode));
 }
 
 void MainWindow::checkUpdates() {
@@ -2462,7 +2457,7 @@ void MainWindow::addBand() {
 }
 
 void MainWindow::addField(FieldType type) {
-    RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->widget( ui->tabWidget->currentIndex() ));
+    auto repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->widget( ui->tabWidget->currentIndex() ));
     repPage->scene->newFieldType(type);
     repPage->scene->newFieldMenu(contMenu);
     repPage->scene->setMode(GraphicsScene::Mode::DrawContainer);
@@ -2483,7 +2478,7 @@ void MainWindow::addDraw() {
     if (sender()->objectName() == "actDrawRhombus")
         fieldType = Rhombus;
 
-    RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->widget( ui->tabWidget->currentIndex() ));
+    auto repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->widget( ui->tabWidget->currentIndex() ));
     repPage->scene->newFieldType(fieldType);
 
     if (QtRPT::getDrawingFields().contains(fieldType)) {
@@ -2524,30 +2519,6 @@ void MainWindow::showPreview() {
     report->printExec();
 }
 
-void MainWindow::addFieldText() {
-    addField(Text);
-}
-
-void MainWindow::addFieldTextRich() {
-    addField(TextRich);
-}
-
-void MainWindow::addFieldCrossTab() {
-    addField(CrossTab);
-}
-
-void MainWindow::addBarcode() {
-    addField(Barcode);
-}
-
-void MainWindow::AddPicture() {
-    addField(Image);
-}
-
-void MainWindow::addDiagram() {
-    addField(Diagram);
-}
-
 void MainWindow::closeEvent(QCloseEvent *event) {
     Q_UNUSED(event);
     if (ui->actSaveReport->isEnabled()) {
@@ -2560,14 +2531,14 @@ void MainWindow::closeEvent(QCloseEvent *event) {
 }
 
 void MainWindow::changeZoom() {
-    RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
+    auto repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
     repPage->setScale(cbZoom->currentText());
 }
 
 void MainWindow::sceneClick() {
     if (ui->actMagnifying->isChecked()) {
         qreal scale;
-        RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
+        auto repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
         if (QApplication::keyboardModifiers() != Qt::ShiftModifier) scale = repPage->getScale()+0.25;
         else scale = repPage->getScale()-0.25;
         cbZoom->setEditText(QString::number(scale*100)+"%");
@@ -2700,10 +2671,11 @@ void MainWindow::closeEditor() {
 }
 
 void MainWindow::clipBoard() {
+    auto repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
+
     if (sender() == ui->actCopy) {
         pasteCopy = true;
         cloneContList->clear();
-        RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
         for(auto item : repPage->scene->items()) {
             if (item->type() == ItemType::GLine || item->type() == ItemType::GBox) {
                 GraphicsHelperClass *helper = gItemToHelper(item);
@@ -2716,8 +2688,7 @@ void MainWindow::clipBoard() {
     if (sender() == ui->actCut) {
         pasteCopy = false;
         cloneContList->clear();
-        RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
-        for(auto item : repPage->scene->items()) {
+        for (auto item : repPage->scene->items()) {
             if (item->type() == ItemType::GLine || item->type() == ItemType::GBox) {
                 GraphicsHelperClass *helper = gItemToHelper(item);
                 if (helper->helperIsSelected()) {
@@ -2730,7 +2701,6 @@ void MainWindow::clipBoard() {
     }
     if (sender() == ui->actPaste) {
         if (cloneContList->isEmpty()) return;
-        RepScrollArea *repPage = qobject_cast<RepScrollArea *>(ui->tabWidget->currentWidget());
         GraphicsScene *scene = repPage->scene;
         ReportBand *band = nullptr;
         if (!scene->selectedItems().isEmpty()) {
@@ -2748,7 +2718,7 @@ void MainWindow::clipBoard() {
                 box->setSelected(false);
 
                 if (pasteCopy == true) {
-                    GraphicsBox *newBox = box->clone();
+                    auto newBox = box->clone();
                     generateName(newBox);
                     scene->addItem(newBox);
                     newBox->setParentItem(band);
