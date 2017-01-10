@@ -357,7 +357,9 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent), ui(new Ui::MainW
     QObject::connect(ui->actAddField, SIGNAL(triggered()), this, SLOT(addFieldText()));
     QObject::connect(ui->actAddPicture, SIGNAL(triggered()), this, SLOT(AddPicture()));
     QObject::connect(ui->actAddRichText, SIGNAL(triggered()), this, SLOT(addFieldTextRich()));
-    QObject::connect(ui->actAddDiagram, SIGNAL(triggered()), this, SLOT(addDiagram()));
+    //QObject::connect(ui->actAddDiagram, SIGNAL(triggered()), this, SLOT(addDiagram()));
+    QObject::connect(ui->actAddDiagram, QAction::triggered, [=] { addField(Diagram); });
+
     QObject::connect(ui->actAddCrossTab, SIGNAL(triggered()), this, SLOT(addFieldCrossTab()));
     QObject::connect(ui->actGroup, SIGNAL(triggered()), this, SLOT(setGroupingField()));
     QObject::connect(ui->actUngroup, SIGNAL(triggered()), this, SLOT(setGroupingField()));
