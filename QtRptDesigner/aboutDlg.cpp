@@ -34,11 +34,11 @@ AboutDlg::AboutDlg(QWidget *parent) : QDialog(parent) {
     gry.moveCenter(qApp->desktop()->availableGeometry().center());
     setGeometry(gry);
 
-    QPushButton *btnOK = new QPushButton(this);
+    auto btnOK = new QPushButton(this);
     btnOK->setText("OK");
     QObject::connect(btnOK, SIGNAL(clicked()), this, SLOT(close()));
 
-    QLabel *labImg = new QLabel(this);
+    auto labImg = new QLabel(this);
     labImg->setPixmap(QPixmap(":/new/prefix1/images/Logo128.png"));
     QString lbl1 = "<h2><b><p style='color:#0033FF'>"+QApplication::applicationName()+"</p></b></h2>"+
                   tr("Version: ")+QApplication::applicationVersion()+"<br>"+
@@ -64,29 +64,24 @@ AboutDlg::AboutDlg(QWidget *parent) : QDialog(parent) {
                   "<li>"+tr("Manuel Soriano for Spanish translation")+"</li>"+
                   "<li>"+tr("Bagavathikumar for Tamil translation")+"</li>"+
                   "</ul>";
-    QLabel *lab1 = new QLabel(lbl1, this);
-    QObject::connect(lab1, SIGNAL(linkActivated(const QString)), this, SLOT(openLink(const QString)));
-    QLabel *lab2 = new QLabel(lbl2, this);
+    auto lab1 = new QLabel(lbl1, this);
+    auto lab2 = new QLabel(lbl2, this);
+    QObject::connect(lab1, QLabel::linkActivated, [=](const QString url) { QDesktopServices::openUrl(QUrl(url)); });
 
-    QHBoxLayout *hLayout2 = new QHBoxLayout;
+    auto hLayout2 = new QHBoxLayout;
     hLayout2->addWidget(labImg);
     hLayout2->addWidget(lab1);
     hLayout2->addStretch();
 
-    QHBoxLayout *hLayout1 = new QHBoxLayout;
+    auto hLayout1 = new QHBoxLayout;
     hLayout1->addStretch();
     hLayout1->addWidget(btnOK);
     hLayout1->addStretch();
 
-    QVBoxLayout *vLayout = new QVBoxLayout;
-    //vLayout->addSpacerItem(spacer3);
+    auto vLayout = new QVBoxLayout;
     vLayout->addLayout(hLayout2);
     vLayout->addWidget(lab2);
     vLayout->addStretch();
     vLayout->addLayout(hLayout1);
     this->setLayout(vLayout);
-}
-
-void AboutDlg::openLink(const QString url) {
-    QDesktopServices::openUrl(QUrl(url));
 }

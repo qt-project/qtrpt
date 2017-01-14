@@ -353,12 +353,12 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent), ui(new Ui::MainW
 
     QObject::connect(ui->actUndo, SIGNAL(triggered()), this, SLOT(undo()));
     QObject::connect(ui->actRedo, SIGNAL(triggered()), this, SLOT(redo()));
-    QObject::connect(ui->actAddDiagram, QAction::triggered, [=] { addField(Diagram); });
-    QObject::connect(ui->actAddPicture, QAction::triggered, [=] { addField(Image); });
-    QObject::connect(ui->actAddBarcode, QAction::triggered, [=] { addField(Barcode); });
-    QObject::connect(ui->actAddCrossTab, QAction::triggered, [=] { addField(CrossTab); });
-    QObject::connect(ui->actAddRichText, QAction::triggered, [=] { addField(TextRich); });
-    QObject::connect(ui->actAddField, QAction::triggered, [=] { addField(Text); });
+    QObject::connect(ui->actAddDiagram, &QAction::triggered, [=] { addField(Diagram); });
+    QObject::connect(ui->actAddPicture, &QAction::triggered, [=] { addField(Image); });
+    QObject::connect(ui->actAddBarcode, &QAction::triggered, [=] { addField(Barcode); });
+    QObject::connect(ui->actAddCrossTab, &QAction::triggered, [=] { addField(CrossTab); });
+    QObject::connect(ui->actAddRichText, &QAction::triggered, [=] { addField(TextRich); });
+    QObject::connect(ui->actAddField, &QAction::triggered, [=] { addField(Text); });
     QObject::connect(ui->actGroup, SIGNAL(triggered()), this, SLOT(setGroupingField()));
     QObject::connect(ui->actUngroup, SIGNAL(triggered()), this, SLOT(setGroupingField()));
     QObject::connect(ui->actionOpenReport, SIGNAL(triggered()), this, SLOT(openFile()));
@@ -410,8 +410,7 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent), ui(new Ui::MainW
     QObject::connect(ui->actPageSettings, SIGNAL(triggered()), this, SLOT(showPageSetting()));
     QObject::connect(ui->actPreview, SIGNAL(triggered()), this, SLOT(showPreview()));
     QObject::connect(ui->actDataSource, SIGNAL(triggered()), this, SLOT(showDataSource()));
-    QObject::connect(ui->actReadme, SIGNAL(triggered()), this, SLOT(openReadme()));
-    QObject::connect(ui->actReadme, QAction::triggered, [=] { QDesktopServices::openUrl(QUrl("file:///"+QCoreApplication::applicationDirPath()+"/readme.pdf", QUrl::TolerantMode)); });
+    QObject::connect(ui->actReadme, &QAction::triggered, [=] { QDesktopServices::openUrl(QUrl("file:///"+QCoreApplication::applicationDirPath()+"/readme.pdf", QUrl::TolerantMode)); });
 
     actRepTitle = new QAction(tr("Report Title"),this);
     actRepTitle->setObjectName("actRepTitle");

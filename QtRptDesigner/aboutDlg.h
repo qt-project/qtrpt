@@ -39,8 +39,6 @@ public:
 
 signals:
 
-private slots:
-    void openLink(const QString url);
 };
 
 #endif // ABOUTDLG_H

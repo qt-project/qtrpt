@@ -852,6 +852,7 @@ QDomElement GraphicsBox::saveParamToXML(QDomDocument *xmlDoc) {
         elem.setAttribute("crossTabRowHeaderVisible",m_crossTab->isRowHeaderVisible());
         elem.setAttribute("crossTabColTotalVisible",m_crossTab->isColTotalVisible());
         elem.setAttribute("crossTabRowTotalVisible",m_crossTab->isRowTotalVisible());
+
 //        for(int i=0; i<m_crossTab->rowDataCount(); i++) {
 //            QDomElement row = xmlDoc->createElement("row");
 //            row.setAttribute("caption",m_crossTab->getRowName(i));

@@ -170,11 +170,10 @@ void EditFldDlg::openProperty() {
 
 void EditFldDlg::textDirection() {
     QTextOption topt = ui->textEdit->document()->defaultTextOption();
-    if (ui->btnTextDirection->isChecked()) {
+    if (ui->btnTextDirection->isChecked())
         topt.setTextDirection(Qt::RightToLeft);
-    } else {
+    else
         topt.setTextDirection(Qt::LeftToRight);
-    }
     ui->textEdit->document()->setDefaultTextOption(topt);
 }
 
@@ -267,9 +266,9 @@ int EditFldDlg::showText(QGraphicsItem *gItem) {
             if (cont->getPrinting().size() > 1)  //If previous was a Formula, now just a Visible
                 cont->setPrinting("1");
         }
-        if (m_cond_higlighting.size() > 0) {
+        if (m_cond_higlighting.size() > 0)
             cont->setHighlighting(m_cond_higlighting);
-        } else
+        else
             cont->setHighlighting("");
 
         return QDialog::Accepted;
@@ -369,7 +368,7 @@ int EditFldDlg::showBarcode(QGraphicsItem *gItem) {
 
 int EditFldDlg::showCrosstab(QGraphicsItem *gItem) {
     auto cont = static_cast<GraphicsBox*>(gItem);
-    RptCrossTabObject *m_crossTab = cont->getCrossTab();
+    auto m_crossTab = cont->getCrossTab();
     if (m_crossTab == nullptr)
         return QDialog::Rejected;
 
@@ -444,7 +443,7 @@ void EditFldDlg::setScaledContents(bool value) {
 }
 
 int EditFldDlg::showDiagram(QGraphicsItem *gItem) {
-    GraphicsBox *cont = static_cast<GraphicsBox*>(gItem);
+    auto cont = static_cast<GraphicsBox*>(gItem);
     ui->stackedWidget->setCurrentIndex(2);
     ui->tabDiagram->setTabEnabled(1,false);
     ui->chkShowGrid->setChecked( cont->getChart()->getParam(DrawGrid).toBool() );
@@ -467,7 +466,7 @@ int EditFldDlg::showDiagram(QGraphicsItem *gItem) {
     QTableWidgetItem *newItem;
     int i=0;
     ui->tableWidget->setRowCount( cont->getChart()->getGraphParamList().size() );
-    for(auto graphParam : cont->getChart()->getGraphParamList() ) {
+    for (auto graphParam : cont->getChart()->getGraphParamList() ) {
         newItem = new QTableWidgetItem( graphParam.caption );
         ui->tableWidget->setItem(i,0,newItem);
 
@@ -547,8 +546,8 @@ void EditFldDlg::itemSelectionChanged() {
 void EditFldDlg::moveRow() {
     const int row = ui->tableWidget->currentRow();
     const int col = ui->tableWidget->currentColumn();
-    QTableWidgetItem *newItem1 = ui->tableWidget->takeItem(ui->tableWidget->currentRow(),0);
-    QTableWidgetItem *newItem2 = ui->tableWidget->takeItem(ui->tableWidget->currentRow(),1);
+    auto newItem1 = ui->tableWidget->takeItem(ui->tableWidget->currentRow(),0);
+    auto newItem2 = ui->tableWidget->takeItem(ui->tableWidget->currentRow(),1);
     QWidget *newItem3 = ui->tableWidget->cellWidget(ui->tableWidget->currentRow(),2);
 
     if (sender() == ui->btnUp) { //up
@@ -572,9 +571,9 @@ void EditFldDlg::moveRow() {
 void EditFldDlg::selectGraphColor() {
     QColor color;
     auto dlg = new QColorDialog(color, this);
-    if (dlg->exec() == QDialog::Accepted) {
+    if (dlg->exec() == QDialog::Accepted)
         color = dlg->selectedColor();
-    } else return;
+    else return;
 
     QString strColor = colorToString(color);
 

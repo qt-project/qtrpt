@@ -155,13 +155,13 @@ void GraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event){
 }
 
 void GraphicsScene::keyPressEvent(QKeyEvent *event){
-    if(event->key() == Qt::Key_Delete) {
+    if (event->key() == Qt::Key_Delete) {
         m_undoStack->push(new DelItemCommand(this));
         update();
         return;
     }
 
-    for(auto item : this->items()) {
+    for (auto item : this->items()) {
         bool isSelected = false;
         GraphicsBox *box = nullptr;
         if (item->type() == ItemType::GBox || item->type() == ItemType::GBand) {
@@ -234,7 +234,8 @@ void GraphicsScene::keyPressEvent(QKeyEvent *event){
                 }
             }
         }
-        emit itemResized(item);
+        if(event->key() == Qt::Key_Left || event->key() == Qt::Key_Up || event->key() == Qt::Key_Right || event->key() == Qt::Key_Down)
+            emit itemResized(item);
     }
 }
 

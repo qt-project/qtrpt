@@ -706,9 +706,9 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
             if (painter->isActive())
                 painter->drawText(left_+10,top_,width_-15,height_, flags, txt);
 
-            if (m_printMode == QtRPT::Html) {
+            if (m_printMode == QtRPT::Html)
                 m_HTML.append("<div "+fieldObject->getHTMLStyle()+">"+txt+"</div>\n");
-            }
+
             if (m_printMode == QtRPT::Xlsx) {
                 RptTabElement element;
                 element.fieldObject = fieldObject;
@@ -750,9 +750,11 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
     }
     if (fieldType == CrossTab) {
         if (draw) {
+            emit setCrossTable(*fieldObject->crossTab);
+
             fieldObject->crossTab->makeFeelMatrix();
             const int bandTop_ = bandTop;
-            for(auto field : fieldObject->crossTab->fieldList)
+            for (auto field : fieldObject->crossTab->fieldList)
                 drawFields(field,bandTop_,true);
         }
     }
