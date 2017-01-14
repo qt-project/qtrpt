@@ -64,12 +64,6 @@ public:
     void setColHeaderVisible(bool value) {colHeaderVisible = value;}
     void setRowHeaderVisible(bool value) {rowHeaderVisible = value;}
 
-    bool isColTotalVisible() const {return colTotalVisible;}
-    bool isRowTotalVisible() const {return rowTotalVisible;}
-    void setColTotalVisible(bool value);
-    void setRowTotalVisible(bool value);
-
-
     void clear();
     QVector<VectorRptTabElement > valuesArray;
 
@@ -87,8 +81,6 @@ private:
     //****
     bool colHeaderVisible;
     bool rowHeaderVisible;
-    bool colTotalVisible;
-    bool rowTotalVisible;
     bool colTotalExists;
     bool rowTotalExists;
     QStringList m_colHeader;

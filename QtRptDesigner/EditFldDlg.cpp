@@ -379,8 +379,8 @@ int EditFldDlg::showCrosstab(QGraphicsItem *gItem) {
 
     ui->chkRowHeader->setChecked(m_crossTab->isRowHeaderVisible());
     ui->chkColHeader->setChecked(m_crossTab->isColHeaderVisible());
-    ui->chkRowTotal->setChecked(m_crossTab->isRowTotalVisible());
-    ui->chkColTotal->setChecked(m_crossTab->isColTotalVisible());
+//    ui->chkRowTotal->setChecked(m_crossTab->isRowTotalVisible());
+//    ui->chkColTotal->setChecked(m_crossTab->isColTotalVisible());
 //    ui->tblColHeaders->setRowCount(m_crossTab->colDataCount());
 //    ui->tblRowHeaders->setRowCount(m_crossTab->rowDataCount());
 //    for(int i=0; i<ui->tblColHeaders->rowCount(); i++) {
@@ -396,8 +396,8 @@ int EditFldDlg::showCrosstab(QGraphicsItem *gItem) {
     if (this->exec()) {
         m_crossTab->setRowHeaderVisible(ui->chkRowHeader->isChecked());
         m_crossTab->setColHeaderVisible(ui->chkColHeader->isChecked());
-        m_crossTab->setRowTotalVisible(ui->chkRowTotal->isChecked());
-        m_crossTab->setColTotalVisible(ui->chkColTotal->isChecked());
+//        m_crossTab->setRowTotalVisible(ui->chkRowTotal->isChecked());
+//        m_crossTab->setColTotalVisible(ui->chkColTotal->isChecked());
 
         m_crossTab->setRowCount(ui->spnRowCount->value());
         m_crossTab->setColCount(ui->spnColCount->value());

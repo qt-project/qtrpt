@@ -49,6 +49,7 @@ private:
 
 private slots:
     void print();
+    void setField(RptFieldObject &);
 };
 
 #endif // EXAMPLEDLG18_H

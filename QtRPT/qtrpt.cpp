@@ -687,9 +687,8 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
             painter->save();
             painter->translate( rect.topLeft() );
         }
-        if (draw) {
+        if (draw)
             document.drawContents( painter, rect.translated( -rect.topLeft() ) );
-        }
         if (painter->isActive())
             painter->restore();
     }
@@ -750,8 +749,6 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
     }
     if (fieldType == CrossTab) {
         if (draw) {
-            emit setCrossTable(*fieldObject->crossTab);
-
             fieldObject->crossTab->makeFeelMatrix();
             const int bandTop_ = bandTop;
             for (auto field : fieldObject->crossTab->fieldList)

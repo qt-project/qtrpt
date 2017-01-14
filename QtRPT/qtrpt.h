@@ -198,7 +198,6 @@ protected:
 signals:
     void setValue(const int recNo, const QString paramName, QVariant &paramValue, const int reportPage);
     void setField(RptFieldObject &fieldObject);
-    void setCrossTable(RptCrossTabObject &crossTableObject);
     void setValueImage(const int recNo, const QString paramName, QImage &paramValue, const int reportPage);
     void setValueDiagram(Chart &chart);
     void newPage(int page);

@@ -442,10 +442,10 @@ void RptFieldObject::setProperty(QtRPT *qtrpt, QDomElement e) {
             g = g.nextSibling();
         }
 
-        crossTab->setColHeaderVisible(e.attribute("crossTabColHeaderVisible").toInt());
-        crossTab->setRowHeaderVisible(e.attribute("crossTabRowHeaderVisible").toInt());
-        crossTab->setColTotalVisible(e.attribute("crossTabColTotalVisible").toInt());
-        crossTab->setRowTotalVisible(e.attribute("crossTabRowTotalVisible").toInt());
+//        crossTab->setColHeaderVisible(e.attribute("crossTabColHeaderVisible").toInt());
+//        crossTab->setRowHeaderVisible(e.attribute("crossTabRowHeaderVisible").toInt());
+//        crossTab->setColTotalVisible(e.attribute("crossTabColTotalVisible").toInt());
+//        crossTab->setRowTotalVisible(e.attribute("crossTabRowTotalVisible").toInt());
 
         //Fill values into matrix
 //		for (int siRow=1; siRow <= crossTab->rowCount()-1; siRow++)

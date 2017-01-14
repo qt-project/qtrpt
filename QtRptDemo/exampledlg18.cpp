@@ -47,7 +47,17 @@ void ExampleDlg18::print() {
 //    QObject::connect(report, SIGNAL(setValueImage(const int, const QString, QImage&, const int)),
 //                     this, SLOT(setValueImage(const int, const QString, QImage&, const int)));
     //report->setCallbackFunc(getReportValue);
+
+    QObject::connect(report, SIGNAL(setField(RptFieldObject &)), this, SLOT(setField(RptFieldObject &)));
+
     report->printExec(true);
+}
+
+void ExampleDlg18::setField(RptFieldObject &fieldObject) {
+    if (fieldObject.fieldType == FieldType::CrossTab) {
+        fieldObject.crossTab->setColCount(3);
+        fieldObject.crossTab->setRowCount(5);
+    }
 }
 
 ExampleDlg18::~ExampleDlg18() {

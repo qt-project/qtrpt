@@ -733,8 +733,8 @@ void GraphicsBox::loadParamFromXML(QDomElement e) {
 
         m_crossTab->setColHeaderVisible(e.attribute("crossTabColHeaderVisible","1").toInt());
         m_crossTab->setRowHeaderVisible(e.attribute("crossTabRowHeaderVisible","1").toInt());
-        m_crossTab->setColTotalVisible(e.attribute("crossTabColTotalVisible","1").toInt());
-        m_crossTab->setRowTotalVisible(e.attribute("crossTabRowTotalVisible","1").toInt());
+//        m_crossTab->setColTotalVisible(e.attribute("crossTabColTotalVisible","1").toInt());
+//        m_crossTab->setRowTotalVisible(e.attribute("crossTabRowTotalVisible","1").toInt());
         m_crossTab->clear();
         QDomNode g = e.firstChild();
         while(!g.isNull()) {
@@ -850,8 +850,8 @@ QDomElement GraphicsBox::saveParamToXML(QDomDocument *xmlDoc) {
 
         elem.setAttribute("crossTabColHeaderVisible",m_crossTab->isColHeaderVisible());
         elem.setAttribute("crossTabRowHeaderVisible",m_crossTab->isRowHeaderVisible());
-        elem.setAttribute("crossTabColTotalVisible",m_crossTab->isColTotalVisible());
-        elem.setAttribute("crossTabRowTotalVisible",m_crossTab->isRowTotalVisible());
+//        elem.setAttribute("crossTabColTotalVisible",m_crossTab->isColTotalVisible());
+//        elem.setAttribute("crossTabRowTotalVisible",m_crossTab->isRowTotalVisible());
 
 //        for(int i=0; i<m_crossTab->rowDataCount(); i++) {
 //            QDomElement row = xmlDoc->createElement("row");
@@ -974,8 +974,8 @@ void GraphicsBox::setFieldType(FieldType value) {
 //            m_crossTab->addRow("R3");
             m_crossTab->setColHeaderVisible(true);
             m_crossTab->setRowHeaderVisible(true);
-            m_crossTab->setColTotalVisible(true);
-            m_crossTab->setRowTotalVisible(true);
+//            m_crossTab->setColTotalVisible(true);
+//            m_crossTab->setRowTotalVisible(true);
 //            m_crossTab->initMatrix();
 //            //Fill values into matrix
 //            for (int r=0; r<m_crossTab->rowDataCount(); r++)
