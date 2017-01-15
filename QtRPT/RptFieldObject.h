@@ -38,6 +38,7 @@ class RptFieldObject
 {
     friend class QtRPT;
     friend class RptBandObject;
+
 public:
     RptFieldObject();
     ~RptFieldObject();
@@ -49,7 +50,6 @@ public:
     QColor borderLeft;
     QColor borderRight;
     QColor borderColor;
-
     QColor fontColor;
     QColor backgroundColor;
 
@@ -74,6 +74,7 @@ public:
     int ignoreAspectRatio;
     QByteArray picture;
     RptBandObject *parentBand;
+    RptCrossTabObject *parentCrossTab;
 
     int lineStartX;
     int lineEndX;

@@ -58,16 +58,15 @@ public:
     void setRowCount(int value);
     int rowHeight();
     void setRowHeight(int height);
+    int fieldRow(RptFieldObject* field);
+    int fieldCol(RptFieldObject* field);
     //****
     bool isColHeaderVisible() const {return colHeaderVisible;}
     bool isRowHeaderVisible() const {return rowHeaderVisible;}
     void setColHeaderVisible(bool value) {colHeaderVisible = value;}
     void setRowHeaderVisible(bool value) {rowHeaderVisible = value;}
 
-    void clear();
-    QVector<VectorRptTabElement > valuesArray;
-
-    void makeFeelMatrix();
+    void buildMatrix();
     QList<RptFieldObject*> fieldList;
     RptFieldObject *parentField;
 
@@ -83,14 +82,10 @@ private:
     bool rowHeaderVisible;
     bool colTotalExists;
     bool rowTotalExists;
-    QStringList m_colHeader;
 
 	QString	stTotal;
 
     void addField(RptFieldObject *field);
-
-    QVector<int> colVector;
-    QVector<int> rowVector;
 
 };
 

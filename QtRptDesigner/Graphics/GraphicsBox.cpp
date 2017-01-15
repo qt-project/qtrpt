@@ -735,7 +735,6 @@ void GraphicsBox::loadParamFromXML(QDomElement e) {
         m_crossTab->setRowHeaderVisible(e.attribute("crossTabRowHeaderVisible","1").toInt());
 //        m_crossTab->setColTotalVisible(e.attribute("crossTabColTotalVisible","1").toInt());
 //        m_crossTab->setRowTotalVisible(e.attribute("crossTabRowTotalVisible","1").toInt());
-        m_crossTab->clear();
         QDomNode g = e.firstChild();
         while(!g.isNull()) {
             QDomElement ge = g.toElement(); // try to convert the node to an element.

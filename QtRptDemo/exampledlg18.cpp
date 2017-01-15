@@ -37,8 +37,8 @@ void ExampleDlg18::print() {
 
     QString fileName = dir.absolutePath()+"/examples_report/example18.xml";
     report = new QtRPT(this);
-//    report->setBackgroundImage(QPixmap(dir.absolutePath()+"/examples_report/qt_background_portrait.png"));
-//    report->recordCount << ui->tableWidget->rowCount();
+    report->recordCount << 2;
+
     if (report->loadReport(fileName) == false) {
         qDebug()<<"Report file not found";
     }
@@ -46,7 +46,6 @@ void ExampleDlg18::print() {
 //                     this, SLOT(setValue(const int, const QString, QVariant&, const int)));
 //    QObject::connect(report, SIGNAL(setValueImage(const int, const QString, QImage&, const int)),
 //                     this, SLOT(setValueImage(const int, const QString, QImage&, const int)));
-    //report->setCallbackFunc(getReportValue);
 
     QObject::connect(report, SIGNAL(setField(RptFieldObject &)), this, SLOT(setField(RptFieldObject &)));
 
@@ -56,7 +55,12 @@ void ExampleDlg18::print() {
 void ExampleDlg18::setField(RptFieldObject &fieldObject) {
     if (fieldObject.fieldType == FieldType::CrossTab) {
         fieldObject.crossTab->setColCount(3);
-        fieldObject.crossTab->setRowCount(5);
+        fieldObject.crossTab->setRowCount(50);
+    }
+    if (fieldObject.parentCrossTab != nullptr) {
+        int row = fieldObject.parentCrossTab->fieldRow(&fieldObject);
+        int col = fieldObject.parentCrossTab->fieldCol(&fieldObject);
+        fieldObject.value = QString("f%1%2").arg(col).arg(row);
     }
 }
 

@@ -749,7 +749,7 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
     }
     if (fieldType == CrossTab) {
         if (draw) {
-            fieldObject->crossTab->makeFeelMatrix();
+            fieldObject->crossTab->buildMatrix();
             const int bandTop_ = bandTop;
             for (auto field : fieldObject->crossTab->fieldList)
                 drawFields(field,bandTop_,true);
@@ -2073,7 +2073,7 @@ void QtRPT::openDataSource(int pageReport) {
             QString sqlQuery = dsElement.text().trimmed();
             int dbPort = dsElement.attribute("dbPort").toInt();
             QString dbConnectionName = dsElement.attribute("dbConnectionName");
-            RptSql *rptSql = new RptSql(dbType,dbName,dbHost,dbUser,dbPassword,dbPort,dbConnectionName,this);
+            auto rptSql = new RptSql(dbType,dbName,dbHost,dbUser,dbPassword,dbPort,dbConnectionName,this);
             rptSql->setObjectName(dsName);
 
             if (rtpSqlVector.size() <= pageReport) {

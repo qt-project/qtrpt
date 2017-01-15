@@ -24,8 +24,8 @@ limitations under the License.
 #include "RptCrossTabObject.h"
 
 RptCrossTabObject::RptCrossTabObject() {
-    colHeaderVisible = false;
-    rowHeaderVisible = false;
+//    colHeaderVisible = false;
+//    rowHeaderVisible = false;
 //    colTotalVisible = false;
 //    rowTotalVisible = false;
     name = "RptCrossTabObject_DEMO";
@@ -65,36 +65,62 @@ void RptCrossTabObject::setRowCount(int value) {
     m_rowCount = value;
 }
 
-void RptCrossTabObject::clear() {
-    colVector.clear();
-    rowVector.clear();
-    m_colHeader.clear();
-    valuesArray.clear();
-}
-
-void RptCrossTabObject::makeFeelMatrix() {
+void RptCrossTabObject::buildMatrix() {
     float fieldWidth = rect.width();
     float fieldheight = rect.height();
     if (m_colCount == 0) return;
     if (m_rowCount == 0) return;
 
     fieldWidth = rect.width()/colCount();
-    fieldheight = rect.height()/rowCount();
+    fieldheight = rowHeight();
 
     for (int row=0; row < m_rowCount; row++) {
         for (int col=0; col < m_colCount; col++) {
-            RptFieldObject *h1 = new RptFieldObject();
+            auto h1 = new RptFieldObject();
+            h1->parentCrossTab = this;
             h1->name = QString("f%1%2").arg(col).arg(row);
             h1->fieldType = Text;
             h1->rect.setTop(rect.top() + fieldheight*row);
             h1->rect.setLeft(rect.left() + fieldWidth*col);
             h1->rect.setHeight(fieldheight);
             h1->rect.setWidth(fieldWidth);
-//            h1->value =  getMatrixValue(col,row).toString();
+            //h1->value =  QString("f%1%2").arg(col).arg(row);  //getMatrixValue(col,row).toString();
             h1->aligment = Qt::AlignCenter;
             addField(h1);  //Append field
         }
     }
+}
+
+/*!
+ \fn int RptCrossTabObject::fieldRow(RptFieldObject* field)
+    Define the row of the \a field RptCrossTabObject object.
+
+    \sa fieldCol
+*/
+int RptCrossTabObject::fieldRow(RptFieldObject* field) {
+    int index = fieldList.indexOf(field);
+    if (index != -1) {
+        unsigned row = unsigned(index / m_colCount);
+        //unsigned column = index - row * m_colCount;
+        index = row;
+    }
+    return index;
+}
+
+/*!
+ \fn int RptCrossTabObject::fieldCol(RptFieldObject* field)
+    Define the column of the \a field RptCrossTabObject object.
+
+    \sa fieldRow
+*/
+int RptCrossTabObject::fieldCol(RptFieldObject* field) {
+    int index = fieldList.indexOf(field);
+    if (index != -1) {
+        unsigned row = unsigned(index / m_colCount);
+        unsigned column = index - row * m_colCount;
+        index = column;
+    }
+    return index;
 }
 
 /*!
@@ -104,7 +130,6 @@ void RptCrossTabObject::makeFeelMatrix() {
     \sa RptFieldObject
 */
 void RptCrossTabObject::addField(RptFieldObject *field) {
-    //field->parentBand = this;
     fieldList.append(field);
 }
 
@@ -120,26 +145,6 @@ RptCrossTabObject::~RptCrossTabObject() {
 
 QDebug operator<<(QDebug dbg, const RptCrossTabObject &obj) {
     dbg << obj.name << "\n";
-
-//    if (obj.isColHeaderVisible()) {
-//        dbg << "\t";
-//        for(int col=0; col<obj.colCount(); col++) {
-//            dbg << "|" << obj.getColName(col) << "\t";
-//        }
-//        dbg << "\n";
-//    }
-
-//    for(int row=0; row<obj.rowCount(); row++) {
-//        if (obj.isRowHeaderVisible()) {
-//            dbg << obj.getRowName(row);
-//            dbg << "\t";
-//        }
-
-//        for(int col=0; col<obj.colCount(); col++) {
-//            dbg << "|" << obj.getMatrixValue(col,row).toString() << "\t";
-//        }
-//        dbg << "\n";
-//    }
     return dbg;
 }
 

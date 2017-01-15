@@ -319,6 +319,7 @@ RptFieldObject::RptFieldObject() {
     this->borderTop = Qt::black;
     this->aligment = Qt::AlignVCenter | Qt::AlignLeft;
     this->parentBand = nullptr;
+    this->parentCrossTab = nullptr;
 }
 
 /*!
