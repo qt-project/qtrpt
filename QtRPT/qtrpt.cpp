@@ -750,7 +750,7 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
     if (fieldType == CrossTab) {
         if (draw) {
             fieldObject->crossTab->buildMatrix();
-             int bandTop_ = bandTop;
+            int bandTop_ = bandTop;
             for (auto field : fieldObject->crossTab->fieldList) {
                 drawFields(field,bandTop_,true);
 
