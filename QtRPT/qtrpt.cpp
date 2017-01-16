@@ -750,9 +750,14 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
     if (fieldType == CrossTab) {
         if (draw) {
             fieldObject->crossTab->buildMatrix();
-            const int bandTop_ = bandTop;
-            for (auto field : fieldObject->crossTab->fieldList)
+             int bandTop_ = bandTop;
+            for (auto field : fieldObject->crossTab->fieldList) {
                 drawFields(field,bandTop_,true);
+
+                //if (bandTop + fieldObject->parentBand->height > ph-mb-mt-fieldObject->parentBand->height)
+                //if (bandTop + fieldObject->parentBand->height > ph-mb-mt-fieldObject->parentBand->height)
+                //    newPage(printer, bandTop_, draw);
+            }
         }
     }
 }
@@ -811,10 +816,9 @@ void QtRPT::drawLines(RptFieldObject *fieldObject, int bandTop) {
 void QtRPT::drawBandRow(RptBandObject *band, int bandTop, bool allowDraw) {
     band->realHeight = band->height; //set a 'realHeight' to default value
     /*First pass used to determine a max height of the band*/
-    for (auto field : band->fieldList) {
+    for (auto field : band->fieldList)
         if (field->fieldType != Line && isFieldVisible(field))
             drawFields(field,bandTop,false);
-    }
 
     /*Second pass used for drawing*/
     if (allowDraw) {
@@ -1776,6 +1780,7 @@ void QtRPT::newPage(QPrinter *printer, int &y, bool draw, bool newReportPage) {
 
     if (m_printMode != QtRPT::Html && m_printMode != QtRPT::Xlsx)
         y = 0;
+
     if (newReportPage)
         processRTitle(y,draw);
     processPHeader(y,draw);
@@ -1976,14 +1981,16 @@ void QtRPT::processMasterData(QPrinter *printer, int &y, bool draw, int pageRepo
 
 void QtRPT::processMHeader(int &y, bool draw) {
     if (pageList.at(m_pageReport)->getBand(MasterHeader) == nullptr) return;
-    if (allowPrintPage(draw,curPage)) drawBandRow(pageList.at(m_pageReport)->getBand(MasterHeader), y);
+    if (allowPrintPage(draw,curPage))
+        drawBandRow(pageList.at(m_pageReport)->getBand(MasterHeader), y);
     y += pageList.at(m_pageReport)->getBand(MasterHeader)->height;
     //painter.drawLine(0,y*koefRes_h,r.width(),y*koefRes_h);
 }
 
 void QtRPT::processRTitle(int &y, bool draw) {
     if (pageList.at(m_pageReport)->getBand(ReportTitle) == nullptr) return;
-    if (allowPrintPage(draw,curPage)) drawBandRow(pageList.at(m_pageReport)->getBand(ReportTitle), y);
+    if (allowPrintPage(draw,curPage))
+        drawBandRow(pageList.at(m_pageReport)->getBand(ReportTitle), y);
     y += pageList.at(m_pageReport)->getBand(ReportTitle)->height;
     //painter.drawLine(0,y*koefRes_h,r.width(),y*koefRes_h);
 }
@@ -1991,7 +1998,8 @@ void QtRPT::processRTitle(int &y, bool draw) {
 void QtRPT::processPHeader(int &y, bool draw) {
     if (pageList.at(m_pageReport)->getBand(PageHeader) == nullptr) return;
     if (m_printMode == QtRPT::Html) return;
-    if (allowPrintPage(draw,curPage)) drawBandRow(pageList.at(m_pageReport)->getBand(PageHeader), y);
+    if (allowPrintPage(draw,curPage))
+        drawBandRow(pageList.at(m_pageReport)->getBand(PageHeader), y);
     y += pageList.at(m_pageReport)->getBand(PageHeader)->height;
     //painter.drawLine(0,y*koefRes_h,pw*koefRes_h,y*koefRes_h);
 }
@@ -2009,7 +2017,8 @@ void QtRPT::processPFooter(bool draw) {
     if (pageList.at(m_pageReport)->getBand(PageFooter) == nullptr) return;
     if (m_printMode == QtRPT::Html) return;
     int y1 = ph-mb-mt-pageList.at(m_pageReport)->getBand(PageFooter)->height;
-    if (allowPrintPage(draw,curPage)) drawBandRow(pageList.at(m_pageReport)->getBand(PageFooter), y1);
+    if (allowPrintPage(draw,curPage))
+        drawBandRow(pageList.at(m_pageReport)->getBand(PageFooter), y1);
     //painter.drawLine(0,y1*koefRes_h,pw*koefRes_h,y1*koefRes_h);
 }
 
@@ -2017,7 +2026,8 @@ void QtRPT::processRSummary(QPrinter *printer, int &y, bool draw) {
     if (pageList.at(m_pageReport)->getBand(ReportSummary) == nullptr) return;
     if (y + pageList.at(m_pageReport)->getBand(ReportSummary)->height > ph-mb-mt-pageList.at(m_pageReport)->getBand(ReportSummary)->height)
         newPage(printer, y, draw);
-    if (allowPrintPage(draw,curPage)) drawBandRow(pageList.at(m_pageReport)->getBand(ReportSummary), y);
+    if (allowPrintPage(draw,curPage))
+        drawBandRow(pageList.at(m_pageReport)->getBand(ReportSummary), y);
     y += pageList.at(m_pageReport)->getBand(ReportSummary)->height;
     //painter.drawLine(0,y*koefRes_h,pw*koefRes_h,y*koefRes_h);
 }
