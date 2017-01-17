@@ -443,7 +443,7 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
     fieldObject->setTop(top_/koefRes_h);
 
     if (fieldObject->autoHeight == 1)
-        if (fieldObject->parentBand != 0)
+        if (fieldObject->parentBand != nullptr)
             height_ = fieldObject->parentBand->realHeight * koefRes_h;
 
     FieldType fieldType = fieldObject->fieldType;
@@ -751,12 +751,26 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
         if (draw) {
             fieldObject->crossTab->buildMatrix();
             int bandTop_ = bandTop;
+            int tmpRowN = 0;
+            int prevRow = 0;
             for (auto field : fieldObject->crossTab->fieldList) {
-                drawFields(field,bandTop_,true);
+                int row = fieldObject->crossTab->fieldRow(field);
+                int y = fieldObject->crossTab->rowHeight() * tmpRowN;
 
-                //if (bandTop + fieldObject->parentBand->height > ph-mb-mt-fieldObject->parentBand->height)
-                //if (bandTop + fieldObject->parentBand->height > ph-mb-mt-fieldObject->parentBand->height)
-                //    newPage(printer, bandTop_, draw);
+                if (prevRow != row) {
+                    tmpRowN += 1;
+                    prevRow = row;
+                }
+                qDebug() << y;
+
+                if (y /*+ fieldObject->parentBand->height*/ > ph-mb-mt-fieldObject->parentBand->height) {
+                    bandTop_ = 0;
+                    tmpRowN = 0;
+                    newPage(printer, bandTop_, draw);
+                }
+
+                fieldObject->rect.setTop(fieldObject->crossTab->rowHeight() * tmpRowN);
+                drawFields(field,bandTop_,true);
             }
         }
     }
