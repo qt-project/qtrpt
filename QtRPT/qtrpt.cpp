@@ -753,24 +753,48 @@ void QtRPT::drawFields(RptFieldObject *fieldObject, int bandTop, bool draw) {
             int bandTop_ = bandTop;
             int tmpRowN = 0;
             int prevRow = 0;
+            int page = 0;
+            int nmr = 0;
             for (auto field : fieldObject->crossTab->fieldList) {
                 int row = fieldObject->crossTab->fieldRow(field);
-                int y = fieldObject->crossTab->rowHeight() * tmpRowN;
-
                 if (prevRow != row) {
                     tmpRowN += 1;
                     prevRow = row;
                 }
-                qDebug() << y;
 
-                if (y /*+ fieldObject->parentBand->height*/ > ph-mb-mt-fieldObject->parentBand->height) {
+                int y = fieldObject->crossTab->rowHeight() * tmpRowN;
+
+                qDebug() << nmr << row << tmpRowN;
+
+                if (y > ph-mb-mt-fieldObject->parentBand->height) {
                     bandTop_ = 0;
                     tmpRowN = 0;
+                    page += 1;
                     newPage(printer, bandTop_, draw);
                 }
 
-                fieldObject->rect.setTop(fieldObject->crossTab->rowHeight() * tmpRowN);
+                if (page == 0) {
+                    field->rect.setTop(fieldObject->rect.y() + fieldObject->crossTab->rowHeight() * tmpRowN);
+                } else {
+                    if (fieldObject->parentBand->type == ReportTitle)
+                        field->rect.setTop(fieldObject->crossTab->rowHeight() * tmpRowN);
+                }
+
+                field->rect.setHeight(fieldObject->crossTab->rowHeight());
                 drawFields(field,bandTop_,true);
+
+                nmr += 1;
+
+                /*
+                if (type == ReportTitle)     s_type = "ReportTitle";
+                if (type == PageHeader)      s_type = "PageHeader";
+                if (type == MasterData)      s_type = "MasterData";
+                if (type == PageFooter)      s_type = "PageFooter";
+                if (type == ReportSummary)   s_type = "ReportSummary";
+                if (type == MasterFooter)    s_type = "MasterFooter";
+                if (type == MasterHeader)    s_type = "MasterHeader";
+                if (type == DataGroupHeader) s_type = "DataGroupHeader";
+                if (type == DataGroupFooter) s_type = "DataGroupFooter";*/
             }
         }
     }

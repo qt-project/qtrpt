@@ -24,10 +24,6 @@ limitations under the License.
 #include "RptCrossTabObject.h"
 
 RptCrossTabObject::RptCrossTabObject() {
-//    colHeaderVisible = false;
-//    rowHeaderVisible = false;
-//    colTotalVisible = false;
-//    rowTotalVisible = false;
     name = "RptCrossTabObject_DEMO";
     rect.setX(0);
     rect.setY(0);
