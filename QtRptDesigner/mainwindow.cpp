@@ -1355,17 +1355,17 @@ void MainWindow::alignFields() {
             auto box = qgraphicsitem_cast<GraphicsBox*>(item);
             if (box->isSelected() && box != etalon) {
                 if (sender() == ui->actFieldLeft)
-                    item->setPos(etalon->pos().x(), item->pos().y());
+                    box->setPos(etalon->pos().x(), item->pos().y());
                 if (sender() == ui->actFieldRight)
-                    item->setPos(etalon->pos().x()+etalon->getWidth()-box->getWidth(), item->pos().y());
+                    box->setPos(etalon->pos().x()+etalon->getWidth()-box->getWidth(), item->pos().y());
                 if (sender() == ui->actFieldMiddle)
-                    item->setPos(etalon->pos().x()+etalon->getWidth()/2-box->getWidth()/2, item->pos().y());
+                    box->setPos(etalon->pos().x()+etalon->getWidth()/2-box->getWidth()/2, item->pos().y());
                 if (sender() == ui->actFieldTop)
-                    item->setPos(item->pos().x(), etalon->pos().y());
+                    box->setPos(item->pos().x(), etalon->pos().y());
                 if (sender() == ui->actFieldBottom)
-                    item->setPos(item->pos().x(), etalon->pos().y()+etalon->getHeight()-box->getHeight());
+                    box->setPos(item->pos().x(), etalon->pos().y()+etalon->getHeight()-box->getHeight());
                 if (sender() == ui->actFieldCenter)
-                    item->setPos(item->pos().x(), etalon->pos().y()+etalon->getHeight()/2-box->getHeight()/2);
+                    box->setPos(item->pos().x(), etalon->pos().y()+etalon->getHeight()/2-box->getHeight()/2);
                 if (sender() == ui->actFieldSameHeight)
                     box->setHeight(etalon->getHeight());
                 if (sender() == ui->actFieldSameWidth)
@@ -1373,6 +1373,8 @@ void MainWindow::alignFields() {
             }
         }
     }
+
+    ui->actSaveReport->setEnabled(true);
 }
 
 void MainWindow::saveReport() {
