@@ -236,7 +236,7 @@ bool GraphicsBox::sceneEventFilter ( QGraphicsItem * watched, QEvent * event ) {
             int newXpos = this->pos().x() + deltaWidth;
             this->setPos(newXpos, this->pos().y());
         }
-        GraphicsScene *m_scene = qobject_cast<GraphicsScene *>(scene());
+        auto m_scene = qobject_cast<GraphicsScene *>(scene());
         m_scene->itemResizing(this);
         setCornerPositions();
         this->scene()->update();

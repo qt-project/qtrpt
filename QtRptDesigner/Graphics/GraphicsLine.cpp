@@ -272,9 +272,9 @@ void GraphicsLine::paint (QPainter *painter, const QStyleOptionGraphicsItem *i, 
         QPainterPath path;
         path.moveTo(m_pointList.at(0));
 
-        for (int p=0; p<m_pointList.size(); p++) {
+        for (int p=0; p<m_pointList.size(); p++)
             path.lineTo(m_pointList.at(p));
-        }
+
         painter->drawPath(path);
 
         /*_pen.setStyle(Qt::DotLine);
@@ -349,7 +349,7 @@ GraphicsLine *GraphicsLine::clone() {
     newPos.setY(newPos.y()+5);
     newPos.setX(newPos.x()+5);
 
-    GraphicsLine *newLine  = new GraphicsLine();
+    auto newLine  = new GraphicsLine();
     newLine->setBorderColor(m_borderColor);
     newLine->setPos(newPos);
     newLine->setPointList(getPointList());

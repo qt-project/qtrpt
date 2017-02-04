@@ -25,7 +25,7 @@ limitations under the License.
 #include <QApplication>
 #include <QSettings>
 #include "mainwindow.h"
-#include<QDebug>
+#include <QDebug>
 
 GraphicsScene::GraphicsScene(QObject *parent) : QGraphicsScene(parent) {
     sceneMode = SelectObject;
@@ -78,7 +78,7 @@ void GraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *event){
 
     if(sceneMode == Mode::DrawLine) {
         QPointF startPoint(0,0);
-        GraphicsLine *newLine = new GraphicsLine();
+        auto newLine = new GraphicsLine();
         newLine->setFieldType(m_newFieldType);
         newLine->setArrow(QtRptName::ArrowStart, newLineArrowStart);
         newLine->setArrow(QtRptName::ArrowEnd, newLineArrowEnd);
@@ -96,7 +96,7 @@ void GraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *event){
         m_trackingMoves = false;
     }
     if(sceneMode == DrawContainer) {
-        GraphicsBox *graphicsBox = new GraphicsBox();
+        auto graphicsBox = new GraphicsBox();
         graphicsBox->setFieldType(m_newFieldType);
         graphicsBox->setPos(origPoint);
         graphicsBox->setMenu(m_newFieldMenu);
@@ -134,16 +134,16 @@ void GraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event){
         }
     }
 
-    for(auto itm : m_movedItems) {
+    for (auto itm : m_movedItems) {
         if (itm.item->type() == ItemType::GBox) {
-            GraphicsBox *box = static_cast<GraphicsBox*>(itm.item);
+            auto box = static_cast<GraphicsBox*>(itm.item);
             itm.newHeight = box->getHeight();
             itm.newWidth = box->getWidth();
             itm.newPos = box->pos();
             m_undoStack->push(new MoveGItemCommand(itm));
         }
         if (itm.item->type() == ItemType::GLine) {
-            GraphicsLine *line = static_cast<GraphicsLine*>(itm.item);
+            auto line = static_cast<GraphicsLine*>(itm.item);
             itm.newPointList = line->getPointList();
             itm.newPos = line->pos();
             m_undoStack->push(new MoveLineCommand(itm));
@@ -295,7 +295,7 @@ void GraphicsScene::itemMoving(QGraphicsItem *item) {
 }
 
 void GraphicsScene::unselectAll() {
-    for(auto item : this->items()) {
+    for (auto item : this->items()) {
         if (item->type() == ItemType::GLine) {
             auto line = static_cast<GraphicsLine*>(item);
             line->setSelected(false);
