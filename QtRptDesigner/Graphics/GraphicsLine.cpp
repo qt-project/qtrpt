@@ -9,7 +9,6 @@
 #include "math.h"
 
 GraphicsLine::GraphicsLine(): QGraphicsPolygonItem(),
-        _outterborderColor(Qt::black),
         _pen(),
         _location(0,0),
         _dragStart(0,0),
@@ -21,15 +20,18 @@ GraphicsLine::GraphicsLine(): QGraphicsPolygonItem(),
 {
     setDrawingState(true);
 
-	for (int p=0; p<2; p++)
-        _corners[p] = nullptr;
+    m_outterborderColor = Qt::black;
+    m_borderColor = Qt::black;
+
+    m_corners.resize(2);
+    for (auto& corner : m_corners)
+        corner = nullptr;
 
     setFlag(QGraphicsItem::ItemIsSelectable,true);
     setFlag(ItemSendsGeometryChanges,true);
 
     _pen.setWidth(2);
-    _pen.setColor(_outterborderColor);
-    m_borderColor = Qt::black;
+    _pen.setColor(m_outterborderColor);
 
     this->setAcceptHoverEvents(true);
 
@@ -143,16 +145,16 @@ void GraphicsLine::createCustomPath(QPointF mouseLocation, CornerGrabber* corner
     // which corner needs to get moved?
     int idx = -1;
     for (int p=0; p<m_pointList.size(); p++) {
-        if ( corner == _corners[p]) {
+        if ( corner == m_corners[p]) {
             idx = p;
             m_pointList[p] = mapFromScene(scenePosition);
         }
     }
     initPolygon();
     if (idx > -1) {
-        int cornerWidth = (_corners[0]->boundingRect().width())/2;
-        int cornerHeight = ( _corners[0]->boundingRect().height())/2;
-        _corners[idx]->setPos(m_pointList[idx].x() - cornerWidth, m_pointList[idx].y() - cornerHeight );
+        int cornerWidth = (m_corners[0]->boundingRect().width())/2;
+        int cornerHeight = ( m_corners[0]->boundingRect().height())/2;
+        m_corners[idx]->setPos(m_pointList[idx].x() - cornerWidth, m_pointList[idx].y() - cornerHeight );
     }
 }
 
@@ -215,39 +217,26 @@ bool GraphicsLine::isSelected() {
 
 // create the corner grabbers
 void GraphicsLine::createCorners() {
-    _outterborderColor = m_borderColor;
+    m_outterborderColor = m_borderColor;
 
     for (int p=0; p<m_pointList.size(); p++) {
-        if (_corners[p] == nullptr) {
-            _corners[p] = new CornerGrabber(this,p);
-            _corners[p]->installSceneEventFilter(this);
+        if (m_corners[p] == nullptr) {
+            m_corners[p] = new CornerGrabber(this,p);
+            m_corners[p]->installSceneEventFilter(this);
         }
     }
 
     setCornerPositions();
 }
 
-// remove the corner grabbers
-void GraphicsLine::destroyCorners() {
-    _outterborderColor = m_borderColor;
-
-    for (int p=0; p<m_pointList.size(); p++) {
-        if (_corners[p] != nullptr) {
-            _corners[p]->setParentItem(NULL);
-            delete _corners[p];
-            _corners[p] = nullptr;
-        }
-    }
-}
-
 void GraphicsLine::setCornerPositions() {
-    if (_corners[0] == nullptr || _corners[1] == nullptr) return;
-    int cornerWidth = (_corners[0]->boundingRect().width())/2;
-    int cornerHeight = ( _corners[0]->boundingRect().height())/2;
+    if (m_corners[0] == nullptr || m_corners[1] == nullptr) return;
+    int cornerWidth = (m_corners[0]->boundingRect().width())/2;
+    int cornerHeight = ( m_corners[0]->boundingRect().height())/2;
 
     for (int p=0; p<m_pointList.size(); p++) {
-        if (_corners[p] != nullptr)
-            _corners[p]->setPos(m_pointList[p].x() - cornerWidth, m_pointList[p].y() - cornerHeight );
+        if (m_corners[p] != nullptr)
+            m_corners[p]->setPos(m_pointList[p].x() - cornerWidth, m_pointList[p].y() - cornerHeight );
     }
 }
 

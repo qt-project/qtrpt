@@ -32,7 +32,6 @@ limitations under the License.
 #include <QBuffer>
 
 GraphicsBox::GraphicsBox():
-        _outterborderColor(Qt::black),
         _outterborderPen()
 {
     _location = QPointF(0,0);
@@ -47,8 +46,9 @@ GraphicsBox::GraphicsBox():
     _drawingOrigenX = ( _XcornerGrabBuffer);
     _drawingOrigenY = ( _YcornerGrabBuffer);
 
-    for (unsigned int i=0; i<sizeof(_corners)/sizeof(*_corners); i++)
-        _corners[i] = nullptr;
+    m_corners.resize(8);
+    for (auto& corner : m_corners)
+        corner = nullptr;
 
     setFlag(QGraphicsItem::ItemIsSelectable,true);
     setFlag(QGraphicsItem::ItemIsMovable,true);
@@ -56,6 +56,7 @@ GraphicsBox::GraphicsBox():
 
     m_autoHeight = false;
     m_borderIsVisible = true;
+    m_outterborderColor = Qt::black;
     m_backgroundColor = Qt::white;
     m_highlighting = "";
     m_formatString = "";
@@ -74,7 +75,7 @@ GraphicsBox::GraphicsBox():
     }
 
     _outterborderPen.setWidth(1);
-    _outterborderPen.setColor(_outterborderColor);
+    _outterborderPen.setColor(m_outterborderColor);
 
     this->graphicsItem = this;
     this->adjustSize(0,0);
@@ -321,7 +322,7 @@ void GraphicsBox::setSelected(bool selected_) {
         itemInTree->setSelected(selected_);
     if (selected_) {
         createCorners();
-        GraphicsScene *m_scene = qobject_cast<GraphicsScene *>(scene());
+        auto m_scene = qobject_cast<GraphicsScene *>(scene());
         emit m_scene->itemSelected(this);
     } else
         destroyCorners();
@@ -336,75 +337,62 @@ bool GraphicsBox::isSelected() {
 
 // create the corner grabbers
 void GraphicsBox::createCorners() {
-    _outterborderColor = m_borderColor;
+    m_outterborderColor = m_borderColor;
 
     if (type() != ItemType::GBand) {
-        if (_corners[0] == nullptr) {
-            _corners[0] = new CornerGrabber(this,0);
-            _corners[0]->installSceneEventFilter(this);
+        if (m_corners[0] == nullptr) {
+            m_corners[0] = new CornerGrabber(this,0);
+            m_corners[0]->installSceneEventFilter(this);
         }
-        if (_corners[1] == nullptr) {
-            _corners[1] = new CornerGrabber(this,1);
-            _corners[1]->installSceneEventFilter(this);
+        if (m_corners[1] == nullptr) {
+            m_corners[1] = new CornerGrabber(this,1);
+            m_corners[1]->installSceneEventFilter(this);
         }
-        if (_corners[5] == nullptr) {  //top-center
-            _corners[5] = new CornerGrabber(this,5);
-            _corners[5]->installSceneEventFilter(this);
+        if (m_corners[5] == nullptr) {  //top-center
+            m_corners[5] = new CornerGrabber(this,5);
+            m_corners[5]->installSceneEventFilter(this);
         }
-        if (_corners[6] == nullptr) {  //left-center
-            _corners[6] = new CornerGrabber(this,6);
-            _corners[6]->installSceneEventFilter(this);
+        if (m_corners[6] == nullptr) {  //left-center
+            m_corners[6] = new CornerGrabber(this,6);
+            m_corners[6]->installSceneEventFilter(this);
         }
-        if (_corners[7] == nullptr) {  //rigth-center
-            _corners[7] = new CornerGrabber(this,7);
-            _corners[7]->installSceneEventFilter(this);
+        if (m_corners[7] == nullptr) {  //rigth-center
+            m_corners[7] = new CornerGrabber(this,7);
+            m_corners[7]->installSceneEventFilter(this);
         }
     }
-    if (_corners[2] == nullptr) {
-        _corners[2] = new CornerGrabber(this,2);
-        _corners[2]->installSceneEventFilter(this);
+    if (m_corners[2] == nullptr) {
+        m_corners[2] = new CornerGrabber(this,2);
+        m_corners[2]->installSceneEventFilter(this);
     }
-    if (_corners[3] == nullptr) {
-        _corners[3] = new CornerGrabber(this,3);
-        _corners[3]->installSceneEventFilter(this);
+    if (m_corners[3] == nullptr) {
+        m_corners[3] = new CornerGrabber(this,3);
+        m_corners[3]->installSceneEventFilter(this);
     }
-    if (_corners[4] == nullptr) {  //bottom-center
-        _corners[4] = new CornerGrabber(this,4);
-        _corners[4]->installSceneEventFilter(this);
+    if (m_corners[4] == nullptr) {  //bottom-center
+        m_corners[4] = new CornerGrabber(this,4);
+        m_corners[4]->installSceneEventFilter(this);
     }
     setCornerPositions();
 }
 
-// remove the corner grabbers
-void GraphicsBox::destroyCorners() {
-    _outterborderColor = m_borderColor;
-
-    for (unsigned int i=0; i<sizeof(_corners)/sizeof(*_corners); i++) {
-        if (_corners[i] != nullptr) {
-            _corners[i]->setParentItem(NULL);
-            delete _corners[i];
-            _corners[i] = nullptr;
-        }
-    }
-}
-
 void GraphicsBox::setCornerPositions() {
-    if (_corners[0] != nullptr)  //top-left
-        _corners[0]->setPos(_drawingOrigenX, _drawingOrigenY);
-    if (_corners[1] != nullptr)
-        _corners[1]->setPos(_drawingWidth,  _drawingOrigenY);
-    if (_corners[2] != nullptr)
-        _corners[2]->setPos(_drawingWidth , _drawingHeight);
-    if (_corners[3] != nullptr)
-        _corners[3]->setPos(_drawingOrigenX, _drawingHeight);
-    if (_corners[4] != nullptr) //bottom-center
-        _corners[4]->setPos((_drawingWidth-_drawingOrigenX)/2, _drawingHeight);
-    if (_corners[5] != nullptr) //top-center
-        _corners[5]->setPos((_drawingWidth-_drawingOrigenX)/2, _drawingOrigenY);
-    if (_corners[6] != nullptr) //left-center
-        _corners[6]->setPos(_drawingOrigenX, (_drawingHeight+_drawingOrigenY)/2);
-    if (_corners[7] != nullptr) //rigth-center
-        _corners[7]->setPos(_drawingWidth, (_drawingHeight+_drawingOrigenY)/2);
+    if (m_corners[0] != nullptr)  //top-left
+        m_corners[0]->setPos(_drawingOrigenX, _drawingOrigenY);
+    if (m_corners[1] != nullptr)
+        m_corners[1]->setPos(_drawingWidth,  _drawingOrigenY);
+    if (m_corners[2] != nullptr)
+        m_corners[2]->setPos(_drawingWidth , _drawingHeight);
+    if (m_corners[3] != nullptr)
+        m_corners[3]->setPos(_drawingOrigenX, _drawingHeight);
+    if (m_corners[4] != nullptr) //bottom-center
+        m_corners[4]->setPos((_drawingWidth-_drawingOrigenX)/2, _drawingHeight);
+    if (m_corners[5] != nullptr) //top-center
+        m_corners[5]->setPos((_drawingWidth-_drawingOrigenX)/2, _drawingOrigenY);
+    if (m_corners[6] != nullptr) //left-center
+        m_corners[6]->setPos(_drawingOrigenX, (_drawingHeight+_drawingOrigenY)/2);
+    if (m_corners[7] != nullptr) //rigth-center
+        m_corners[7]->setPos(_drawingWidth, (_drawingHeight+_drawingOrigenY)/2);
 }
 
 QRectF GraphicsBox::boundingRect() const {

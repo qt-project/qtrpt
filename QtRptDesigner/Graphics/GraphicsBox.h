@@ -98,7 +98,6 @@ public:
 
 protected:
     QVariant itemChange(GraphicsItemChange change, const QVariant &value);
-    QColor _outterborderColor; ///< the hover event handlers will toggle this between red and black
 
     qreal   _drawingWidth;
     qreal   _drawingHeight;
@@ -133,10 +132,6 @@ private:
 
     int _XcornerGrabBuffer;
     int _YcornerGrabBuffer;
-
-    CornerGrabber*  _corners[8];
-
-    void destroyCorners();
 
     QString m_text;
     bool m_borderIsVisible;

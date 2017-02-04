@@ -32,6 +32,7 @@ limitations under the License.
 #include "qtrptnamespace.h"
 #include "GraphicsNameSpace.h"
 #include <qtrpt.h>
+#include "CornerGrabber.h"
 
 class GraphicsHelperClass : public QObject
 {
@@ -75,12 +76,16 @@ public:
     friend QDataStream &operator>>(QDataStream &stream, GraphicsHelperClass &obj);
 
 protected:
+    QColor m_outterborderColor; ///< the hover event handlers will toggle this between red and black
     QColor m_borderColor;
     QColor m_backgroundColor;
     QColor m_fontColor;
-    QMenu *m_menu;
+    QVector<CornerGrabber*> m_corners;
+    QMenu* m_menu;
     QtRptName::FieldType m_type;
     QString setPenStyle(Qt::PenStyle style);
+
+    void destroyCorners();
 
 private:
     bool m_drawingState;

@@ -25,13 +25,13 @@ limitations under the License.
 #include "RepScrollArea.h"
 
 MoveGItemCommand::MoveGItemCommand(const ItemsAndParams &itm, QUndoCommand *parent)
-    : QUndoCommand(parent), m_itm(itm)
+: QUndoCommand(parent), m_itm(itm)
 {
     setText(QObject::tr("Moving box"));
 }
 
 void MoveGItemCommand::redo() {
-    GraphicsBox *box = static_cast<GraphicsBox*>(m_itm.item);
+    auto box = qgraphicsitem_cast<GraphicsBox*>(m_itm.item);
     box->setPos(m_itm.newPos);
     box->setWidth(m_itm.newWidth);
     box->setHeight(m_itm.newHeight);
@@ -39,7 +39,7 @@ void MoveGItemCommand::redo() {
 }
 
 void MoveGItemCommand::undo() {
-    GraphicsBox *box = static_cast<GraphicsBox*>(m_itm.item);
+    auto box = qgraphicsitem_cast<GraphicsBox*>(m_itm.item);
     box->setPos(m_itm.oldPos);
     box->setWidth(m_itm.oldWidth);
     box->setHeight(m_itm.oldHeight);
@@ -48,7 +48,7 @@ void MoveGItemCommand::undo() {
 
 
 MoveLineCommand::MoveLineCommand(const ItemsAndParams &itm, QUndoCommand *parent)
-    : QUndoCommand(parent), m_itm(itm)
+: QUndoCommand(parent), m_itm(itm)
 {
     setText(QObject::tr("Moving line"));
 }
@@ -70,7 +70,7 @@ void MoveLineCommand::undo() {
 DelItemCommand::DelItemCommand(GraphicsScene *scene, QUndoCommand *parent) : QUndoCommand(parent) {
     myGraphicsScene = scene;
 
-    for(auto item : scene->items()) {
+    for (auto item : scene->items()) {
         bool isSelected = false;
         GraphicsBox *box = nullptr;
         if (item->type() == ItemType::GBand) {
@@ -141,12 +141,12 @@ void AddCommand::undo() {
 }
 
 void AddCommand::redo() {
-    if (myDiagramItem->scene() == 0)
+    if (myDiagramItem->scene() == nullptr)
         myGraphicsScene->addItem(myDiagramItem);
-	if (mpItem != 0) {
+    if (mpItem != nullptr) {
 		myDiagramItem->setParentItem(mpItem);
 
-        RepScrollArea *area = qobject_cast<RepScrollArea*>(myGraphicsScene->parent());
+        auto area = qobject_cast<RepScrollArea*>(myGraphicsScene->parent());
         area->newFieldTreeItem(myDiagramItem);
 	}
     myDiagramItem->setPos(initialPosition);
@@ -189,7 +189,7 @@ void ParamCommand::redo() {
 
 BArrayList ParamCommand::getBArrayFromContList(GraphicsHelperList contList) {
     BArrayList list;
-    for(auto cont1 : contList) {
+    for (auto cont1 : contList) {
         QByteArray byteArray;
         QDataStream out(&byteArray, QIODevice::WriteOnly);
         out << *cont1;
@@ -218,24 +218,3 @@ QList<PairCont> ParamCommand::compoundArrays(BArrayList oldList, BArrayList newL
     return list;
 }
 
-/*
- *
-ParamsContainerCommand::ParamsContainerCommand(QList<PairCont> list, QUndoCommand *parent) : QUndoCommand(parent) {
-    m_dataList = list;
-    m_create = true;
-    this->setText(QObject::tr("Changing Container's parameters"));
-}
-
-void ParamsContainerCommand::redo() {
-
-}
-
-void ParamsContainerCommand::undo() {
-
-}
-
-
-
-
-
-*/

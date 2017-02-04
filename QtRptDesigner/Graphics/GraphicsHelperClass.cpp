@@ -351,6 +351,19 @@ void GraphicsHelperClass::helperSelect(bool value) {
     }
 }
 
+// remove the corner grabbers
+void GraphicsHelperClass::destroyCorners() {
+    m_outterborderColor = m_borderColor;
+
+    for (auto& corner : m_corners) {
+        if (corner != nullptr) {
+            corner->setParentItem(NULL);
+            delete corner;
+            corner = nullptr;
+        }
+    }
+}
+
 QDataStream &operator<<(QDataStream &stream, const GraphicsHelperClass &obj) {
     for(int i=0; i<obj.metaObject()->propertyCount(); ++i) {
         if(obj.metaObject()->property(i).isStored(&obj)) {

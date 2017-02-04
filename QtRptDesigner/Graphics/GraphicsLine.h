@@ -10,7 +10,6 @@
 #include <QPainter>
 #include <QPen>
 #include <QPointF>
-#include "CornerGrabber.h"
 #include <QTransform>
 #include <QDomDocument>
 #include <QGraphicsPolygonItem>
@@ -63,10 +62,11 @@ private:
     virtual void mousePressEvent(QGraphicsSceneDragDropEvent *event);
     virtual bool sceneEventFilter ( QGraphicsItem * watched, QEvent * event ) ;
 
+    void createCorners();
     void setCornerPositions();
     void createCustomPath(QPointF mouseLocation, CornerGrabber*);
 
-    QColor  _outterborderColor; ///< the hover event handlers will toggle this between red and black
+
     QPen    _pen; ///< the pen is used to paint the red/black border
     QPointF _location;
     QPointF _dragStart;
@@ -81,9 +81,6 @@ private:
     bool m_arrowStart;
     bool m_arrowEnd;
 
-    CornerGrabber*  _corners[2];
-    void createCorners();
-    void destroyCorners();
     QPolygonF _selectRegion;
     void initPolygon();
 
